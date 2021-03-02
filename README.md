@@ -1,5 +1,5 @@
 # DMQC_status_and_statistics
-
+    A. DMQC related scripts
 1.	DMQC statistics (get_DMQC_stats.m)<br />
 Description of the script:<br />
 Gets DMQC statistics for given floats.<br />
@@ -18,7 +18,7 @@ Notes: <br />
 (3) Format options (number of floats per figure and yaxis ticks size) can be modified<br />
  
  
-      C. TOOLBOX
+      B. TOOLBOX
 Name & Description of the auxiliary functions:<br />
 - map_tech_param: plot a scatter of a tech, traj or config parameter in a map (lon, lat) using a threshold	read_csv
 - get_floats_data_gdac
