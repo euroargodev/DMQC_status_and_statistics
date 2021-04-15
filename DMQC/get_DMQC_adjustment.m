@@ -1,11 +1,11 @@
 % get_DMQC_adjustment
-% shows psal adjustement for a list of floats
+% shows var adjustement for a list of floats
 %
 % Input (below)
 % - Profiles files from dac (same file structure as dac)
 % - floats list: csv file, with in header WMO, RT (dac in charge of real time
 % processing) and DM (institution in charge of delayed mode processing), 
-% separated by ';'. Exemple: MOCCA_rt_dm.csv
+% separated by ';'. Exemple: floats_rt_dm.csv
 % Paths to these files should be modified below
 %
 % Output
@@ -28,23 +28,38 @@
 %
 % Modified on 20191126
 
-                  
+close all                  
 clear variables
 
 % add paths (packages and auxiliary functions)
-aux_functions_path = [pwd '/aux_functions'];
-% aux_functions_path = '/home1/datahome/co_arg/agarciaj/DMQC_status/aux_functions';
-addpath(genpath(aux_functions_path))
+% aux_functions_path = [pwd '/aux_functions'];
+% % aux_functions_path = '/home1/datahome/co_arg/agarciaj/DMQC_status/aux_functions';
+% addpath(genpath(aux_functions_path))
+
+% addpath /home1/datahome/co_arg/rcancoue/decodeur_matlab/work_Romain
+addpath /home1/datahome/co_arg/larduini/Scripts/Toolbox
+addpath /home1/datahome/co_arg/larduini/Scripts/Toolbox/flexLegend/legendflex
+addpath /home1/datahome/co_arg/larduini/Scripts/Toolbox/flexLegend/setgetpos_V1.2
+addpath /home1/datahome/co_arg/larduini/Scripts/Toolbox/export_fig-master % export a matlab figure
+
 
 
 % INPUT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-project_name = 'MOCCA'; % for png files names
-%MOCCA_file_dir = '/home1/datahome/co_arg/agarciaj/DMQC_status/MOCCA_rt_dm_trafic.csv'
-MOCCA_file_dir = '/home1/datahome/co_arg/rcancoue/ROMAIN/ANDREA/DMQC_status/trueMOCCA_rt_dm.csv'
+project_name = 'DMQC_adjustments_FSD_CTD'; % for png files names
+
+floats_file_dir = '/home1/datahome/co_arg/larduini/Lists/European_CTD_FSD_SN_for_DMQC_status.csv'
 dac_dir = '/home/ref-argo/gdac/dac'
+
+variable='PSAL' % Variable to retrieve in the netcdf file. Examples: "PSAL" ; "TEMP"; "DOXY"
+units = 'PSU' %other examples: °C or PSAL. Only used for figures titles and names
+
+% -b file pattern
+var_bio = 0;
+
 update_date = datestr(now(),'yyyy-mm-dd'); % dac update date (if it is not 
 % today because we are working with a snapshot, change it)
+export_dir = '/home1/datahome/co_arg/larduini/Exports/DMQC/DMQC_adjustements'
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FORMAT OPTIONS
 % if so many floats, figures are divided. Number of floats in each figure 
@@ -53,14 +68,14 @@ floats_per_fig = 40; % number of floats per figure (80 is the very limit)
 fontsize_wmo = 10; % yaxis ticks font size (8 is the limit)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% TODO: VAR IMPUT: PRES PSAL AND temp
+% TODO: VAR IMPUT: PRES var AND temp
 % TODO : dimensions struc
 
-% read MOCCA floats list
-[MOCCA_list] = read_csv(MOCCA_file_dir,';');
-%MOCCA_list.WMO = char(sort(cellstr(MOCCA_list.WMO)));
-DATA.WMO = MOCCA_list.WMO;
-n_floats = size(MOCCA_list.WMO,1);
+% read floats floats list
+[floats_list] = read_csv(floats_file_dir,';');
+%floats_list.WMO = char(sort(cellstr(floats_list.WMO)));
+DATA.WMO = floats_list.WMO;
+n_floats = size(floats_list.WMO,1);
 
 disp(' ')
 disp('Getting data from profiles files ...')
@@ -68,111 +83,245 @@ disp('Getting data from profiles files ...')
 n_cycle=NaN(n_floats,1);
 for ifloat = 1:n_floats % floats loop
     
-    fprintf('        %s\n', MOCCA_list.WMO(ifloat,:))
+    fprintf('        %s\n', floats_list.WMO(ifloat,:))
     % floats directory path string
-    dac = lower(cellstr(MOCCA_list.RT(ifloat,:)));
-    float_dir = [dac_dir,'/',char(dac),'/',MOCCA_list.WMO(ifloat,:),'/profiles/'];
+    dac = lower(cellstr(floats_list.RT(ifloat,:)));
+    float_dir = [dac_dir,'/',char(dac),'/',floats_list.WMO(ifloat,:),'/profiles/'];
     
     % list files
     list = dir(float_dir);
     prof_list = {list.name}; % files names
+    prof_list2{ifloat} = {list.name};
+    
     % float not found
     if isempty(prof_list)
+        disp(prof_list)
         fprintf(2,'Float not found\n') 
         cycle_number{ifloat}{:} = NaN;
         DM_done{ifloat}{:} = NaN;
-        psal_correction{ifloat}{:} = NaN;
-        profile_psal_qc{ifloat}{:} = "-";
-        psal_adjusted_bad{ifloat}{:} = NaN;
+        var_correction{ifloat}{:} = NaN;
+        profile_var_qc{ifloat}{:} = '-';
+%         var_qc_mode{ifloat}{:} = NaN;
+%         profile_var_qc{ifloat}{:} = NaN;
+        var_adjusted_bad{ifloat}{:} = NaN;
         n_cycle(ifloat) = 0;
         continue
     end  
+    
     % not including descent profiles
     prof_list(contains(prof_list,'D.nc')) = [];
     % not including deep files
     prof_list(contains(prof_list,'SR')) = [];
+    prof_list(contains(prof_list,'SD')) = [];
     prof_list(contains(prof_list,'MR')) = [];
+
+    
+    
+% -b file pattern
+    pattern_bio = "BR" + floats_list.WMO(ifloat,:);
+    pattern_sfile = "S" + floats_list.WMO(ifloat,:); 
+
+    if var_bio == 1
+        prof_list = prof_list(contains(prof_list,pattern_bio));
+%         prof_list = prof_list(3:end);
+    else
+        
+    % not include -b files
     prof_list(contains(prof_list,'BR')) = [];
-    prof_list = prof_list(3:end);
-    n_cycle(ifloat) = length(prof_list);
+    prof_list(contains(prof_list,'BD')) = [];
+    
+    end
+    
+    pattern = "R" + floats_list.WMO(ifloat,:);
+    pattern2 = "D" + floats_list.WMO(ifloat,:);
+%     pattern2(ifloat) = "R" + floats_list.WMO(ifloat,:);
+    
+    if sum(contains(prof_list,pattern)) == 0
+        disp("no -R nor -D file found")
+        cycle_number{ifloat}{:} = NaN;
+        DM_done{ifloat}{:} = NaN;
+        var_correction{ifloat}{:} = NaN;
+        profile_var_qc{ifloat}{:} = '-';
+%         var_qc_mode{ifloat}{:} = NaN;
+%         profile_var_qc{ifloat}{:} = NaN;
+        var_adjusted_bad{ifloat}{:} = NaN;
+        n_cycle(ifloat) = 0;
+        continue
+    end
+    
+    if sum(contains(prof_list,pattern)) > 0
+        prof_list_filled = prof_list(contains(prof_list,pattern));
+        prof_list_r{ifloat} = prof_list(contains(prof_list,pattern));
+    end
+    
+    if sum(contains(prof_list,pattern2)) > 0
+        prof_list_filled = prof_list(contains(prof_list,pattern2));
+        prof_list_d{ifloat} = prof_list(contains(prof_list,pattern2));
+        
+        prof_list_filled = [prof_list_d{ifloat} prof_list_r{ifloat}];
+        
+    end
+    prof_list_final{ifloat} = prof_list_filled;
+    
+    
+    %         prof_list = prof_list(3:end);
+    
+    
+%     prof_list(contains(prof_list,'BR')) = []; % comented because DOXY studied here
+%     prof_list = prof_list(3:end);
+    
+    n_cycle(ifloat) = length(prof_list_filled);
       
         
     for icycle = 1:n_cycle(ifloat) % files loop (cycle loop)
         
         % get cycle number from file name
-        cy = strsplit(char(prof_list(icycle)),'_');
+        cy = strsplit(char(prof_list_filled(icycle)),'_');
         cycle_number{ifloat}{icycle} = str2double(erase(char(cy(2)),'.nc'));
         
         % DM done or not
-        DM_done{ifloat}{icycle} = double(contains(prof_list(icycle),'D'));
+        DM_done{ifloat}{icycle} = double(contains(prof_list_filled(icycle),'D'));
         
         % file path
-        file_path = [float_dir,char(prof_list(icycle))];
-        % get varibles psal and psal_adjusted and QC
-        psal = ncread(file_path,'PSAL');
-        psal_adjusted = ncread(file_path,'PSAL_ADJUSTED');
-        profile_qc = ncread(file_path,'PROFILE_PSAL_QC');
-        psal_qc = ncread(file_path,'PSAL_ADJUSTED_QC');
-        % if PSAL_ADJUSTED_QC is fill value, we use PSAL_QC
-        if isspace(psal_qc)
-            psal_qc = ncread(file_path,'PSAL_QC');
+        A{ifloat}{icycle}= [float_dir,char(prof_list_filled(icycle))];
+        file_path = [float_dir,char(prof_list_filled(icycle))];
+        % get varibles var and var_adjusted and QC
+        DATA_MODE{ifloat}{icycle} = ncread(file_path, 'DATA_MODE');
+        
+        file_info = ncinfo(file_path);
+        len_var = size(file_info.Variables,2);
+        name = cell(1,len_var);
+        for f=1:len_var
+            name{f} = file_info.Variables(f).Name;
         end
-        % delate second column
-        [~,col_qc] = size(psal_qc);
-        if col_qc > 1
-            psal_qc(:,2) = [];
-        end
-        psal_qc = str2num(psal_qc);
         
-        % calculate diference
-        psal_corr = mean(psal_adjusted - psal,'omitnan');
-        psal_corr = mean(psal_corr,'omitnan');
-        
-        % struc
-        psal_correction{ifloat}{icycle} = psal_corr;
-        profile_psal_qc{ifloat}{icycle} = profile_qc(1);
-        
-        % the most frequently occurring value in psal_qc
-        if isempty(psal_qc)
-            psal_qc_mode{ifloat}{icycle} = NaN;
+        if sum(contains(name,variable)) == 0
+            
+%             disp([file_path ' == variable not found'])
+            var = {nan};
+            var_adjusted = {nan};
+            profile_qc = {nan};
+            var_qc = {nan};
+            profile_var_qc{ifloat}{icycle} = {'-'};
+            var_correction{ifloat}{icycle} = {nan};
+            var_qc_mode{ifloat}{icycle} = {nan};
+            
+            continue
         else
-            psal_qc_mode{ifloat}{icycle} =  mode(psal_qc);
-        end
-        
+
+
+%             disp([file_path ' == variable found'])
+            var = ncread(file_path,variable);
+            var_adjusted = ncread(file_path,[variable,'_ADJUSTED']);
+            profile_qc = ncread(file_path,['PROFILE_',variable,'_QC']);
+            var_qc = ncread(file_path,[variable,'_ADJUSTED_QC']);
+
+            A1{ifloat}{icycle} = ncread(file_path,variable);
+            A2{ifloat}{icycle} = ncread(file_path,[variable,'_ADJUSTED']);
+            A3{ifloat}{icycle} = ncread(file_path,['PROFILE_',variable,'_QC']);
+            A4{ifloat}{icycle} = ncread(file_path,[variable,'_ADJUSTED_QC']);
+
+            % if var_ADJUSTED_QC is fill value, we use var_QC
+            if isspace(var_qc)
+%                 var_qc = ncread(file_path,'var_QC');
+                var_qc = ncread(file_path,[variable,'_QC']);
+            end
+
+
+            % delate second column
+            [~,col_qc] = size(var_qc);
+            if col_qc > 1
+                var_qc(:,2) = [];
+            end
+            var_qc = str2num(var_qc);
+            
+  
+            % calculate diference
+            if isempty(var)
+                var = 1;
+            elseif isempty(var_adjusted)
+                var_adjusted = 1;
+
+            else
+                var_corr = mean(var_adjusted - var,'omitnan');
+                var_corr = mean(var_corr,'omitnan');
+            
+            % struc
+                var_correction{ifloat}{icycle} = var_corr;
+                profile_var_qc{ifloat}{icycle} = profile_qc(1);
+            end
+
+            % the most frequently occurring value in var_qc
+            if isempty(var_qc)
+                var_qc_mode{ifloat}{icycle} = NaN;
+            else
+                var_qc_mode{ifloat}{icycle} =  mode(var_qc);
+            end
+        end 
     end
     
-    % psal_correction(:,ifloat)'
-    % psal_adjusted_qc(:,ifloat)'
+    % var_correction(:,ifloat)'
+    % var_adjusted_qc(:,ifloat)'
+    
+%     profile_var_qc = num2cell(profile_var_qc)
     
 end
 
 
 % Formatting results: convert cells to matrix struc
-% fill with NaN or "-" when diferent number of cycles
+% fill with NaN or "-" when different number of cycles
 max_cycle = max(n_cycle);
 DATA.cycle_number = NaN(max_cycle,n_floats);
 DATA.DM_done = NaN(max_cycle,n_floats);
-DATA.psal_correction = NaN(max_cycle,n_floats);
-DATA.profile_psal_qc = repmat("-",max_cycle,n_floats); % string array
-DATA.psal_qc_mode = NaN(max_cycle,n_floats); % percentage of 4 (bad data) in water column
+DATA.var_correction = NaN(max_cycle,n_floats);
+DATA.profile_var_qc = repmat('-',max_cycle,n_floats); % string array
+% DATA.profile_var_qc = NaN(max_cycle,n_floats); % string array
+DATA.var_qc_mode = NaN(max_cycle,n_floats); % percentage of 4 (bad data) in water column
+%%
 for ifloat = 1:n_floats
+       disp(ifloat)
        DATA.cycle_number(1:n_cycle(ifloat),ifloat) = cat(1,cycle_number{ifloat}{:});
        DATA.DM_done(1:n_cycle(ifloat),ifloat) = cat(1,DM_done{ifloat}{:});
-       DATA.psal_correction(1:n_cycle(ifloat),ifloat) = cat(1,psal_correction{ifloat}{:});
-       DATA.profile_psal_qc(1:n_cycle(ifloat),ifloat) = cat(1,profile_psal_qc{ifloat}{:}); % string array
-       DATA.psal_qc_mode(1:n_cycle(ifloat),ifloat) = cat(1,psal_qc_mode{ifloat}{:});
+       
+       % PROFILE_var_QC
+       if any(cellfun(@isempty,profile_var_qc{ifloat}))
+%        if any(cellfun(@isempty,profile_var_qc))    
+           x = size(cat(1,profile_var_qc{ifloat}{:}),1);
+           DATA.profile_var_qc(1:x,ifloat) = cat(1,profile_var_qc{ifloat}{:}); % string array
+       else
+           DATA.profile_var_qc(1:n_cycle(ifloat),ifloat) = cat(1,profile_var_qc{ifloat}{:}); % string array
+       end
+       
+       % var_CORRECTION
+       if any(cellfun(@isempty,var_correction{ifloat}))
+           y = size(cat(1,var_correction{ifloat}{:}),1);
+           DATA.var_correction(1:y,ifloat) = cat(1,var_correction{ifloat}{:});
+       else
+           DATA.var_correction(1:n_cycle(ifloat),ifloat) = cat(1,var_correction{ifloat}{:});
+       end
+       
+       % var_QC_MODE 
+       if isempty(var_qc_mode{ifloat})
+           DATA.var_qc_mode(1:n_cycle(ifloat),ifloat) = cat(1,var_qc_mode{ifloat});
+       elseif any(cellfun(@isempty,var_qc_mode{ifloat}))
+           z = size(cat(1,var_qc_mode{ifloat}{:}),1);
+           DATA.var_qc_mode(1:z,ifloat) = cat(1,var_qc_mode{ifloat}{:});
+       else
+           DATA.var_qc_mode(1:n_cycle(ifloat),ifloat) = cat(1,var_qc_mode{ifloat}{:});
+       end    
 end
 % TODO : dimensions struc
 
+DATA.profile_var_qc = num2cell(DATA.profile_var_qc);
 
 %% Screen outputs
-% get non cero adjustment floats reference
-[~,c] = find(~isnan(DATA.psal_correction) & DATA.psal_correction ~= 0);
+% get non zero adjustment floats reference
+[~,c] = find(~isnan(DATA.var_correction) & DATA.var_correction ~= 0);
 f_nonzero = DATA.WMO(c,:);
 [~,irows] = unique(f_nonzero,'rows','stable');
 f_nonzero = f_nonzero(irows,:);
 disp(' ')
-disp('Floats with non zero PSAL correction:')
+disp('Floats with non zero var correction:')
 if isempty(f_nonzero)
     disp('(none)')
 else
@@ -180,12 +329,13 @@ else
 end
 
 % floats with F cycles
-[f,c] = find(contains(DATA.profile_psal_qc, 'F'));
+% [f,c] = find(contains(cellstr(DATA.profile_var_qc), "F"));
+[f,c] = find(contains(DATA.profile_var_qc, "F"));
 f_Fcycles = DATA.WMO(c,:);
 [~,irows] = unique(f_Fcycles,'rows');
 f_Fcycles = f_Fcycles(irows,:);
 disp(' ')
-disp('Floats with bad cycles (F in profile_psal_qc):')
+disp('Floats with bad cycles (F in profile_var_qc):')
 if isempty(f_Fcycles)
     disp('(none)')
 else
@@ -208,35 +358,35 @@ end
 
 % plots data
 
-% Fig.1: psal_correction diferent from 0 or not
+% Fig.1: var_correction diferent from 0 or not
 % non zero correction
-[~,ifloatN_1] = find(~isnan(DATA.psal_correction) & DATA.psal_correction ~= 0);
-icycleN_1 = cat(1,DATA.cycle_number(~isnan(DATA.psal_correction) & DATA.psal_correction ~= 0));
+[~,ifloatN_1] = find(~isnan(DATA.var_correction) & DATA.var_correction ~= 0);
+icycleN_1 = cat(1,DATA.cycle_number(~isnan(DATA.var_correction) & DATA.var_correction ~= 0));
 sumN_1 = length(icycleN_1);
 % zero correction
-[~,ifloatZ_1] = find(DATA.psal_correction == 0);
-icycleZ_1 = cat(1,DATA.cycle_number(DATA.psal_correction == 0));
+[~,ifloatZ_1] = find(DATA.var_correction == 0);
+icycleZ_1 = cat(1,DATA.cycle_number(DATA.var_correction == 0));
 sumZ_1 = length(icycleZ_1);
 
-% Fig.3 : profile_psal_qc
-[~,ifloatA] = find(contains(DATA.profile_psal_qc,'A')); % 100%
-icycleA = cat(1,DATA.cycle_number(contains(DATA.profile_psal_qc,'A')));
-sumA = sum(sum(contains(DATA.profile_psal_qc,'A')));
-[~,ifloatB] = find(contains(DATA.profile_psal_qc,'B')); % 100% - 75%
-icycleB = cat(1,DATA.cycle_number(contains(DATA.profile_psal_qc,'B')));
-sumB = sum(sum(contains(DATA.profile_psal_qc,'B')));
-[~,ifloatC] = find(contains(DATA.profile_psal_qc,'C')); % 75% - 50%
-icycleC = cat(1,DATA.cycle_number(contains(DATA.profile_psal_qc,'C')));
-sumC = sum(sum(contains(DATA.profile_psal_qc,'C')));
-[~,ifloatD] = find(contains(DATA.profile_psal_qc,'D')); % 50% - 25%
-icycleD = cat(1,DATA.cycle_number(contains(DATA.profile_psal_qc,'D')));
-sumD = sum(sum(contains(DATA.profile_psal_qc,'D')));
-[~,ifloatE] = find(contains(DATA.profile_psal_qc,'E')); % 25% - 0%
-icycleE = cat(1,DATA.cycle_number(contains(DATA.profile_psal_qc,'E')));
-sumE = sum(sum(contains(DATA.profile_psal_qc,'E')));
-[~,ifloatF] = find(contains(DATA.profile_psal_qc,'F')); % no good data
-icycleF = cat(1,DATA.cycle_number(contains(DATA.profile_psal_qc,'F')));
-sumF = sum(sum(contains(DATA.profile_psal_qc,'F')));
+% Fig.3 : profile_var_qc
+[~,ifloatA] = find(contains(DATA.profile_var_qc,'A')); % 100%
+icycleA = cat(1,DATA.cycle_number(contains(DATA.profile_var_qc,'A')));
+sumA = sum(sum(contains(DATA.profile_var_qc,'A')));
+[~,ifloatB] = find(contains(DATA.profile_var_qc,'B')); % 100% - 75%
+icycleB = cat(1,DATA.cycle_number(contains(DATA.profile_var_qc,'B')));
+sumB = sum(sum(contains(DATA.profile_var_qc,'B')));
+[~,ifloatC] = find(contains(DATA.profile_var_qc,'C')); % 75% - 50%
+icycleC = cat(1,DATA.cycle_number(contains(DATA.profile_var_qc,'C')));
+sumC = sum(sum(contains(DATA.profile_var_qc,'C')));
+[~,ifloatD] = find(contains(DATA.profile_var_qc,'D')); % 50% - 25%
+icycleD = cat(1,DATA.cycle_number(contains(DATA.profile_var_qc,'D')));
+sumD = sum(sum(contains(DATA.profile_var_qc,'D')));
+[~,ifloatE] = find(contains(DATA.profile_var_qc,'E')); % 25% - 0%
+icycleE = cat(1,DATA.cycle_number(contains(DATA.profile_var_qc,'E')));
+sumE = sum(sum(contains(DATA.profile_var_qc,'E')));
+[~,ifloatF] = find(contains(DATA.profile_var_qc,'F')); % no good data
+icycleF = cat(1,DATA.cycle_number(contains(DATA.profile_var_qc,'F')));
+sumF = sum(sum(contains(DATA.profile_var_qc,'F')));
 
 % Fig.4 DMQC done
 [~,ifloatY_4] = find(DATA.DM_done == 1); % DM done
@@ -246,35 +396,35 @@ sumY_4 = length(icycleY_4);
 icycleN_4 = cat(1,DATA.cycle_number(DATA.DM_done == 0));
 sumN_4 = length(icycleN_4);
 
-% Fig.5 : Most frequently occuring QC flac in PSAL
-[~,ifloat0] = find(DATA.psal_qc_mode == 0); % 0: No QC was performed
-icycle0 = cat(1,DATA.cycle_number(DATA.psal_qc_mode == 0));
-sum0 = sum(sum(DATA.psal_qc_mode == 0));
-[~,ifloat1] = find(DATA.psal_qc_mode == 1); % 1: Good data
-icycle1 = cat(1,DATA.cycle_number(DATA.psal_qc_mode == 1));
-sum1 = sum(sum(DATA.psal_qc_mode == 1));
-[~,ifloat2] = find(DATA.psal_qc_mode == 2); % 2: Probably good data
-icycle2 = cat(1,DATA.cycle_number(DATA.psal_qc_mode == 2));
-sum2 = sum(sum(DATA.psal_qc_mode == 2));
-[~,ifloat3] = find(DATA.psal_qc_mode == 3); % 3: Bad data that are potentially correctable
-icycle3 = cat(1,DATA.cycle_number(DATA.psal_qc_mode == 3));
-sum3 = sum(sum(DATA.psal_qc_mode == 3));
-[~,ifloat4] = find(DATA.psal_qc_mode == 4); % 4: Bad data
-icycle4 = cat(1,DATA.cycle_number(DATA.psal_qc_mode == 4));
-sum4 = sum(sum(DATA.psal_qc_mode == 4));
-[~,ifloat5] = find(DATA.psal_qc_mode == 5); % 5: Value changed
-icycle5 = cat(1,DATA.cycle_number(DATA.psal_qc_mode == 5));
-sum5 = sum(sum(DATA.psal_qc_mode == 5));
-[~,ifloat8] = find(DATA.psal_qc_mode == 8); % 8: Estimated value
-icycle8 = cat(1,DATA.cycle_number(DATA.psal_qc_mode == 8));
-sum8 = sum(sum(DATA.psal_qc_mode == 8));
-[~,ifloat9] = find(DATA.psal_qc_mode == 9); % 9: Missing value
-icycle9 = cat(1,DATA.cycle_number(DATA.psal_qc_mode == 9));
-sum9 = sum(sum(DATA.psal_qc_mode == 9));
+% Fig.5 : Most frequently occuring QC flac in var
+[~,ifloat0] = find(DATA.var_qc_mode == 0); % 0: No QC was performed
+icycle0 = cat(1,DATA.cycle_number(DATA.var_qc_mode == 0));
+sum0 = sum(sum(DATA.var_qc_mode == 0));
+[~,ifloat1] = find(DATA.var_qc_mode == 1); % 1: Good data
+icycle1 = cat(1,DATA.cycle_number(DATA.var_qc_mode == 1));
+sum1 = sum(sum(DATA.var_qc_mode == 1));
+[~,ifloat2] = find(DATA.var_qc_mode == 2); % 2: Probably good data
+icycle2 = cat(1,DATA.cycle_number(DATA.var_qc_mode == 2));
+sum2 = sum(sum(DATA.var_qc_mode == 2));
+[~,ifloat3] = find(DATA.var_qc_mode == 3); % 3: Bad data that are potentially correctable
+icycle3 = cat(1,DATA.cycle_number(DATA.var_qc_mode == 3));
+sum3 = sum(sum(DATA.var_qc_mode == 3));
+[~,ifloat4] = find(DATA.var_qc_mode == 4); % 4: Bad data
+icycle4 = cat(1,DATA.cycle_number(DATA.var_qc_mode == 4));
+sum4 = sum(sum(DATA.var_qc_mode == 4));
+[~,ifloat5] = find(DATA.var_qc_mode == 5); % 5: Value changed
+icycle5 = cat(1,DATA.cycle_number(DATA.var_qc_mode == 5));
+sum5 = sum(sum(DATA.var_qc_mode == 5));
+[~,ifloat8] = find(DATA.var_qc_mode == 8); % 8: Estimated value
+icycle8 = cat(1,DATA.cycle_number(DATA.var_qc_mode == 8));
+sum8 = sum(sum(DATA.var_qc_mode == 8));
+[~,ifloat9] = find(DATA.var_qc_mode == 9); % 9: Missing value
+icycle9 = cat(1,DATA.cycle_number(DATA.var_qc_mode == 9));
+sum9 = sum(sum(DATA.var_qc_mode == 9));
 
 
 
-%% Fig.1 : psal_correction diferent from 0 or not
+%% Fig.1 : var_correction diferent from 0 or not
 
 if n_floats > floats_per_fig % if so many floats, figures are divided
     % split figure
@@ -303,20 +453,20 @@ for ifig = 1 : n_fig % figures loop
     % full screen
     set(gcf, 'Position', get(0, 'Screensize'));
     % figure name
-    set(gcf,'Name',['Non zero PSAL correction [Lot ' num2str(ifig) ']'])
+    set(gcf,'Name',['Non zero ' variable ' correction [Lot ' num2str(ifig) ']'])
     % axis labels size
     set(gca, 'FontSize', 12)
     %title
     if ifig == n_fig % last lot (diferent number of floats)
-        title(['\fontsize{20}Non zero PSAL correction (updated ' update_date ')' newline ...
+        title(['\fontsize{20}Non zero ' variable 'correction (updated ' update_date ')' newline ...
             '\rm\fontsize{18}[Lot ' num2str(ifig) ': ' num2str(n_floats - (ifig-1)*floats_per_fig) ' floats]'])
     else
-        title(['\fontsize{20}Non zero PSAL correction (updated ' update_date ')' newline ...
+        title(['\fontsize{20}Non zero ' variable 'correction (updated ' update_date ')' newline ...
             '\rm\fontsize{18}[Lot ' num2str(ifig) ': ' num2str(floats_per_fig) ' floats]'])
     end
      % colorbar
-     lh = legend([hdl{ifig,5},hdl{ifig,7},hdl{ifig,3},hdl{ifig,1}],['PSAL correction = 0' newline '(',num2str(sumZ_1),' profiles)'],...
-        ['PSAL correction \neq 0' newline '(',num2str(sumN_1),' profiles)'],...
+     lh = legend([hdl{ifig,5},hdl{ifig,7},hdl{ifig,3},hdl{ifig,1}],[variable ' correction = 0' newline '(',num2str(sumZ_1),' profiles)'],...
+        [variable ' correction \neq 0' newline '(',num2str(sumN_1),' profiles)'],...
         'Real time cycle not corrected',...
         'DM cycle not corrected',...
         'Location','bestoutside');
@@ -338,14 +488,15 @@ for ifig = 1 : n_fig % figures loop
      box on
      
      % save figure
-     out_name = [pwd '/' working_date '/' project_name '_psalCorrectionStatus_lot' num2str(ifig) '_' working_date '.png'];
+     
+     out_name = [pwd '/' working_date '/' project_name '_' variable 'CorrectionStatus_lot' num2str(ifig) '_' working_date '.png'];
      export_fig(out_name)
      
 end  % figures loop
 
 
 
-%% Fig.2 : psal_correction for corrected floats
+%% Fig.2 : var_correction for corrected floats
 
 if ~isempty(f_nonzero) % if there is not nonzero correction cycles, this figure is not plotted
     %figure
@@ -353,7 +504,7 @@ if ~isempty(f_nonzero) % if there is not nonzero correction cycles, this figure 
     % full screen
     set(gcf, 'Position', get(0, 'Screensize'));
     % figure name
-    set(gcf,'Name','Mean PSAL correction per cycle')
+    set(gcf,'Name', ['Mean ' variable ' correction per cycle'])
     set(gcf,'Renderer', 'painters')
     hold on
         
@@ -372,12 +523,12 @@ if ~isempty(f_nonzero) % if there is not nonzero correction cycles, this figure 
             hold on
             
             % correction
-            %DATA.psal_correction(:,i)'
-            h2 = scatter(DATA.cycle_number(:,i),cnt*ones(1,max_cycle), 15, DATA.psal_correction(:,i),'filled');
+            %DATA.var_correction(:,i)'
+            h2 = scatter(DATA.cycle_number(:,i),cnt*ones(1,max_cycle), 50, DATA.var_correction(:,i),'filled');
             %pause()
             % real time cycles
             index =ismember(ifloatN_4,i); 
-            h3 = scatter(icycleN_4(index),cnt*ones(1,sum(index)),11,'o','k');
+            h3 = scatter(icycleN_4(index),cnt*ones(1,sum(index)),8,'k','filled');
             
             % new line most frequent
             index =ismember(ifloat0,i);
@@ -403,12 +554,12 @@ if ~isempty(f_nonzero) % if there is not nonzero correction cycles, this figure 
     
    
     % figure format
-    title(sprintf('Mean PSAL correction per cycle (updated %s, only corrected floats)',update_date),'FontSize', 20)
+    title(sprintf(['Mean ' variable ' correction per cycle (updated %s, only corrected floats)'],update_date),'FontSize', 20)
     % axis labels size
     set(gca, 'FontSize', 10)
     % colorbar
     h = colorbar;
-    ylabel(h, 'PSAL correction (PSU)','FontSize', 12)
+    ylabel(h, [variable ' correction ' units],'FontSize', 12)
     % y axis
     yticks(1:length(f_nonzero))
     yticklabels(cellstr(f_nonzero))
@@ -434,9 +585,9 @@ if ~isempty(f_nonzero) % if there is not nonzero correction cycles, this figure 
     'buffer', [0 -80], ...
     'fontsize', 10, ...
     'ncol', 2, ...%'box', 'off', ...
-    'title', '\bfMost frequent PSAL QC flag \rm(2nd line)');
+    'title', ['\bfMost frequent' variable ' QC flag \rm(2nd line)']);
     [hl(2).leg, hl(2).obj, hl(2).hout, hl(2).mout] = ...
-    legendflex([h2,h3,h1], {'PSAL correction','Real time cycle','DM cycle not corrected'}, ...
+    legendflex([h2,h3,h1], {[variable ' correction'],'Real time cycle','DM cycle not corrected'}, ...
     'ref', hl(3).leg, ...
     'anchor', [1 3], ...
     'buffer',  [-5 0], ...
@@ -456,14 +607,14 @@ if ~isempty(f_nonzero) % if there is not nonzero correction cycles, this figure 
 
 
     % save figure
-    out_name = [pwd '/' working_date '/' project_name '_psalCorrectionValues_' working_date '.png'];
+    out_name = [pwd '/' working_date '/' project_name '_' variable 'CorrectionValues_' working_date '.png'];
     export_fig(out_name,'-painters')
 
 end
 
 
 
-%% Fig.3 : profile_psal_qc
+%% Fig.3 : profile_var_qc
 
 start_fig = get(gcf,'Number') +1;
 
@@ -500,15 +651,15 @@ for ifig = start_fig : n_fig % figures loop
     % full screen
     set(gcf, 'Position', get(0, 'Screensize'));
     % figure name
-    set(gcf,'Name',['PSAL quality control flag [Lot '  num2str(lot) ']'])
+    set(gcf,'Name',[variable ' quality control flag [Lot '  num2str(lot) ']'])
     % axis labels size
     set(gca, 'FontSize', 12)
     %title
     if ifig == n_fig % last lot (diferent number of floats)
-        title(['\fontsize{20}PSAL quality control flag (updated ' update_date ')' newline ...
+        title(['\fontsize{20}' variable ' quality control flag (updated ' update_date ')' newline ...
             '\rm\fontsize{18}[Lot ' num2str(lot) ': ' num2str(n_floats - (lot-1)*floats_per_fig) ' floats]'])
     else
-        title(['\fontsize{20}PSAL quality control flag (updated ' update_date ')' newline ...
+        title(['\fontsize{20}' variable ' quality control flag (updated ' update_date ')' newline ...
             '\rm\fontsize{18}[Lot ' num2str(lot) ': ' num2str(floats_per_fig) ' floats]'])
     end
      % colorbar
@@ -537,7 +688,7 @@ for ifig = start_fig : n_fig % figures loop
      box on
      
      % save figure
-     out_name = [pwd '/' working_date '/' project_name '_psalQCscatter_lot' num2str(lot) '_' working_date '.png'];
+     out_name = [pwd '/' working_date '/' project_name '_' variable 'QCscatter_lot' num2str(lot) '_' working_date '.png'];
      export_fig(out_name)
      
 end  % figures loop
@@ -612,7 +763,7 @@ end  % figures loop
 
 
 
-%% Fig.5 Most frequently occuring QC flag in PSAL
+%% Fig.5 Most frequently occuring QC flag in var
 
 start_fig = get(gcf,'Number') +1;
 
@@ -659,10 +810,10 @@ for ifig = start_fig : n_fig % figures loop
     set(gca, 'FontSize', 12)
     %title
     if ifig == n_fig % last lot (diferent number of floats)
-        title(['\fontsize{20}Most frequently occurring QC flag in PSAL (updated ' update_date ')' newline ...
+        title(['\fontsize{20}Most frequently occurring QC flag in ' variable ' (updated ' update_date ')' newline ...
             '\rm\fontsize{18}[Lot ' num2str(lot) ': ' num2str(n_floats - (lot-1)*floats_per_fig) ' floats]'])
     else
-        title(['\fontsize{20}Most frequently occurring QC flag in PSAL (updated ' update_date ')' newline ...
+        title(['\fontsize{20}Most frequently occurring QC flag in ' variable ' (updated ' update_date ')' newline ...
             '\rm\fontsize{18}[Lot ' num2str(lot) ': ' num2str(floats_per_fig) ' floats]'])
     end
      % colorbar
@@ -693,7 +844,7 @@ for ifig = start_fig : n_fig % figures loop
      box on
      
      % save figure
-     out_name = [pwd '/' working_date '/' project_name '_mostfreqpsalQC_lot' num2str(lot) '_' working_date '.png'];
+     out_name = [pwd '/' working_date '/' project_name '_mostfreq' variable 'QC_lot' num2str(lot) '_' working_date '.png'];
      export_fig(out_name)
      
 end  % figures loop
