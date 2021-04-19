@@ -18,7 +18,7 @@
 %
 % Auxiliary functions needed:
 %    read_csv
-%    get_data_from_index_detailled
+%    get_data_from_index_deta.illed
 %    export_fig package
 %    plotBarStackGroups
 %
@@ -33,11 +33,6 @@
 close all
 clear variables
 
-% add paths (packages and auxiliary functions)
-% aux_functions_path = [pwd '/aux_functions'];
-% aux_functions_path = '/home1/datahome/co_arg/agarciaj/DMQC_status/aux_functions';
-% addpath(genpath(aux_functions_path))
-% add paths (packages and auxiliary functions)
 
 addpath /home1/datahome/co_arg/rcancoue/decodeur_matlab/work_Romain
 addpath /home1/datahome/co_arg/larduini/Scripts/Toolbox
@@ -47,30 +42,26 @@ addpath /home1/datahome/co_arg/larduini/Scripts/Toolbox/export_fig-master % expo
 % INPUT
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 index_file_dir = '/home/ref-argo/gdac/etc/argo_profile_detailled_index.txt'
-index_bio_dir = '/home/ref-argo/gdac/etc/argo-index/argo_bio-profile_index.txt'
-index_synthetic_dir= '/home/ref-argo/gdac/etc/argo-index/argo_synthetic-profile_index.txt'
 greylist_dir = '/home/ref-argo/gdac/ar_greylist.txt'
-% list_file_dir = '/home1/datahome/co_arg/larduini/Lists/Floats_romain_for_DMQC_V3.csv' % file separated with
-list_file_dir = '/home1/datahome/co_arg/larduini/Lists/European_CTD_FSD_SN_for_DMQC_status.csv' % file separated with
+
+
+% list_file_dir = '/home1/datahome/co_arg/larduini/Lists/European_CTD_FSD_SN_for_DMQC_status.csv'
+list_file_dir = '/home1/datahome/co_arg/larduini/Lists/Floats_romain_for_DMQC_V3.csv'
 
 export_dir = '/home1/datahome/co_arg/larduini/Exports/DMQC/DMQC_status'
 
 project_name = 'DMQC_stats_FSD'; % only used for naming outputs
-variable = 'psal' % For now the Argo Profiles detailled Index only store the ehas three variables
+variable = 'psal' % For now the Argo Profiles detailled Index only store these three variables: PSAL, PRES, TEMP. 
+                  % Discussion are underway to add a BGC variables
+                  % detailled index, permitting to have the "A,B,C,etc." QC flags for BGC variables
+                  
+isbgc = 0 ; % Either 0 or 1. DOES the list concerns only BGC floats, or a BGC variable. It will determines which 
+            % Index to get data from and the different outputs produced by this script.
+
 Dprof= 0; % 0 not including D prof, 1 including D prof
 sage = 365; % threshold (in days). More than 1 year (floats and obs)
 
 
-isbgc = 0 ; % DOES the list concerns only BGC floats, or a BGC variable. It will determines which Index to get data from and the different outputs produced by this script.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% TODO: percentage of DMQC for each float (txt output) and warning when 0%
-% and >1 year
-% TODO: struc dimensions
-% TODO: (warning, sametimes there are intercalate profiles with no DM done)
-% in txt
-% TODO: initialisations in loops
-% TODO: delimiter in list inputs
 
 
 %% Read input files
@@ -85,18 +76,22 @@ disp(' ')
 % read index detailled file and get data (useful for quality data flags. At the moment, only available for 
 % PRES, TEMP and PSAL. Ongoing discussions aims to extend this index to all
 % BGC variables.
-[SynthIndexData] = get_data_from_index(index_file_dir, cellstr(Floats_list.WMO)',Dprof);
+[IndexData] = get_data_from_index(index_file_dir, cellstr(Floats_list.WMO)',Dprof);
+
 
 
 % Read Synthetic Profile Index to have info per variable measured (BGC or PTS) // 
 % ONLY FOR BGC FLOATS (index made from S-files which are BGC pressure standardized files)
-
-% [SynthIndexData] = get_data_from_index(index_synthetic_dir, cellstr(Floats_list.WMO)',Dprof);
-
+if isbgc == 1
+%     index_bio_dir = '/home/ref-argo/gdac/etc/argo-index/argo_bio-profile_index.txt'
+    index_synthetic_dir= '/home/ref-argo/gdac/etc/argo-index/argo_synthetic-profile_index.txt'
+    [IndexData] = get_data_from_index(index_synthetic_dir, cellstr(Floats_list.WMO)',Dprof);
+%     [BioIndexData] = get_data_from_index(index_bio_dir, cellstr(Floats_list.WMO)',Dprof);
+end
 
 
 n_floats = size(Floats_list.WMO,1);
-max_cycles = size(SynthIndexData.latitude.data,1);
+max_cycles = size(IndexData.latitude.data,1);
  
 
 %% Output data calculation 
@@ -108,10 +103,10 @@ disp(' ')
 disp('Calculating statistics ...') 
 
 Output.WMO = Floats_list.WMO; % floats WMO
-Output.first_date = squeeze(SynthIndexData.date.data(1,:,:))'; % date of first profile (it is not launch date)
+Output.first_date = squeeze(IndexData.date.data(1,:,:))'; % date of first profile (it is not launch date)
 Output.RT = Floats_list.RT; % real time responsible
 Output.DM = Floats_list.DM; % delayed mode responsible
-Output.index_update = SynthIndexData.index_update.data; % index file update date
+Output.index_update = IndexData.index_update.data; % index file update date
 
 
 
@@ -135,10 +130,10 @@ for i = 1:n_floats
     
     if isbgc == 1
         
-        obs_dm(:,i) = contains(string(SynthIndexData.parameter_data_mode.data(:,:,i)),'D'); %logical value per obs
-        sum_dm = sum(contains(string(SynthIndexData.parameter_data_mode.data(:,:,i)),'D')); %DM done
-        sum_realtime = sum(contains(string(SynthIndexData.parameter_data_mode.data(:,:,i)),'R')); % Real Time
-        sum_adjusted = sum(contains(string(SynthIndexData.parameter_data_mode.data(:,:,i)),'A')); % Adjusted
+        obs_dm(:,i) = contains(string(IndexData.parameter_data_mode.data(:,:,i)),'D'); %logical value per obs
+        sum_dm = sum(contains(string(IndexData.parameter_data_mode.data(:,:,i)),'D')); %DM done
+        sum_realtime = sum(contains(string(IndexData.parameter_data_mode.data(:,:,i)),'R')); % Real Time
+        sum_adjusted = sum(contains(string(IndexData.parameter_data_mode.data(:,:,i)),'A')); % Adjusted
    
         if sum_dm >0
             Output.data_mode_D(i) = sum_dm;
@@ -146,7 +141,8 @@ for i = 1:n_floats
         else
             Output.DM_done(i) = 0;
         end
-    
+        
+        
         if sum_realtime >0
             Output.data_mode_R(i) = sum_realtime;
         end
@@ -159,7 +155,7 @@ for i = 1:n_floats
         disp('no BGC floats_focus')
         % -- DMQC done or not --
         % find D files
-        obs_dm(:,i) = contains(string(SynthIndexData.file.data(:,:,i)),'/D'); % n_cycles x n_floats
+        obs_dm(:,i) = contains(string(IndexData.file.data(:,:,i)),'/D'); % n_cycles x n_floats
         sum_DM = sum(obs_dm(:,i));
         Output.DM_done(i) = (sum_DM ~= 0); % DM done = 1, DM not done = 0 (at least 1 D file)
         Output.number_DMprof(i) = sum_DM; % number of D profiles
@@ -167,8 +163,8 @@ for i = 1:n_floats
         
         
     % -- Observations > 1 year --
-    out_range = contains(string(SynthIndexData.date.data(:,:,i)),'-');
-    date_num = datenum(SynthIndexData.date.data(:,:,i),'yyyymmddHHMMSS');
+    out_range = contains(string(IndexData.date.data(:,:,i)),'-');
+    date_num = datenum(IndexData.date.data(:,:,i),'yyyymmddHHMMSS');
     date_num(out_range) = NaN;
     obs_age(:,i) = datenum(Output.index_update,'yyyymmddHHMMSS') - date_num;
     Output.obs_more1year(i) = sum(obs_age(:,i) > sage); % obs age > 1year = 1, else = 0
@@ -179,12 +175,12 @@ for i = 1:n_floats
 
     % -- Year of observation --
     % get all different years
-    obs_year = SynthIndexData.date.data(:,1:4,i);
+    obs_year = IndexData.date.data(:,1:4,i);
     obs_year(out_range,:) = NaN;
     obs_year = str2num(obs_year);
     year_names = unique(obs_year);
     % str to compare
-    obs_year_str = cellstr(SynthIndexData.date.data(:,1:4,i));
+    obs_year_str = cellstr(IndexData.date.data(:,1:4,i));
     % count obs for each year
     for iyear = 1 : length(year_names)
         Output.(['obs_' num2str(year_names(iyear))])(i) = sum(contains(obs_year_str, num2str(year_names(iyear))));
@@ -193,7 +189,7 @@ for i = 1:n_floats
     
     % -- Last DM profile --
     % (warning, sametimes there are intercalate profiles with no DM done)
-    last_date = string(SynthIndexData.date.data(:,:,i));
+    last_date = string(IndexData.date.data(:,:,i));
     last_date = last_date(logical(obs_dm(:,i)));
     if isempty(last_date)
         Output.date_last_DMprof(i) = NaN;
@@ -209,6 +205,7 @@ imis=ismissing(Output.date_last_DMprof);
 % Output.date_last_DMprof(imis) = '--------------';
 Output.date_last_DMprof = char(Output.date_last_DMprof);
 Output.date_last_DMprof = squeeze(Output.date_last_DMprof)';
+
 % formating obs per year
 fields_numbers = regexp(fieldnames(Output),'\d*','Match');
 year_names = unique(str2double(cellfun(@(x) char(x), fields_numbers,'UniformOutput',false)));
@@ -231,32 +228,33 @@ Output.float_age(out_range) = NaN;
 % -- Floats > 1 year --
 Output.float_more1year = (Output.float_age > sage); % float age > 1year = 1, else = 0
 % -- Number of observations --
-Output.obs_number = SynthIndexData.n_obs.data'; % number of observations per float
+Output.obs_number = IndexData.n_obs.data'; % number of observations per float
 % -- Percentage of DMQC --
 Output.percen_DMQC = Output.data_mode_D./Output.obs_number*100; 
 
 
 %%%%%%%%%% Data Quality (according to index detailled. See beginning of script) %%%%%%%%%%
 
-% -- variable chosen qc --
-% var_str = ['profile_' variable '_qc'];
-% 
-% for ifloat = 1:n_floats
-%     % number of profiles with qc = 'A' for each float
-%     Output.var_qcA_prof(ifloat) = sum(contains(string(IndexData.(var_str).data(:,:,ifloat)),'A'));
-%     Output.var_qcB_prof(ifloat) = sum(contains(string(IndexData.(var_str).data(:,:,ifloat)),'B')); % qc = 'B'
-%     Output.var_qcC_prof(ifloat) = sum(contains(string(IndexData.(var_str).data(:,:,ifloat)),'C')); % qc = 'C'
-%     Output.var_qcD_prof(ifloat) = sum(contains(string(IndexData.(var_str).data(:,:,ifloat)),'D')); % qc = 'D'
-%     Output.var_qcE_prof(ifloat) = sum(contains(string(IndexData.(var_str).data(:,:,ifloat)),'E')); % qc = 'E'
-%     Output.var_qcF_prof(ifloat) = sum(contains(string(IndexData.(var_str).data(:,:,ifloat)),'F')); % qc = 'F'
-% end
+if isbgc ==0
+    %     -- variable chosen qc --
+    var_str = ['profile_' variable '_qc'];
 
+    for ifloat = 1:n_floats
+        % number of profiles with qc = 'A' for each float
+        Output.var_qcA_prof(ifloat) = sum(contains(string(IndexData.(var_str).data(:,:,ifloat)),'A'));
+        Output.var_qcB_prof(ifloat) = sum(contains(string(IndexData.(var_str).data(:,:,ifloat)),'B')); % qc = 'B'
+        Output.var_qcC_prof(ifloat) = sum(contains(string(IndexData.(var_str).data(:,:,ifloat)),'C')); % qc = 'C'
+        Output.var_qcD_prof(ifloat) = sum(contains(string(IndexData.(var_str).data(:,:,ifloat)),'D')); % qc = 'D'
+        Output.var_qcE_prof(ifloat) = sum(contains(string(IndexData.(var_str).data(:,:,ifloat)),'E')); % qc = 'E'
+        Output.var_qcF_prof(ifloat) = sum(contains(string(IndexData.(var_str).data(:,:,ifloat)),'F')); % qc = 'F'
+    end
+end
 
 %%%%%%%%%% Grey list %%%%%%%%%%
 for ifloat = 1:n_floats
     disp(ifloat)
-    in_float = contains(string(grey_list.PLATFORMCODE),cellstr(Floats_list.WMO(ifloat,:)))
-    zz{ifloat} = contains(string(grey_list.PLATFORMCODE),cellstr(Floats_list.WMO(ifloat,:)));
+    in_float = contains(string(grey_list.PLATFORMCODE),cellstr(Floats_list.WMO(ifloat,:)));
+    greylist_record{ifloat} = contains(string(grey_list.PLATFORMCODE),cellstr(Floats_list.WMO(ifloat,:)));
     if sum(in_float) ~= 0
         wmo_greylist{ifloat} = Floats_list.WMO(ifloat,:);
         param_greylist{ifloat} = grey_list.PARAMETERNAME(in_float,:);
@@ -301,8 +299,9 @@ for idm = 1 : n_DM
     
     if isbgc == 1
         n_obs_DMQC(idm) = sum(Output.(DM_operators{idm}).*Output.data_mode_D, 'omitnan');
+    else
+        n_obs_DMQC(idm) = sum(Output.(DM_operators{idm}).*Output.number_DMprof', 'omitnan');
     end
-    n_obs_DMQC(idm) = sum(Output.(DM_operators{idm}).*Output.number_DMprof', 'omitnan');
     
     n_obs_more1year(idm) = sum(Output.(DM_operators{idm}).*Output.obs_more1year);
     n_obs_more1year_DMQC(idm) = sum(Output.(DM_operators{idm}).*Output.obs_more1year_DMQC);
@@ -319,13 +318,13 @@ end
     
 if isbgc==1
     for ifloat=1:n_floats
-        params_measured{ifloat} = strsplit(SynthIndexData.parameters.data(1,:,ifloat));
-        Output.nb_params_measured(ifloat) = size(strsplit(SynthIndexData.parameters.data(1,:,ifloat)),2);
+        params_measured{ifloat} = strsplit(IndexData.parameters.data(1,:,ifloat));
+        Output.nb_params_measured(ifloat) = size(strsplit(IndexData.parameters.data(1,:,ifloat)),2);
         all_params_names = unique(params_measured{ifloat}, 'stable');
         
         n_params = length(all_params_names);
         for iparams = 1:n_params
-            Output.PARAMS.(all_params_names{iparams})(:,ifloat) = SynthIndexData.parameter_data_mode.data(:,iparams,ifloat);
+            Output.PARAMS.(all_params_names{iparams})(:,ifloat) = IndexData.parameter_data_mode.data(:,iparams,ifloat);
 %             cellstr(reshape(BioIndexData.parameter_data_mode.data(1,:,34),[],1))'
             Output.PARAMS.([all_params_names{iparams} '_D'])(ifloat) = sum(contains(string(Output.PARAMS.(all_params_names{iparams})(:,ifloat)), 'D'));
             Output.PARAMS.([all_params_names{iparams} '_R'])(ifloat) = sum(contains(string(Output.PARAMS.(all_params_names{iparams})(:,ifloat)), 'R'));
@@ -334,15 +333,16 @@ if isbgc==1
     end   
 end
 
-%%%%%%%%%%%%%% Fig 3 : Data Quality %%%%%%%%%%%%%%
+if isbgc == 0
+%%%%%%%%%%%%% Fig 3 : Data Quality %%%%%%%%%%%%%%
 % per observation (all obs, not only DMQC done)
-% obs_var_qc(1) = sum(Output.var_qcA_prof); % A
-% obs_var_qc(2) = sum(Output.var_qcB_prof); % B
-% obs_var_qc(3) = sum(Output.var_qcC_prof); % C
-% obs_var_qc(4) = sum(Output.var_qcD_prof); % D
-% obs_var_qc(5) = sum(Output.var_qcE_prof); % E
-% obs_var_qc(6) = sum(Output.var_qcF_prof); % F
-
+    obs_var_qc(1) = sum(Output.var_qcA_prof); % A
+    obs_var_qc(2) = sum(Output.var_qcB_prof); % B
+    obs_var_qc(3) = sum(Output.var_qcC_prof); % C
+    obs_var_qc(4) = sum(Output.var_qcD_prof); % D
+    obs_var_qc(5) = sum(Output.var_qcE_prof); % E
+    obs_var_qc(6) = sum(Output.var_qcF_prof); % F
+end
 
 %%%%%%%%%%%%%% Fig 4 : Grey list  %%%%%%%%%%%%%%
 total_DMfloats = sum(Output.DM_done);
@@ -512,7 +512,7 @@ export_fig(out_name)
 %% 
 %%%%%%%%%%%%%% Fig 2 bis : bar per observation (D,R,A) %%%%%%%%%%%%%%
 % close all
-if isbgc ==1
+if isbgc == 1
 
 
     figure(3)
@@ -642,47 +642,48 @@ end
 
 %% %%%%%%%%%%%%%% Fig 3 : Data Quality %%%%%%%%%%%%%%
     
-% figure(5)
-% % bigger figure
-% set(gcf, 'Position', [200, 200, 700, 600])
-% % figure name
-% set(gcf,'Name','Data Quality')
-% % full screen
-% set(gcf, 'Position', get(0, 'Screensize'));
-% 
-% colormap(parula)
-% hold on
-% for i =1:6
-%    bar(i, obs_var_qc(i), 'FaceColor',bars_colors(4+i,:))
-% end
-% 
-% % FIGURE FORMAT
-% hold on
-% plot(1,0,'w'); % for comment in legend
-% % xlabels
-% set(gca,'XTick',[])
-% % title with update date
-% title([variable ' data quality control (updated ',datestr(datenum(Output.index_update,'yyyymmddHHMMSS'),'yyyy-mm-dd'),')'])
-% ylabel('Number of observations')
-% % legend with total number
-% legend(['A: 100% good data' newline '(' num2str(obs_var_qc(1)) ' profiles)'],...
-%     ['B: 100% - 75% good data' newline '(' num2str(obs_var_qc(2)) ' profiles)'],...
-%     ['C: 75% - 50% good data' newline '(' num2str(obs_var_qc(3)) ' profiles)'],...
-%     ['D: 50% - 25% good data' newline '(' num2str(obs_var_qc(4)) ' profiles)'],...
-%     ['E: 25% - 0% good data' newline '(' num2str(obs_var_qc(5)) ' profiles)'],...
-%     ['F: no good data' newline '(' num2str(obs_var_qc(6)) ' profiles)'],...
-%      prof_included)
-% % background color
-% set(gcf,'color','w');
-% % grid in y axis
-% ax = gca;
-% ax.YGrid = 'on';
-% box on
-% 
-% % save figure
-% out_name = [pwd '/' working_date '/' project_name '_' variable '_QCstats_' working_date '.png'];
-% % export_fig(out_name)
+if isbgc==0
+    figure(5)
+    % bigger figure
+    set(gcf, 'Position', [200, 200, 700, 600])
+    % figure name
+    set(gcf,'Name','Data Quality')
+    % full screen
+    set(gcf, 'Position', get(0, 'Screensize'));
 
+    colormap(parula)
+    hold on
+    for i =1:6
+       bar(i, obs_var_qc(i), 'FaceColor',bars_colors(4+i,:))
+    end
+
+    % FIGURE FORMAT
+    hold on
+    plot(1,0,'w'); % for comment in legend
+    % xlabels
+    set(gca,'XTick',[])
+    % title with update date
+    title([variable ' data quality control (updated ',datestr(datenum(Output.index_update,'yyyymmddHHMMSS'),'yyyy-mm-dd'),')'])
+    ylabel('Number of observations')
+    % legend with total number
+    legend(['A: 100% good data' newline '(' num2str(obs_var_qc(1)) ' profiles)'],...
+        ['B: 100% - 75% good data' newline '(' num2str(obs_var_qc(2)) ' profiles)'],...
+        ['C: 75% - 50% good data' newline '(' num2str(obs_var_qc(3)) ' profiles)'],...
+        ['D: 50% - 25% good data' newline '(' num2str(obs_var_qc(4)) ' profiles)'],...
+        ['E: 25% - 0% good data' newline '(' num2str(obs_var_qc(5)) ' profiles)'],...
+        ['F: no good data' newline '(' num2str(obs_var_qc(6)) ' profiles)'],...
+         prof_included)
+    % background color
+    set(gcf,'color','w');
+    % grid in y axis
+    ax = gca;
+    ax.YGrid = 'on';
+    box on
+
+    % save figure
+    out_name = [pwd '/' working_date '/' project_name '_' variable '_QCstats_' working_date '.png'];
+    export_fig(out_name)
+end
 
 %% %%%%%%%%%%%%%% Fig 4 : Grey list  %%%%%%%%%%%%%%
 
@@ -726,7 +727,7 @@ text(4, total_greylist, Greylist_label, 'HorizontalAlignment','center', 'Vertica
 % text(4+0.25, total_greylist-30, Greylist_label(23:end,:), 'HorizontalAlignment','center', 'VerticalAlignment','bottom')
 
 % save figure
-out_name = [pwd '/' working_date '/' project_name '_float_totals_' working_date '.png'];
+out_name = [pwd '/' working_date '/' project_name '_greylisted_floats_' working_date '.png'];
 export_fig(out_name)
 
 %% %%%%%%%%%%%%%% Fig 4 bis: Grey list per variables  %%%%%%%%%%%%%%
@@ -774,7 +775,7 @@ text(4, total_greylist, Greylist_label, 'HorizontalAlignment','center', 'Vertica
 % text(4+0.25, total_greylist-30, Greylist_label(23:end,:), 'HorizontalAlignment','center', 'VerticalAlignment','bottom')
 
 % save figure
-out_name = [pwd '/' working_date '/' project_name '_float_totals_' working_date '.png'];
+out_name = [pwd '/' working_date '/' project_name '_greylisted_floats_per_variables_' working_date '.png'];
 export_fig(out_name)
 
 %% %%%%%%%%%%%%%% Fig 5 : observation DMQC per year %%%%%%%%%%%%%%
