@@ -45,12 +45,13 @@ index_file_dir = '/home/ref-argo/gdac/etc/argo_profile_detailled_index.txt'
 greylist_dir = '/home/ref-argo/gdac/ar_greylist.txt'
 
 
-% list_file_dir = '/home1/datahome/co_arg/larduini/Lists/European_CTD_FSD_SN_for_DMQC_status.csv'
-list_file_dir = '/home1/datahome/co_arg/larduini/Lists/Floats_romain_for_DMQC_V3.csv'
+% list_file_dir = '/home1/datahome/co_arg/larduini/Lists/DMQC/European_CTD_FSD_SN_for_DMQC_status_012022_V2.csv'
+list_file_dir = '/home1/datahome/co_arg/larduini/Lists/DMQC/FR_DM.csv'
 
 export_dir = '/home1/datahome/co_arg/larduini/Exports/DMQC/DMQC_status'
+isexport = 0; %To export the foigure or not. Either 0 or 1
 
-project_name = 'DMQC_stats_FSD'; % only used for naming outputs
+project_name = 'DMQC_status_FR_floats'; % only used for naming outputs
 variable = 'psal' % For now the Argo Profiles detailled Index only store these three variables: PSAL, PRES, TEMP. 
                   % Discussion are underway to add a BGC variables
                   % detailled index, permitting to have the "A,B,C,etc." QC flags for BGC variables
@@ -74,8 +75,7 @@ disp(' ')
 disp(' ')
 
 % read index detailled file and get data (useful for quality data flags. At the moment, only available for 
-% PRES, TEMP and PSAL. Ongoing discussions aims to extend this index to all
-% BGC variables.
+% PRES, TEMP and PSAL. Ongoing discussions aims to extend this index to all BGC variables.
 [IndexData] = get_data_from_index(index_file_dir, cellstr(Floats_list.WMO)',Dprof);
 
 
@@ -159,6 +159,7 @@ for i = 1:n_floats
         sum_DM = sum(obs_dm(:,i));
         Output.DM_done(i) = (sum_DM ~= 0); % DM done = 1, DM not done = 0 (at least 1 D file)
         Output.number_DMprof(i) = sum_DM; % number of D profiles
+        Output.data_mode_D(i) = sum_DM; % Used for text output
     end
         
         
@@ -201,10 +202,14 @@ end
 
 % -- Formating --
 % problems with missing string when writting txt
-imis=ismissing(Output.date_last_DMprof);
-% Output.date_last_DMprof(imis) = '--------------';
-Output.date_last_DMprof = char(Output.date_last_DMprof);
-Output.date_last_DMprof = squeeze(Output.date_last_DMprof)';
+% imis=ismissing(Output.date_last_DMprof);
+% for ii = 1:length(imis)
+%     if imis(ii) == 1
+%         Output.date_last_DMprof(ii) = '--------------';
+%         Output.date_last_DMprof = char(Output.date_last_DMprof);
+%         Output.date_last_DMprof = squeeze(Output.date_last_DMprof)';
+%     end
+% end
 
 % formating obs per year
 fields_numbers = regexp(fieldnames(Output),'\d*','Match');
@@ -376,9 +381,9 @@ else
 end
 
 % check if output folder exists
-working_date = Output.index_update(1:8);
-if ~exist(working_date, 'dir')
-    mkdir(working_date)
+working_date = datestr(now,'yyyymmdd');
+if ~exist([export_dir '/' working_date], 'dir')
+    mkdir([export_dir '/' working_date])
 end
 
 % colors
@@ -441,10 +446,12 @@ set(H,'units','pix')
 annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Floats (> 1 year) to be done: ',num2str(round(floats_tobedone)),'%'],...
     'FitBoxToText','on','verticalalignment', 'bottom','HorizontalAlignment', 'right','FontWeight','bold')
 
-% save figure
-out_name = [pwd '/' working_date '/' project_name '_float_DMQCstatus_' working_date '.png'];
-export_fig(out_name)
 
+if isexport == 1
+    % save figure
+    out_name = [export_dir '/' working_date '/' project_name '_float_DMQCstatus_' working_date '.png'];
+    export_fig(out_name)
+end
 
 %% %%%%%%%%%%%%%% Fig 2 : bar per observation %%%%%%%%%%%%%%
 
@@ -503,10 +510,11 @@ set(H,'units','pix')
 annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Observations (> 1 year) to be done: ',num2str(round(obs_tobedone)),'%'],...
     'FitBoxToText','on','verticalalignment', 'bottom','HorizontalAlignment', 'right','FontWeight','bold')
 
-% save figure
-out_name = [pwd '/' working_date '/' project_name '_obs_DMQCstatus_' working_date '.png'];
-export_fig(out_name)
-
+if isexport == 1
+    % save figure
+    out_name = [export_dir '/' working_date '/' project_name '_obs_DMQCstatus_' working_date '.png'];
+    export_fig(out_name)
+end
 
 
 %% 
@@ -569,9 +577,11 @@ if isbgc == 1
     % annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Observations (> 1 year) to be done: ',num2str(round(obs_tobedone)),'%'],...
     %     'FitBoxToText','on','verticalalignment', 'bottom','HorizontalAlignment', 'right','FontWeight','bold')
 
-    % save figure
-    out_name = [pwd '/' working_date '/' project_name '_obs_data_mode_flags_' working_date '.png'];
-    export_fig(out_name)
+    if isexport == 1
+        % save figure
+        out_name = [export_dir '/' working_date '/' project_name '_obs_data_mode_flags_' working_date '.png'];
+        export_fig(out_name)
+    end
 end
 
 
@@ -634,10 +644,13 @@ if isbgc ==1
     % set(H,'units','pix')
     % annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Observations (> 1 year) to be done: ',num2str(round(obs_tobedone)),'%'],...
     %     'FitBoxToText','on','verticalalignment', 'bottom','HorizontalAlignment', 'right','FontWeight','bold')
-
-    % save figure
-    out_name = [pwd '/' working_date '/' project_name '_params_data_mode_flags_' working_date '.png'];
-    export_fig(out_name)
+    
+    
+    if isexport == 1
+        % save figure
+        out_name = [export_dir '/' working_date '/' project_name '_params_data_mode_flags_' working_date '.png'];
+        export_fig(out_name)
+    end
 end
 
 %% %%%%%%%%%%%%%% Fig 3 : Data Quality %%%%%%%%%%%%%%
@@ -680,9 +693,11 @@ if isbgc==0
     ax.YGrid = 'on';
     box on
 
-    % save figure
-    out_name = [pwd '/' working_date '/' project_name '_' variable '_QCstats_' working_date '.png'];
-    export_fig(out_name)
+    if isexport == 1
+        % save figure
+        out_name = [export_dir '/' working_date '/' project_name '_' variable '_QCstats_' working_date '.png'];
+        export_fig(out_name)
+    end
 end
 
 %% %%%%%%%%%%%%%% Fig 4 : Grey list  %%%%%%%%%%%%%%
@@ -726,9 +741,11 @@ text(4, total_greylist, Greylist_label, 'HorizontalAlignment','center', 'Vertica
 % text(4-0.25, total_greylist-30, Greylist_label(1:22,:), 'HorizontalAlignment','center', 'VerticalAlignment','bottom')
 % text(4+0.25, total_greylist-30, Greylist_label(23:end,:), 'HorizontalAlignment','center', 'VerticalAlignment','bottom')
 
-% save figure
-out_name = [pwd '/' working_date '/' project_name '_greylisted_floats_' working_date '.png'];
-export_fig(out_name)
+if isexport == 1
+    % save figure
+    out_name = [export_dir '/' working_date '/' project_name '_greylisted_floats_' working_date '.png'];
+    export_fig(out_name)
+end
 
 %% %%%%%%%%%%%%%% Fig 4 bis: Grey list per variables  %%%%%%%%%%%%%%
 
@@ -774,9 +791,11 @@ text(4, total_greylist, Greylist_label, 'HorizontalAlignment','center', 'Vertica
 % text(4-0.25, total_greylist-30, Greylist_label(1:22,:), 'HorizontalAlignment','center', 'VerticalAlignment','bottom')
 % text(4+0.25, total_greylist-30, Greylist_label(23:end,:), 'HorizontalAlignment','center', 'VerticalAlignment','bottom')
 
-% save figure
-out_name = [pwd '/' working_date '/' project_name '_greylisted_floats_per_variables_' working_date '.png'];
-export_fig(out_name)
+if isexport == 1
+    % save figure
+    out_name = [export_dir '/' working_date '/' project_name '_greylisted_floats_per_variables_' working_date '.png'];
+    export_fig(out_name)
+end
 
 %% %%%%%%%%%%%%%% Fig 5 : observation DMQC per year %%%%%%%%%%%%%%
 
@@ -815,9 +834,11 @@ for iyear = 1: length(year_names)
     text(iyear + 0.02, n_obs_peryear_DMQC(iyear) + 110,[num2str(round(n_obs_peryear_DMQC(iyear)/n_obs_peryear(iyear)*100,1)) ' %']);
 end
 
-% save figure
-out_name = [pwd '/' working_date '/' project_name '_obs_DMQCstatus_byyear_' working_date '.png'];
-export_fig(out_name)
+if isexport == 1
+    % save figure
+    out_name = [export_dir '/' working_date '/' project_name '_obs_DMQCstatus_byyear_' working_date '.png'];
+    export_fig(out_name)
+end
 
 %% %%%%%%%%%%%%%% Fig 6 : observation DMQC age histogram %%%%%%%%%%%%%%
 
@@ -825,7 +846,8 @@ figure(9)
 % bigger figure
 set(gcf, 'Position', [200, 200, 700, 600])
 % figure name
-set(gcf,'Name','Observations DMQC age histogram')% full screen
+set(gcf,'Name','Observations DMQC age histogram')
+% full screen
 set(gcf, 'Position', get(0, 'Screensize'));
 
 hndl = histogram(obs_age_notDM/365);
@@ -844,133 +866,166 @@ set(gcf,'color','w');
 ax = gca;
 ax.YGrid = 'on';
 
-% save figure
-out_name = [pwd '/' working_date '/' project_name '_obs_DMQCstatus_agehist_' working_date '.png'];
-export_fig(out_name)
-
+if isexport == 1
+    % save figure
+    out_name = [export_dir '/' working_date '/' project_name '_obs_DMQCstatus_agehist_' working_date '.png'];
+    export_fig(out_name)
+end
 
 
 %% Warnings
-% 
-% % floats with F cycles
-% % Ffiles_WMO = cellstr(Output.WMO(Output.var_qcF_prof > 0,:));
-% % floats > 1 year and never DMQC
-% neverDM_WMO = cellstr(Output.WMO(Output.percen_DMQC == 0 & Output.float_age > sage,:));
-% % floats grey list
-% greylist_WMO = cellstr(Output.WMO(Output.greylist,:));
-% 
-% % list all warnings
-% % Ffiles_WMO; 
-% allwarning_WMO = unique(cellstr([neverDM_WMO; greylist_WMO]));
-% n_warfloats = length(allwarning_WMO);
-% 
-% if n_warfloats > 0
-%     [wmo_sorted, isort] = sort(cellstr(Output.WMO));
-%     dm_sorted = cellstr(Output.DM(isort,:));
-% %     warning_dm = Output.DM(contains(cellstr(Output.WMO), allwarning_WMO),:);
-%     warning_dm = dm_sorted(contains(wmo_sorted, allwarning_WMO),:);
-%     warning1_str = repmat(' ',n_warfloats,1);
-% %     warning1_str(contains(allwarning_WMO, Ffiles_WMO)) = 'X';
-%     warning2_str = repmat(' ',n_warfloats,1);
-%     warning2_str(contains(allwarning_WMO, neverDM_WMO)) = 'X';
-%     warning3_str = repmat(' ',n_warfloats,1);
-%     warning3_str(contains(allwarning_WMO, greylist_WMO)) = 'X';
-% 
-%     % warning table
-% %     cellstr(warning1_str),allwarning_WMO, 
-%     warning_table = [cellstr(warning_dm),  cellstr(warning2_str), cellstr(warning3_str)]';
-% 
-%     % header and disp (is table is not empty)
-%     fprintf(2,'\n\n--------------------------------- WARNINGS ---------------------------------\n')
-%     disp(' ')
-% %     'At least 1cycle ' variable '_QC= F 
-%     header_war = ['WMO    DMQC operator        Never DMQC + >1 year    In grey list'];
-%     fprintf('  %s \n', header_war);
-%     fprintf('%s%15s%15s%30s%20s\n',warning_table{:})
-% end
+
+if isbgc ==0
+    % floats with F cycles
+    Ffiles_WMO = cellstr(Output.WMO(Output.var_qcF_prof > 0,:));
+    % floats > 1 year and never DMQC
+    neverDM_WMO = cellstr(Output.WMO(Output.percen_DMQC == 0 & Output.float_age > sage,:));
+    % floats grey list
+    greylist_WMO = cellstr(Output.WMO(Output.greylist,:));
+
+    % list all warnings
+    % Ffiles_WMO; 
+    allwarning_WMO = unique(cellstr([neverDM_WMO; greylist_WMO]));
+    n_warfloats = length(allwarning_WMO);
+
+    if n_warfloats > 0
+        [wmo_sorted, isort] = sort(cellstr(Output.WMO));
+        dm_sorted = cellstr(Output.DM(isort,:));
+    %     warning_dm = Output.DM(contains(cellstr(Output.WMO), allwarning_WMO),:);
+        warning_dm = dm_sorted(contains(wmo_sorted, allwarning_WMO),:);
+        warning1_str = repmat(' ',n_warfloats,1);
+        warning1_str(contains(allwarning_WMO, Ffiles_WMO)) = 'X';
+        warning2_str = repmat(' ',n_warfloats,1);
+        warning2_str(contains(allwarning_WMO, neverDM_WMO)) = 'X';
+        warning3_str = repmat(' ',n_warfloats,1);
+        warning3_str(contains(allwarning_WMO, greylist_WMO)) = 'X';
+
+        % warning table
+    %     cellstr(warning1_str),allwarning_WMO, 
+        warning_table = [cellstr(warning_dm), cellstr(warning1_str), cellstr(warning2_str), cellstr(warning3_str)]';
+
+        % header and disp (is table is not empty)
+        fprintf(2,'\n\n--------------------------------- WARNINGS ---------------------------------\n')
+        disp(' ')
+    %     'At least 1cycle ' variable '_QC= F 
+        header_war = ['WMO    DMQC operator        Never DMQC + >1 year    In grey list'];
+        fprintf('  %s \n', header_war);
+        max_country_str_length = size(char(warning_dm),2);
+%         formatSpec = ['%' max_country_str_length 's %15s %15s %15s \n'];
+        fprintf('%11s %15s %15s %15s \n', warning_table{:})
+    end
+end
 %   
 
 %% write text file with outputs
 % TODO explain variables in headed and resume at the end with statistics in
 % graphics (explain variables in pdf document)
 
-outfile = [pwd '/' working_date '/' 'DMQCstatus_'  Output.index_update(1:8) '.txt'];
-fprintf('\nSaving results in %s ...\n',outfile)
-
-fid=fopen(outfile,'w');
-
-% title and information
-
-fprintf(fid, '# \n');
-fprintf(fid, '# DMQC status and Data quality control statistics\n');
-
-fprintf(fid, '# \n');
-
-fprintf(fid, '# Project : %s\n', project_name);
-fprintf(fid, '# Update date : %s\n', Output.index_update);
-fprintf(fid, '# \n');
-fprintf(fid, '# \n');
-
-% Table 1: Statistics per float
-fprintf(fid, '# Statistics per float\n');
-% TODO explain variables
-% header
-header1 = ['WMO,' 'RT,' 'DM,' 'first_cycle_date,' 'DM_done,' 'float_age,'...
-    'float_more1year,' 'greylist,' 'obs_number,' 'obs_more1year,'...
-    'number_DMprof,' 'obs_more1year_noDM,' 'date_last_DMprof,' 'percentage_DMobs,'...
-    variable '_qcA_prof,' variable '_qcB_prof,' variable '_qcC_prof,' variable '_qcD_prof,'...
-    variable '_qcE_prof,' variable '_qcF_prof'];
-fprintf(fid, '%s \n', header1);
-% data
-table1 = [cellstr(Output.WMO), cellstr(Output.RT), cellstr(Output.DM),...
-          cellstr(Output.first_date), num2cell(Output.DM_done),...
-          num2cell(Output.float_age), num2cell(Output.float_more1year),...
-          num2cell(Output.greylist'), num2cell(Output.obs_number),...
-          num2cell(Output.obs_more1year), num2cell(Output.data_mode_D),...
-          num2cell(Output.obs_more1year_noDM), cellstr(Output.date_last_DMprof),...
-          num2cell(Output.percen_DMQC)]';
-%           num2cell(Output.var_qcA_prof'), num2cell(Output.var_qcB_prof'), num2cell(Output.var_qcC_prof'),...
-%           num2cell(Output.var_qcD_prof'), num2cell(Output.var_qcE_prof'),num2cell(Output.var_qcF_prof')]';
-fprintf(fid, '%s,%s,%s,%s,%d,%f,%d,%d,%d,%d,%d,%d,%s,%f,%d,%d,%d,%d,%d,%d\n',table1{:});
-
-
-% Table 2: Statistics per DM responsible
-fprintf(fid, '# \n');
-fprintf(fid, '# Statistics per DM operator\n');
-% TODO explain variables
-% header
-header2 = ['DM,' 'n_floats,' 'float_more1year,' 'float_DMdone,' 'n_obs,' 'obs_more1year,' ...
-    'obs_DMdone,' 'obs_more1year_DMQC,'];
-fprintf(fid, '%s \n', header2);
-% data
-table2 = [DM_operators, num2cell(number_floats'), num2cell(n_floats_more1year'),...
-    num2cell(n_floats_DMQC'), num2cell(obs_number'), num2cell(n_obs_more1year'),...
-    num2cell(n_obs_DMQC'), num2cell(n_obs_more1year_DMQC)']';
-fprintf(fid, '%s,%d,%d,%d,%d,%d,%d,%d\n',table2{:});
-
-
-% Table 3: Totals
-fprintf(fid, '# \n');
-fprintf(fid, '# Totals\n');
-% TODO explain variables
-% header
-header3 = ['n_floats,' 'float_more1year,' 'float_DMdone,' 'floats_greylist,'...
-    'n_obs,' 'obs_more1year,' 'obs_DMdone,' 'obs_more1year_noDM'];
-fprintf(fid, '%s \n', header3);
-% data
-table3 = [num2cell(n_floats), num2cell(total_more1year), num2cell(total_DMfloats),...
-    num2cell(total_greylist), num2cell(sum(obs_number)), num2cell(sum(n_obs_more1year)),...
-    num2cell(sum(n_obs_DMQC)),num2cell(sum(Output.obs_more1year_noDM))]';
-fprintf(fid, '%d,%d,%d,%d,%d,%d,%d,%d\n',table3{:});
-
-
-% % Table 4: Warnings
-% if n_warfloats > 0
+%%% Enlever le commentaire pour exporter en txt les fichiers
+% if isexport == 1
+%     outfile = [pwd '/' working_date  '/' Output.index_update(1:8) '.txt'];
+%     fprintf('\nSaving results in %s ...\n',outfile)
+% 
+%     fid=fopen(outfile,'w');
+% 
+%     % title and information
+% 
 %     fprintf(fid, '# \n');
-%     fprintf(fid, '# Warnings\n');
-%     fprintf(fid, '  %s \n', header_war);
-%     fprintf(fid, '%s%15s%15s%30s%20s\n',warning_table{:});
+%     fprintf(fid, '# DMQC status and Data quality control statistics\n');
+% 
+%     fprintf(fid, '# \n');
+% 
+%     fprintf(fid, '# Project : %s\n', project_name);
+%     fprintf(fid, '# Update date : %s\n', Output.index_update);
+%     fprintf(fid, '# \n');
+%     fprintf(fid, '# \n');
+% 
+%     if isbgc == 0
+%         % Table 1: Statistics per float
+%         fprintf(fid, '# Statistics per float\n');
+%         % TODO explain variables
+%         % header
+%         header1 = ['WMO,' 'RT,' 'DM,' 'first_cycle_date,' 'DM_done,' 'float_age,'...
+%             'float_more1year,' 'greylist,' 'obs_number,' 'obs_more1year,'...
+%             'number_DMprof,' 'obs_more1year_noDM,' 'date_last_DMprof,' 'percentage_DMobs,'...
+%             variable '_qcA_prof,' variable '_qcB_prof,' variable '_qcC_prof,' variable '_qcD_prof,'...
+%             variable '_qcE_prof,' variable '_qcF_prof'];
+%         fprintf(fid, '%s \n', header1);
+%         % data
+%         table1 = [cellstr(Output.WMO), cellstr(Output.RT), cellstr(Output.DM),...
+%                   cellstr(Output.first_date), num2cell(Output.DM_done),...
+%                   num2cell(Output.float_age), num2cell(Output.float_more1year),...
+%                   num2cell(Output.greylist'), num2cell(Output.obs_number),...
+%                   num2cell(Output.obs_more1year), num2cell(Output.data_mode_D),...
+%                   num2cell(Output.obs_more1year_noDM), cellstr(Output.date_last_DMprof),...
+%                   num2cell(Output.percen_DMQC),...
+%                   num2cell(Output.var_qcA_prof'), num2cell(Output.var_qcB_prof'), num2cell(Output.var_qcC_prof'),...
+%                   num2cell(Output.var_qcD_prof'), num2cell(Output.var_qcE_prof'),num2cell(Output.var_qcF_prof')]';
+%         fprintf(fid, '%s,%s,%s,%s,%d,%f,%d,%d,%d,%d,%d,%d,%s,%f,%d,%d,%d,%d,%d,%d,\n',table1{:});
+%     end
+% 
+%     if isbgc == 1
+%         % Table 1: Statistics per float
+%         fprintf(fid, '# Statistics per float\n');
+%         % TODO explain variables
+%         % header
+%         header1 = ['WMO,' 'RT,' 'DM,' 'first_cycle_date,' 'DM_done,' 'float_age,'...
+%             'float_more1year,' 'greylist,' 'obs_number,' 'obs_more1year,'...
+%             'number_DMprof,' 'obs_more1year_noDM,' 'date_last_DMprof,' 'percentage_DMobs,'...
+%             variable '_qcA_prof,' variable '_qcB_prof,' variable '_qcC_prof,' variable '_qcD_prof,'...
+%             variable '_qcE_prof,' variable '_qcF_prof'];
+%         fprintf(fid, '%s \n', header1);
+%         % data
+%         table1 = [cellstr(Output.WMO), cellstr(Output.RT), cellstr(Output.DM),...
+%                   cellstr(Output.first_date), num2cell(Output.DM_done),...
+%                   num2cell(Output.float_age), num2cell(Output.float_more1year),...
+%                   num2cell(Output.greylist'), num2cell(Output.obs_number),...
+%                   num2cell(Output.obs_more1year), num2cell(Output.data_mode_D),...
+%                   num2cell(Output.obs_more1year_noDM), cellstr(Output.date_last_DMprof),...
+%                   num2cell(Output.percen_DMQC)]';
+%         %           num2cell(Output.var_qcA_prof'), num2cell(Output.var_qcB_prof'), num2cell(Output.var_qcC_prof'),...
+%         %           num2cell(Output.var_qcD_prof'), num2cell(Output.var_qcE_prof'),num2cell(Output.var_qcF_prof')]';
+%         fprintf(fid, '%s,%s,%s,%s,%d,%f,%d,%d,%d,%d,%d,%d,%s,%f,\n',table1{:});
+%     end
+% 
+% 
+%     % Table 2: Statistics per DM responsible
+%     fprintf(fid, '# \n');
+%     fprintf(fid, '# Statistics per DM operator\n');
+%     % TODO explain variables
+%     % header
+%     header2 = ['DM,' 'n_floats,' 'float_more1year,' 'float_DMdone,' 'n_obs,' 'obs_more1year,' ...
+%         'obs_DMdone,' 'obs_more1year_DMQC,'];
+%     fprintf(fid, '%s \n', header2);
+%     % data
+%     table2 = [DM_operators, num2cell(number_floats'), num2cell(n_floats_more1year'),...
+%         num2cell(n_floats_DMQC'), num2cell(obs_number'), num2cell(n_obs_more1year'),...
+%         num2cell(n_obs_DMQC'), num2cell(n_obs_more1year_DMQC)']';
+%     fprintf(fid, '%s,%d,%d,%d,%d,%d,%d,%d\n',table2{:});
+% 
+% 
+%     % Table 3: Totals
+%     fprintf(fid, '# \n');
+%     fprintf(fid, '# Totals\n');
+%     % TODO explain variables
+%     % header
+%     header3 = ['n_floats,' 'float_more1year,' 'float_DMdone,' 'floats_greylist,'...
+%         'n_obs,' 'obs_more1year,' 'obs_DMdone,' 'obs_more1year_noDM'];
+%     fprintf(fid, '%s \n', header3);
+%     % data
+%     table3 = [num2cell(n_floats), num2cell(total_more1year), num2cell(total_DMfloats),...
+%         num2cell(total_greylist), num2cell(sum(obs_number)), num2cell(sum(n_obs_more1year)),...
+%         num2cell(sum(n_obs_DMQC)),num2cell(sum(Output.obs_more1year_noDM))]';
+%     fprintf(fid, '%d,%d,%d,%d,%d,%d,%d,%d\n',table3{:});
+% 
+% 
+%     % % Table 4: Warnings
+%     % if n_warfloats > 0
+%     %     fprintf(fid, '# \n');
+%     %     fprintf(fid, '# Warnings\n');
+%     %     fprintf(fid, '  %s \n', header_war);
+%     %     fprintf(fid, '%s%15s%15s%30s%20s\n',warning_table{:});
+%     % end
+% 
+%     fclose(fid);
 % end
-
-fclose(fid);
-

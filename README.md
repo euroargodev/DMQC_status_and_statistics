@@ -7,7 +7,10 @@ Notes:<br />
 (1)	Reading index file may take 2 or 3 minutes<br />
 (2)	It is better to use only ascent profiles (Dprof = 0) for coherence with figures from “get_DMQC_adjustment.m” script<br />
 (3) The input list of floats must be divided in 3 columns: WMO, RT (dac in charge of real time
-processing) and DM (institution in charge of delayed mode processing), separated by ';'.
+processing) and DM (institution in charge of delayed mode processing), separated by ';'.<br />
+(4) For now, some errors might occur if the user input a list of floats that are not all on the GDAC. This problem should be fixed soon.<br />
+(5) Also, the supposed "txt" output is for now commented because it was source for error. Will be fixed in a future update.<br />
+(6) The bio-argo-index-detailled is, since mid 2021, contaning the quality flags of the different BGC variables, improving the outputs of this script.<br />
 
 Different Outputs produced:
 - State of the DMQC per DACs, in number of floats and/or observations<br />
@@ -20,7 +23,7 @@ Different Outputs produced:
 ![alt text](https://github.com/euroargodev/DMQC_status_and_statistics/blob/main/Images/DMQC_stats_FSD_greylisted_floats_per_variables_20210414.png?raw=true)
 
    
-2.	Variable adjustments for a list of floats (get_DMQC_adjustment.m)<br />
+2.	Variable adjustments for a list of floats (DMQC_adjustment.m)<br />
 Description of the script:<br />
 Shows variable adjustment and state of DMQC for a list of floats. Contrary to "DMQC_stats.m", this script gathers data from the profiles files and not an index.<br />
 Notes: <br />

@@ -25,18 +25,10 @@
 % (2) Descent profiles are not included
 % (3) Format options (number of floats per figure and yaxis ticks size)
 % can be modified below
-%
-% Modified on 20191126
 
 close all                  
 clear variables
 
-% add paths (packages and auxiliary functions)
-% aux_functions_path = [pwd '/aux_functions'];
-% % aux_functions_path = '/home1/datahome/co_arg/agarciaj/DMQC_status/aux_functions';
-% addpath(genpath(aux_functions_path))
-
-% addpath /home1/datahome/co_arg/rcancoue/decodeur_matlab/work_Romain
 addpath /home1/datahome/co_arg/larduini/Scripts/Toolbox
 addpath /home1/datahome/co_arg/larduini/Scripts/Toolbox/flexLegend/legendflex
 addpath /home1/datahome/co_arg/larduini/Scripts/Toolbox/flexLegend/setgetpos_V1.2
@@ -48,18 +40,18 @@ addpath /home1/datahome/co_arg/larduini/Scripts/Toolbox/export_fig-master % expo
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 project_name = 'DMQC_adjustments_FSD_CTD'; % for png files names
 
-floats_file_dir = '/home1/datahome/co_arg/larduini/Lists/European_CTD_FSD_SN_for_DMQC_status.csv'
+floats_file_dir = '/home1/datahome/co_arg/larduini/Lists/DMQC/Floats_romain_for_DMQC_V3.csv'
 dac_dir = '/home/ref-argo/gdac/dac'
 
-variable='PSAL' % Variable to retrieve in the netcdf file. Examples: "PSAL" ; "TEMP"; "DOXY"
-units = 'PSU' %other examples: °C or PSAL. Only used for figures titles and names
+variable='DOXY' % Variable to retrieve in the netcdf file. Examples: "PSAL" ; "TEMP"; "DOXY"
+units = 'PSU' %other examples: °C or PSU. Only used for figures titles and names
 
 % -b file pattern
-var_bio = 0;
+var_bio = 1; % Either 0 or 1. Put 1 if it's a BGC variable. It will enable the script to search for b-files patterns
 
-update_date = datestr(now(),'yyyy-mm-dd'); % dac update date (if it is not 
-% today because we are working with a snapshot, change it)
+update_date = datestr(now(),'yyyy-mm-dd'); % dac update date (if it is not today because we are working with a snapshot, change it)
 export_dir = '/home1/datahome/co_arg/larduini/Exports/DMQC/DMQC_adjustements'
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FORMAT OPTIONS
 % if so many floats, figures are divided. Number of floats in each figure 
@@ -67,9 +59,6 @@ export_dir = '/home1/datahome/co_arg/larduini/Exports/DMQC/DMQC_adjustements'
 floats_per_fig = 40; % number of floats per figure (80 is the very limit)
 fontsize_wmo = 10; % yaxis ticks font size (8 is the limit)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% TODO: VAR IMPUT: PRES var AND temp
-% TODO : dimensions struc
 
 % read floats floats list
 [floats_list] = read_csv(floats_file_dir,';');
