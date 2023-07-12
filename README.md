@@ -52,12 +52,12 @@ This script computes DMQC statistics for a given list of floats <br />
  - **Copy of input files** saved in folder outputs_yyyy-mm-dd
 
  **Auxiliary functions needed**
-    - read_csv 
-    - get_data_from_index 
-    - plotBarStackGroups 
+  - read_csv
+  - get_data_from_index 
+  - plotBarStackGroups 
 
- **WARNING** : Profile_QC for PRES information is not yet available. IndexData<br />
- is filled with qc="X" for the moment, and plots related to pres profile<br />
+ **WARNING** : Profile_QC for PRES information is not yet available in the Argo detailed index. <br />
+ It is filled with qc="X" in the scriptfor the moment, and plots related to pres profile<br />
  qc are skipped.<br />
 
  **Author**: Euro-Argo ERIC (contact@euro-argo.eu)<br />
