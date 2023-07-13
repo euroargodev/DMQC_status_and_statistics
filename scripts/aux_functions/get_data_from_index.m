@@ -1,4 +1,4 @@
-function [IndexData] = get_data_from_index(index_file, float_ref, i_descending_profile,i_bgc,list_of_parameters_to_treat)
+function [IndexData] = get_data_from_index(index_file, nb_header_lines,float_ref, i_descending_profile,i_bgc,list_of_parameters_to_treat)
 % get_data_from_index gets relevant variables from index file for later
 % processing
 %
@@ -25,7 +25,7 @@ function [IndexData] = get_data_from_index(index_file, float_ref, i_descending_p
 %
 % Author: Euro-Argo ERIC (contact@euro-argo.eu)
 %
-% Version: 3.1 (2023/07/12)
+% Version: 3.1 (2023/07/13)
 %
 %
 % Historic:
@@ -44,17 +44,19 @@ function [IndexData] = get_data_from_index(index_file, float_ref, i_descending_p
 %        - add DAC fetching from the index instead of requiring an input.
 %        - record unfound wmos in the output for file recording.
 %        - initiate list_of_parameters output in the core index case
-% v3.1  (2023/07/12):
+% v3.1  (2023/07/13):
 %        - add ad_psal_adjustement_mean to the function output (i_bgc=0
 %          case)
 %        - fill prof_pres_qc with X instead of prof_temp_qc values, not to
 %        mislead the graph reader (prof_pres_qc not available in index
 %        yet).
+%        - add number of header lines in the function argument (cases when 
+%        index file optimization is not possible).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 % no descending profiles defaut value
-if nargin == 2
+if nargin == 3
     i_descending_profile = 0;
     i_bgc=0;
     list_of_parameters_to_treat=["TEMP"; "PRES"; "PSAL"];
@@ -75,7 +77,7 @@ float_ref_char = char(float_ref);
 
 
 disp('---- Loading the index file in a Matlab table and convert to string format')
-RT_OUT = readtable(index_file,'Headerlines',0);
+RT_OUT = readtable(index_file,'Headerlines',nb_header_lines);
 RT_OUT_column_name= RT_OUT.Properties.VariableNames;
 RT_OUT = string(table2cell(RT_OUT));
 
