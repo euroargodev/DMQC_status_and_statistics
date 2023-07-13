@@ -64,7 +64,7 @@
 %
 % Author: Euro-Argo ERIC (contact@euro-argo.eu)
 %
-% Version: 3.1 (2023/07/12)
+% Version: 3.1 (2023/07/13)
 %
 % Historic:
 % V1.0 : This script originally created by Andrea Garcia Juan and Romain
@@ -85,7 +85,7 @@
 % V3.0  (2023/07/10):
 %        - merge CTD and BGC processings (no need for the user to know
 %          which WMO is BGC, which one is not).
-% V3.1  (2023/07/12):
+% V3.1  (2023/07/13):
 %        - add plot with the number of R/A/D profiles per variable
 %        - add plots with information by cycle and by WMO:
 %               - R/A/D status
@@ -94,10 +94,15 @@
 %            => These plots replace the old get_DMQC_adjustment.m script.
 %        - stop duplicating graphs for CTD mode, 
 %        - skip plots with PRES profile_QC (information not yet available in index)
+%        - add work-around treatments when command system are not available
+%        - add scalability performance information
+%        - correct code warnings 
+%        - correct bug for wmos_operational that was overwritten in loop
 
+%option explicit
 
 clear variables
-clear all
+close all
 
 % inputs and configuration
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -126,7 +131,7 @@ switch icase
         
     case 3
         test_case_dir = '/home1/datahome/co_arg/ddobler/DMQC_Status/03_RBR_case/';
-        i_bgc = 0;
+        i_bgc = 1;
         wmo_list_file = [test_case_dir 'input_files/wmo_list_all_rbr_floats.txt'];
         country_code_file = [test_case_dir 'input_files/country_codes.csv'];
         project_name = 'RBR_Fleet';
@@ -209,73 +214,38 @@ end
 
 disp('-- creating a local copy of the index file ...')
 local_index_file=[output_dir 'argo_profile_detailled_index_' test_date '.txt'];
-cmd = ['cp ' index_file ' ' local_index_file];
-system(cmd);
+copyfile(index_file,local_index_file)
+
 if i_bgc == 1
     local_index_synthetic_file=[output_dir 'argo_synthetic-profile_detailled_index_' test_date '.txt'];
-    cmd = ['cp ' index_file_synthetic ' ' local_index_synthetic_file];
-    system(cmd);
+    copyfile(index_file_synthetic,local_index_synthetic_file)
 end
-
 
 
 local_greylist_file=[output_dir 'ar_greylist_' test_date '.txt'];
 disp('-- creating a local copy of the greylist file ...')
-cmd = ['cp ' greylist_file ' ' local_greylist_file];
-system(cmd);
+copyfile(greylist_file,local_greylist_file)
+
 
 local_wmo_list_file=[output_dir 'wmo_list_treated_' test_date '.txt'];
 disp('-- creating a local copy of the wmo_list file ...')
-cmd = ['cp ' wmo_list_file ' ' local_wmo_list_file];
-system(cmd);
+copyfile(wmo_list_file,local_wmo_list_file)
+
 
 local_country_code_file=[output_dir 'country_code_' test_date '.txt'];
 disp('-- creating a local copy of the country_code file ...')
-cmd = ['cp ' country_code_file ' ' local_country_code_file];
-system(cmd);
-
-
-% optimizing sequence (can be used for small number of floats or modified for larger number - i.e. grep by dac for instance) :
-% tested with 38 floats ~ [3 to 4] sec (performance is ranged as it depends on workload on
-% datarmor)
-% tested with 4417 floats ~ [10 to 15] sec (typical number for the European
-% Fleet)
-disp('-- optimizing index_file content ...')
-cmd = ['awk ' char(39) 'BEGIN{FS=";"}{print $1}' char(39) ' ' wmo_list_file ' > '  wmo_list_file_short];
-system(cmd);
-%%cmd = ['grep ^# ' local_index_file ' > ' index_file_short];
-%%system(cmd);
-cmd = ['grep ^file ' local_index_file ' > ' index_file_short];
-system(cmd);
-cmd = ['grep -f ' wmo_list_file_short ' ' local_index_file ' >> ' index_file_short];
-system(cmd);
-if i_bgc ==1
-    cmd = ['grep ^file ' local_index_synthetic_file ' > ' index_file_synthetic_short];
-    system(cmd);
-    cmd = ['grep -f ' wmo_list_file_short ' ' local_index_synthetic_file ' >> ' index_file_synthetic_short];
-    system(cmd);
-    cmd = ['wc -l ' index_file_synthetic_short '| awk ' char(39) '{print $1}' char(39)];
-    [~,n_line]=system(cmd);
-    n_line=double(string(n_line));
-    if n_line == 1
-        disp('There is no entry (BGC) in the synthetic index file for this list of float: back to i_bgc=0')
-        i_bgc=0;
-    end
-end
-disp ('-- End of optimizing index_file content')
-
+copyfile(country_code_file,local_country_code_file)
 
 % read wmo list of floats to be treated
 disp('-- reading wmo list to treat ...')
 [Floats_list] = read_csv(wmo_list_file,';');
 n_floats = size(Floats_list.WMO,1);
 fprintf('-- number of floats : %d\n',n_floats)
-%Floats_list.COUNTRY=string(Floats_list.COUNTRY);
 
 % read country_codes
 disp('-- reading country_codes mapping ...')
 [Country_codes] = read_csv(country_code_file,';');
-%Country_codes.COUNTRY=string(Country_codes.COUNTRY);
+
 
 % map country_codes into floats_list structure:
 l_min=min(size(Floats_list.COUNTRY,2),size(Floats_list.COUNTRY,2));
@@ -287,17 +257,176 @@ disp('-- reading greylist ...')
 [grey_list] = read_csv(local_greylist_file,',');
 disp('-- end of greylist reading ...')
 
-% Read index file
-disp('-- Entering get_data_from_index for CTD parameters')
-% new design: 36 s for 4417 floats/ 606300 profiles (instead of 2000 to 2500 s depending on datarmor load with the previous design)
-[IndexData_CTD] = get_data_from_index(index_file_short, cellstr(Floats_list.WMO)',i_descending_profile,0,input_list_of_parameters_to_treat);
-list_of_CTD_parameters_to_treat=IndexData_CTD.ParamList;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% optimizing sequence
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+disp('-- optimizing index_file content ...')
 
+data=cellstr(strcat(Floats_list.WMO,"/"))';
+file_id = fopen(wmo_list_file_short, 'w');
+fprintf(file_id, '%s\n', data{:});
+fclose(file_id);
+
+nb_header_lines_core=0;
+nb_header_lines_bgc=0;
+
+try
+    disp('--- using unix commands')
+    tic
+    cmd = ['grep ^file ' local_index_file ' > ' index_file_short];
+    system(cmd);
+    cmd = ['grep -f ' wmo_list_file_short ' ' local_index_file ' >> ' index_file_short];
+    system(cmd);
+
+    if i_bgc ==1
+        cmd = ['grep ^file ' local_index_synthetic_file ' > ' index_file_synthetic_short];
+        system(cmd);
+        cmd = ['grep -f ' wmo_list_file_short ' ' local_index_synthetic_file ' >> ' index_file_synthetic_short];
+        system(cmd);
+        cmd = ['wc -l ' index_file_synthetic_short '| awk ' char(39) '{print $1}' char(39)];
+        [~,n_line]=system(cmd);
+        n_line=double(string(n_line));
+        if n_line == 1
+            disp('There is no entry (BGC) in the synthetic index file for this list of float: back to i_bgc=0')
+            i_bgc=0;
+        end
+    end
+    toc
+    
+catch
+    % If unix commands are not available:
+    % switching to an equivalent in Matlab
+    % This equivalent is far less performant:
+    %    Matlab vs  Unix for Load
+    %  -   50 s vs  4 s  for  100 floats
+    %  -  119 s vs  4 s  for  200 floats
+    %  -  360 s vs  8 s  for  726 floats
+    %  - 2400 s vs 86 s  for 4443 floats 
+    % as the readtable function from get_data_from_index takes 300 second
+    % for the whole Argo fleet, the optimization using equivalent
+    % unix-function in Matlab will be performed only when n_floats < 200
+    % N.B: the Matlab grep command has a different
+    % order in outputs compared to the unix command.
+    % once sorted, both outputs match.
+    
+    
+    disp('--- unix commands not available on your system; Loading performances are degraded.')
+    
+    if n_floats > 200
+        
+        disp('---- too large number of float for optimization through Matlab equivalent')
+        %tic
+        [~,P]=grep('-s','#',local_index_file); % 3 seconds
+        %toc
+        nb_header_lines_core=P.lcount;
+        copyfile(local_index_file,index_file_short)
+        
+        if i_bgc ==1
+            %tic
+            [~,P]=grep('-s','#',local_index_synthetic_file); % 0.3 seconds
+            %toc
+            nb_header_lines_bgc=P.lcount;
+            copyfile(local_index_synthetic_file,index_file_synthetic_short)
+        end
+        
+        clearvars P
+        
+    else    
+    
+        disp('---- Optimization through Matlab unix-like commands')
+
+        tic
+        disp('---- header for core')
+        [~,PH]=grep('-s','latitude',local_index_file);
+        toc
+        data=cellstr(PH.match);
+        file_id = fopen(index_file_short, 'w');
+        fprintf(file_id, '%s\n', data{:});
+        fclose(file_id);
+
+        tic
+        disp('---- grep pattern file for core')
+        % warning: option '-f' and pattern file (wmo_list_file_short) must
+        % be consecutive in the arguments of the function.
+        [~,P]=grep('-s','-f',wmo_list_file_short,local_index_file);
+        toc
+        data=cellstr(P.match);
+        file_id = fopen(index_file_short, 'a');
+        fprintf(file_id, '%s\n', data{:});
+        fclose(file_id);
+
+
+        if i_bgc ==1
+
+            tic
+            disp('---- header for synthetic')
+            [~,PH]=grep('-s','file,date',local_index_synthetic_file);
+            toc
+            data=cellstr(PH.match);
+            file_id = fopen(index_file_synthetic_short, 'w');
+            fprintf(file_id, '%s\n', data{:});
+            fclose(file_id);
+
+            tic
+            disp('---- grep pattern file for synthetic')
+            [~,P]=grep('-s','-f',wmo_list_file_short,local_index_synthetic_file);
+            toc
+            if size(P.match) > 0
+                data=cellstr(P.match);
+                file_id = fopen(index_file_synthetic_short, 'a');
+                fprintf(file_id, '%s\n', data{:});
+                fclose(file_id);
+            else
+                disp('There is no entry (BGC) in the synthetic index file for this list of float: back to i_bgc=0')
+                i_bgc=0;
+            end
+        end
+        
+        clearvars P PH
+    end
+    
+end
+disp ('-- End of optimizing index_file content')
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% end of index optimizing sequence
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Read index file
+tic
+% Performances are approximately the following on datarmor (and using 15 GB of RAM):
+%       -  23s for   591 000 lines (4443 floats).
+%       - 300s for 2 832 660 lines (all argo floats at 2023/07/13)
+%       - 391s for 3 500 000 lines (+ 23 % ~ + 4   yr - scalability test)
+%       - 485s for 4 000 000 lines (+ 41 % ~ + 6.7 yr - scalability test)
+%      unknown for 5 665 311 lines (+100 % ~ +16   yr => failed with mem=15g)
+% The time estimates associated to the increase in line numbers assumes:
+% + 4700 * 36 = + 169 200 profiles per year (OneArgo target).
+
+
+disp('-- Entering get_data_from_index for CTD parameters')
+[IndexData_CTD] = get_data_from_index(index_file_short, ...
+                                      nb_header_lines_core, ...
+                                      cellstr(Floats_list.WMO)', ...
+                                      i_descending_profile, ...
+                                      0, ...
+                                      input_list_of_parameters_to_treat);
+list_of_CTD_parameters_to_treat=IndexData_CTD.ParamList;
+toc
 
 
 if i_bgc ==1
     disp('-- Entering get_data_from_index for BGC parameters')
-    [IndexData_BGC] = get_data_from_index(index_file_synthetic_short, cellstr(Floats_list.WMO)',i_descending_profile,1,input_list_of_BGC_parameters_to_treat);
+    [IndexData_BGC] = get_data_from_index(index_file_synthetic_short, ...
+                                          nb_header_lines_bgc, ...
+                                          cellstr(Floats_list.WMO)', ...
+                                          i_descending_profile,...
+                                          i_bgc,...
+                                          input_list_of_BGC_parameters_to_treat);
     list_of_BGC_parameters_to_treat=IndexData_BGC.ParamList;
     
     % DEBUG
@@ -382,18 +511,25 @@ else
     %IndexData.WMOs_unfound_in_IndexFile.CTD=IndexData_CTD.WMOs_unfound_in_IndexFile;
 end
 
+clearvars IndexData_CTD IndexData_BGC
+
 disp('-- End of get_data_from_index')
 
 n_param=size(list_of_parameters_to_treat,1);
 
 % Get the update date of the index file
-cmd = ['grep "Date of update" ' local_index_file ' | awk ' char(39) '{print $NF}' char(39)];
-[status,IndexData.index_update]=system(cmd);
+try
+    cmd = ['grep "Date of update" ' local_index_file ' | awk ' char(39) '{print $NF}' char(39)];
+    [status,IndexData.index_update]=system(cmd);
+catch
+    [~,P]=grep('-s',' Date of update', local_index_file);
+    tmp=split(P.match," ");
+    IndexData.index_update=char(tmp(end));
+end
 update_date_str=datestr(datenum(IndexData.index_update,'yyyymmddHHMMSS'),'yyyy-mm-dd');
 
 % Creating output directory:
 working_date = IndexData.index_update(1:8);
-
 
 toc
 
@@ -434,8 +570,8 @@ for i=1:n_param
     % Index the wmos that are still operational (to compute greylist
     % proportion)
     i_recent_profiles=(IndexData.profile_age < 30);
-    wmos_operational=unique(IndexData.profile_WMO(i_recent_profiles & IndexData.param.(i_param).presence==1));
-    nb_operational_floats.(i_param)=size(wmos_operational,1);
+    wmos_operational.(i_param)=unique(IndexData.profile_WMO(i_recent_profiles & IndexData.param.(i_param).presence==1));
+    nb_operational_floats.(i_param)=size(wmos_operational.(i_param),1);
     
     % Index the profiles that were DMQCed
     i_DMQCed.(i_param)=(IndexData.param.(i_param).mode == 'D');
@@ -647,13 +783,13 @@ for i=1:n_param
 
     i_wmo_ope_in_greylist_with_qc_3_or_4.(i_param)  = contains(string(grey_list.PARAMETERNAME),i_param) & ...
                                                  (grey_list.QUALITYCODE == '3' | grey_list.QUALITYCODE == '4') & ...
-                                                 ismember(string(grey_list.PLATFORMCODE),string(wmos_operational));
+                                                 ismember(string(grey_list.PLATFORMCODE),string(wmos_operational.(i_param)));
     nb_wmo_ope_in_greylist_with_qc_3_or_4.(i_param) = sum(i_wmo_ope_in_greylist_with_qc_3_or_4.(i_param));
 
     i_wmo_inactiveR_in_greylist_with_qc_3_or_4.(i_param)  = contains(string(grey_list.PARAMETERNAME),i_param) & ...
                                                  (grey_list.QUALITYCODE == '3' | grey_list.QUALITYCODE == '4') & ...
                                                  ismember(string(grey_list.PLATFORMCODE),string(wmos_with_R_or_A_profile.(i_param))) & ...
-                                                 ~ismember(string(grey_list.PLATFORMCODE),string(wmos_operational));
+                                                 ~ismember(string(grey_list.PLATFORMCODE),string(wmos_operational.(i_param)));
     nb_wmo_inactiveR_in_greylist_with_qc_3_or_4.(i_param) = sum(i_wmo_inactiveR_in_greylist_with_qc_3_or_4.(i_param));
 
 
@@ -661,7 +797,7 @@ for i=1:n_param
                                                  (grey_list.QUALITYCODE == '3' | grey_list.QUALITYCODE == '4') & ...
                                                  ismember(string(grey_list.PLATFORMCODE),string(Floats_list.WMO)) & ...
                                                  ~ismember(string(grey_list.PLATFORMCODE),string(wmos_with_R_or_A_profile.(i_param))) & ...
-                                                 ~ismember(string(grey_list.PLATFORMCODE),string(wmos_operational));
+                                                 ~ismember(string(grey_list.PLATFORMCODE),string(wmos_operational.(i_param)));
     nb_wmo_inactiveD_in_greylist_with_qc_3_or_4.(i_param) = sum(i_wmo_inactiveD_in_greylist_with_qc_3_or_4.(i_param));
 
 end
@@ -717,7 +853,7 @@ end
 % No need to to special computations for this one.
 
 toc
-disp(['End of computations for graphics'])
+disp('End of computations for graphics')
 disp('######################')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -820,7 +956,7 @@ for i=1:n_param
     set(hndl(2,1),'facecolor',bars_colors(4,:))
     set(hndl(2,2),'facecolor',bars_colors(2,:))
     % xlabels
-    set(gca,'xtick',[1:n_countries],'xticklabel', nb_per_country_x)
+    set(gca,'xtick',1:n_countries,'xticklabel', nb_per_country_x)
     % title with update date
     title(['Float DMQC status for ' char(i_param_str) ' by country (updated ',update_date_str,')'], 'Interpreter', 'none')
     ylabel('Number of floats')
@@ -852,19 +988,13 @@ for i=1:n_param
     ymax=max(nb_floats_per_country.(i_param));
     set(gca,'YLim',[0 ymax+ymax/4]);
     eps=0.02;
-    for i =1:n_countries
-        text(i-eps , nb_floats_per_country.(i_param)(i) + ymax/30, ...
-            num2str(nb_floats_per_country.(i_param)(i)) , ...
+    for i_country =1:n_countries
+        text(i_country-eps , nb_floats_per_country.(i_param)(i_country) + ymax/30, ...
+            num2str(nb_floats_per_country.(i_param)(i_country)) , ...
             'HorizontalAlignment', 'right');
-%         text(i-eps, nb_floats_DMQCed_per_country.(i_param)(i) + ymax/30, ...
-%             num2str(nb_floats_DMQCed_per_country.(i_param)(i)) , ...
-%             'HorizontalAlignment', 'center');
-        text(i+eps, nb_floats_xage_per_country.(i_param)(i) + ymax/30, ...
-            num2str(nb_floats_xage_per_country.(i_param)(i)), ...
+        text(i_country+eps, nb_floats_xage_per_country.(i_param)(i_country) + ymax/30, ...
+            num2str(nb_floats_xage_per_country.(i_param)(i_country)), ...
             'HorizontalAlignment', 'left');
-%         text(i+eps, nb_floats_xage_DMQCed_per_country.(i_param)(i) + ymax/30, ...
-%             num2str(nb_floats_xage_DMQCed_per_country.(i_param)(i)), ...
-%             'HorizontalAlignment', 'center');
     end
     
 
@@ -921,7 +1051,7 @@ for i=1:n_param
     set(hndl(2,1),'facecolor',bars_colors(4,:))
     set(hndl(2,2),'facecolor',bars_colors(2,:))
     % xlabels
-    set(gca,'xtick',[1:n_countries],'xticklabel', nb_per_country_x)
+    set(gca,'xtick',1:n_countries,'xticklabel', nb_per_country_x)
     % title with update date
     title(['Profile DMQC status for ' char(i_param_str) ' by country (updated ',update_date_str,')'], 'Interpreter', 'none')
     ylabel('Number of profiles')
@@ -983,9 +1113,10 @@ for i=1:n_param
 
     colormap(parula)
     hold on
-    for i=1:7
-        bT=bar(i,nb_profiles_per_qc.(i_param)(i),0.3,'FaceColor',bars_colors(4+i,:));
-        bD=bar(i+0.3,nb_profiles_DMQCed_per_qc.(i_param)(i),0.3,'FaceColor',bars_colors(13+i,:));
+
+    for ix=1:7
+        bT=bar(ix,nb_profiles_per_qc.(i_param)(ix),0.3,'FaceColor',bars_colors(4+ix,:));
+        bD=bar(ix+0.3,nb_profiles_DMQCed_per_qc.(i_param)(ix),0.3,'FaceColor',bars_colors(13+ix,:));
     end
     
 
@@ -1001,16 +1132,18 @@ for i=1:n_param
     % figure labels
     ymax=max(nb_profiles_per_qc.(i_param));
     set(gca,'YLim',[0 ymax+ymax/4]);
-    for i =1:7
-        h=text(i+0.17 , nb_profiles_per_qc.(i_param)(i) + ymax/20, ...
-            [num2str(nb_profiles_per_qc.(i_param)(i)) newline num2str(round(100*nb_profiles_per_qc.(i_param)(i)/sum(nb_profiles_per_qc.(i_param)),1)) '%'], ...
+    for ix =1:7
+        text(ix+0.17 , nb_profiles_per_qc.(i_param)(ix) + ymax/20, ...
+            [num2str(nb_profiles_per_qc.(i_param)(ix)) newline ...
+             num2str(round(100*nb_profiles_per_qc.(i_param)(ix)/ ...
+                       sum(nb_profiles_per_qc.(i_param)),1)) '%'], ...
             'HorizontalAlignment', 'right');
-        %set(h,'Rotation',90);
-        h=text(i+0.17, nb_profiles_DMQCed_per_qc.(i_param)(i) + ymax/20, ...
-            ['D-' num2str(nb_profiles_DMQCed_per_qc.(i_param)(i)) newline ...
-             num2str(round(100*nb_profiles_DMQCed_per_qc.(i_param)(i)/sum(nb_profiles_DMQCed_per_qc.(i_param)),1)) '%'], ...
+
+        text(ix+0.17, nb_profiles_DMQCed_per_qc.(i_param)(ix) + ymax/20, ...
+            ['D-' num2str(nb_profiles_DMQCed_per_qc.(i_param)(ix)) newline ...
+                  num2str(round(100*nb_profiles_DMQCed_per_qc.(i_param)(ix)/ ...
+                            sum(nb_profiles_DMQCed_per_qc.(i_param)),1)) '%'], ...
             'HorizontalAlignment', 'left');
-        %set(h,'Rotation',90);
     end
     % background color
     set(gcf,'color','w');
@@ -1244,19 +1377,19 @@ for i=1:n_param
     % figure labels
     ymax=max(nb_float_tot.(i_param));
     set(gca,'YLim',[0 ymax+ymax/5]);
-    h=text(1, nb_float_tot.(i_param) + ymax/20, num2str(nb_float_tot.(i_param)), ...
+    text(1, nb_float_tot.(i_param) + ymax/20, num2str(nb_float_tot.(i_param)), ...
         'HorizontalAlignment', 'center');
-    h=text(2, nb_float_xage_tot.(i_param) + ymax/20, num2str(nb_float_xage_tot.(i_param)), ...
+    text(2, nb_float_xage_tot.(i_param) + ymax/20, num2str(nb_float_xage_tot.(i_param)), ...
         'HorizontalAlignment', 'center');
-    h=text(3, nb_float_DMQCed_tot.(i_param) + ymax/20, num2str(nb_float_DMQCed_tot.(i_param)), ...
+    text(3, nb_float_DMQCed_tot.(i_param) + ymax/20, num2str(nb_float_DMQCed_tot.(i_param)), ...
         'HorizontalAlignment', 'center');
-    h=text(4, nb_floats_xage_DMQCed_tot.(i_param) + ymax/20, num2str(nb_floats_xage_DMQCed_tot.(i_param)), ...
+    text(4, nb_floats_xage_DMQCed_tot.(i_param) + ymax/20, num2str(nb_floats_xage_DMQCed_tot.(i_param)), ...
         'HorizontalAlignment', 'center');
-    h=text(5, nb_wmo_ope_in_greylist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_ope_in_greylist_with_qc_3_or_4.(i_param)), ...
+    text(5, nb_wmo_ope_in_greylist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_ope_in_greylist_with_qc_3_or_4.(i_param)), ...
         'HorizontalAlignment', 'center');
-    h=text(6, nb_wmo_inactiveR_in_greylist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_inactiveR_in_greylist_with_qc_3_or_4.(i_param)), ...
+    text(6, nb_wmo_inactiveR_in_greylist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_inactiveR_in_greylist_with_qc_3_or_4.(i_param)), ...
         'HorizontalAlignment', 'center');
-    h=text(7, nb_wmo_inactiveD_in_greylist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_inactiveD_in_greylist_with_qc_3_or_4.(i_param)), ...
+    text(7, nb_wmo_inactiveD_in_greylist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_inactiveD_in_greylist_with_qc_3_or_4.(i_param)), ...
         'HorizontalAlignment', 'center');
 
 
@@ -1305,7 +1438,7 @@ for i=1:n_param
     % figure name
     set(gcf,'Name','DMQC status per profile year')
 
-    if (nb_per_year_x(1) == '1980')
+    if (nb_per_year_x(1) == string(1980))
         nb_per_year_x_cr=nb_per_year_x(2:end);
         nb_profiles_DMQCed_per_year_cr=nb_profiles_DMQCed_per_year.(i_param)(2:end);
         nb_profiles_per_year_cr=nb_profiles_per_year.(i_param)(2:end);
@@ -1326,7 +1459,7 @@ for i=1:n_param
     set(hndl(2),'facecolor',bars_colors(3,:))
     % xlabels
     %set(gca,'xtick',str2double(nb_per_year_x))
-    set(gca,'xtick',1:length(nb_per_year_x_cr),'xticklabel', [nb_per_year_x_cr])
+    set(gca,'xtick',1:length(nb_per_year_x_cr),'xticklabel', nb_per_year_x_cr)
     xtickangle(90)
     % title with update date
     title(['DMQC status for ' char(i_param_str) ' per profile year (updated ',update_date_str,')'], 'Interpreter', 'none')
@@ -1773,7 +1906,7 @@ if output_graphs_per_float ==1
         % plot using scatter plot
         scatter(xx_iR,yy_iR,10,'o','filled','MarkerFaceColor',[0.78 0.78 0.78])
         % output the legend
-        lgd1=['R-profiles (not QC F)'];
+        lgd1='R-profiles (not QC F)';
 
         
         
@@ -1786,7 +1919,7 @@ if output_graphs_per_float ==1
         % plot using scatter plot
         scatter(xx_iQC,yy_iQC,10,'o','filled','MarkerFaceColor','black')
         % output the legend
-        lgd2=['R, A or D profiles with QC F'];
+        lgd2='R, A or D profiles with QC F';
         [lh,~] = legend(lgd1,lgd2,'Location','northeast');
         set(lh,'FontSize',10);
         
@@ -2299,7 +2432,7 @@ if i_bgc == 1
         fprintf(fid, '\n');
     else
         fprintf(fid, '# List of requested BGC parameters that were not found in the synthetic index file\n');
-        table5 = [cellstr(IndexData.ParamNotFound_In_BGC_Index_Requested)]';
+        table5 = cellstr(IndexData.ParamNotFound_In_BGC_Index_Requested)';
         fprintf(fid, '%s\n',table5{:});   
         fprintf(fid, '\n');   
     end
@@ -2309,7 +2442,7 @@ if i_bgc == 1
         fprintf(fid, '\n');
     else
         fprintf(fid, '# List of parameters found in the synthetic index file (and associated to the float list) that were not requested\n');
-        table6 = [cellstr(IndexData.ParamFound_In_BGC_Index_notRequested)]';
+        table6 = cellstr(IndexData.ParamFound_In_BGC_Index_notRequested)';
         fprintf(fid, '%s\n',table6{:});   
         fprintf(fid, '\n'); 
     end
@@ -2327,7 +2460,7 @@ if size(unfound_CTD_WMOs,1)==0
     fprintf(fid, '\n');
 else
     fprintf(fid, '# List of WMOs not found in the index file (CTD) \n');
-    table7 = [cellstr(unfound_CTD_WMOs)]';
+    table7 = cellstr(unfound_CTD_WMOs)';
     fprintf(fid, '%s\n',table7{:});   
     fprintf(fid, '\n'); 
 end
@@ -2338,7 +2471,7 @@ if i_bgc == 1
         fprintf(fid, '\n');
     else
         fprintf(fid, '# List of WMOs not found in the synthetic index file (BGC) \n');
-        table7 = [cellstr(IndexData.WMOs_unfound_in_IndexFile.BGC)]';
+        table7 = cellstr(IndexData.WMOs_unfound_in_IndexFile.BGC)';
         fprintf(fid, '%s\n',table7{:});   
         fprintf(fid, '\n'); 
     end
@@ -2350,12 +2483,14 @@ fclose(fid);
 % Zipping the local index file:
 disp('- Zipping the local copy of the index file ...')
 
-cmd = ['gzip -f ' local_index_file];
-system(cmd);
+if exist(local_index_file,'file')
+    gzip(local_index_file)
+    delete(local_index_file)
+end
 
-if i_bgc ==1 
-    cmd = ['gzip -f ' local_index_synthetic_file];
-    system(cmd);
+if exist(local_index_synthetic_file,'file') 
+    gzip(local_index_synthetic_file)
+    delete(local_index_synthetic_file)
 end
 
 disp('- Zipping ended ...')
