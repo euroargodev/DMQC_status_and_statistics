@@ -96,7 +96,22 @@ This script computes DMQC statistics for a given list of floats <br />
 
 ## B. Graphical outputs for **get_DMQC_stats.m** 
 Different Outputs produced:
-TO BE UPDATED
+- State of the DMQC per country, in number of floats and/or profiles <br />
+
+<p float="left">
+<img 
+src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/01_MOCCA_Fleet_CTD_DMQC_status_nb_floats_by_country_20230713.png" width="400" /> 
+<img src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/02_MOCCA_Fleet_CTD_DMQC_status_nb_profiles_by_country_20230713.png" width="400" />
+</p>
+
+- Profile quality (all profiles and only Delayed Mode - i.e. consolidated - profiles) in number of floats profiles for each parameter <br />
+<p float="center">
+<img 
+src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/03_MOCCA_Fleet_PSAL_profile_QC_20230713.png" width="400" /> 
+ <img 
+src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/03_MOCCA_Fleet_TEMP_profile_QC_20230713.png" width="400" /> 
+</p>
+
 
 ## C. TOOLBOX
 Name & Description of the auxiliary functions:
