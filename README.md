@@ -99,6 +99,10 @@ Different outputs are produced: graphical and textual. Here after are examples o
 
 - __Plot 01 and 02__: State of the DMQC per country, in number of floats and/or profiles (one plot per parameter) <br />
 
+These plots present the number of floats (resp. profiles) by country:
+total number, number at least DMQCed once, number older than {sage} year  and number at least DMQCed once and older than {sage} year. By default, sage = 1 year.
+Here country refers to country associated to the float in the OceanOPS database. It is coded using the OTAN trigramme code. The used correspondence can be found in the file country_code_{yyy-mm-dd}.txt. N.B.: For the European case and the European BGC case, the countries outside Europe but for which floats are decoded at Coriolis where gathered under the 'EXT' trigramme.
+
 <p float="left">
 <img 
 src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/01_MOCCA_Fleet_CTD_DMQC_status_nb_floats_by_country_20230713.png" width="400" /> 
@@ -106,6 +110,13 @@ src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTP
 </p>
 
 - __Plot 03__: Profile quality (all profiles and only Delayed Mode - i.e. consolidated - profiles) in number of floats profiles (one plot per parameter) <br />
+
+This plot presents the number of profiles with respect to the profile_QC code, both for all processed mode and for D-mode only. 
+The exact number and relative percentages are also indicated above the bars. 
+The relative percentages for the profiles processed in delayed mode provide a consolidated view.
+A few profiles do not have a profile QC in the index file. This observation deserves further analysis.
+
+
 <p float="center">
 <img 
 src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/03_MOCCA_Fleet_PSAL_profile_QC_20230713.png" width="400" /> 
@@ -114,6 +125,9 @@ src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTP
 </p>
 
 - __Plot 04 and 05__ Profile quality evolution (all profiles and only Delayed Mode - i.e. consolidated - profiles) in percentage of floats profiles (one plot per parameter) <br />
+
+The upper panel of this plot is a time evolution view of plot 03 for all profiles (plot 04) and D-profiles only (plot 05), with respect to the float launch year (rapid proxi for sensor generation). To indicate the significance of the statistics, the number of profiles for the corresponding year is also provided on the lower panel.
+
 <p float="center">
 <img 
 src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/04_MOCCA_Fleet_PSAL_profile_QC_evolution_20230713.png" width="400" /> 
@@ -122,12 +136,26 @@ src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTP
 </p>
 
 - __Plot 06__ Global DMQC status and grey list information (one plot per parameter) <br />
+
+The first four coloured bars provide the same information as Plot 01 but summed for all countries. 
+The three bars on the right side provide information about grey listing (QC3 or QC4):
+   - number for active floats (and in the legend, the relative part of all active floats is mentioned)
+   - number of inactive floats that still have profiles not processed in delayed mode
+   - number of inactive floats that have been fully processed in delayed mode.
+Here active floats refers to floats having emitted a profiles within the last 30 days (with respect to the index file update date). 
+This limit is arbitrary and can be tuned.
+
+
 <p float="center">
 <img 
 src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/06_MOCCA_Fleet_PSAL_DMQC_status_and_grey_list_20230713.png" width="400" /> 
 </p>
 
 - __Plot 07 and 08__ DMQC status per profile year, and age histogram of non-DMQC profiles (one plot per parameter) <br />
+
+Plot 07 presents the time evolution of the percentage of profiles processed in delayed mode with respect to the profile date.
+Plot 08 presents the age histogram of profiles with no DMQC performed yet.
+
 <p float="center">
 <img 
 src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/07_MOCCA_Fleet_CTD_prof_DMQCstatus_byyear_20230713.png" width="400" /> 
@@ -136,6 +164,8 @@ src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTP
 </p>
 
 - __Plot 09__ R-A-D status for all parameters <br />
+Plot 09 presents by parameter (x axis), the number of R-profiles, A-profiles and D-profiles.
+
 <p float="center">
 <img 
 src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/09_MOCCA_Fleet_prof_RAD_mode_per_param_20230713.png" width="400" /> 
