@@ -1,0 +1,12 @@
+# DMQC status and Data quality control statistics
+# Project : MOCCA_Fleet
+# Update date : 20230713022802
+
+# Statistics per country for parameter TEMP
+Param_name,Country,nb_floats,nb_floats_more1year,Nb_floats_DM_done,nb_floats_more1year_DM_done,nb_profiles,nb_profiles_more1year,nb_profiles_DM_done,nb_profiles_more1year_DM_done, 
+TEMP,DEU,10,10,10,10,2333,2007,2164,2005
+TEMP,EUR,119,119,114,114,24864,22476,16978,16859
+TEMP,ITA,5,5,5,5,1422,1422,990,990
+TEMP,NLD,14,14,14,14,2707,2493,1745,1740
+TEMP,POL,4,4,4,4,886,788,805,788
+TEMP,All countries,152,152,147,147,32212,29186,22682,22382
