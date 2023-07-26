@@ -1,0 +1,7 @@
+# DMQC status and Data quality control statistics
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+# Statistics per float for parameter DOWN_IRRADIANCE665
+PARAM,WMO,DAC,COUNTRY,PROGRAM,launch_date,prof_last_date,DM_done,float_age,float_more1year,greylist,nb_prof,nb_prof_more1year,nb_prof_DM,nb_prof_noDM_more1year,prof_last_DM_date,prof_last_DM_update_date,percentage_DM_prof,nb_prof_QC_A,nb_prof_DM_QC_A,nb_prof_QC_B,nb_prof_DM_QC_B,nb_prof_QC_C,nb_prof_DM_QC_C,nb_prof_QC_D,nb_prof_DM_QC_D,nb_prof_QC_E,nb_prof_DM_QC_E,nb_prof_QC_F,nb_prof_DM_QC_F,nb_prof_QC_X,nb_prof_DM_QC_X 
+DOWN_IRRADIANCE665,4902437,coriolis,EXT,NAOS-Canada,2022/10/12,2023/07/11 16:05:31,0,274,0,0,42,0,0,0,,,0.00,27,0,0,0,0,0,0,0,0,0,0,0,15,0

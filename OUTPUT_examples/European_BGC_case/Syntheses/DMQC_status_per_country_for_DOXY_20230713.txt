@@ -1,0 +1,20 @@
+# DMQC status and Data quality control statistics
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+# Statistics per country for parameter DOXY
+Param_name,Country,nb_floats,nb_floats_more1year,Nb_floats_DM_done,nb_floats_more1year_DM_done,nb_profiles,nb_profiles_more1year,nb_profiles_DM_done,nb_profiles_more1year_DM_done, 
+DOXY,BGR,8,5,0,0,780,487,0,0
+DOXY,DEU,91,89,45,45,10586,10059,4916,4916
+DOXY,ESP,4,4,0,0,331,331,0,0
+DOXY,EUR,51,50,14,14,6923,5913,2429,2429
+DOXY,EXT,26,24,16,16,4439,4329,3262,3262
+DOXY,FIN,18,18,0,0,1548,1421,0,0
+DOXY,FRA,331,298,177,177,43756,39841,27092,27087
+DOXY,GBR,21,14,11,11,4427,3978,3903,3886
+DOXY,GRC,7,7,1,1,501,501,193,193
+DOXY,IRL,2,2,0,0,230,158,0,0
+DOXY,ITA,49,40,12,12,6999,5356,1578,1476
+DOXY,NOR,56,51,19,19,7303,5744,2242,2090
+DOXY,POL,10,8,0,0,1993,1555,0,0
+DOXY,All countries,674,610,295,295,89816,79673,45615,45339

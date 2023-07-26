@@ -1,0 +1,20 @@
+# DMQC status and Data quality control statistics
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+# Statistics per country for parameter BBP700
+Param_name,Country,nb_floats,nb_floats_more1year,Nb_floats_DM_done,nb_floats_more1year_DM_done,nb_profiles,nb_profiles_more1year,nb_profiles_DM_done,nb_profiles_more1year_DM_done, 
+BBP700,BGR,1,0,0,0,7,0,0,0
+BBP700,DEU,24,23,0,0,2976,2663,0,0
+BBP700,ESP,0,0,0,0,0,0,0,0
+BBP700,EUR,24,23,3,3,4020,3793,419,419
+BBP700,EXT,9,7,4,4,497,388,260,260
+BBP700,FIN,12,12,0,0,851,735,0,0
+BBP700,FRA,171,151,79,79,28751,27198,14121,14120
+BBP700,GBR,21,14,0,0,4269,3820,0,0
+BBP700,GRC,0,0,0,0,0,0,0,0
+BBP700,IRL,0,0,0,0,0,0,0,0
+BBP700,ITA,18,14,6,6,2635,2383,549,549
+BBP700,NOR,35,32,0,0,4596,3706,0,0
+BBP700,POL,0,0,0,0,0,0,0,0
+BBP700,All countries,315,276,92,92,48602,44686,15349,15348

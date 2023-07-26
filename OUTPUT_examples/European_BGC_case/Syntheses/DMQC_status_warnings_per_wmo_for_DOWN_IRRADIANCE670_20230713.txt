@@ -1,0 +1,9 @@
+# Warnings for DOWN_IRRADIANCE670
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+PARAM,WMO,Country,prof_QC=F_once,prof_QC_not_filled_once,No_DMQC_older_1yr,grey_listed 
+DOWN_IRRADIANCE670,6903567,NOR,,X,X,
+DOWN_IRRADIANCE670,6903568,NOR,,X,X,
+DOWN_IRRADIANCE670,6903569,NOR,,X,X,
+DOWN_IRRADIANCE670,6903570,NOR,,X,X,

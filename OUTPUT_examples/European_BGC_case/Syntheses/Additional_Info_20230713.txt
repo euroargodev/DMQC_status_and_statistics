@@ -1,0 +1,16 @@
+
+# List of requested BGC parameters that were not found in the synthetic index file
+
+# List of parameters found in the synthetic index file (and associated to the float list) that were not requested
+
+DOX2
+PRES
+PSAL
+TEMP
+
+# All requested WMOs were found in the index file (CTD)
+
+# List of WMOs not found in the synthetic index file (BGC) 
+6901760
+6902812
+
