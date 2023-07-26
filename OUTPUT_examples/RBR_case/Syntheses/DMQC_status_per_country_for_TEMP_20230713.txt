@@ -1,0 +1,17 @@
+# DMQC status and Data quality control statistics
+# Project : RBR_Fleet
+# Update date : 20230713022802
+
+# Statistics per country for parameter TEMP
+Param_name,Country,nb_floats,nb_floats_more1year,Nb_floats_DM_done,nb_floats_more1year_DM_done,nb_profiles,nb_profiles_more1year,nb_profiles_DM_done,nb_profiles_more1year_DM_done, 
+TEMP,AUS,22,12,14,10,1376,927,854,662
+TEMP,CAN,8,6,0,0,324,152,0,0
+TEMP,CHN,1,1,0,0,178,178,0,0
+TEMP,DEU,4,4,0,0,420,312,0,0
+TEMP,EUR,2,2,0,0,520,403,0,0
+TEMP,FRA,15,4,0,0,595,163,0,0
+TEMP,GBR,17,11,0,0,1061,723,0,0
+TEMP,JPN,9,5,0,0,2206,1421,0,0
+TEMP,NLD,4,4,0,0,220,80,0,0
+TEMP,USA,11,9,3,3,1607,1184,718,571
+TEMP,All countries,93,58,17,13,8507,5543,1572,1233

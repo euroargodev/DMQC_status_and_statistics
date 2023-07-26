@@ -1,0 +1,20 @@
+# DMQC status and Data quality control statistics
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+# Statistics per country for parameter CHLA
+Param_name,Country,nb_floats,nb_floats_more1year,Nb_floats_DM_done,nb_floats_more1year_DM_done,nb_profiles,nb_profiles_more1year,nb_profiles_DM_done,nb_profiles_more1year_DM_done, 
+CHLA,BGR,1,0,0,0,7,0,0,0
+CHLA,DEU,24,23,0,0,2976,2663,0,0
+CHLA,ESP,0,0,0,0,0,0,0,0
+CHLA,EUR,24,23,0,0,4020,3793,0,0
+CHLA,EXT,19,17,10,10,2606,2497,1925,1925
+CHLA,FIN,12,12,0,0,851,735,0,0
+CHLA,FRA,175,155,43,43,29156,27603,6984,6984
+CHLA,GBR,21,14,0,0,4269,3820,0,0
+CHLA,GRC,0,0,0,0,0,0,0,0
+CHLA,IRL,0,0,0,0,0,0,0,0
+CHLA,ITA,18,14,5,5,2635,2383,1044,1044
+CHLA,NOR,35,32,0,0,4596,3706,0,0
+CHLA,POL,0,0,0,0,0,0,0,0
+CHLA,All countries,329,290,58,58,51116,47200,9953,9953

@@ -1,0 +1,10 @@
+# DMQC status and Data quality control statistics
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+# Statistics per float for parameter DOWN_IRRADIANCE555
+PARAM,WMO,DAC,COUNTRY,PROGRAM,launch_date,prof_last_date,DM_done,float_age,float_more1year,greylist,nb_prof,nb_prof_more1year,nb_prof_DM,nb_prof_noDM_more1year,prof_last_DM_date,prof_last_DM_update_date,percentage_DM_prof,nb_prof_QC_A,nb_prof_DM_QC_A,nb_prof_QC_B,nb_prof_DM_QC_B,nb_prof_QC_C,nb_prof_DM_QC_C,nb_prof_QC_D,nb_prof_DM_QC_D,nb_prof_QC_E,nb_prof_DM_QC_E,nb_prof_QC_F,nb_prof_DM_QC_F,nb_prof_QC_X,nb_prof_DM_QC_X 
+DOWN_IRRADIANCE555,6903567,coriolis,NOR,Argo NORWAY,2020/05/02,2023/02/08 08:58:31,0,1167,1,0,176,156,0,156,,,0.00,0,0,0,0,0,0,0,0,0,0,0,0,176,0
+DOWN_IRRADIANCE555,6903568,coriolis,NOR,Argo NORWAY,2020/05/16,2021/08/06 08:38:32,0,1153,1,0,89,89,0,89,,,0.00,0,0,0,0,0,0,0,0,0,0,0,0,89,0
+DOWN_IRRADIANCE555,6903569,coriolis,NOR,Argo NORWAY,2020/05/17,2022/06/14 10:06:57,0,1152,1,0,164,164,0,164,,,0.00,0,0,0,0,0,0,0,0,0,0,0,0,164,0
+DOWN_IRRADIANCE555,6903570,coriolis,NOR,Argo NORWAY,2020/08/28,2023/04/13 08:35:44,0,1049,1,0,194,142,0,142,,,0.00,0,0,0,0,0,0,0,0,0,0,0,0,194,0

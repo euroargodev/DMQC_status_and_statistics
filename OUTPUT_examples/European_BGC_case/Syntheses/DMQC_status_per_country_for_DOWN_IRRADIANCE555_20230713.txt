@@ -1,0 +1,20 @@
+# DMQC status and Data quality control statistics
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+# Statistics per country for parameter DOWN_IRRADIANCE555
+Param_name,Country,nb_floats,nb_floats_more1year,Nb_floats_DM_done,nb_floats_more1year_DM_done,nb_profiles,nb_profiles_more1year,nb_profiles_DM_done,nb_profiles_more1year_DM_done, 
+DOWN_IRRADIANCE555,BGR,0,0,0,0,0,0,0,0
+DOWN_IRRADIANCE555,DEU,0,0,0,0,0,0,0,0
+DOWN_IRRADIANCE555,ESP,0,0,0,0,0,0,0,0
+DOWN_IRRADIANCE555,EUR,0,0,0,0,0,0,0,0
+DOWN_IRRADIANCE555,EXT,0,0,0,0,0,0,0,0
+DOWN_IRRADIANCE555,FIN,0,0,0,0,0,0,0,0
+DOWN_IRRADIANCE555,FRA,0,0,0,0,0,0,0,0
+DOWN_IRRADIANCE555,GBR,0,0,0,0,0,0,0,0
+DOWN_IRRADIANCE555,GRC,0,0,0,0,0,0,0,0
+DOWN_IRRADIANCE555,IRL,0,0,0,0,0,0,0,0
+DOWN_IRRADIANCE555,ITA,0,0,0,0,0,0,0,0
+DOWN_IRRADIANCE555,NOR,4,4,0,0,623,551,0,0
+DOWN_IRRADIANCE555,POL,0,0,0,0,0,0,0,0
+DOWN_IRRADIANCE555,All countries,4,4,0,0,623,551,0,0

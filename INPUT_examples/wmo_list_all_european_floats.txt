@@ -1,0 +1,4444 @@
+WMO;COUNTRY;LAUNCH_DATE;PROGRAM
+1900063;European Union;2002/03/03;Gyroscope
+1900064;European Union;2002/03/05;Gyroscope
+1900065;European Union;2002/03/06;Gyroscope
+1900066;European Union;2002/03/08;Gyroscope
+1900067;European Union;2002/03/09;Gyroscope
+1900068;European Union;2002/03/21;Gyroscope
+1900070;European Union;2002/03/22;Gyroscope
+1900071;European Union;2002/03/22;Gyroscope
+1900072;European Union;2002/03/05;Gyroscope
+1900073;European Union;2002/03/10;Gyroscope
+1900074;European Union;2002/03/20;Gyroscope
+1900075;European Union;2002/03/21;Gyroscope
+1900076;European Union;2002/09/11;Gyroscope
+1900077;European Union;2002/09/12;Gyroscope
+1900078;European Union;2002/09/15;Gyroscope
+1900079;European Union;2002/09/22;Gyroscope
+1900080;France;2002/09/11;Coriolis
+1900081;France;2002/09/11;Coriolis
+1900083;United Kingdom;2001/08/16;Argo UK
+1900084;United Kingdom;2001/08/15;Argo UK
+1900085;United Kingdom;2001/07/16;Argo UK
+1900086;United Kingdom;2001/07/15;Argo UK
+1900087;United Kingdom;2001/07/13;Argo UK
+1900088;United Kingdom;2002/03/07;Argo UK
+1900089;United Kingdom;2002/03/09;Argo UK
+1900090;United Kingdom;2002/03/11;Argo UK
+1900091;United Kingdom;2002/03/12;Argo UK
+1900092;United Kingdom;2002/03/15;Argo UK
+1900093;United Kingdom;2002/03/16;Argo UK
+1900094;United Kingdom;2002/03/18;Argo UK
+1900095;United Kingdom;2002/03/20;Argo UK
+1900096;United Kingdom;2002/03/22;Argo UK
+1900097;United Kingdom;2002/03/23;Argo UK
+1900098;United Kingdom;2002/03/25;Argo UK
+1900099;United Kingdom;2002/03/28;Argo UK
+1900100;United Kingdom;2002/03/30;Argo UK
+1900101;Germany;2001/12/05;Argo eq. AWI
+1900102;Germany;2001/12/05;Argo eq. AWI
+1900103;Germany;2001/12/06;Argo eq. AWI
+1900104;Germany;2001/12/06;Argo eq. AWI
+1900105;Germany;2001/12/06;Argo eq. AWI
+1900106;Germany;2001/12/06;Argo eq. AWI
+1900109;France;2005/10/25;Coriolis-Good Hope
+1900110;France;2005/10/27;Coriolis-Good Hope
+1900111;France;2005/10/28;Coriolis-Good Hope
+1900112;France;2005/10/29;Coriolis-Good Hope
+1900113;France;2005/10/31;Coriolis-Good Hope
+1900114;France;2005/11/01;Coriolis-Good Hope
+1900116;France;2005/11/02;Coriolis-Good Hope
+1900117;France;2005/11/03;Coriolis-Good Hope
+1900118;France;2002/10/12;Coriolis
+1900119;France;2002/10/13;Coriolis
+1900123;France;2003/01/04;Coriolis-FLOSTRAL
+1900124;France;2003/01/05;Coriolis-FLOSTRAL
+1900125;France;2003/01/05;Coriolis-FLOSTRAL
+1900126;France;2003/01/06;Coriolis-FLOSTRAL
+1900127;France;2003/01/06;Coriolis-FLOSTRAL
+1900128;France;2003/01/07;Coriolis-FLOSTRAL
+1900129;France;2003/01/07;Coriolis-FLOSTRAL
+1900130;France;2003/01/08;Coriolis-FLOSTRAL
+1900131;France;2003/01/11;Coriolis-FLOSTRAL
+1900132;France;2003/01/14;Coriolis-FLOSTRAL
+1900133;France;2003/01/14;Coriolis-FLOSTRAL
+1900134;France;2003/01/16;Coriolis-FLOSTRAL
+1900135;France;2003/01/16;Coriolis-FLOSTRAL
+1900136;France;2003/01/17;Coriolis-FLOSTRAL
+1900137;France;2003/01/17;Coriolis-FLOSTRAL
+1900138;United Kingdom;2003/02/12;Argo UK
+1900139;United Kingdom;2003/02/12;Argo UK
+1900140;United Kingdom;2003/02/13;Argo UK
+1900141;United Kingdom;2003/02/14;Argo UK
+1900142;United Kingdom;2003/02/13;Argo UK
+1900173;United Kingdom;2003/04/12;Argo UK
+1900174;United Kingdom;2003/04/11;Argo UK
+1900175;United Kingdom;2003/04/25;Argo UK
+1900176;United Kingdom;2004/08/23;Argo UK
+1900177;Mauritius;2003/06/20;Argo MAURITIUS
+1900178;United Kingdom;2005/11/05;Argo UK
+1900179;United Kingdom;2005/10/30;Argo UK
+1900205;France;2003/05/03;Coriolis
+1900206;France;2003/05/03;Coriolis
+1900207;France;2003/05/06;Coriolis
+1900208;France;2003/05/07;Coriolis
+1900209;France;2003/05/07;Coriolis
+1900210;France;2003/05/08;Coriolis
+1900211;France;2003/05/08;Coriolis
+1900212;France;2003/05/09;Coriolis
+1900213;France;2003/05/09;Coriolis
+1900214;France;2003/05/10;Coriolis
+1900215;France;2003/05/10;Coriolis
+1900216;France;2003/05/11;Coriolis
+1900217;France;2003/05/11;Coriolis
+1900218;France;2003/05/12;Coriolis
+1900219;France;2003/05/12;Coriolis
+1900220;France;2003/05/13;Coriolis
+1900221;France;2003/05/23;Coriolis
+1900222;France;2003/05/24;Coriolis
+1900223;France;2003/05/25;Coriolis
+1900224;France;2004/01/16;Coriolis-FLOSTRAL
+1900225;Germany;2003/08/04;Argo eq. IFM
+1900226;Germany;2003/08/05;Argo eq. IFM
+1900227;Germany;2003/08/05;Argo eq. IFM
+1900228;Germany;2003/11/15;Argo eq. IFM
+1900229;Germany;2003/11/14;Argo eq. IFM
+1900230;Germany;2003/08/05;Argo eq. IFM
+1900231;Germany;2003/11/14;Argo eq. IFM
+1900232;Germany;2003/11/14;Argo eq. IFM
+1900233;Germany;2003/11/14;Argo eq. IFM
+1900234;Germany;2003/11/14;Argo eq. IFM
+1900235;Germany;2003/11/13;Argo eq. IFM
+1900236;Germany;2003/11/13;Argo eq. IFM
+1900237;Germany;2003/11/13;Argo eq. IFM
+1900238;Germany;2003/11/13;Argo eq. IFM
+1900239;Germany;2003/11/13;Argo eq. IFM
+1900275;Spain;2003/09/21;Argo SPAIN
+1900276;Spain;2003/09/22;Argo SPAIN
+1900277;Spain;2003/09/24;Argo SPAIN
+1900278;Spain;2003/09/19;Argo SPAIN
+1900279;Spain;2003/09/27;Argo SPAIN
+1900280;United Kingdom;2003/11/21;Argo UK eq.
+1900281;United Kingdom;2003/11/23;Argo UK eq.
+1900282;United Kingdom;2003/11/28;Argo UK eq.
+1900283;United Kingdom;2003/11/21;Argo UK eq.
+1900284;United Kingdom;2003/11/22;Argo UK eq.
+1900285;United Kingdom;2003/11/23;Argo UK eq.
+1900286;United Kingdom;2003/11/24;Argo UK eq.
+1900287;United Kingdom;2003/11/26;Argo UK eq.
+1900288;United Kingdom;2003/11/26;Argo UK eq.
+1900289;United Kingdom;2003/11/27;Argo UK eq.
+1900290;United Kingdom;2003/11/28;Argo UK eq.
+1900291;United Kingdom;2003/11/29;Argo UK eq.
+1900292;United Kingdom;2003/11/29;Argo UK eq.
+1900293;United Kingdom;2003/11/30;Argo UK eq.
+1900294;United Kingdom;2003/12/01;Argo UK eq.
+1900312;France;2004/01/18;Coriolis-FLOSTRAL
+1900313;France;2004/01/19;Coriolis-FLOSTRAL
+1900314;France;2004/01/26;Coriolis-FLOSTRAL
+1900315;France;2004/02/05;Coriolis-FLOSTRAL
+1900316;France;2004/02/05;Coriolis-FLOSTRAL
+1900317;France;2004/02/05;Coriolis-FLOSTRAL
+1900318;France;2004/02/07;Coriolis-FLOSTRAL
+1900319;France;2004/02/07;Coriolis-FLOSTRAL
+1900320;France;2004/02/08;Coriolis-FLOSTRAL
+1900321;France;2004/04/10;Coriolis-FLOSTRAL
+1900322;France;2004/04/10;Coriolis-FLOSTRAL
+1900323;France;2004/04/11;Coriolis-FLOSTRAL
+1900324;France;2004/04/11;Coriolis-FLOSTRAL
+1900325;France;2004/04/13;Coriolis-FLOSTRAL
+1900326;France;2004/08/06;Coriolis
+1900327;France;2000/01/01;Coriolis-Good Hope
+1900328;France;2004/02/28;Coriolis-Good Hope
+1900329;France;2004/02/29;Coriolis-Good Hope
+1900330;France;2000/01/01;Coriolis-Good Hope
+1900331;France;2004/02/26;Coriolis-Good Hope
+1900332;France;2004/02/27;Coriolis-Good Hope
+1900333;France;2004/02/27;Coriolis-Good Hope
+1900334;France;2004/02/26;Coriolis-Good Hope
+1900335;France;2004/02/29;Coriolis-Good Hope
+1900336;France;2004/03/01;Coriolis-Good Hope
+1900337;France;2004/03/02;Coriolis-Good Hope
+1900338;France;2004/03/03;Coriolis-Good Hope
+1900339;France;2004/03/03;Coriolis-Good Hope
+1900340;France;2004/02/28;Coriolis-Good Hope
+1900341;France;2004/08/24;Coriolis-Good Hope
+1900342;France;2004/08/23;Coriolis-Good Hope
+1900343;United Kingdom;2004/04/14;Argo UK
+1900344;United Kingdom;2004/04/24;Argo UK
+1900345;United Kingdom;2004/08/23;Argo UK
+1900346;United Kingdom;2004/04/13;Argo UK
+1900347;United Kingdom;2004/05/05;Argo UK
+1900348;France;2004/04/09;Coriolis
+1900349;France;2004/04/08;Coriolis
+1900350;France;2004/04/08;Coriolis
+1900351;France;2004/07/02;Coriolis
+1900352;France;2004/07/17;Coriolis
+1900368;United Kingdom;2004/05/11;Argo UK
+1900369;United Kingdom;2004/05/11;Argo UK
+1900370;United Kingdom;2004/05/11;Argo UK
+1900371;United Kingdom;2004/05/11;Argo UK
+1900372;United Kingdom;2004/05/12;Argo UK
+1900373;United Kingdom;2004/05/12;Argo UK
+1900374;United Kingdom;2004/05/12;Argo UK
+1900375;United Kingdom;2004/05/12;Argo UK
+1900376;United Kingdom;2004/05/12;Argo UK
+1900377;Mexico;2005/05/04;Argo MEXICO
+1900378;Costa Rica;2005/12/07;Argo COSTA RICA
+1900379;Costa Rica;2005/12/07;Argo COSTA RICA
+1900380;Germany;2004/04/03;Argo eq. AWI
+1900381;Germany;2004/04/29;Argo eq. AWI
+1900382;Germany;2004/04/30;Argo eq. AWI
+1900383;France;2004/09/16;Coriolis
+1900384;France;2004/08/12;Coriolis
+1900385;France;2004/08/05;Coriolis
+1900386;France;2005/02/01;Coriolis-Good Hope
+1900387;France;2004/08/11;Coriolis
+1900388;France;2004/09/16;Coriolis
+1900389;France;2004/09/15;Coriolis
+1900390;France;2004/08/09;Coriolis
+1900391;France;2004/09/15;Coriolis
+1900392;France;2004/08/10;Coriolis
+1900393;France;2004/08/12;Coriolis
+1900394;France;2004/08/08;Coriolis
+1900395;France;2004/09/16;Coriolis
+1900396;France;2004/08/04;Coriolis
+1900397;France;2004/08/07;Coriolis
+1900398;France;2004/08/05;Coriolis
+1900399;France;2004/09/15;Coriolis-Good Hope
+1900400;France;2004/09/15;Coriolis
+1900401;France;2004/09/16;Coriolis
+1900402;France;2004/08/06;Coriolis
+1900403;France;2004/08/08;Coriolis
+1900404;France;2004/08/07;Coriolis
+1900405;France;2004/08/10;Coriolis
+1900416;Russian Federation;2004/11/18;Meridian Goodhope
+1900417;Russian Federation;2004/11/23;Meridian Goodhope
+1900418;Mauritius;2004/08/17;Argo MAURITIUS
+1900419;Mauritius;2004/08/17;Argo MAURITIUS
+1900420;France;2004/11/17;Coriolis-Good Hope
+1900421;France;2004/11/16;Coriolis-Good Hope
+1900422;France;2004/11/22;Coriolis-Good Hope
+1900433;France;2004/11/19;Coriolis-Good Hope
+1900434;France;2004/11/20;Coriolis-Good Hope
+1900450;United Kingdom;2004/11/04;Argo UK
+1900451;United Kingdom;2004/11/09;Argo UK
+1900452;United Kingdom;2004/11/12;Argo UK
+1900453;United Kingdom;2004/11/13;Argo UK
+1900454;United Kingdom;2004/11/20;Argo UK
+1900455;United Kingdom;2004/11/28;Argo UK
+1900456;United Kingdom;2004/12/05;Argo UK
+1900457;United Kingdom;2004/12/06;Argo UK
+1900458;United Kingdom;2004/12/09;Argo UK
+1900459;United Kingdom;2004/12/07;Argo UK
+1900460;United Kingdom;2004/12/28;Argo UK
+1900461;United Kingdom;2005/01/18;Argo UK
+1900462;United Kingdom;2005/01/19;Argo UK
+1900463;United Kingdom;2005/01/20;Argo UK
+1900464;France;2009/06/21;Coriolis
+1900465;France;2005/01/23;Coriolis-Good Hope
+1900466;France;2005/01/23;Coriolis-Good Hope
+1900467;France;2005/01/24;Coriolis-Good Hope
+1900468;France;2005/01/24;Coriolis-Good Hope
+1900469;France;2005/01/27;Coriolis-Good Hope
+1900470;France;2005/01/27;Coriolis-Good Hope
+1900471;France;2005/01/30;Coriolis-Good Hope
+1900472;France;2005/01/31;Coriolis-Good Hope
+1900473;France;2005/01/31;Coriolis-Good Hope
+1900507;United Kingdom;2005/04/18;Argo UK
+1900508;United Kingdom;2005/04/21;Argo UK
+1900509;United Kingdom;2005/04/22;Argo UK
+1900510;United Kingdom;2005/05/09;Argo UK
+1900517;Germany;2005/06/02;Argo IFM-GEOMAR
+1900518;Germany;2005/05/31;Argo IFM-GEOMAR
+1900519;Germany;2005/05/26;Argo IFM-GEOMAR
+1900520;Germany;2005/05/27;Argo IFM-GEOMAR
+1900521;Germany;2005/05/28;Argo IFM-GEOMAR
+1900522;Germany;2005/05/28;Argo IFM-GEOMAR
+1900523;Germany;2005/06/01;Argo IFM-GEOMAR
+1900524;Germany;2005/06/01;Argo IFM-GEOMAR
+1900540;France;2005/06/09;Coriolis-EGEE
+1900541;France;2005/06/14;Coriolis-EGEE
+1900542;France;2005/06/16;Coriolis-EGEE
+1900543;France;2005/06/12;Coriolis-EGEE
+1900544;France;2005/06/19;Coriolis-EGEE
+1900545;France;2005/06/13;Coriolis-EGEE
+1900546;France;2005/06/10;Coriolis-EGEE
+1900547;France;2005/06/11;Coriolis-EGEE
+1900548;France;2005/09/23;Coriolis-EGEE
+1900549;France;2005/09/22;Coriolis-EGEE
+1900550;France;2005/07/02;Coriolis-EGEE
+1900551;France;2005/06/17;Coriolis-EGEE
+1900552;France;2005/09/24;Coriolis-EGEE
+1900553;France;2005/06/20;Coriolis-EGEE
+1900554;France;2005/06/18;Coriolis-EGEE
+1900555;France;2005/07/05;Coriolis-EGEE
+1900556;France;2005/05/26;Coriolis-EGEE
+1900557;France;2005/09/16;Coriolis-EGEE
+1900585;United Kingdom;2005/08/26;Argo UK
+1900586;United Kingdom;2005/08/26;Argo UK
+1900589;France;2005/11/14;Coriolis-EGYPT
+1900590;France;2005/11/15;Coriolis-EGYPT
+1900591;France;2005/11/15;Coriolis-EGYPT
+1900592;France;2006/02/02;Coriolis-EGYPT
+1900593;France;2006/02/02;Coriolis-EGYPT
+1900599;France;2006/05/31;Coriolis-EGEE
+1900600;France;2006/06/27;Coriolis-EGEE
+1900601;France;2006/05/30;Coriolis-EGEE
+1900602;France;2006/04/10;Coriolis-EGYPT
+1900603;France;2006/04/23;Coriolis-EGYPT
+1900604;France;2006/04/18;Coriolis-EGYPT
+1900605;France;2006/04/11;Coriolis-EGYPT
+1900606;France;2006/04/22;Coriolis-EGYPT
+1900607;France;2006/06/24;Coriolis-EGEE
+1900608;France;2006/06/10;Coriolis-EGEE
+1900609;France;2006/06/21;Coriolis-EGEE
+1900610;France;2006/07/04;Coriolis-EGEE
+1900611;France;2006/06/12;Coriolis-EGEE
+1900612;France;2006/06/29;Coriolis-EGEE
+1900613;France;2006/06/04;Coriolis-EGEE
+1900614;France;2006/06/13;Coriolis-EGEE
+1900615;France;2006/05/30;Coriolis-EGEE
+1900616;France;2006/05/01;Coriolis-CONGAS
+1900617;France;2006/05/10;Coriolis-CONGAS
+1900618;France;2006/05/01;Coriolis-CONGAS
+1900619;France;2006/12/09;Coriolis-CONGAS
+1900620;France;2006/05/01;Coriolis-CONGAS
+1900621;France;2006/05/10;Coriolis-CONGAS
+1900622;France;2006/12/06;Coriolis-CONGAS
+1900623;France;2006/12/11;Coriolis-CONGAS
+1900624;France;2006/05/10;Coriolis-CONGAS
+1900625;France;2006/05/10;Coriolis-CONGAS
+1900626;France;2006/12/11;Coriolis-CONGAS
+1900627;France;2006/12/05;Coriolis-CONGAS
+1900628;France;2008/03/19;Coriolis-Good Hope
+1900629;European Union;2005/11/14;MEDARGO
+1900630;European Union;2005/11/16;MEDARGO
+1900631;United Kingdom;2005/10/29;Argo UK
+1900632;United Kingdom;2005/10/27;Argo UK
+1900633;United Kingdom;2006/05/09;Argo UK
+1900634;United Kingdom;2006/05/09;Argo UK
+1900650;Germany;2006/06/11;Argo IFM-GEOMAR
+1900651;Germany;2006/06/19;Argo IFM-GEOMAR
+1900652;Germany;2006/07/03;Argo IFM-GEOMAR
+1900653;Germany;2006/06/09;Argo IFM-GEOMAR
+1900654;Germany;2006/06/15;Argo IFM-GEOMAR
+1900655;Germany;2006/07/06;Argo IFM-GEOMAR
+1900656;Germany;2006/06/25;Argo IFM-GEOMAR
+1900657;Germany;2006/07/02;Argo IFM-GEOMAR
+1900658;Germany;2006/06/12;Argo IFM-GEOMAR
+1900659;Germany;2006/06/13;Argo IFM-GEOMAR
+1900660;Germany;2006/06/15;Argo IFM-GEOMAR
+1900661;Germany;2006/06/17;Argo IFM-GEOMAR
+1900662;Germany;2006/06/24;Argo IFM-GEOMAR
+1900663;Germany;2006/06/26;Argo IFM-GEOMAR
+1900664;Germany;2006/06/23;Argo IFM-GEOMAR
+1900677;United Kingdom;2006/02/11;Argo UK
+1900678;United Kingdom;2006/02/12;Argo UK
+1900679;United Kingdom;2006/02/12;Argo UK
+1900680;United Kingdom;2006/02/13;Argo UK
+1900681;United Kingdom;2006/02/13;Argo UK
+1900682;United Kingdom;2006/03/19;Argo UK
+1900846;France;2009/07/09;Coriolis
+1900847;France;2009/06/26;Coriolis
+1900848;France;2010/02/27;Coriolis
+1900849;France;2009/12/03;Coriolis
+1900850;France;2008/03/19;Coriolis-Good Hope
+1900851;France;2008/03/18;Coriolis-Good Hope
+1900852;France;2008/03/13;Coriolis-Good Hope
+1900853;France;2008/03/03;Coriolis-Good Hope
+1900854;France;2008/03/11;Coriolis-Good Hope
+1900855;France;2008/03/12;Coriolis-Good Hope
+1900856;France;2008/03/07;Coriolis-Good Hope
+1900857;France;2008/02/25;Coriolis-Good Hope
+1900858;France;2008/03/14;Coriolis-Good Hope
+1900859;France;2008/03/06;Coriolis-Good Hope
+1900860;France;2008/03/09;Coriolis-Good Hope
+1900861;France;2008/03/01;Coriolis-Good Hope
+1900862;France;2008/03/21;Coriolis-Good Hope
+1900863;France;2008/03/08;Coriolis-Good Hope
+1900864;France;2008/02/26;Coriolis-Good Hope
+1900865;France;2008/02/28;Coriolis-Good Hope
+1900916;Mauritius;2006/06/19;Argo MAURITIUS
+1900917;Mauritius;2006/06/19;Argo MAURITIUS
+1900918;France;2006/10/23;Coriolis-Good Hope
+1900919;France;2006/10/25;Coriolis-Good Hope
+1900920;France;2006/10/26;Coriolis-Good Hope
+1900921;France;2006/10/28;Coriolis-Good Hope
+1900922;France;2006/10/29;Coriolis-Good Hope
+1900923;France;2006/10/29;Coriolis-Good Hope
+1900924;France;2006/10/31;Coriolis-Good Hope
+1900925;France;2006/11/02;Coriolis-Good Hope
+1900926;France;2006/11/03;Coriolis-Good Hope
+1900927;France;2006/11/04;Coriolis-Good Hope
+1900928;France;2006/11/04;Coriolis-Good Hope
+1900929;France;2006/11/05;Coriolis-Good Hope
+1900930;France;2006/11/05;Coriolis-Good Hope
+1900933;United Kingdom;2006/09/10;Argo UK
+1900934;United Kingdom;2006/09/11;Argo UK
+1900935;United Kingdom;2006/09/11;Argo UK
+1900936;United Kingdom;2006/09/12;Argo UK
+1900937;United Kingdom;2006/09/12;Argo UK
+1900938;United Kingdom;2006/09/13;Argo UK
+1900939;United Kingdom;2007/02/14;Argo UK
+1900940;United Kingdom;2007/02/14;Argo UK
+1900941;United Kingdom;2007/02/14;Argo UK
+1900942;United Kingdom;2007/02/14;Argo UK
+1900943;Germany;2007/02/13;Argo eq. IFM2
+1901050;United Kingdom;2007/09/08;Argo UK
+1901051;United Kingdom;2007/09/09;Argo UK
+1901052;United Kingdom;2007/09/11;Argo UK
+1901053;United Kingdom;2007/09/12;Argo UK
+1901054;United Kingdom;2007/12/01;Argo UK
+1901055;United Kingdom;2007/12/02;Argo UK
+1901056;United Kingdom;2007/12/02;Argo UK
+1901057;United Kingdom;2007/12/02;Argo UK
+1901058;United Kingdom;2007/12/02;Argo UK
+1901059;United Kingdom;2007/12/03;Argo UK
+1901060;United Kingdom;2008/01/23;Argo UK
+1901061;United Kingdom;2008/01/22;Argo UK
+1901062;United Kingdom;2008/01/24;Argo UK
+1901063;United Kingdom;2008/01/22;Argo UK
+1901064;United Kingdom;2008/01/24;Argo UK
+1901065;United Kingdom;2008/01/23;Argo UK
+1901066;United Kingdom;2008/09/09;Argo UK
+1901067;United Kingdom;2008/09/07;Argo UK
+1901068;United Kingdom;2008/10/07;Argo UK
+1901069;United Kingdom;2008/09/10;Argo UK
+1901070;United Kingdom;2008/09/06;Argo UK
+1901071;United Kingdom;2008/09/06;Argo UK
+1901072;United Kingdom;2008/10/30;Argo UK
+1901073;United Kingdom;2008/10/31;Argo UK
+1901074;United Kingdom;2008/11/02;Argo UK
+1901075;Netherlands;2007/11/28;Argo NETHERLANDS
+1901076;Netherlands;2007/11/30;Argo NETHERLANDS
+1901077;Netherlands;2007/12/02;Argo NETHERLANDS
+1901078;Netherlands;2007/12/03;Argo NETHERLANDS
+1901079;Netherlands;2008/01/07;Argo NETHERLANDS
+1901080;Netherlands;2008/01/15;Argo NETHERLANDS
+1901081;Netherlands;2008/01/29;Argo NETHERLANDS
+1901082;Netherlands;2008/02/02;Argo NETHERLANDS
+1901083;Netherlands;2008/02/03;Argo NETHERLANDS
+1901092;France;2008/06/01;Coriolis
+1901093;France;2008/06/01;Coriolis
+1901094;France;2008/06/02;Coriolis
+1901095;France;2008/06/02;Coriolis
+1901096;France;2008/06/02;Coriolis
+1901097;France;2008/06/04;Coriolis
+1901169;France;2009/02/24;Coriolis-TRACK
+1901170;France;2009/02/22;Coriolis-TRACK
+1901171;France;2009/02/23;Coriolis-TRACK
+1901172;France;2009/02/26;Coriolis-TRACK
+1901173;France;2009/02/25;Coriolis-TRACK
+1901174;France;2009/02/21;Coriolis-TRACK
+1901175;France;2009/02/26;Coriolis-TRACK
+1901176;France;2010/10/22;Coriolis
+1901177;France;2010/10/27;Coriolis-Good Hope
+1901178;France;2014/02/06;Coriolis-Good Hope
+1901179;France;2009/12/24;Coriolis-Good Hope
+1901180;France;2009/12/24;Coriolis-Good Hope
+1901181;France;2015/02/14;Coriolis-Good Hope
+1901182;France;2010/10/26;Coriolis
+1901183;France;2010/01/12;Coriolis-TRACK
+1901184;France;2010/10/22;Coriolis
+1901185;France;2011/03/09;Coriolis
+1901186;France;2011/03/13;Coriolis
+1901187;France;2011/03/20;Coriolis
+1901188;France;2012/07/03;Coriolis
+1901190;France;2010/10/16;Coriolis-Good Hope
+1901191;France;2011/12/13;Coriolis-Good Hope
+1901192;France;2011/07/27;Coriolis
+1901193;France;2011/12/14;Coriolis-Good Hope
+1901194;France;2009/12/25;Coriolis-Good Hope
+1901195;France;2009/12/26;Coriolis-Good Hope
+1901196;France;2010/01/10;Coriolis-TRACK
+1901197;France;2010/01/03;Coriolis-TRACK
+1901198;France;2010/01/06;Coriolis-TRACK
+1901199;France;2010/01/08;Coriolis-TRACK
+1901200;France;2009/12/08;Coriolis
+1901201;France;2010/10/26;Coriolis-Good Hope
+1901202;France;2011/03/20;Coriolis
+1901203;Italy;2010/10/25;Argo ITALY
+1901204;France;2012/05/16;Coriolis
+1901205;France;2011/07/21;Coriolis-OVIDE
+1901206;France;2011/07/23;Coriolis-OVIDE
+1901207;France;2010/10/10;Coriolis-Good Hope
+1901208;France;2011/07/24;Coriolis-OVIDE
+1901209;France;2011/08/12;Coriolis-OVIDE
+1901210;France;2011/07/17;Coriolis-OVIDE
+1901211;France;2011/06/29;Coriolis-OVIDE
+1901212;France;2011/06/30;Coriolis-OVIDE
+1901213;France;2011/07/05;Coriolis-OVIDE
+1901214;France;2011/07/21;Coriolis-OVIDE
+1901215;France;2011/07/23;Coriolis-OVIDE
+1901216;France;2010/10/14;Coriolis-Good Hope
+1901217;France;2011/07/26;Coriolis-OVIDE
+1901218;France;2011/07/29;Coriolis-OVIDE
+1901219;United Kingdom;2008/11/01;Argo UK
+1901220;United Kingdom;2008/11/06;Argo UK
+1901221;United Kingdom;2008/12/15;Argo UK
+1901222;United Kingdom;2008/12/14;Argo UK
+1901223;United Kingdom;2008/12/14;Argo UK
+1901224;United Kingdom;2008/12/16;Argo UK
+1901225;United Kingdom;2008/12/15;Argo UK
+1901226;United Kingdom;2008/12/16;Argo UK
+1901227;United Kingdom;2008/12/17;Argo UK
+1901228;United Kingdom;2009/03/22;Argo UK
+1901229;United Kingdom;2009/03/23;Argo UK
+1901230;United Kingdom;2009/03/25;Argo UK
+1901231;United Kingdom;2009/03/31;Argo UK
+1901232;United Kingdom;2009/04/05;Argo UK
+1901233;United Kingdom;2009/04/02;Argo UK
+1901234;United Kingdom;2009/04/10;Argo UK
+1901235;United Kingdom;2009/04/07;Argo UK
+1901236;United Kingdom;2009/04/16;Argo UK
+1901237;United Kingdom;2009/04/11;Argo UK
+1901238;United Kingdom;2009/04/18;Argo UK
+1901239;United Kingdom;2009/04/17;Argo UK
+1901240;United Kingdom;2009/03/28;Argo UK
+1901241;United Kingdom;2009/04/04;Argo UK
+1901242;United Kingdom;2009/04/09;Argo UK
+1901243;United Kingdom;2009/04/14;Argo UK
+1901244;United Kingdom;2009/09/06;Argo UK
+1901245;United Kingdom;2009/09/09;Argo UK
+1901247;United Kingdom;2009/12/18;Argo UK
+1901248;United Kingdom;2009/12/18;Argo UK
+1901249;United Kingdom;2010/03/24;Argo UK
+1901250;United Kingdom;2010/04/03;Argo UK
+1901251;United Kingdom;2010/04/14;Argo UK
+1901252;United Kingdom;2010/09/04;Argo UK
+1901253;United Kingdom;2010/09/05;Argo UK
+1901254;United Kingdom;2010/09/08;Argo UK
+1901255;United Kingdom;2010/09/07;Argo UK
+1901256;United Kingdom;2010/11/11;Argo UK
+1901257;United Kingdom;2010/11/13;Argo UK
+1901258;United Kingdom;2010/11/14;Argo UK
+1901259;United Kingdom;2010/11/15;Argo UK
+1901260;United Kingdom;2010/11/16;Argo UK
+1901261;United Kingdom;2010/11/17;Argo UK
+1901262;Mauritius;2011/03/01;Argo MAURITIUS
+1901263;Mauritius;2011/03/05;Argo MAURITIUS
+1901264;United Kingdom;2011/09/11;Argo UK
+1901265;United Kingdom;2011/09/12;Argo UK
+1901266;United Kingdom;2011/09/13;Argo UK
+1901267;United Kingdom;2011/09/14;Argo UK
+1901268;United Kingdom;2011/10/30;Argo UK
+1901269;United Kingdom;2011/11/01;Argo UK
+1901270;United Kingdom;2011/11/03;Argo UK
+1901271;United Kingdom;2011/11/04;Argo UK
+1901272;United Kingdom;2011/11/05;Argo UK
+1901273;United Kingdom;2011/11/06;Argo UK
+1901274;Mauritius;2011/11/20;Argo MAURITIUS
+1901275;Mauritius;2011/11/21;Argo MAURITIUS
+1901276;United Kingdom;2011/11/29;Argo UK
+1901277;United Kingdom;2011/12/02;Argo UK
+1901278;United Kingdom;2011/12/02;Argo UK
+1901279;United Kingdom;2011/12/03;Argo UK
+1901280;United Kingdom;2011/12/03;Argo UK
+1901281;United Kingdom;2011/12/04;Argo UK
+1901282;United Kingdom;2012/01/17;Argo UK
+1901283;United Kingdom;2012/01/20;Argo UK
+1901284;United Kingdom;2012/01/21;Argo UK
+1901285;United Kingdom;2012/01/23;Argo UK
+1901286;United Kingdom;2012/01/24;Argo UK
+1901287;United Kingdom;2012/01/24;Argo UK
+1901288;United Kingdom;2012/01/26;Argo UK
+1901289;United Kingdom;2012/09/23;Argo UK
+1901290;United Kingdom;2013/03/20;Argo UK
+1901291;United Kingdom;2012/09/24;Argo UK
+1901292;United Kingdom;2012/09/23;Argo UK
+1901293;United Kingdom;2012/11/04;Argo UK
+1901294;United Kingdom;2011/05/27;Argo UK
+1901295;United Kingdom;2012/11/11;Argo UK
+1901296;United Kingdom;2012/11/08;Argo UK
+1901297;United Kingdom;2012/11/10;Argo UK
+1901298;United Kingdom;2012/11/05;Argo UK
+1901299;United Kingdom;2012/11/15;Argo UK
+1901300;United Kingdom;2013/03/20;Argo UK
+1901302;United Kingdom;2013/03/21;Argo UK
+1901303;United Kingdom;2013/03/22;Argo UK
+1901304;United Kingdom;2013/03/22;Argo UK
+1901305;United Kingdom;2013/03/24;Argo UK
+1901306;United Kingdom;2013/03/25;Argo UK
+1901307;Mauritius;2013/06/25;Argo MAURITIUS
+1901308;Mauritius;2013/06/26;Argo MAURITIUS
+1901309;United Kingdom;2013/07/10;Argo UK
+1901310;United Kingdom;2013/07/10;Argo UK
+1901311;United Kingdom;2013/07/11;Argo UK
+1901312;United Kingdom;2013/07/11;Argo UK
+1901313;United Kingdom;2013/09/14;Argo UK
+1901314;United Kingdom;2013/09/21;Argo UK
+1901315;United Kingdom;2013/09/22;Argo UK
+1901316;United Kingdom;2013/09/23;Argo UK
+1901317;United Kingdom;2013/09/22;Argo UK
+1901318;United Kingdom;2013/09/22;Argo UK
+1901349;Germany;2009/12/11;Argo BSH
+1901350;Germany;2009/12/11;Argo BSH
+1901351;Germany;2009/12/14;Argo BSH
+1901354;Germany;2012/11/14;Argo BSH
+1901355;Germany;2012/11/07;Argo BSH
+1901356;Germany;2012/11/09;Argo BSH
+1901357;Germany;2013/07/13;Argo BSH
+1901358;Germany;2013/07/18;Argo BSH
+1901359;Germany;2013/07/19;Argo BSH
+1901360;Germany;2014/06/25;Argo BSH
+1901361;Germany;2014/06/25;Argo BSH
+1901362;Germany;2014/06/25;Argo BSH
+1901363;Germany;2014/06/25;Argo BSH
+1901364;Germany;2014/06/25;Argo BSH
+1901365;Germany;2014/06/25;Argo BSH
+1901469;South Africa;2009/12/10;Argo SOUTH AFRICA
+1901470;South Africa;2009/12/15;Argo SOUTH AFRICA
+1901844;Mauritius;2014/03/09;Argo MAURITIUS
+1901845;Mauritius;2014/03/10;Argo MAURITIUS
+1901846;United Kingdom;2014/06/01;Argo UK
+1901847;United Kingdom;2014/06/01;Argo UK
+1901848;United Kingdom;2013/06/01;Argo UK
+1901849;United Kingdom;2014/06/01;Argo UK
+1901850;United Kingdom;2014/06/01;Argo UK
+1901851;United Kingdom;2014/06/01;Argo UK
+1901852;United Kingdom;2014/09/19;Argo UK
+1901853;United Kingdom;2014/09/19;Argo UK
+1901854;United Kingdom;2014/09/08;Argo UK
+1901855;United Kingdom;2014/09/08;Argo UK
+1901856;United Kingdom;2014/09/07;Argo UK
+1901857;United Kingdom;2014/09/07;Argo UK
+1901858;United Kingdom;2015/12/05;Argo UK
+1901859;United Kingdom;2015/12/04;Argo UK
+1901860;United Kingdom;2015/12/04;Argo UK
+1901861;United Kingdom;2015/12/04;Argo UK
+1901862;United Kingdom;2016/07/11;Argo UK
+1901863;United Kingdom;2016/07/11;Argo UK
+1901864;United Kingdom;2016/07/11;Argo UK
+1901865;United Kingdom;2016/07/12;Argo UK
+1901866;United Kingdom;2017/03/19;Argo UK
+1901867;United Kingdom;2017/03/18;Argo UK
+1901868;United Kingdom;2017/03/17;Argo UK
+1901869;United Kingdom;2017/03/18;Argo UK
+1901870;United Kingdom;2017/03/18;Argo UK
+1901871;United Kingdom;2016/09/05;Argo UK
+1901872;United Kingdom;2016/09/03;Argo UK
+1901873;United Kingdom;2016/07/24;Argo UK
+1901874;United Kingdom;2016/07/18;Argo UK
+1901875;United Kingdom;2017/01/12;Argo UK
+1901876;United Kingdom;2017/01/13;Argo UK
+1901877;United Kingdom;2017/01/14;Argo UK
+1901878;United Kingdom;2017/01/15;Argo UK
+1901879;United Kingdom;2017/01/16;Argo UK
+1901880;United Kingdom;2017/01/17;Argo UK
+1901881;United Kingdom;2017/04/11;Argo UK
+1901882;United Kingdom;2017/04/11;Argo UK
+1901883;United Kingdom;2017/04/12;Argo UK
+1901884;United Kingdom;2017/04/11;Argo UK
+1901885;United Kingdom;2017/07/22;Argo UK
+1901886;United Kingdom;2017/07/23;Argo UK
+1901887;United Kingdom;2017/07/24;Argo UK
+1901888;United Kingdom;2017/07/24;Argo UK
+1901889;United Kingdom;2017/12/17;Argo UK
+1901890;United Kingdom;2017/12/16;Argo UK
+1901892;United Kingdom;2017/12/17;Argo UK
+1901893;United Kingdom;2018/03/28;Argo UK
+1901894;United Kingdom;2018/03/28;Argo UK Bio
+1901895;United Kingdom;2018/03/31;Argo UK
+1901896;United Kingdom;2018/03/31;Argo UK Bio
+1901897;United Kingdom;2018/05/27;Argo UK
+1901898;United Kingdom;2018/06/02;Argo UK
+1901899;United Kingdom;2018/05/03;Argo UK
+1901900;United Kingdom;2018/05/20;Argo UK
+1901901;United Kingdom;2018/06/24;Argo UK
+1901902;United Kingdom;2018/06/24;Argo UK
+1901903;United Kingdom;2018/12/28;Argo UK
+1901904;United Kingdom;2018/12/27;Argo UK
+1901906;United Kingdom;2018/12/27;Argo UK
+1901907;United Kingdom;2018/05/22;Argo UK
+1901908;United Kingdom;2018/05/31;Argo UK
+1901909;United Kingdom;2018/05/02;Argo UK
+1901910;United Kingdom;2018/05/20;Argo UK
+1901911;United Kingdom;2019/05/13;Argo UK
+1901912;United Kingdom;2019/05/13;Argo UK
+1901914;United Kingdom;2019/10/09;Argo UK
+1901915;United Kingdom;2019/10/11;Argo UK
+1901916;United Kingdom;2019/10/07;Argo UK
+1901917;United Kingdom;2019/10/06;Argo UK
+1901918;United Kingdom;2022/06/12;Argo UK
+1901919;United Kingdom;2022/06/13;Argo UK
+1901920;United Kingdom;2020/01/18;Argo UK
+1901921;United Kingdom;2020/01/19;Argo UK
+1901922;United Kingdom;2020/10/07;Argo UK
+1901923;United Kingdom;2020/10/06;Argo UK
+1901924;United Kingdom;2020/10/08;Argo UK
+1901925;United Kingdom;2021/03/03;Argo UK
+1901926;United Kingdom;2021/03/02;Argo UK
+1901927;United Kingdom;2021/02/24;Argo UK
+1901928;United Kingdom;2021/02/21;Argo UK
+1901931;United Kingdom;2021/04/11;Argo UK
+1901932;United Kingdom;2021/05/10;Argo UK
+1901933;United Kingdom;2020/10/08;Argo UK
+1901934;United Kingdom;2021/12/06;Argo UK
+1901935;United Kingdom;2021/12/07;Argo UK
+1901936;United Kingdom;2022/02/13;Argo UK
+1901937;United Kingdom;2022/02/13;Argo UK
+1901938;United Kingdom;2022/02/14;Argo UK
+1901939;United Kingdom;2022/02/14;Argo UK
+1901940;United Kingdom;2022/07/01;Argo UK
+1901941;United Kingdom;2022/07/01;Argo UK
+1901942;United Kingdom;2022/07/25;Argo UK
+1902079;United Kingdom;2018/12/29;Argo UK
+1902080;United Kingdom;2018/12/29;Argo UK
+1902081;United Kingdom;2022/05/17;Argo UK
+1902082;United Kingdom;2022/05/18;Argo UK
+1902083;United Kingdom;2022/07/25;Argo UK
+1902084;United Kingdom;2023/02/04;Argo UK
+1902085;United Kingdom;2023/02/05;Argo UK
+1902086;United Kingdom;2023/02/06;Argo UK
+1902087;United Kingdom;2023/02/08;Argo UK
+1902088;United Kingdom;2023/02/08;Argo UK
+1902089;United Kingdom;2023/01/11;Argo UK
+1902090;United Kingdom;2023/01/13;Argo UK
+1902091;United Kingdom;2023/01/15;Argo UK
+1902093;United Kingdom;2023/02/09;Argo UK
+1902094;United Kingdom;2023/02/22;Argo UK
+1902095;United Kingdom;2023/02/23;Argo UK
+1902096;United Kingdom;2023/02/28;Argo UK
+1902097;United Kingdom;2023/03/01;Argo UK
+1902098;United Kingdom;2023/03/05;Argo UK
+1902099;United Kingdom;2023/03/04;Argo UK
+1902101;United Kingdom;2023/02/04;Argo UK
+1902571;France;2022/11/20;Coriolis
+1902572;France;2022/11/17;Coriolis
+1902573;France;2022/11/26;Coriolis
+1902574;France;2022/09/15;Coriolis
+1902578;France;2022/05/29;REFINE
+1902579;Norway;2022/06/15;Argo NORWAY
+1902580;Germany;2022/11/28;Argo BSH
+1902582;Greece;2023/03/29;Argo GREECE
+1902583;Germany;2023/01/17;Argo BSH
+1902584;Germany;2023/01/10;Argo BSH
+1902593;France;2023/02/11;REFINE
+1902601;France;2023/03/07;REFINE
+1902602;Norway;2023/05/19;Argo NORWAY
+1902603;Norway;2023/05/30;Argo NORWAY
+1902604;Norway;2023/05/20;Argo NORWAY
+1902605;Italy;2023/04/28;Argo ITALY
+2900159;United Kingdom;2001/12/08;Argo UK
+2900160;United Kingdom;2001/12/08;Argo UK
+2900161;United Kingdom;2001/12/08;Argo UK
+2900162;United Kingdom;2001/12/09;Argo UK
+2900163;United Kingdom;2001/12/09;Argo UK
+2900164;United Kingdom;2001/11/01;Argo UK
+2900165;United Kingdom;2001/11/03;Argo UK
+2900166;United Kingdom;2001/11/02;Argo UK
+2900167;United Kingdom;2001/10/31;Argo UK
+2900168;United Kingdom;2001/10/29;Argo UK
+2900194;United Kingdom;2002/07/14;Argo UK
+2900195;United Kingdom;2002/07/14;Argo UK
+2900210;France;2002/05/01;Coriolis
+2900211;France;2002/05/01;Coriolis
+2900424;France;2004/09/16;Coriolis
+2900425;France;2004/09/16;Coriolis
+2900426;France;2007/01/11;Coriolis
+2900589;France;2007/01/11;Coriolis
+2900590;France;2007/01/11;Coriolis
+2900591;France;2007/01/11;Coriolis
+2900592;France;2007/01/12;Coriolis
+2900593;France;2007/01/11;Coriolis
+2900594;France;2007/01/12;Coriolis
+2900595;France;2007/01/12;Coriolis
+2900596;France;2007/01/12;Coriolis
+2900597;France;2007/01/14;Coriolis
+2900598;France;2007/01/14;Coriolis
+2900599;France;2007/01/14;Coriolis
+2901093;United Kingdom;2007/11/25;Argo UK
+2901094;United Kingdom;2008/02/01;Argo UK
+2901095;United Kingdom;2008/01/29;Argo UK
+2901096;United Kingdom;2008/01/31;Argo UK
+2901097;United Kingdom;2008/01/30;Argo UK
+2901098;Saudi Arabia;2010/04/14;Argo SAUDI ARABIA
+2901099;United Kingdom;2011/11/08;Argo UK
+2901100;United Kingdom;2011/11/08;Argo UK
+2901101;United Kingdom;2011/11/08;Argo UK
+2901102;United Kingdom;2011/11/08;Argo UK
+2901886;United Kingdom;2011/11/08;Argo UK
+2901887;United Kingdom;2011/11/08;Argo UK
+2901888;United Kingdom;2011/11/09;Argo UK
+2901889;United Kingdom;2011/11/09;Argo UK
+2901890;United Kingdom;2011/11/09;Argo UK
+2901891;United Kingdom;2016/06/28;Argo UK
+2901892;United Kingdom;2016/07/02;Argo UK
+2901893;United Kingdom;2016/07/01;Argo UK
+2901894;United Kingdom;2016/06/30;Argo UK
+2901895;United Kingdom;2016/06/30;Argo UK
+2901896;United Kingdom;2016/06/28;Argo UK
+2901897;United Kingdom;2016/07/04;Argo UK
+2901898;United Kingdom;2016/07/01;Argo UK
+2901899;United Kingdom;2016/07/28;Argo UK
+2901900;United Kingdom;2016/08/04;Argo UK
+2901902;United Kingdom;2017/11/09;Argo UK
+2901903;United Kingdom;2017/11/09;Argo UK
+2901904;United Kingdom;2017/11/01;Argo UK
+2901905;United Kingdom;2017/11/01;Argo UK
+2903715;Sweden;2018/12/16;Argo Sweden
+2903766;Netherlands;2022/04/22;Argo NETHERLANDS
+2903767;France;2023/01/28;Coriolis
+2903768;France;2023/02/13;Coriolis
+2903769;France;2023/02/01;Coriolis
+2903770;France;2022/12/18;Coriolis
+2903771;Norway;2022/06/05;Argo NORWAY
+2903772;Germany;2022/11/30;Argo BSH
+2903773;United Kingdom;2023/03/28;Argo UK
+2903774;Netherlands;2023/01/12;Argo NETHERLANDS
+2903776;Germany;2023/01/10;Argo BSH
+2903777;Germany;2023/01/16;Argo BSH
+2903783;France;2022/12/09;REFINE
+2903786;France;2023/03/26;Coriolis
+2903787;France;2023/02/06;REFINE
+2903794;Norway;2023/05/19;Argo NORWAY
+2903795;Italy;2023/04/24;Argo ITALY
+2903822;Spain;2023/04/14;Argo SPAIN
+2903823;Spain;2023/04/17;Argo SPAIN
+3900069;United Kingdom;2002/03/12;Argo UK
+3900070;United Kingdom;2002/03/12;Argo UK
+3900071;United Kingdom;2002/02/12;Argo UK
+3900072;Germany;2001/12/07;Argo eq. AWI
+3900073;Germany;2001/12/07;Argo eq. AWI
+3900074;Germany;2001/12/07;Argo eq. AWI
+3900088;United Kingdom;2003/01/15;Argo UK
+3900089;United Kingdom;2003/01/18;Argo UK
+3900090;United Kingdom;2003/01/30;Argo UK
+3900091;United Kingdom;2003/01/27;Argo UK
+3900092;United Kingdom;2003/02/09;Argo UK
+3900093;United Kingdom;2003/02/04;Argo UK
+3900094;United Kingdom;2003/01/08;Argo UK
+3900110;United Kingdom;2003/05/15;Argo UK
+3900111;United Kingdom;2003/05/17;Argo UK
+3900112;United Kingdom;2004/05/29;Argo UK
+3900113;United Kingdom;2003/05/22;Argo UK
+3900114;United Kingdom;2003/05/22;Argo UK
+3900115;United Kingdom;2003/05/20;Argo UK
+3900116;United Kingdom;2003/05/21;Argo UK
+3900117;United Kingdom;2003/05/20;Argo UK
+3900129;Germany;2000/03/18;Argo eq. IFM
+3900130;Germany;2000/03/25;Argo eq. IFM
+3900131;Germany;2000/04/14;Argo eq. IFM
+3900132;Germany;2000/04/12;Argo eq. IFM
+3900133;Germany;2000/03/19;Argo eq. IFM
+3900134;Germany;2000/03/26;Argo eq. IFM
+3900135;Germany;2000/03/16;Argo eq. IFM
+3900136;Germany;2000/03/19;Argo eq. IFM
+3900137;Germany;2000/11/13;Argo eq. IFM
+3900138;Germany;2000/03/24;Argo eq. IFM
+3900139;Germany;2000/04/16;Argo eq. IFM
+3900140;Germany;2000/11/19;Argo eq. IFM
+3900141;Germany;2000/11/12;Argo eq. IFM
+3900142;Germany;2000/11/13;Argo eq. IFM
+3900143;Germany;2000/11/19;Argo eq. IFM
+3900247;United Kingdom;2004/04/30;Argo UK
+3900248;United Kingdom;2004/05/01;Argo UK
+3900249;United Kingdom;2004/05/02;Argo UK
+3900250;United Kingdom;2004/05/03;Argo UK
+3900251;United Kingdom;2004/05/04;Argo UK
+3900252;United Kingdom;2004/05/07;Argo UK
+3900253;United Kingdom;2004/05/06;Argo UK
+3900274;Germany;2004/08/28;Argo IFM-GEOMAR
+3900275;Germany;2004/08/25;Argo IFM-GEOMAR
+3900276;Germany;2004/08/29;Argo IFM-GEOMAR
+3900277;Germany;2004/08/24;Argo IFM-GEOMAR
+3900278;Germany;2004/08/26;Argo IFM-GEOMAR
+3900279;Germany;2004/08/26;Argo IFM-GEOMAR
+3900280;Germany;2004/08/25;Argo IFM-GEOMAR
+3900281;Germany;2004/08/25;Argo IFM-GEOMAR
+3900282;Germany;2004/08/26;Argo IFM-GEOMAR
+3900283;Germany;2004/08/24;Argo IFM-GEOMAR
+3900284;Germany;2004/08/23;Argo IFM-GEOMAR
+3900285;Germany;2004/08/23;Argo IFM-GEOMAR
+3900286;Germany;2004/08/22;Argo IFM-GEOMAR
+3900287;Germany;2004/08/22;Argo IFM-GEOMAR
+3900288;Germany;2004/08/17;Argo IFM-GEOMAR
+3900309;United Kingdom;2013/10/26;Argo UK
+3900310;United Kingdom;2013/10/25;Argo UK
+3900371;United Kingdom;2004/11/17;Argo UK
+3900372;United Kingdom;2004/11/21;Argo UK
+3900373;United Kingdom;2004/11/23;Argo UK
+3900374;United Kingdom;2004/11/25;Argo UK
+3900375;United Kingdom;2004/11/27;Argo UK
+3900376;United Kingdom;2004/11/28;Argo UK
+3900377;United Kingdom;2004/11/28;Argo UK
+3900378;United Kingdom;2004/12/06;Argo UK
+3900379;United Kingdom;2004/12/08;Argo UK
+3900380;United Kingdom;2005/02/09;Argo UK
+3900381;United Kingdom;2005/02/09;Argo UK
+3900382;United Kingdom;2005/02/09;Argo UK
+3900383;United Kingdom;2005/03/11;Argo UK
+3900384;United Kingdom;2013/10/27;Argo UK
+3900385;United Kingdom;2013/10/28;Argo UK
+3900386;France;2005/03/16;Coriolis-DRAKE
+3900387;France;2005/03/14;Coriolis-DRAKE
+3900388;France;2005/03/14;Coriolis-DRAKE
+3900389;France;2005/07/01;Coriolis-DRAKE
+3900390;France;2005/07/01;Coriolis-DRAKE
+3900391;France;2005/07/02;Coriolis-DRAKE
+3900392;France;2005/03/14;Coriolis-DRAKE
+3900393;France;2005/03/14;Coriolis-DRAKE
+3900394;France;2005/03/14;Coriolis-DRAKE
+3900395;France;2005/07/01;Coriolis-DRAKE
+3900396;France;2005/07/01;Coriolis-DRAKE
+3900397;France;2005/07/01;Coriolis-DRAKE
+3900515;Chile;2005/10/22;Argo eq. ESP-OMZ
+3900516;Chile;2005/10/25;Argo eq. ESP-OMZ
+3900518;France;2006/12/18;Coriolis-FLOPS
+3900519;France;2006/10/15;Coriolis-FLOPS
+3900520;France;2006/06/06;Coriolis-FLOPS
+3900521;Chile;2006/06/01;Argo eq. ESP-OMZ
+3900522;Chile;2006/05/31;Argo eq. ESP-OMZ
+3900523;Chile;2006/05/30;Argo eq. ESP-OMZ
+3900524;Chile;2006/06/03;Argo eq. ESP-OMZ
+3900526;France;2008/03/16;Coriolis-FLOPS
+3900528;France;2006/09/26;Coriolis-FLOPS
+3900529;France;2008/03/26;Coriolis-FLOPS
+3900530;France;2011/02/20;Coriolis-FLOPS
+3900531;France;2007/11/03;Coriolis-FLOPS
+3900532;France;2007/11/05;Coriolis-FLOPS
+3900533;France;2007/11/05;Coriolis-FLOPS
+3900534;France;2007/11/04;Coriolis-FLOPS
+3900535;United Kingdom;2005/11/16;Argo UK
+3900536;United Kingdom;2005/11/17;Argo UK
+3900537;United Kingdom;2005/12/08;Argo UK
+3900538;United Kingdom;2013/10/25;Argo UK
+3900559;United Kingdom;2013/10/25;Argo UK
+3900560;United Kingdom;2013/10/26;Argo UK
+3900787;France;2007/03/30;Coriolis-FLOPS
+3900788;France;2006/12/07;Coriolis-FLOPS
+3900790;France;2006/11/25;Coriolis-FLOPS
+3900791;France;2008/02/10;Coriolis-FLOPS
+3900792;France;2008/02/12;Coriolis-FLOPS
+3900793;France;2010/12/02;Coriolis-FLOPS
+3900794;France;2010/12/21;Coriolis-FLOPS
+3900990;France;2008/04/13;Coriolis-DRAKE
+3900991;France;2008/04/07;Coriolis-DRAKE
+3900992;France;2008/04/10;Coriolis-DRAKE
+3900993;France;2008/04/10;Coriolis-DRAKE
+3900994;France;2008/04/10;Coriolis-DRAKE
+3900995;France;2008/04/10;Coriolis-DRAKE
+3900996;France;2008/04/06;Coriolis-DRAKE
+3900997;France;2009/06/24;Coriolis
+3900999;France;2008/04/08;Coriolis-DRAKE
+3901000;France;2008/04/07;Coriolis-DRAKE
+3901001;France;2008/04/10;Coriolis-DRAKE
+3901065;Chile;2008/03/26;Argo eq. ESP-OMZ
+3901066;Chile;2008/03/26;Argo eq. ESP-OMZ
+3901067;Chile;2008/03/26;Argo eq. ESP-OMZ
+3901068;Chile;2008/03/26;Argo eq. ESP-OMZ
+3901075;Germany;2009/02/02;Argo IFM-GEOMAR
+3901076;Germany;2009/02/02;Argo IFM-GEOMAR
+3901077;Germany;2009/02/03;Argo IFM-GEOMAR
+3901078;Germany;2009/02/03;Argo IFM-GEOMAR
+3901079;Germany;2009/02/09;Argo IFM-GEOMAR
+3901080;Germany;2009/02/09;Argo IFM-GEOMAR
+3901081;Germany;2009/02/10;Argo IFM-GEOMAR
+3901082;Germany;2009/02/10;Argo IFM-GEOMAR
+3901083;Germany;2009/02/11;Argo IFM-GEOMAR
+3901084;Germany;2009/02/11;Argo IFM-GEOMAR
+3901085;Germany;2010/10/26;Argo BSH
+3901086;Germany;2010/11/11;Argo BSH
+3901087;Germany;2010/11/14;Argo BSH
+3901089;Germany;2015/10/27;Argo BSH
+3901090;Germany;2011/10/25;Argo BSH
+3901091;Germany;2011/12/20;Argo BSH
+3901092;Germany;2011/11/15;Argo BSH
+3901093;Germany;2011/12/15;Argo BSH
+3901094;Germany;2011/12/15;Argo BSH
+3901095;Germany;2011/11/21;Argo BSH
+3901096;Germany;2012/10/28;Argo BSH
+3901097;Germany;2012/10/29;Argo BSH
+3901098;Germany;2012/11/03;Argo BSH
+3901099;Germany;2013/02/11;Argo BSH
+3901100;Germany;2012/11/05;Argo BSH
+3901101;Germany;2012/11/06;Argo BSH
+3901102;Germany;2012/11/07;Argo BSH
+3901488;United Kingdom;2014/04/21;Argo UK
+3901489;United Kingdom;2014/04/21;Argo UK
+3901490;United Kingdom;2014/04/22;Argo UK
+3901491;United Kingdom;2014/04/22;Argo UK
+3901492;United Kingdom;2014/04/22;Argo UK
+3901493;United Kingdom;2014/04/22;Argo UK
+3901494;United Kingdom;2014/04/22;Argo UK
+3901495;United Kingdom;2014/04/23;Argo UK
+3901496;United Kingdom;2014/10/20;Argo UK Bio
+3901497;United Kingdom;2014/10/24;Argo UK Bio
+3901498;United Kingdom;2014/10/25;Argo UK Bio
+3901499;United Kingdom;2014/10/17;Argo UK
+3901500;United Kingdom;2014/10/20;Argo UK
+3901501;United Kingdom;2014/10/21;Argo UK
+3901502;United Kingdom;2014/10/25;Argo UK
+3901503;United Kingdom;2014/10/27;Argo UK
+3901504;United Kingdom;2014/10/29;Argo UK
+3901505;United Kingdom;2014/10/31;Argo UK
+3901506;United Kingdom;2014/11/01;Argo UK
+3901507;United Kingdom;2015/02/01;Argo UK
+3901508;United Kingdom;2015/02/01;Argo UK
+3901509;United Kingdom;2015/02/01;Argo UK
+3901510;United Kingdom;2015/02/02;Argo UK
+3901511;United Kingdom;2015/02/02;Argo UK
+3901512;United Kingdom;2015/02/06;Argo UK
+3901513;United Kingdom;2015/08/03;Argo UK
+3901514;United Kingdom;2015/08/03;Argo UK
+3901515;United Kingdom;2015/08/03;Argo UK
+3901516;United Kingdom;2015/08/03;Argo UK
+3901517;United Kingdom;2015/10/22;Argo UK
+3901518;United Kingdom;2015/10/22;Argo UK
+3901519;United Kingdom;2015/10/20;Argo UK
+3901520;United Kingdom;2015/10/22;Argo UK
+3901521;United Kingdom;2015/10/24;Argo UK
+3901522;United Kingdom;2015/10/26;Argo UK
+3901523;United Kingdom;2015/10/29;Argo UK
+3901524;United Kingdom;2016/10/15;Argo UK
+3901525;United Kingdom;2016/10/17;Argo UK
+3901526;United Kingdom;2016/10/22;Argo UK
+3901527;United Kingdom;2016/10/25;Argo UK
+3901528;United Kingdom;2016/10/26;Argo UK
+3901529;United Kingdom;2016/10/27;Argo UK
+3901530;United Kingdom;2016/11/28;Argo UK Bio
+3901531;United Kingdom;2016/11/29;Argo UK Bio
+3901532;United Kingdom;2017/03/20;Argo UK
+3901533;United Kingdom;2017/03/19;Argo UK
+3901534;United Kingdom;2017/04/08;Argo UK
+3901535;United Kingdom;2017/04/27;Argo UK
+3901536;United Kingdom;2017/10/18;Argo UK
+3901537;United Kingdom;2017/10/19;Argo UK
+3901538;United Kingdom;2017/10/27;Argo UK
+3901539;United Kingdom;2017/10/27;Argo UK
+3901540;United Kingdom;2017/11/15;Argo UK
+3901541;United Kingdom;2017/11/15;Argo UK
+3901542;United Kingdom;2017/11/15;Argo UK
+3901543;United Kingdom;2017/11/15;Argo UK
+3901544;United Kingdom;2017/11/15;Argo UK
+3901545;United Kingdom;2017/11/15;Argo UK
+3901546;United Kingdom;2018/09/10;Argo UK
+3901547;United Kingdom;2018/09/10;Argo UK
+3901548;United Kingdom;2018/10/14;Argo UK
+3901549;United Kingdom;2018/10/18;Argo UK
+3901550;United Kingdom;2018/10/21;Argo UK
+3901551;United Kingdom;2018/10/22;Argo UK
+3901552;United Kingdom;2018/11/09;Argo UK
+3901553;United Kingdom;2020/02/09;Argo UK
+3901554;United Kingdom;2020/02/11;Argo UK
+3901555;United Kingdom;2020/02/19;Argo UK
+3901556;United Kingdom;2020/02/16;Argo UK
+3901560;United Kingdom;2020/12/30;Argo UK
+3901561;United Kingdom;2021/01/02;Argo UK
+3901562;United Kingdom;2020/12/31;Argo UK
+3901563;United Kingdom;2021/01/03;Argo UK
+3901564;United Kingdom;2021/01/04;Argo UK
+3901565;United Kingdom;2021/01/06;Argo UK
+3901566;United Kingdom;2021/03/17;Argo UK
+3901567;United Kingdom;2021/03/19;Argo UK
+3901568;United Kingdom;2022/05/19;Argo UK
+3901569;United Kingdom;2022/05/18;Argo UK
+3901570;United Kingdom;2022/05/20;Argo UK
+3901571;United Kingdom;2022/05/21;Argo UK
+3901572;United Kingdom;2022/11/24;Argo UK
+3901573;United Kingdom;2022/12/12;Argo UK
+3901574;United Kingdom;2022/12/07;Argo UK
+3901575;United Kingdom;2022/12/07;Argo UK
+3901576;United Kingdom;2022/12/07;Argo UK
+3901578;United Kingdom;2023/03/16;Argo UK Bio
+3901579;United Kingdom;2023/03/26;Argo UK Bio
+3901588;Germany;2016/09/04;Argo BSH
+3901589;Germany;2016/09/04;Argo BSH
+3901590;Germany;2016/08/22;Argo BSH
+3901591;Germany;2016/08/23;Argo BSH
+3901592;Germany;2016/04/24;Argo BSH
+3901593;Germany;2016/04/23;Argo BSH
+3901594;Germany;2016/04/22;Argo BSH
+3901595;Germany;2016/04/20;Argo BSH
+3901596;Germany;2016/04/19;Argo BSH
+3901597;Germany;2017/08/16;Argo BSH
+3901598;Germany;2017/04/30;Argo BSH
+3901601;Germany;2016/09/22;Argo BSH
+3901602;Germany;2016/09/18;Argo BSH
+3901603;Germany;2016/09/20;Argo BSH
+3901604;Germany;2016/09/19;Argo BSH
+3901605;Germany;2016/09/22;Argo BSH
+3901606;Germany;2017/05/02;Argo BSH
+3901607;Germany;2017/01/30;Argo BSH
+3901608;Germany;2016/12/31;Argo BSH
+3901609;Germany;2017/05/03;Argo BSH
+3901610;Germany;2017/05/06;Argo BSH
+3901611;Germany;2016/12/29;Argo BSH
+3901612;Germany;2017/01/28;Argo BSH
+3901619;Germany;2017/05/28;Argo BSH
+3901620;Germany;2017/05/28;Argo BSH
+3901621;Germany;2017/05/27;Argo BSH
+3901622;Germany;2017/08/27;Argo BSH
+3901623;Germany;2017/05/29;Argo BSH
+3901624;Germany;2017/06/06;Argo BSH
+3901625;Germany;2017/06/11;Argo BSH
+3901626;Germany;2017/06/12;Argo BSH
+3901627;Germany;2017/06/13;Argo BSH
+3901628;Germany;2017/06/14;Argo BSH
+3901629;Germany;2017/06/17;Argo BSH
+3901630;Germany;2017/06/18;Argo BSH
+3901631;Germany;2017/10/15;Argo BSH
+3901632;Germany;2017/10/13;Argo BSH
+3901633;Germany;2017/10/06;Argo BSH
+3901634;Germany;2017/08/24;Argo BSH
+3901635;Germany;2017/08/19;Argo BSH
+3901636;Germany;2017/09/02;Argo BSH
+3901637;Germany;2017/11/28;Argo BSH
+3901638;Germany;2017/12/02;Argo BSH
+3901639;Germany;2017/12/02;Argo BSH
+3901640;Germany;2017/11/28;Argo BSH
+3901641;Germany;2017/11/28;Argo BSH
+3901642;Germany;2017/12/02;Argo BSH
+3901643;Germany;2017/11/09;Argo BSH
+3901644;Germany;2018/12/31;Argo BSH
+3901645;Germany;2018/12/31;Argo BSH
+3901646;Germany;2018/01/25;Argo BSH
+3901647;Germany;2018/01/22;Argo BSH
+3901648;Germany;2018/01/22;Argo BSH
+3901649;Germany;2018/01/20;Argo BSH
+3901650;Germany;2018/05/12;Argo BSH
+3901651;Germany;2018/05/11;Argo BSH
+3901652;Germany;2018/03/05;Argo BSH
+3901653;Germany;2018/05/16;Argo BSH
+3901654;Germany;2018/04/16;Argo BSH
+3901655;Germany;2018/04/15;Argo BSH
+3901656;Germany;2018/01/26;Argo BSH
+3901657;Germany;2018/01/25;Argo BSH
+3901658;Germany;2018/01/25;Argo BSH
+3901659;Germany;2018/01/24;Argo BSH
+3901660;Germany;2018/05/07;Argo BSH
+3901661;Germany;2018/04/24;Argo BSH
+3901662;Germany;2018/04/23;Argo BSH
+3901663;Germany;2018/04/20;Argo BSH
+3901664;Germany;2018/04/19;Argo BSH
+3901665;Germany;2018/05/08;Argo BSH
+3901666;Germany;2018/04/13;Argo BSH
+3901667;Germany;2018/06/12;Argo BSH
+3901668;Germany;2018/06/12;Argo BSH
+3901669;Germany;2018/06/01;Argo BSH
+3901670;Germany;2018/06/21;Argo BSH
+3901671;Germany;2018/06/17;Argo BSH
+3901672;Germany;2018/06/25;Argo BSH
+3901673;Germany;2018/06/04;Argo BSH
+3901674;Germany;2018/06/08;Argo BSH
+3901675;Germany;2018/06/14;Argo BSH
+3901676;Germany;2018/12/10;Argo BSH
+3901677;Germany;2018/12/11;Argo BSH
+3901678;Germany;2018/12/02;Argo BSH
+3901679;Germany;2018/11/30;Argo BSH
+3901680;Germany;2018/11/29;Argo BSH
+3901681;Germany;2018/12/07;Argo BSH
+3901682;Germany;2018/12/07;Argo BSH
+3901683;Germany;2018/12/08;Argo BSH
+3901684;Germany;2018/12/09;Argo BSH
+3901685;Germany;2019/09/25;Argo BSH
+3901686;Germany;2020/02/21;Argo BSH
+3901687;Germany;2020/02/26;Argo BSH
+3901838;Germany;2016/08/23;MOCCA-GER
+3901839;Germany;2016/06/25;MOCCA-GER
+3901840;Germany;2016/05/29;MOCCA-GER
+3901841;Germany;2016/07/31;MOCCA-GER
+3901842;Germany;2016/10/08;MOCCA-GER
+3901843;Germany;2016/10/09;MOCCA-GER
+3901844;Germany;2016/10/13;MOCCA-GER
+3901845;Germany;2016/06/26;MOCCA-GER
+3901846;Germany;2016/10/20;MOCCA-GER
+3901847;Germany;2016/10/22;MOCCA-GER
+3901848;Italy;2016/06/04;MOCCA-IT
+3901849;Italy;2016/06/05;MOCCA-IT
+3901850;Poland;2016/06/24;MOCCA-POL
+3901851;Poland;2016/06/25;MOCCA-POL
+3901852;European Union;2016/12/06;MOCCA-EU
+3901853;European Union;2016/10/28;MOCCA-EU
+3901854;European Union;2016/11/02;MOCCA-EU
+3901855;European Union;2016/10/22;MOCCA-EU
+3901856;European Union;2016/08/09;MOCCA-EU
+3901857;European Union;2016/08/12;MOCCA-EU
+3901858;European Union;2016/08/14;MOCCA-EU
+3901859;European Union;2016/09/01;MOCCA-EU
+3901860;European Union;2016/09/05;MOCCA-EU
+3901861;European Union;2016/09/06;MOCCA-EU
+3901862;European Union;2016/08/11;MOCCA-EU
+3901863;European Union;2016/08/12;MOCCA-EU
+3901864;European Union;2016/09/08;MOCCA-EU
+3901865;European Union;2016/09/08;MOCCA-EU
+3901866;European Union;2016/10/17;MOCCA-EU
+3901867;European Union;2016/10/11;MOCCA-EU
+3901868;European Union;2016/10/12;MOCCA-EU
+3901869;European Union;2016/11/10;MOCCA-EU
+3901870;European Union;2016/11/10;MOCCA-EU
+3901871;European Union;2016/08/29;MOCCA-EU
+3901872;European Union;2016/08/23;MOCCA-EU
+3901873;European Union;2016/09/04;MOCCA-EU
+3901874;European Union;2016/08/22;MOCCA-EU
+3901875;European Union;2016/08/23;MOCCA-EU
+3901876;Netherlands;2016/10/17;MOCCA-NETH
+3901877;Netherlands;2016/10/21;MOCCA-NETH
+3901878;Netherlands;2017/04/19;MOCCA-NETH
+3901879;Netherlands;2017/04/03;MOCCA-NETH
+3901880;Netherlands;2017/04/20;MOCCA-NETH
+3901881;Netherlands;2017/01/22;MOCCA-NETH
+3901882;Netherlands;2017/03/04;MOCCA-NETH
+3901883;Netherlands;2017/01/28;MOCCA-NETH
+3901884;Netherlands;2017/04/14;MOCCA-NETH
+3901885;Netherlands;2016/12/19;MOCCA-NETH
+3901886;Netherlands;2017/03/24;MOCCA-NETH
+3901887;Netherlands;2017/04/13;MOCCA-NETH
+3901888;Netherlands;2017/02/25;MOCCA-NETH
+3901889;Netherlands;2017/04/06;MOCCA-NETH
+3901890;European Union;2017/04/03;MOCCA-EU
+3901891;European Union;2017/04/14;MOCCA-EU
+3901892;European Union;2017/04/14;MOCCA-EU
+3901893;European Union;2017/04/15;MOCCA-EU
+3901894;European Union;2017/04/15;MOCCA-EU
+3901895;European Union;2017/04/14;MOCCA-EU
+3901896;European Union;2017/04/24;MOCCA-EU
+3901897;European Union;2017/05/10;MOCCA-EU
+3901898;European Union;2017/05/10;MOCCA-EU
+3901899;European Union;2017/01/22;MOCCA-EU
+3901900;European Union;2017/01/24;MOCCA-EU
+3901901;European Union;2016/12/16;MOCCA-EU
+3901902;European Union;2016/12/16;MOCCA-EU
+3901903;European Union;2016/12/16;MOCCA-EU
+3901904;European Union;2017/01/24;MOCCA-EU
+3901905;European Union;2017/01/23;MOCCA-EU
+3901906;European Union;2017/03/10;MOCCA-EU
+3901907;Italy;2017/01/21;MOCCA-IT
+3901908;Italy;2017/01/25;MOCCA-IT
+3901909;European Union;2016/12/29;MOCCA-EU
+3901910;Poland;2017/06/29;MOCCA-POL
+3901911;Poland;2017/06/27;MOCCA-POL
+3901912;European Union;2017/08/10;MOCCA-EU
+3901913;European Union;2017/08/10;MOCCA-EU
+3901914;European Union;2017/08/10;MOCCA-EU
+3901915;European Union;2017/08/10;MOCCA-EU
+3901916;European Union;2017/08/10;MOCCA-EU
+3901917;European Union;2017/08/10;MOCCA-EU
+3901918;European Union;2016/12/01;MOCCA-EU
+3901919;European Union;2016/12/01;MOCCA-EU
+3901920;European Union;2016/12/02;MOCCA-EU
+3901921;European Union;2018/05/19;MOCCA-EU
+3901922;European Union;2017/10/07;MOCCA-EU
+3901923;European Union;2016/12/03;MOCCA-EU
+3901924;European Union;2016/12/04;MOCCA-EU
+3901925;European Union;2016/12/04;MOCCA-EU
+3901926;European Union;2017/10/31;MOCCA-EU
+3901927;European Union;2016/12/05;MOCCA-EU
+3901928;European Union;2016/12/06;MOCCA-EU
+3901929;European Union;2017/01/22;MOCCA-EU
+3901930;European Union;2017/01/24;MOCCA-EU
+3901931;European Union;2017/01/19;MOCCA-EU
+3901932;European Union;2018/06/08;MOCCA-EU
+3901933;European Union;2017/10/31;MOCCA-EU
+3901934;European Union;2017/01/10;MOCCA-EU
+3901935;European Union;2017/01/08;MOCCA-EU
+3901936;European Union;2017/09/20;MOCCA-EU
+3901937;European Union;2017/01/09;MOCCA-EU
+3901938;European Union;2017/10/06;MOCCA-EU
+3901939;European Union;2017/09/18;MOCCA-EU
+3901940;European Union;2017/09/20;MOCCA-EU
+3901941;European Union;2017/09/21;MOCCA-EU
+3901942;European Union;2017/09/20;MOCCA-EU
+3901943;European Union;2017/09/20;MOCCA-EU
+3901944;European Union;2017/09/22;MOCCA-EU
+3901945;European Union;2017/11/04;MOCCA-EU
+3901946;European Union;2018/01/23;MOCCA-EU
+3901947;European Union;2018/01/23;MOCCA-EU
+3901948;European Union;2017/12/17;MOCCA-EU
+3901949;European Union;2017/12/16;MOCCA-EU
+3901950;European Union;2017/12/18;MOCCA-EU
+3901951;European Union;2017/09/28;MOCCA-EU
+3901952;European Union;2017/10/05;MOCCA-EU
+3901953;European Union;2017/10/05;MOCCA-EU
+3901954;European Union;2017/10/09;MOCCA-EU
+3901955;European Union;2017/10/13;MOCCA-EU
+3901956;European Union;2017/10/15;MOCCA-EU
+3901957;European Union;2018/05/20;MOCCA-EU
+3901958;European Union;2018/01/03;MOCCA-EU
+3901959;European Union;2018/01/02;MOCCA-EU
+3901960;European Union;2018/01/05;MOCCA-EU
+3901961;Italy;2018/01/29;Argo ITALY
+3901962;Italy;2018/02/06;Argo ITALY
+3901963;Italy;2018/01/30;Argo ITALY
+3901964;European Union;2017/07/25;MOCCA-EU
+3901965;European Union;2017/07/25;MOCCA-EU
+3901966;Netherlands;2018/04/07;Argo NETHERLANDS
+3901967;Netherlands;2018/04/16;Argo NETHERLANDS
+3901968;Netherlands;2017/11/02;Argo NETHERLANDS
+3901969;Netherlands;2018/04/14;Argo NETHERLANDS
+3901970;European Union;2018/07/20;MOCCA-EU
+3901971;European Union;2018/07/23;MOCCA-EU
+3901972;European Union;2017/12/25;MOCCA-EU
+3901973;Italy;2018/07/21;Argo ITALY
+3901974;Italy;2018/05/30;Argo ITALY
+3901975;Italy;2018/07/04;Argo ITALY
+3901976;Italy;2018/11/05;Argo ITALY
+3901977;Italy;2018/10/22;Argo ITALY
+3901978;Italy;2017/07/05;MOCCA-IT
+3901979;European Union;2018/02/06;MOCCA-EU
+3901980;European Union;2018/05/08;MOCCA-EU
+3901981;European Union;2018/05/04;MOCCA-EU
+3901982;European Union;2018/05/02;MOCCA-EU
+3901983;European Union;2018/04/29;MOCCA-EU
+3901984;European Union;2018/08/26;MOCCA-EU
+3901985;European Union;2018/02/07;MOCCA-EU
+3901986;European Union;2018/02/06;MOCCA-EU
+3901987;European Union;2018/02/06;MOCCA-EU
+3901988;Norway;2018/02/28;Argo NORWAY
+3901989;European Union;2018/09/08;MOCCA-EU
+3901990;European Union;2018/10/25;MOCCA-EU
+3901991;European Union;2018/12/13;MOCCA-EU
+3901992;European Union;2018/12/27;MOCCA-EU
+3901993;European Union;2018/12/28;MOCCA-EU
+3901994;European Union;2018/12/30;MOCCA-EU
+3901995;European Union;2018/12/20;MOCCA-EU
+3901996;European Union;2018/12/26;MOCCA-EU
+3901997;European Union;2021/02/25;EuroArgo
+3901998;European Union;2021/03/01;EuroArgo
+3901999;European Union;2021/02/25;EuroArgo
+3902000;European Union;2021/11/26;EuroArgo
+3902001;European Union;2021/11/25;EuroArgo
+3902004;Bulgaria;2021/10/21;BulArgo
+3902005;Bulgaria;2021/10/21;BulArgo
+3902006;Bulgaria;2022/11/03;BulArgo
+3902007;European Union;2022/02/12;EuroArgo
+3902008;European Union;2022/02/11;EuroArgo
+3902009;European Union;2022/02/13;EuroArgo
+3902010;European Union;2022/05/19;EuroArgo
+3902011;European Union;2022/05/19;EuroArgo
+3902012;European Union;2022/08/13;EuroArgo
+3902013;European Union;2022/07/30;EuroArgo
+3902014;European Union;2022/08/11;EuroArgo
+3902100;Poland;2017/03/15;Argo POLAND
+3902101;Poland;2018/02/06;Argo POLAND
+3902102;Poland;2018/06/30;Argo POLAND
+3902103;Poland;2018/06/30;Argo POLAND
+3902104;Poland;2018/05/31;Argo POLAND
+3902105;Poland;2018/06/23;Argo POLAND
+3902106;Poland;2018/09/11;Argo POLAND
+3902107;Poland;2019/06/22;Argo POLAND
+3902108;Poland;2019/06/23;Argo POLAND
+3902109;European Union;2020/06/03;Euro-Argo RISE
+3902110;Poland;2020/05/27;Argo POLAND
+3902111;Poland;2020/07/10;Argo POLAND
+3902112;Poland;2020/07/08;Argo POLAND
+3902113;Poland;2021/06/30;Argo POLAND
+3902114;Poland;2021/07/07;Argo POLAND
+3902115;Poland;2021/06/15;Argo POLAND
+3902116;Poland;2022/07/26;Argo POLAND
+3902117;Poland;2023/02/22;Argo POLAND
+3902120;European Union;2018/03/14;AtlantOS_H2020
+3902121;European Union;2018/03/16;AtlantOS_H2020
+3902122;European Union;2017/10/08;AtlantOS_H2020
+3902123;European Union;2017/10/09;AtlantOS_H2020
+3902124;European Union;2017/10/18;AtlantOS_H2020
+3902125;European Union;2017/10/19;AtlantOS_H2020
+3902126;European Union;2018/04/10;AtlantOS_H2020
+3902127;European Union;2018/08/25;AtlantOS_H2020
+3902128;European Union;2018/03/21;AtlantOS_H2020
+3902129;European Union;2018/02/04;AtlantOS_H2020
+3902130;European Union;2018/03/24;AtlantOS_H2020
+3902131;European Union;2018/03/13;AtlantOS_H2020
+3902132;European Union;2018/03/29;AtlantOS_H2020
+3902133;European Union;2017/11/03;MOCCA-EU
+3902134;European Union;2018/10/04;MOCCA-EU
+3902135;European Union;2018/01/01;MOCCA-EU
+3902136;European Union;2017/12/30;MOCCA-EU
+3902137;European Union;2018/11/09;MOCCA-EU
+3902398;United Kingdom;2019/11/11;Argo UK
+3902399;United Kingdom;2019/11/12;Argo UK
+3902400;United Kingdom;2019/11/16;Argo UK
+3902401;United Kingdom;2019/11/18;Argo UK
+3902402;United Kingdom;2019/11/21;Argo UK
+3902403;United Kingdom;2019/11/22;Argo UK
+3902456;Netherlands;2022/04/22;Argo NETHERLANDS
+3902457;Netherlands;2022/04/22;Argo NETHERLANDS
+3902458;France;2022/12/05;Coriolis
+3902459;France;2023/02/13;Coriolis
+3902460;France;2022/12/11;Coriolis
+3902462;Norway;2022/06/17;Argo NORWAY
+3902463;Norway;2022/06/05;Argo NORWAY
+3902464;Norway;2022/06/12;Argo NORWAY
+3902465;Norway;2022/06/12;Argo NORWAY
+3902467;Spain;2022/11/16;Argo SPAIN
+3902468;Netherlands;2023/01/24;Argo NETHERLANDS
+3902469;Netherlands;2023/01/01;Argo NETHERLANDS
+3902471;France;2022/11/02;REFINE
+3902472;France;2022/10/16;Argo FPAII-GMMC
+3902475;Germany;2023/01/19;Argo BSH
+3902476;France;2022/12/22;Coriolis
+3902488;Germany;2023/02/13;Argo GERMANY
+3902489;France;2023/03/08;Coriolis
+3902494;United Kingdom;2023/05/09;Argo UK
+3902498;France;2023/03/07;REFINE
+3902500;Italy;2023/05/05;Argo ITALY
+3902518;France;2023/05/04;Coriolis
+3902519;France;2023/05/03;Coriolis
+4900187;Germany;2001/05/14;Argo eq. IFM
+4900188;Germany;2001/05/24;Argo eq. IFM
+4900189;Germany;2001/05/24;Argo eq. IFM
+4900190;Germany;2001/06/09;Argo eq. IFM
+4900191;Germany;2001/06/09;Argo eq. IFM
+4900192;Germany;2001/06/08;Argo eq. IFM
+4900193;Germany;2001/06/08;Argo eq. IFM
+4900207;European Union;2002/03/11;Gyroscope
+4900208;European Union;2002/03/12;Gyroscope
+4900209;European Union;2002/03/14;Gyroscope
+4900210;European Union;2002/03/16;Gyroscope
+4900211;European Union;2002/03/17;Gyroscope
+4900212;European Union;2002/03/19;Gyroscope
+4900213;European Union;2002/03/15;Gyroscope
+4900214;European Union;2002/05/11;Gyroscope
+4900215;European Union;2002/05/11;Gyroscope
+4900216;European Union;2002/05/12;Gyroscope
+4900217;European Union;2002/05/12;Gyroscope
+4900218;European Union;2002/05/12;Gyroscope
+4900219;European Union;2002/05/13;Gyroscope
+4900220;European Union;2002/05/14;Gyroscope
+4900221;European Union;2002/05/14;Gyroscope
+4900222;European Union;2002/06/17;Gyroscope
+4900223;European Union;2002/06/17;Gyroscope
+4900224;European Union;2002/06/17;Gyroscope
+4900225;European Union;2002/06/18;Gyroscope
+4900226;Mexico;2005/07/27;Argo MEX-CO-US
+4900258;European Union;2002/06/04;Gyroscope
+4900259;European Union;2002/06/05;Gyroscope
+4900260;European Union;2002/06/05;Gyroscope
+4900261;European Union;2002/06/06;Gyroscope
+4900262;European Union;2002/06/07;Gyroscope
+4900263;European Union;2002/06/07;Gyroscope
+4900264;European Union;2002/06/08;Gyroscope
+4900265;European Union;2002/06/08;Gyroscope
+4900296;European Union;2002/06/08;Gyroscope
+4900297;European Union;2002/06/08;Gyroscope
+4900298;European Union;2002/06/09;Gyroscope
+4900299;European Union;2002/06/10;Gyroscope
+4900300;European Union;2002/06/12;Gyroscope
+4900301;France;2007/07/27;Coriolis
+4900302;France;2007/07/22;Coriolis
+4900303;France;2007/07/26;Coriolis
+4900349;Germany;2003/09/19;Argo eq. IFM
+4900350;Germany;2003/09/19;Argo eq. IFM
+4900351;Germany;2003/09/23;Argo eq. IFM
+4900352;Germany;2003/09/24;Argo eq. IFM
+4900353;Germany;2003/09/19;Argo eq. IFM
+4900354;Germany;2003/09/18;Argo eq. IFM
+4900355;Germany;2003/09/20;Argo eq. IFM
+4900555;Germany;2004/09/02;Argo IFM-GEOMAR
+4900556;Spain;2005/03/05;Argo SPAIN
+4900557;Spain;2004/09/10;Argo SPAIN
+4900558;Spain;2004/09/10;Argo SPAIN
+4900607;Germany;2003/09/07;Argo eq. IFM2
+4900608;Germany;2004/09/02;Argo eq. IFM2
+4900609;Germany;2004/09/01;Argo eq. IFM2
+4900610;Germany;2004/09/19;Argo eq. IFM2
+4900611;Germany;2004/09/15;Argo eq. IFM2
+4901254;France;2008/05/31;Coriolis
+4901255;France;2008/05/31;Coriolis
+4901256;France;2008/05/31;Coriolis
+4901257;France;2008/06/01;Coriolis
+4901258;France;2008/06/01;Coriolis
+4901410;Germany;2012/07/11;Argo BSH
+4901411;Germany;2012/07/12;Argo BSH
+4901412;Germany;2012/07/13;Argo BSH
+4901413;Germany;2012/07/15;Argo BSH
+4901414;Germany;2012/07/17;Argo BSH
+4901415;Germany;2012/07/18;Argo BSH
+4901416;Germany;2012/07/20;Argo BSH
+4901417;Germany;2013/05/16;Argo BSH
+4901418;Germany;2013/05/20;Argo BSH
+4901419;Germany;2013/05/24;Argo BSH
+4901420;Germany;2013/05/31;Argo BSH
+4901421;Germany;2015/06/09;Argo BSH
+4901422;Germany;2015/06/06;Argo BSH
+4901423;Germany;2015/06/05;Argo BSH
+4901424;Germany;2015/06/13;Argo BSH
+4901425;Germany;2015/06/15;Argo BSH
+4901426;Germany;2015/05/23;Argo BSH
+4901428;Germany;2015/10/20;Argo BSH
+4901429;Germany;2015/10/21;Argo BSH
+4901680;Germany;2012/07/13;Argo BSH
+4901681;Germany;2012/07/20;Argo BSH
+4901682;Germany;2015/10/23;Argo BSH
+4901683;Germany;2015/10/24;Argo BSH
+4901801;Canada;2016/06/07;NAOS-Canada
+4901802;Canada;2016/07/09;NAOS-Canada
+4901803;Canada;2016/07/09;NAOS-Canada
+4901804;Canada;2017/07/20;NAOS-Canada
+4901805;Canada;2017/07/20;NAOS-Canada
+4901806;Canada;2019/07/17;NAOS-Canada
+4902437;Canada;2022/10/12;NAOS-Canada
+4902602;Canada;2021/10/25;NAOS-Canada
+4902630;Canada;2022/10/12;NAOS-Canada
+4903626;France;2022/11/26;Coriolis
+4903627;France;2022/11/24;Coriolis
+4903628;France;2022/11/25;Coriolis
+4903629;Netherlands;2022/04/21;Argo NETHERLANDS
+4903630;France;2022/12/19;Coriolis
+4903631;France;2023/01/31;Coriolis
+4903632;France;2022/09/10;Coriolis
+4903633;France;2023/01/27;Coriolis
+4903634;France;2022/05/21;REFINE
+4903635;Spain;2022/07/20;Argo SPAIN
+4903639;Netherlands;2022/11/26;Argo NETHERLANDS
+4903640;Netherlands;2022/12/20;Argo NETHERLANDS
+4903641;Norway;2022/10/03;Argo NORWAY
+4903642;Germany;2023/01/11;Argo BSH
+4903643;France;2022/12/29;Coriolis
+4903650;Italy;2023/02/08;Argo ITALY
+4903652;France;2023/03/19;Coriolis
+4903657;France;2023/02/06;REFINE
+4903658;France;2023/02/11;REFINE
+4903670;United Kingdom;2023/05/10;Argo UK Bio
+4903672;Norway;2023/05/30;Argo NORWAY
+4903673;Norway;2023/06/01;Argo NORWAY
+4903674;Norway;2023/06/01;Argo NORWAY
+4903711;European Union;2023/05/11;EuroArgo
+4903713;Spain;2023/04/16;Argo SPAIN
+4903714;Finland;2023/04/22;Argo FINLAND
+4903739;France;2023/08/01;Coriolis-BIOArgo
+4903740;France;2023/05/10;Coriolis-BIOArgo
+5900176;United Kingdom;2002/03/31;Argo UK
+5900177;United Kingdom;2002/04/02;Argo UK
+5900178;United Kingdom;2002/04/03;Argo UK
+5900179;United Kingdom;2002/04/04;Argo UK
+5900180;United Kingdom;2002/04/04;Argo UK
+5900181;United Kingdom;2002/04/05;Argo UK
+5900182;United Kingdom;2002/04/05;Argo UK
+5900183;United Kingdom;2002/04/06;Argo UK
+5900184;United Kingdom;2002/04/07;Argo UK
+5900185;United Kingdom;2002/04/09;Argo UK
+5900186;United Kingdom;2002/04/11;Argo UK
+5900187;United Kingdom;2002/04/13;Argo UK
+5900198;China;2002/03/21;Argo eq. CHINA
+5900901;France;2005/05/01;Coriolis-FRONTALIS
+5900902;France;2005/05/01;Coriolis-FRONTALIS
+5900903;France;2005/05/02;Coriolis-FRONTALIS
+5900904;France;2005/05/03;Coriolis-FRONTALIS
+5900905;France;2005/05/03;Coriolis-FRONTALIS
+5900906;France;2005/05/11;Coriolis-FRONTALIS
+5900907;France;2005/05/11;Coriolis-FRONTALIS
+5900908;France;2005/05/11;Coriolis-FRONTALIS
+5900909;France;2005/05/10;Coriolis-FRONTALIS
+5900910;France;2005/05/10;Coriolis-FRONTALIS
+5900911;France;2005/04/23;Coriolis-FRONTALIS
+5900912;France;2005/04/23;Coriolis-FRONTALIS
+5900913;France;2005/05/17;Coriolis-FRONTALIS
+5900914;France;2005/04/24;Coriolis-FRONTALIS
+5900915;France;2005/04/24;Coriolis-FRONTALIS
+5900916;France;2005/04/25;Coriolis-FRONTALIS
+5900917;France;2005/04/25;Coriolis-FRONTALIS
+5900918;France;2005/04/25;Coriolis-FRONTALIS
+5900919;France;2005/04/26;Coriolis-FRONTALIS
+5900920;France;2005/04/26;Coriolis-FRONTALIS
+5901709;United Kingdom;2007/01/31;Argo UK
+5901710;United Kingdom;2007/01/30;Argo UK
+5901711;United Kingdom;2007/02/01;Argo UK
+5901712;United Kingdom;2007/02/01;Argo UK
+5902065;France;2011/12/14;Coriolis-Good Hope
+5902066;France;2012/01/16;Coriolis-Good Hope
+5902067;France;2012/01/16;Coriolis-Good Hope
+5902268;France;2012/01/14;Coriolis-Good Hope
+5902269;France;2010/06/28;Coriolis-OVIDE
+5902281;France;2009/12/08;Coriolis-Good Hope
+5902282;France;2009/12/09;Coriolis-Good Hope
+5902283;France;2009/12/11;Coriolis-Good Hope
+5902284;France;2009/12/13;Coriolis-Good Hope
+5902285;France;2009/12/14;Coriolis-Good Hope
+5902286;France;2009/12/16;Coriolis-Good Hope
+5902287;France;2009/12/18;Coriolis-Good Hope
+5902288;France;2009/12/20;Coriolis-Good Hope
+5902289;France;2009/12/21;Coriolis-Good Hope
+5902290;France;2014/09/27;Coriolis
+5902291;France;2010/04/16;Coriolis
+5902292;France;2010/11/30;Coriolis-PIRATA
+5902293;France;2010/12/01;Coriolis-PIRATA
+5902294;France;2010/12/02;Coriolis-PIRATA
+5902295;France;2011/07/01;Coriolis-SPICE
+5902296;France;2014/02/13;Coriolis
+5902297;France;2010/06/27;Coriolis-OVIDE
+5902298;France;2010/06/27;Coriolis-OVIDE
+5902299;France;2010/06/26;Coriolis-OVIDE
+5902300;France;2010/06/25;Coriolis-OVIDE
+5902301;France;2010/06/25;Coriolis-OVIDE
+5902302;France;2010/06/24;Coriolis-OVIDE
+5902303;France;2010/06/23;Coriolis-OVIDE
+5902304;France;2010/06/21;Coriolis-OVIDE
+5902305;France;2010/06/20;Coriolis-OVIDE
+5902306;France;2010/06/19;Coriolis-OVIDE
+5902307;France;2010/06/17;Coriolis-OVIDE
+5902308;France;2010/06/15;Coriolis-OVIDE
+5902309;France;2010/06/12;Coriolis-OVIDE
+5902310;France;2010/05/10;Coriolis-SPICE
+5902311;France;2010/05/11;Coriolis-SPICE
+5902312;France;2010/05/10;Coriolis-SPICE
+5902313;France;2010/05/11;Coriolis-SPICE
+5902314;France;2010/12/03;Coriolis-PIRATA
+5902315;France;2010/12/04;Coriolis-PIRATA
+5902316;France;2010/09/02;Coriolis
+5902317;France;2010/06/29;Coriolis-BIOArgo
+5903118;Brazil;2014/11/13;Argo BRAZIL Navy
+5903126;Brazil;2014/11/12;Argo BRAZIL Navy
+5903129;Brazil;2015/03/03;Argo BRAZIL Navy
+5903130;Brazil;2015/04/26;Argo BRAZIL Navy
+5903131;Brazil;2015/05/08;Argo BRAZIL Navy
+5903132;Brazil;2015/11/19;Argo BRAZIL Navy
+5903133;Brazil;2015/11/18;Argo BRAZIL Navy
+5903134;Brazil;2015/10/12;Argo BRAZIL Navy
+5903135;Brazil;2015/10/15;Argo BRAZIL Navy
+5904988;Norway;2014/06/12;Argo NORWAY
+5904989;Norway;2014/06/12;Argo NORWAY
+5906864;France;2023/02/12;Coriolis
+5906866;Bulgaria;2022/11/03;BulArgo
+5906868;Saudi Arabia;2022/03/29;Argo SAUDI ARABIA
+5906966;United Kingdom;2023/02/24;Argo UK
+5906967;United Kingdom;2023/03/28;Argo UK
+5906969;France;2022/10/28;Coriolis
+5906970;France;2022/10/16;REFINE
+5906971;France;2022/11/27;NAOS-France
+5906972;France;2022/10/21;NAOS-France
+5906973;Finland;2022/10/03;Argo FINLAND
+5906974;Germany;2023/01/18;Argo BSH
+5906979;Italy;2023/02/08;Argo ITALY
+5906980;Italy;2023/02/08;Argo ITALY
+5906990;France;2023/05/07;Coriolis-BIOArgo
+5907048;United Kingdom;2023/05/16;Argo UK
+6900045;European Union;2001/07/25;Gyroscope
+6900046;European Union;2001/07/25;Gyroscope
+6900047;France;2001/09/06;Argo eq. POMME
+6900048;France;2001/09/21;Argo eq. POMME
+6900082;United Kingdom;2001/11/21;Argo UK eq.
+6900083;United Kingdom;2001/11/22;Argo UK eq.
+6900084;United Kingdom;2002/05/05;Argo UK eq.
+6900085;United Kingdom;2002/05/07;Argo UK eq.
+6900086;United Kingdom;2002/05/08;Argo UK eq.
+6900127;France;2001/10/12;Coriolis
+6900128;France;2001/10/24;Coriolis
+6900129;France;2001/10/20;Coriolis
+6900130;France;2001/10/23;Coriolis
+6900132;France;2002/09/29;Coriolis
+6900133;France;2004/06/12;Coriolis
+6900134;France;2004/06/12;Coriolis-CONGAS
+6900135;France;2004/06/13;Coriolis-CONGAS
+6900136;France;2004/06/13;Coriolis-CONGAS
+6900137;France;2004/06/17;Coriolis-CONGAS
+6900138;France;2004/06/17;Coriolis-CONGAS
+6900139;France;2004/12/08;Coriolis-CONGAS
+6900140;France;2004/12/05;Coriolis
+6900141;France;2004/12/08;Coriolis-CONGAS
+6900152;European Union;2001/08/04;Gyroscope
+6900153;European Union;2001/08/06;Gyroscope
+6900154;European Union;2001/07/27;Gyroscope
+6900155;European Union;2001/07/22;Gyroscope
+6900156;European Union;2001/07/26;Gyroscope
+6900157;European Union;2001/07/20;Gyroscope
+6900158;European Union;2001/07/20;Gyroscope
+6900159;European Union;2001/08/01;Gyroscope
+6900160;European Union;2001/08/02;Gyroscope
+6900161;European Union;2001/07/29;Gyroscope
+6900162;European Union;2001/10/13;Gyroscope
+6900163;European Union;2002/05/06;Gyroscope
+6900164;European Union;2001/10/24;Gyroscope
+6900165;European Union;2001/10/25;Gyroscope
+6900166;European Union;2002/05/07;Gyroscope
+6900167;European Union;2002/05/07;Gyroscope
+6900168;European Union;2002/05/10;Gyroscope
+6900169;European Union;2002/06/13;Gyroscope
+6900170;European Union;2002/06/14;Gyroscope
+6900171;European Union;2002/06/14;Gyroscope
+6900172;European Union;2002/06/14;Gyroscope
+6900173;European Union;2002/03/22;Gyroscope
+6900174;European Union;2002/06/15;Gyroscope
+6900175;European Union;2002/06/16;Gyroscope
+6900176;European Union;2002/06/26;Gyroscope
+6900177;European Union;2002/06/17;Gyroscope
+6900178;European Union;2002/06/08;Gyroscope
+6900179;European Union;2002/07/01;Gyroscope
+6900180;European Union;2002/07/07;Gyroscope
+6900181;European Union;2002/09/10;Gyroscope
+6900182;European Union;2002/06/24;Gyroscope
+6900183;European Union;2002/06/19;Gyroscope
+6900184;European Union;2002/08/08;Gyroscope
+6900185;European Union;2002/08/10;Gyroscope
+6900186;European Union;2002/08/12;Gyroscope
+6900187;European Union;2004/08/06;Gyroscope
+6900188;European Union;2004/08/05;Gyroscope
+6900189;France;2005/05/26;Coriolis
+6900190;France;2005/08/28;Coriolis-OVIDE
+6900191;France;2005/08/29;Coriolis-OVIDE
+6900192;United Kingdom;2002/06/03;Argo UK
+6900193;United Kingdom;2002/05/30;Argo UK
+6900194;United Kingdom;2002/06/01;Argo UK
+6900195;United Kingdom;2001/10/29;Argo UK
+6900196;United Kingdom;2001/10/30;Argo UK
+6900197;United Kingdom;2001/11/14;Argo UK
+6900198;United Kingdom;2001/12/04;Argo UK
+6900199;United Kingdom;2002/05/03;Argo UK
+6900201;United Kingdom;2004/07/13;Argo UK
+6900202;United Kingdom;2002/01/01;Argo UK eq.
+6900203;Germany;2002/05/26;Argo eq. BSH
+6900204;Germany;2002/05/27;Argo eq. BSH
+6900205;Germany;2002/05/28;Argo eq. BSH
+6900206;Germany;2002/05/29;Argo eq. BSH
+6900207;Germany;2002/05/31;Argo eq. BSH
+6900208;Germany;2002/06/02;Argo eq. BSH
+6900209;Germany;2002/06/03;Argo eq. BSH
+6900210;Germany;2003/07/01;Argo eq. BSH
+6900211;Germany;2005/01/01;Argo BSH
+6900212;Germany;2005/01/01;Argo BSH
+6900213;Germany;2004/06/08;Argo BSH
+6900214;Germany;2004/06/06;Argo BSH
+6900215;Norway;2002/05/31;Argo NORWAY
+6900216;Norway;2002/05/31;Argo NORWAY
+6900217;Norway;2002/06/01;Argo NORWAY
+6900218;Norway;2003/07/14;Argo NORWAY
+6900219;Norway;2003/07/15;Argo NORWAY
+6900220;Norway;2003/07/15;Argo NORWAY
+6900221;Norway;2003/07/24;Argo NORWAY
+6900222;Norway;2003/07/24;Argo NORWAY
+6900223;Norway;2003/07/25;Argo NORWAY
+6900226;European Union;2003/09/26;MEDARGO
+6900227;European Union;2003/09/26;MEDARGO
+6900228;European Union;2003/10/01;MEDARGO
+6900229;European Union;2003/10/02;MEDARGO
+6900230;Spain;2003/09/13;Argo SPAIN
+6900231;Spain;2003/12/18;Argo SPAIN
+6900232;Ireland;2003/10/08;Argo eq. IRELAND
+6900233;Ireland;2003/10/12;Argo eq. IRELAND
+6900234;France;2004/12/08;Coriolis-CONGAS
+6900235;France;2004/12/04;Coriolis
+6900236;France;2004/06/29;Coriolis
+6900237;France;2004/07/01;Coriolis
+6900238;France;2004/07/03;Coriolis
+6900239;France;2004/06/15;Coriolis
+6900240;France;2004/06/16;Coriolis
+6900241;France;2004/06/18;Coriolis
+6900242;France;2004/06/20;Coriolis
+6900243;Germany;2004/07/01;Argo BSH
+6900244;Germany;2004/07/03;Argo BSH
+6900245;Germany;2004/07/01;Argo BSH
+6900246;Germany;2004/07/01;Argo BSH
+6900247;Germany;2004/07/02;Argo BSH
+6900248;Germany;2004/07/02;Argo BSH
+6900249;Germany;2004/07/02;Argo BSH
+6900250;Germany;2004/07/03;Argo BSH
+6900251;Germany;2005/04/18;Argo BSH
+6900252;Germany;2005/07/06;Argo BSH
+6900253;Germany;2005/06/08;Argo BSH
+6900254;Germany;2005/06/09;Argo BSH
+6900255;Germany;2005/06/09;Argo BSH
+6900256;Germany;2005/06/10;Argo BSH
+6900257;Germany;2005/06/11;Argo BSH
+6900258;Germany;2005/06/12;Argo BSH
+6900259;Germany;2005/07/06;Argo BSH
+6900260;Germany;2005/07/07;Argo BSH
+6900261;Germany;2005/07/07;Argo BSH
+6900262;Germany;2005/12/12;Argo BSH
+6900263;Germany;2005/12/09;Argo BSH
+6900264;Germany;2005/12/12;Argo BSH
+6900265;Germany;2006/08/05;Argo BSH
+6900266;Germany;2006/08/06;Argo BSH
+6900267;Germany;2006/08/07;Argo BSH
+6900268;Germany;2006/08/08;Argo BSH
+6900269;Germany;2006/08/08;Argo BSH
+6900270;Germany;2005/04/18;Argo BSH
+6900271;Germany;2005/04/18;Argo BSH
+6900272;France;2004/06/27;Coriolis
+6900273;France;2004/06/07;Coriolis
+6900274;France;2004/06/14;Coriolis
+6900275;Netherlands;2004/08/20;Argo NETHERLANDS
+6900276;Netherlands;2004/08/31;Argo NETHERLANDS
+6900277;Netherlands;2004/08/22;Argo NETHERLANDS
+6900278;European Union;2004/06/30;MEDARGO
+6900279;European Union;2004/06/30;MEDARGO
+6900280;European Union;2004/08/16;MEDARGO
+6900281;European Union;2004/08/15;MEDARGO
+6900282;European Union;2004/08/15;MEDARGO
+6900283;European Union;2004/01/01;MEDARGO
+6900284;European Union;2004/12/07;MEDARGO
+6900285;European Union;2004/12/07;MEDARGO
+6900286;European Union;2004/12/07;MEDARGO
+6900287;European Union;2004/12/06;MEDARGO
+6900291;European Union;2004/09/07;MEDARGO
+6900292;European Union;2004/09/07;MEDARGO
+6900293;European Union;2004/09/07;MEDARGO
+6900294;European Union;2004/09/10;MEDARGO
+6900295;European Union;2004/10/26;MEDARGO
+6900296;European Union;2005/01/08;MEDARGO
+6900297;European Union;2005/01/08;MEDARGO
+6900298;European Union;2005/01/08;MEDARGO
+6900299;European Union;2004/11/12;MEDARGO
+6900300;European Union;2005/09/27;MEDARGO
+6900301;European Union;2005/05/20;MEDARGO
+6900302;European Union;2005/05/21;MEDARGO
+6900303;European Union;2004/10/08;MERSEA
+6900304;European Union;2004/10/07;MERSEA
+6900305;Germany;2004/10/08;Argo eq. UHH
+6900306;Germany;2004/10/08;Argo eq. UHH
+6900307;Germany;2004/10/08;Argo eq. UHH
+6900323;Germany;2006/09/11;Argo BSH
+6900324;Germany;2006/09/11;Argo BSH
+6900325;Germany;2006/09/10;Argo BSH
+6900326;Germany;2006/09/09;Argo BSH
+6900327;Germany;2006/09/09;Argo BSH
+6900328;European Union;2005/03/01;MERSEA
+6900329;European Union;2005/03/02;MERSEA
+6900330;European Union;2005/03/02;MERSEA
+6900331;European Union;2005/03/03;MERSEA
+6900332;Germany;2005/02/23;Argo eq. UHH
+6900333;Germany;2005/02/23;Argo eq. UHH
+6900334;Germany;2005/02/25;Argo eq. UHH
+6900335;Germany;2005/02/25;Argo eq. UHH
+6900336;Germany;2005/02/26;Argo eq. UHH
+6900337;Germany;2005/09/23;Argo eq. UHH
+6900338;Germany;2005/09/24;Argo eq. UHH
+6900339;Germany;2005/09/23;Argo eq. UHH
+6900340;European Union;2005/10/07;MERSEA
+6900341;European Union;2005/09/23;MERSEA
+6900342;European Union;2005/09/23;MERSEA
+6900343;European Union;2005/10/06;MERSEA
+6900344;European Union;2005/10/06;MERSEA
+6900345;Germany;2005/10/06;Argo eq. UHH
+6900346;Germany;2005/09/24;Argo eq. UHH
+6900347;European Union;2005/10/07;MERSEA
+6900348;Germany;2007/08/15;Argo eq. UHH
+6900358;France;2005/12/13;Coriolis-CONGAS
+6900359;France;2005/12/13;Coriolis-CONGAS
+6900360;France;2005/12/13;Coriolis-CONGAS
+6900361;France;2005/12/12;Coriolis-CONGAS
+6900362;France;2005/07/03;Coriolis-CONGAS
+6900363;France;2005/07/02;Coriolis-CONGAS
+6900364;France;2005/07/09;Coriolis-CONGAS
+6900365;France;2005/07/09;Coriolis-CONGAS
+6900366;France;2005/09/06;Coriolis-CONGAS
+6900367;France;2005/09/19;Coriolis-CONGAS
+6900368;France;2005/09/24;Coriolis-CONGAS
+6900369;France;2005/09/19;Coriolis-CONGAS
+6900370;France;2005/09/24;Coriolis-CONGAS
+6900371;France;2005/09/19;Coriolis-CONGAS
+6900372;France;2005/09/24;Coriolis-CONGAS
+6900383;Netherlands;2005/09/12;Argo NETHERLANDS
+6900384;Netherlands;2005/09/12;Argo NETHERLANDS
+6900385;Netherlands;2005/09/17;Argo NETHERLANDS
+6900386;Netherlands;2005/09/17;Argo NETHERLANDS
+6900387;United Kingdom;2005/09/24;Argo UK
+6900388;United Kingdom;2005/10/19;Argo UK
+6900389;United Kingdom;2005/09/21;Argo UK
+6900390;United Kingdom;2005/09/10;Argo UK
+6900391;United Kingdom;2005/09/11;Argo UK
+6900392;United Kingdom;2005/09/12;Argo UK
+6900393;United Kingdom;2005/09/13;Argo UK
+6900394;United Kingdom;2005/09/14;Argo UK
+6900395;European Union;2006/06/13;MERSEA
+6900396;European Union;2006/06/08;MERSEA
+6900397;European Union;2006/06/06;MERSEA
+6900398;European Union;2006/06/07;MERSEA
+6900399;European Union;2006/05/28;MERSEA
+6900400;European Union;2006/06/02;MERSEA
+6900401;European Union;2006/06/09;MERSEA
+6900402;European Union;2006/05/30;MERSEA
+6900403;European Union;2006/06/04;MERSEA
+6900404;European Union;2006/06/01;MERSEA
+6900405;European Union;2006/06/09;MERSEA
+6900406;European Union;2006/06/07;MERSEA
+6900407;United Kingdom;2006/05/17;Argo UK
+6900408;United Kingdom;2006/05/17;Argo UK
+6900409;United Kingdom;2006/06/03;Argo UK
+6900410;Netherlands;2006/05/19;Argo NETHERLANDS
+6900411;Netherlands;2006/05/26;Argo NETHERLANDS
+6900412;Netherlands;2006/05/26;Argo NETHERLANDS
+6900413;Netherlands;2006/05/29;Argo NETHERLANDS
+6900444;Ireland;2011/03/08;Argo IRELAND
+6900445;Ireland;2011/03/06;Argo IRELAND
+6900446;United Kingdom;2011/05/26;Argo UK
+6900447;United Kingdom;2011/05/26;Argo UK
+6900448;United Kingdom;2011/05/26;Argo UK
+6900449;European Union;2006/06/11;MERSEA
+6900450;European Union;2006/06/27;MERSEA
+6900451;European Union;2006/06/24;MERSEA
+6900452;European Union;2006/06/26;MERSEA
+6900453;European Union;2006/07/05;MEDARGO
+6900454;France;2007/03/14;Coriolis-EGYPT
+6900455;France;2007/03/13;Coriolis-EGYPT
+6900456;France;2007/03/22;Coriolis-EGYPT
+6900457;France;2007/03/22;Coriolis-EGYPT
+6900458;France;2006/12/05;Coriolis-CONGAS
+6900459;France;2007/08/12;Coriolis
+6900460;France;2007/08/12;Coriolis
+6900462;France;2007/08/13;Coriolis
+6900463;France;2007/09/07;Coriolis
+6900464;France;2007/08/23;Coriolis
+6900465;France;2007/09/04;Coriolis
+6900466;France;2007/09/06;Coriolis
+6900467;France;2007/09/10;Coriolis
+6900468;France;2008/08/13;Coriolis
+6900471;France;2008/11/26;Coriolis
+6900472;France;2008/11/25;Coriolis
+6900473;France;2008/11/23;Coriolis
+6900474;France;2008/11/24;Coriolis
+6900475;France;2008/11/21;Coriolis
+6900476;France;2008/11/22;Coriolis
+6900477;France;2008/11/27;Coriolis
+6900478;France;2008/11/28;Coriolis-PIRATA
+6900490;France;2008/07/02;Coriolis
+6900491;France;2008/06/29;Coriolis-OVIDE
+6900492;France;2008/07/01;Coriolis-OVIDE
+6900493;France;2008/06/18;Coriolis-OVIDE
+6900494;France;2008/06/19;Coriolis-OVIDE
+6900495;France;2008/06/20;Coriolis-OVIDE
+6900496;France;2008/06/21;Coriolis-OVIDE
+6900497;France;2008/06/24;Coriolis-OVIDE
+6900498;France;2008/06/25;Coriolis-OVIDE
+6900499;Norway;2006/04/13;Argo NORWAY
+6900500;Norway;2006/04/07;Argo NORWAY
+6900501;France;2008/02/01;Coriolis-PROSAT
+6900502;France;2008/01/26;Coriolis-PROSAT
+6900503;France;2008/01/28;Coriolis-PROSAT
+6900504;France;2008/01/24;Coriolis-PROSAT
+6900505;France;2008/01/23;Coriolis-PROSAT
+6900506;Spain;2006/09/13;Argo SPAIN
+6900507;United Kingdom;2006/10/06;Argo UK
+6900508;Germany;2007/04/10;Argo BSH
+6900509;Germany;2007/04/11;Argo BSH
+6900510;Germany;2007/04/13;Argo BSH
+6900511;Germany;2007/04/15;Argo BSH
+6900512;Germany;2007/04/16;Argo BSH
+6900513;Germany;2007/04/18;Argo BSH
+6900514;Germany;2007/06/04;Argo BSH
+6900515;Germany;2007/06/05;Argo BSH
+6900516;Germany;2007/06/05;Argo BSH
+6900517;Germany;2007/06/05;Argo BSH
+6900518;Germany;2007/06/06;Argo BSH
+6900519;Germany;2007/06/07;Argo BSH
+6900522;Germany;2007/05/25;Argo IFM-GEOMAR
+6900523;Germany;2007/05/21;Argo IFM-GEOMAR
+6900524;Germany;2008/04/24;Argo IFM-GEOMAR
+6900525;Germany;2008/04/26;Argo IFM-GEOMAR
+6900526;Germany;2014/03/11;Argo IFM-GEOMAR
+6900527;Germany;2014/03/11;Argo IFM-GEOMAR
+6900528;Germany;2014/03/11;Argo IFM-GEOMAR
+6900529;Germany;2014/03/11;Argo IFM-GEOMAR
+6900530;Germany;2014/03/12;Argo IFM-GEOMAR
+6900531;Germany;2014/03/12;Argo IFM-GEOMAR
+6900532;Germany;2014/03/13;Argo IFM-GEOMAR
+6900533;Germany;2014/04/04;Argo BSH
+6900534;Germany;2014/04/07;Argo BSH
+6900535;Germany;2014/04/06;Argo BSH
+6900536;Germany;2014/03/31;Argo BSH
+6900537;Germany;2014/03/31;Argo BSH
+6900538;Germany;2014/05/19;Argo BSH
+6900539;Germany;2014/02/07;Argo BSH
+6900540;Germany;2014/03/31;Argo BSH
+6900541;Germany;2019/09/25;Argo BSH
+6900542;Germany;2007/10/15;Argo BSH
+6900543;Germany;2007/10/16;Argo BSH
+6900544;Germany;2008/08/07;Argo GERMANY
+6900545;Germany;2008/08/07;Argo GERMANY
+6900546;Germany;2008/08/07;Argo GERMANY
+6900547;Germany;2008/05/26;Argo GERMANY
+6900548;Germany;2008/06/26;Argo GERMANY
+6900549;Germany;2008/06/27;Argo GERMANY
+6900550;Germany;2008/06/27;Argo GERMANY
+6900551;Germany;2008/07/08;Argo GERMANY
+6900552;Germany;2008/07/08;Argo GERMANY
+6900553;Germany;2008/08/02;Argo GERMANY
+6900554;Germany;2008/08/06;Argo GERMANY
+6900555;Germany;2008/08/07;Argo GERMANY
+6900556;Germany;2008/11/03;Argo GERMANY
+6900557;Germany;2008/11/04;Argo GERMANY
+6900558;Germany;2008/11/04;Argo GERMANY
+6900559;Germany;2008/08/27;Argo GERMANY
+6900560;Germany;2008/08/27;Argo GERMANY
+6900561;Germany;2008/08/31;Argo GERMANY
+6900562;Germany;2008/08/31;Argo GERMANY
+6900563;Germany;2008/09/10;Argo GERMANY
+6900564;Germany;2008/09/10;Argo GERMANY
+6900565;Germany;2008/08/04;Argo GERMANY
+6900566;Germany;2008/11/05;Argo GERMANY
+6900567;Germany;2008/11/05;Argo GERMANY
+6900568;Germany;2008/08/14;Argo GERMANY
+6900569;Germany;2008/08/21;Argo GERMANY
+6900570;Germany;2008/08/10;Argo GERMANY
+6900571;Germany;2008/11/06;Argo GERMANY
+6900572;Germany;2008/11/03;Argo GERMANY
+6900573;Germany;2008/11/04;Argo GERMANY
+6900574;Germany;2008/11/06;Argo GERMANY
+6900575;Germany;2008/12/01;Argo GERMANY
+6900576;Germany;2008/11/30;Argo GERMANY
+6900577;Germany;2008/11/29;Argo GERMANY
+6900578;Germany;2008/11/06;Argo GERMANY
+6900579;Germany;2008/11/06;Argo GERMANY
+6900580;Germany;2008/11/06;Argo GERMANY
+6900581;Germany;2008/11/07;Argo GERMANY
+6900582;Germany;2010/08/10;Argo BSH
+6900583;Germany;2010/08/11;Argo BSH
+6900584;Germany;2008/12/23;Argo GERMANY
+6900585;Germany;2008/12/24;Argo GERMANY
+6900587;Germany;2008/12/23;Argo GERMANY
+6900588;Germany;2008/12/23;Argo GERMANY
+6900589;Germany;2008/11/22;Argo GERMANY
+6900590;Germany;2009/03/23;Argo BSH
+6900591;Germany;2009/03/24;Argo BSH
+6900592;Germany;2009/03/29;Argo BSH
+6900593;Germany;2009/03/30;Argo BSH
+6900594;Germany;2009/03/31;Argo BSH
+6900595;Germany;2009/04/12;Argo BSH
+6900596;Germany;2009/04/13;Argo BSH
+6900597;Germany;2009/05/04;Argo BSH
+6900599;Germany;2010/06/01;Argo BSH
+6900600;Germany;2010/06/01;Argo BSH
+6900601;Germany;2010/07/02;Argo BSH
+6900602;United Kingdom;2007/08/01;Argo UK
+6900603;United Kingdom;2007/08/01;Argo UK
+6900604;United Kingdom;2007/08/10;Argo UK
+6900605;United Kingdom;2007/08/10;Argo UK
+6900606;United Kingdom;2007/08/16;Argo UK
+6900607;United Kingdom;2007/08/16;Argo UK
+6900608;United Kingdom;2007/08/19;Argo UK
+6900609;United Kingdom;2007/09/26;Argo UK
+6900610;United Kingdom;2007/11/05;Argo UK
+6900611;United Kingdom;2007/11/07;Argo UK
+6900612;United Kingdom;2008/10/04;Argo UK
+6900613;United Kingdom;2010/05/15;Argo UK
+6900614;United Kingdom;2010/05/16;Argo UK
+6900615;United Kingdom;2010/05/16;Argo UK
+6900616;United Kingdom;2010/05/17;Argo UK
+6900617;United Kingdom;2010/05/19;Argo UK
+6900618;United Kingdom;2010/05/19;Argo UK
+6900619;United Kingdom;2010/05/20;Argo UK
+6900620;United Kingdom;2010/05/20;Argo UK
+6900621;United Kingdom;2010/09/18;Argo UK
+6900622;United Kingdom;2010/09/20;Argo UK
+6900623;United Kingdom;2010/12/18;Argo UK
+6900624;United Kingdom;2010/12/18;Argo UK
+6900625;United Kingdom;2011/01/02;Argo UK
+6900626;United Kingdom;2011/01/02;Argo UK
+6900627;Germany;2008/02/06;Argo eq. IFM2
+6900628;Germany;2008/02/17;Argo eq. IFM2
+6900629;Germany;2008/04/27;Argo eq. IFM2
+6900630;Germany;2008/02/19;Argo eq. IFM2
+6900631;Germany;2008/02/13;Argo eq. IFM2
+6900632;Germany;2008/02/16;Argo eq. IFM2
+6900633;Spain;2012/02/14;Argo SPAIN
+6900634;Spain;2012/02/14;Argo SPAIN
+6900635;Spain;2011/11/09;Argo SPAIN
+6900636;Spain;2012/07/28;Argo SPAIN
+6900637;France;2008/06/26;Coriolis-OVIDE
+6900638;France;2008/06/26;Coriolis-OVIDE
+6900639;France;2008/06/26;Coriolis-OVIDE
+6900640;France;2008/06/27;Coriolis-OVIDE
+6900641;France;2008/06/28;Coriolis
+6900642;France;2008/06/27;Coriolis-OVIDE
+6900643;France;2008/06/30;Coriolis-OVIDE
+6900647;Ireland;2008/03/02;Argo IRELAND
+6900648;Ireland;2008/03/02;Argo IRELAND
+6900649;Ireland;2008/02/29;Argo IRELAND
+6900650;Ireland;2008/02/29;Argo IRELAND
+6900651;Ireland;2009/02/11;Argo IRELAND
+6900652;Ireland;2009/02/12;Argo IRELAND
+6900653;Ireland;2009/02/08;Argo IRELAND
+6900654;Ireland;2009/02/09;Argo IRELAND
+6900655;Ireland;2010/02/08;Argo IRELAND
+6900656;Ireland;2010/02/11;Argo IRELAND
+6900657;Ireland;2010/02/13;Argo IRELAND
+6900658;Ireland;2011/03/07;Argo IRELAND
+6900659;Spain;2011/01/12;Argo SPAIN
+6900660;Spain;2011/09/08;Argo SPAIN
+6900661;Spain;2011/06/22;Argo SPAIN
+6900662;Spain;2012/06/10;Argo SPAIN
+6900663;France;2008/07/07;Coriolis-PROSAT
+6900664;France;2008/07/17;Coriolis-PROSAT
+6900665;France;2008/06/30;Coriolis-PROSAT
+6900666;Germany;2008/05/26;Argo eq. UHH
+6900667;Germany;2008/05/29;Argo eq. UHH
+6900668;Germany;2008/05/29;Argo eq. UHH
+6900669;Germany;2008/05/26;Argo eq. UHH
+6900673;France;2008/06/30;Coriolis-BIOArgo
+6900674;France;2008/07/03;Coriolis-BIOArgo
+6900675;France;2008/06/06;Coriolis-BIOArgo
+6900676;France;2008/06/30;Coriolis-BIOArgo
+6900677;France;2008/04/30;Coriolis-BIOArgo
+6900678;France;2008/06/29;Coriolis-BIOArgo
+6900679;France;2008/06/26;Coriolis-BIOArgo
+6900680;France;2008/08/14;Coriolis-BIOArgo
+6900681;France;2008/08/14;Coriolis-BIOArgo
+6900682;France;2008/12/02;Coriolis-BIOArgo
+6900683;France;2008/12/02;Coriolis-BIOArgo
+6900684;France;2010/11/23;Coriolis-BIOArgo
+6900685;France;2011/08/01;Coriolis-BIOArgo
+6900686;France;2009/07/01;Coriolis-BIOArgo
+6900690;France;2007/11/04;Coriolis-CANOA
+6900691;France;2007/11/03;Coriolis-CANOA
+6900692;France;2007/11/07;Coriolis-CANOA
+6900693;France;2007/11/09;Coriolis-CANOA
+6900694;France;2008/11/28;Coriolis-CANOA
+6900695;France;2008/11/24;Coriolis-CANOA
+6900696;France;2008/11/01;Coriolis-CANOA
+6900697;France;2008/12/04;Coriolis-CANOA
+6900698;France;2009/06/18;Coriolis-PROSAT
+6900699;France;2009/04/03;Coriolis-PROSAT
+6900700;France;2009/02/19;Coriolis-PROSAT
+6900701;France;2011/11/01;Coriolis
+6900702;France;2011/11/10;Coriolis
+6900703;France;2011/11/13;Coriolis
+6900704;France;2011/11/17;Coriolis-Good Hope
+6900705;France;2011/11/20;Coriolis
+6900706;France;2012/02/29;Coriolis
+6900707;France;2011/11/25;Coriolis
+6900708;France;2009/05/17;Coriolis
+6900709;France;2010/10/20;Coriolis-Good Hope
+6900710;France;2012/02/26;Coriolis-Good Hope
+6900711;France;2010/10/19;Coriolis
+6900712;France;2009/05/23;Coriolis
+6900713;France;2012/02/28;Coriolis-Good Hope
+6900714;France;2012/02/27;Coriolis-Good Hope
+6900715;France;2012/02/29;Coriolis-Good Hope
+6900716;France;2010/10/27;Coriolis-Good Hope
+6900717;France;2010/10/12;Coriolis-Good Hope
+6900718;France;2010/09/27;Coriolis-PIRATA
+6900719;France;2010/10/09;Coriolis-PIRATA
+6900720;France;2010/10/18;Coriolis-PIRATA
+6900721;France;2010/10/16;Coriolis-PIRATA
+6900722;France;2010/10/12;Coriolis-PIRATA
+6900723;France;2010/10/14;Coriolis-PIRATA
+6900724;France;2010/09/22;Coriolis-PIRATA
+6900725;France;2010/09/25;Coriolis-PIRATA
+6900726;France;2011/03/16;Coriolis
+6900727;France;2009/12/04;Coriolis-Good Hope
+6900728;France;2009/12/06;Coriolis-Good Hope
+6900729;Germany;2004/11/10;Argo eq. AWI
+6900730;Netherlands;2008/12/08;Argo NETHERLANDS
+6900731;Netherlands;2008/12/10;Argo NETHERLANDS
+6900732;Netherlands;2008/12/29;Argo NETHERLANDS
+6900733;Netherlands;2008/12/29;Argo NETHERLANDS
+6900734;Netherlands;2008/12/29;Argo NETHERLANDS
+6900735;Netherlands;2008/12/30;Argo NETHERLANDS
+6900736;Netherlands;2008/12/31;Argo NETHERLANDS
+6900737;Netherlands;2008/12/31;Argo NETHERLANDS
+6900738;Netherlands;2009/01/01;Argo NETHERLANDS
+6900739;Netherlands;2009/01/02;Argo NETHERLANDS
+6900740;Netherlands;2009/01/03;Argo NETHERLANDS
+6900741;Netherlands;2010/04/14;Argo NETHERLANDS
+6900742;Netherlands;2009/09/24;Argo NETHERLANDS
+6900743;Netherlands;2010/01/16;Argo NETHERLANDS
+6900746;Netherlands;2010/12/02;Argo NETHERLANDS
+6900747;Netherlands;2010/12/04;Argo NETHERLANDS
+6900748;Netherlands;2010/12/06;Argo NETHERLANDS
+6900749;Netherlands;2010/12/07;Argo NETHERLANDS
+6900750;Netherlands;2010/12/08;Argo NETHERLANDS
+6900751;Netherlands;2010/12/09;Argo NETHERLANDS
+6900752;Netherlands;2010/12/09;Argo NETHERLANDS
+6900753;Netherlands;2011/07/28;Argo NETHERLANDS
+6900754;Netherlands;2011/07/28;Argo NETHERLANDS
+6900755;Netherlands;2011/07/29;Argo NETHERLANDS
+6900756;Netherlands;2011/07/29;Argo NETHERLANDS
+6900757;Netherlands;2011/07/30;Argo NETHERLANDS
+6900758;Netherlands;2011/07/30;Argo NETHERLANDS
+6900759;Netherlands;2011/07/30;Argo NETHERLANDS
+6900760;Spain;2010/09/05;Argo SPAIN
+6900761;Spain;2010/09/06;Argo SPAIN
+6900762;Spain;2010/09/11;Argo SPAIN
+6900763;Spain;2010/09/10;Argo SPAIN
+6900764;Spain;2011/02/01;Argo SPAIN
+6900765;Spain;2011/02/03;Argo SPAIN
+6900766;Spain;2010/12/16;Argo SPAIN
+6900767;Spain;2010/12/24;Argo SPAIN
+6900768;Spain;2010/12/26;Argo SPAIN
+6900769;Spain;2011/02/04;Argo SPAIN
+6900770;Spain;2011/02/07;Argo SPAIN
+6900771;Spain;2010/12/10;Argo SPAIN
+6900772;Spain;2010/10/27;Argo SPAIN
+6900773;Spain;2011/02/15;Argo SPAIN
+6900774;Spain;2010/12/01;Argo SPAIN
+6900775;Spain;2011/02/23;Argo SPAIN
+6900776;Spain;2011/02/26;Argo SPAIN
+6900777;Spain;2011/02/27;Argo SPAIN
+6900778;Spain;2011/02/28;Argo SPAIN
+6900779;Spain;2011/03/02;Argo SPAIN
+6900780;Spain;2011/01/25;Argo SPAIN
+6900781;Spain;2011/01/26;Argo SPAIN
+6900782;Spain;2011/01/27;Argo SPAIN
+6900783;Spain;2011/01/29;Argo SPAIN
+6900784;Spain;2010/09/05;Argo SPAIN
+6900785;Spain;2010/09/06;Argo SPAIN
+6900786;Spain;2012/08/02;Argo SPAIN
+6900787;Spain;2012/07/15;Argo SPAIN
+6900788;Spain;2013/04/15;Argo SPAIN
+6900789;Spain;2012/12/13;Argo SPAIN
+6900790;European Union;2018/11/21;MOCCA-EU
+6900791;European Union;2020/12/31;EuroArgo
+6900792;European Union;2021/01/02;EuroArgo
+6900793;European Union;2021/02/28;EuroArgo
+6900794;France;2009/12/04;Coriolis
+6900795;Greece;2010/06/26;Argo GREECE
+6900796;Norway;2010/05/29;Argo NORWAY
+6900797;Norway;2010/05/31;Argo NORWAY
+6900798;Norway;2010/07/01;Argo NORWAY
+6900799;Norway;2010/07/01;Argo NORWAY
+6900800;Italy;2010/07/03;Argo ITALY
+6900801;Finland;2010/06/23;Argo FINLAND
+6900802;Finland;2010/06/24;Argo FINLAND
+6900803;Bulgaria;2011/03/18;BulArgo
+6900804;Bulgaria;2011/03/18;BulArgo
+6900805;Bulgaria;2011/03/19;BulArgo
+6900807;European Union;2014/11/28;EuroArgo
+6900808;Poland;2009/09/14;Argo POLAND
+6900809;Poland;2009/06/28;Argo POLAND
+6900810;Germany;2010/07/02;Argo BSH
+6900811;Germany;2010/06/25;Argo BSH
+6900812;Germany;2010/06/24;Argo BSH
+6900813;Germany;2010/07/01;Argo BSH
+6900814;Germany;2010/08/15;Argo BSH
+6900815;Germany;2009/10/08;Argo BSH
+6900816;Germany;2009/10/11;Argo BSH
+6900817;Germany;2009/10/11;Argo BSH
+6900818;Germany;2009/10/16;Argo BSH
+6900819;Germany;2009/10/14;Argo BSH
+6900820;Germany;2010/08/12;Argo BSH
+6900821;Germany;2010/08/12;Argo BSH
+6900822;Germany;2010/08/12;Argo BSH
+6900823;Germany;2009/11/06;Argo BSH
+6900824;Germany;2009/11/07;Argo BSH
+6900825;Germany;2009/11/08;Argo BSH
+6900826;Germany;2009/11/09;Argo BSH
+6900827;Germany;2009/11/10;Argo BSH
+6900828;Germany;2010/11/23;Argo BSH
+6900829;Germany;2010/08/23;Argo BSH
+6900830;Germany;2010/08/24;Argo BSH
+6900831;Germany;2010/08/25;Argo BSH
+6900832;Germany;2009/06/28;Argo AWI
+6900833;Germany;2009/06/28;Argo AWI
+6900835;Germany;2010/07/03;Argo BSH
+6900836;Germany;2010/07/02;Argo BSH
+6900837;Germany;2010/06/29;Argo BSH
+6900838;Germany;2010/06/29;Argo BSH
+6900839;Germany;2010/06/24;Argo BSH
+6900840;Germany;2010/06/25;Argo BSH
+6900841;Germany;2010/06/01;Argo BSH
+6900842;Germany;2010/06/01;Argo BSH
+6900843;Germany;2011/03/02;Argo BSH
+6900844;Germany;2011/03/01;Argo BSH
+6900848;Germany;2011/03/02;Argo BSH
+6900849;Germany;2011/03/02;Argo BSH
+6900850;Germany;2011/03/02;Argo BSH
+6900851;Germany;2011/01/30;Argo GERMANY
+6900852;Germany;2010/12/03;Argo GERMANY
+6900853;Germany;2010/12/05;Argo GERMANY
+6900854;Germany;2010/12/07;Argo GERMANY
+6900855;Germany;2010/12/08;Argo GERMANY
+6900856;Germany;2010/12/09;Argo GERMANY
+6900857;Germany;2010/12/02;Argo GERMANY
+6900858;Germany;2010/12/01;Argo GERMANY
+6900859;Germany;2010/12/02;Argo BSH
+6900860;Germany;2010/12/03;Argo BSH
+6900861;Germany;2010/12/04;Argo BSH
+6900862;Germany;2011/04/13;Argo BSH
+6900863;Germany;2011/04/15;Argo BSH
+6900864;Germany;2011/04/17;Argo BSH
+6900865;Germany;2011/04/09;Argo BSH
+6900867;Germany;2011/04/11;Argo BSH
+6900868;Germany;2011/04/02;Argo IFM-GEOMAR
+6900869;Germany;2011/04/02;Argo IFM-GEOMAR
+6900870;Germany;2011/04/02;Argo IFM-GEOMAR
+6900871;Germany;2011/04/02;Argo IFM-GEOMAR
+6900872;Germany;2011/04/02;Argo IFM-GEOMAR
+6900873;Germany;2011/04/02;Argo IFM-GEOMAR
+6900874;Germany;2011/04/02;Argo IFM-GEOMAR
+6900875;Germany;2011/04/02;Argo IFM-GEOMAR
+6900876;Germany;2014/06/29;Argo BSH
+6900877;Germany;2014/06/29;Argo BSH
+6900878;Germany;2011/10/01;Argo AWI
+6900880;Germany;2011/10/01;Argo AWI
+6900881;Germany;2012/06/18;Argo AWI
+6900882;Germany;2012/06/18;Argo AWI
+6900883;Germany;2012/06/18;Argo AWI
+6900884;Germany;2012/06/18;Argo AWI
+6900885;Germany;2012/12/14;Argo AWI
+6900886;Germany;2012/12/16;Argo AWI
+6900887;Germany;2012/12/16;Argo AWI
+6900888;Germany;2013/01/02;Argo AWI
+6900889;Germany;2014/11/10;Argo IFM-GEOMAR
+6900890;Germany;2013/09/27;Argo IFM-GEOMAR
+6900891;European Union;2015/10/14;E-AIMS
+6900892;Germany;2019/10/17;Argo BSH
+6900893;Germany;2019/10/07;Argo BSH
+6900894;Germany;2020/01/26;Argo BSH
+6900895;Lebanon;2013/08/27;Argo LEBANON
+6900896;France;2010/10/07;Coriolis-Good Hope
+6900897;France;2012/07/01;Coriolis
+6900899;France;2012/06/30;Coriolis
+6900900;France;2015/02/13;Coriolis-Good Hope
+6900901;France;2010/11/29;Coriolis-PIRATA
+6900902;France;2011/03/20;Coriolis
+6900903;Italy;2011/04/18;Argo ITALY
+6900904;France;2012/07/01;Coriolis
+6900905;France;2012/07/01;Coriolis
+6900906;France;2012/09/03;Coriolis
+6900907;France;2012/09/09;Coriolis
+6900908;France;2012/10/02;Coriolis
+6900909;France;2013/07/27;Coriolis
+6900910;France;2012/06/23;Coriolis
+6900911;France;2011/07/26;Coriolis
+6900912;France;2011/11/25;Coriolis
+6900913;France;2013/03/01;Coriolis
+6900914;France;2011/05/14;Coriolis-PIRATA
+6900915;France;2013/12/15;Coriolis
+6900916;France;2013/04/25;Coriolis
+6900917;France;2012/03/08;Coriolis
+6900918;France;2013/03/18;Coriolis
+6900919;France;2012/03/15;Coriolis
+6900920;France;2011/11/02;Coriolis
+6900921;France;2011/11/01;Coriolis
+6900922;France;2010/10/08;Coriolis-Good Hope
+6900923;France;2010/10/17;Coriolis-Good Hope
+6900924;France;2011/06/11;Coriolis-PIRATA
+6900925;France;2015/02/12;Coriolis-Good Hope
+6900926;France;2011/05/15;Coriolis-PIRATA
+6900927;France;2011/10/22;Coriolis
+6900928;France;2011/11/02;Coriolis
+6900929;France;2011/10/30;Coriolis
+6900930;France;2011/10/27;Coriolis
+6900931;France;2011/12/10;Coriolis-Good Hope
+6900932;France;2011/12/11;Coriolis-Good Hope
+6900933;France;2011/12/12;Coriolis-Good Hope
+6900934;France;2011/12/13;Coriolis-Good Hope
+6900935;France;2011/11/29;Coriolis
+6900936;France;2011/12/13;Coriolis-Good Hope
+6900937;France;2012/03/01;Coriolis-Good Hope
+6900938;France;2012/03/02;Coriolis-Good Hope
+6900939;France;2011/03/01;Coriolis-BIOArgo
+6900940;France;2011/05/16;Coriolis-PIRATA
+6900941;France;2011/06/10;Coriolis-PIRATA
+6900942;France;2011/05/19;Coriolis-PIRATA
+6900944;France;2011/10/18;Coriolis-SPICE
+6900946;France;2012/05/22;Coriolis
+6900947;European Union;2011/01/20;EuroArgo
+6900952;European Union;2011/02/24;EuroArgo
+6900953;France;2011/12/10;Coriolis-Good Hope
+6900954;France;2011/12/11;Coriolis-Good Hope
+6900955;France;2011/03/09;Coriolis
+6900956;France;2011/03/09;Coriolis
+6900957;France;2011/06/24;Coriolis
+6900958;France;2011/06/25;Coriolis
+6900959;France;2011/11/27;Coriolis
+6900960;France;2012/07/02;Coriolis
+6900961;France;2011/11/23;Coriolis
+6900962;France;2011/08/14;Infrastructure de Recherche Littorale et Cotiere 
+6900963;France;2011/08/12;Coriolis
+6900964;France;2011/06/27;Coriolis-BIOArgo
+6900965;France;2012/07/18;Coriolis-OVIDE
+6900966;France;2012/07/03;Coriolis
+6900967;France;2012/03/06;Coriolis
+6900968;France;2012/08/12;Coriolis
+6900969;France;2012/05/30;Coriolis
+6900970;France;2012/05/02;Coriolis
+6900971;France;2012/07/28;Coriolis
+6900972;France;2012/07/04;Coriolis
+6900973;France;2012/06/17;Coriolis
+6900974;France;2012/07/02;Coriolis
+6900975;France;2016/10/15;Coriolis
+6900978;Italy;2012/03/16;Argo ITALY
+6900979;Italy;2012/03/10;Argo ITALY
+6900980;Italy;2012/03/16;Argo ITALY
+6900981;Italy;2012/03/17;Argo ITALY
+6900982;Italy;2012/03/08;Argo ITALY
+6900983;Italy;2012/03/11;Argo ITALY
+6900984;France;2013/01/24;Coriolis
+6900986;France;2012/09/19;Coriolis
+6900987;France;2012/03/25;Coriolis-PIRATA
+6900988;France;2012/03/29;Coriolis-PIRATA
+6900989;France;2012/09/20;Coriolis
+6900991;France;2012/09/23;Coriolis
+6900992;France;2013/01/26;Coriolis
+6900994;France;2011/10/07;Coriolis
+6900995;France;2012/07/05;Coriolis
+6900996;France;2013/08/01;Coriolis
+6900997;France;2013/12/04;Coriolis-Good Hope
+6900998;France;2012/03/11;Coriolis
+6900999;France;2012/07/02;NAOS-France
+6901000;France;2012/03/03;Coriolis
+6901001;France;2012/07/20;Coriolis
+6901002;France;2013/08/01;Coriolis
+6901003;France;2014/11/07;Coriolis
+6901004;France;2015/01/24;Coriolis-remOcean
+6901005;France;2012/04/16;Coriolis-PIRATA
+6901006;France;2012/04/27;Coriolis-PIRATA
+6901007;France;2012/04/18;Coriolis-PIRATA
+6901008;France;2012/04/17;Coriolis-PIRATA
+6901009;France;2012/04/17;Coriolis-PIRATA
+6901010;France;2012/02/15;Coriolis
+6901011;France;2012/02/17;Coriolis
+6901012;France;2012/02/28;Coriolis
+6901013;France;2013/09/06;Coriolis-Good Hope
+6901014;France;2013/02/04;Coriolis
+6901015;France;2012/06/21;Coriolis
+6901016;France;2012/06/23;Coriolis
+6901017;France;2014/02/10;Coriolis
+6901018;France;2013/02/01;Coriolis
+6901019;France;2012/07/02;Coriolis
+6901020;France;2013/09/07;Coriolis-Good Hope
+6901021;France;2012/06/27;Coriolis
+6901022;France;2012/07/06;Coriolis
+6901023;France;2012/07/08;Coriolis
+6901024;France;2012/07/10;Coriolis
+6901025;France;2012/07/10;Coriolis
+6901026;France;2012/07/12;Coriolis
+6901027;France;2012/07/12;Coriolis
+6901028;France;2012/07/14;Coriolis
+6901029;France;2012/07/14;Coriolis
+6901030;France;2012/07/15;Coriolis
+6901031;France;2012/10/21;NAOS-France
+6901032;France;2012/11/24;NAOS-France
+6901033;France;2014/02/06;Coriolis-Good Hope
+6901034;France;2013/12/01;Coriolis-Good Hope
+6901035;France;2014/02/10;Coriolis-Good Hope
+6901038;Italy;2011/10/10;Argo ITALY
+6901040;Italy;2012/03/29;Argo ITALY
+6901041;Italy;2012/08/03;Argo ITALY
+6901042;Italy;2012/08/04;Argo ITALY
+6901043;Italy;2012/09/18;Argo ITALY
+6901044;Italy;2012/11/05;Argo ITALY
+6901047;Germany;2011/04/13;Argo BSH
+6901048;Germany;2011/04/12;Argo BSH
+6901049;Germany;2011/04/15;Argo BSH
+6901050;Germany;2011/04/16;Argo BSH
+6901051;Germany;2011/05/19;Argo BSH
+6901052;Germany;2011/05/24;Argo BSH
+6901053;Germany;2011/06/05;Argo BSH
+6901054;Germany;2011/06/09;Argo BSH
+6901055;Germany;2011/12/11;Argo BSH
+6901056;Germany;2011/12/10;Argo BSH
+6901057;Germany;2011/12/10;Argo BSH
+6901058;Germany;2011/07/25;Argo BSH
+6901059;Germany;2011/07/25;Argo BSH
+6901060;Germany;2011/07/08;Argo BSH
+6901061;Germany;2011/07/09;Argo BSH
+6901062;Germany;2011/07/07;Argo BSH
+6901063;Germany;2011/07/11;Argo BSH
+6901064;Germany;2011/07/04;Argo BSH
+6901065;Germany;2011/07/05;Argo BSH
+6901066;Germany;2011/07/14;Argo BSH
+6901067;Germany;2011/07/23;Argo BSH
+6901068;Germany;2011/07/24;Argo BSH
+6901069;Germany;2011/07/26;Argo BSH
+6901070;Germany;2011/07/26;Argo BSH
+6901077;Germany;2012/07/11;Argo BSH
+6901078;Germany;2012/07/12;Argo BSH
+6901079;Germany;2012/07/12;Argo BSH
+6901080;Germany;2012/07/30;Argo BSH
+6901081;Germany;2012/07/30;Argo BSH
+6901082;Germany;2012/07/11;Argo BSH
+6901083;Germany;2012/04/05;Argo BSH
+6901084;Germany;2012/05/03;Argo BSH
+6901085;Germany;2012/04/27;Argo BSH
+6901086;Finland;2011/08/01;Argo FINLAND
+6901087;Finland;2011/08/01;Argo FINLAND
+6901117;United Kingdom;2011/09/28;Argo UK
+6901118;United Kingdom;2011/09/29;Argo UK
+6901119;United Kingdom;2011/09/30;Argo UK
+6901120;United Kingdom;2011/10/01;Argo UK
+6901121;United Kingdom;2011/10/02;Argo UK
+6901122;United Kingdom;2011/10/03;Argo UK
+6901123;United Kingdom;2011/10/04;Argo UK
+6901124;United Kingdom;2011/10/06;Argo UK
+6901125;United Kingdom;2012/06/12;Argo UK
+6901126;United Kingdom;2012/06/13;Argo UK
+6901127;United Kingdom;2012/07/11;Argo UK
+6901128;United Kingdom;2012/07/20;Argo UK
+6901129;United Kingdom;2012/07/21;Argo UK
+6901130;United Kingdom;2012/07/21;Argo UK
+6901131;United Kingdom;2012/07/21;Argo UK
+6901132;United Kingdom;2012/07/21;Argo UK
+6901133;United Kingdom;2012/08/11;Argo UK
+6901134;United Kingdom;2012/08/12;Argo UK
+6901135;United Kingdom;2012/08/13;Argo UK
+6901136;United Kingdom;2012/08/14;Argo UK
+6901137;United Kingdom;2012/08/28;Argo UK
+6901138;United Kingdom;2012/08/28;Argo UK
+6901139;United Kingdom;2012/08/28;Argo UK
+6901140;United Kingdom;2012/08/28;Argo UK
+6901141;United Kingdom;2012/08/29;Argo UK
+6901142;United Kingdom;2012/10/22;Argo UK
+6901143;United Kingdom;2012/10/14;Argo UK
+6901144;United Kingdom;2012/11/12;Argo UK
+6901145;United Kingdom;2012/11/10;Argo UK
+6901146;United Kingdom;2012/10/31;Argo UK
+6901147;United Kingdom;2013/05/14;Argo UK
+6901148;United Kingdom;2013/05/16;Argo UK
+6901149;United Kingdom;2013/05/16;Argo UK
+6901150;United Kingdom;2013/05/20;Argo UK
+6901151;European Union;2013/10/14;E-AIMS
+6901152;European Union;2013/10/14;E-AIMS
+6901153;United Kingdom;2013/10/15;Argo UK
+6901154;United Kingdom;2013/10/14;Argo UK
+6901155;United Kingdom;2013/10/14;Argo UK
+6901156;United Kingdom;2013/10/15;Argo UK
+6901157;United Kingdom;2013/11/15;Argo UK
+6901158;United Kingdom;2013/11/17;Argo UK
+6901159;United Kingdom;2014/01/22;Argo UK
+6901160;United Kingdom;2014/05/19;Argo UK
+6901161;United Kingdom;2014/05/21;Argo UK
+6901162;United Kingdom;2014/05/22;Argo UK
+6901163;United Kingdom;2014/05/23;Argo UK
+6901164;United Kingdom;2014/05/24;Argo UK
+6901165;United Kingdom;2014/05/25;Argo UK
+6901166;United Kingdom;2014/07/10;Argo UK
+6901167;United Kingdom;2014/07/15;Argo UK
+6901168;United Kingdom;2014/07/13;Argo UK
+6901169;United Kingdom;2014/07/12;Argo UK
+6901170;United Kingdom;2014/07/05;Argo UK
+6901171;United Kingdom;2014/07/06;Argo UK
+6901172;United Kingdom;2014/07/10;Argo UK
+6901173;United Kingdom;2014/07/10;Argo UK
+6901174;United Kingdom;2014/10/09;Argo UK Bio
+6901175;United Kingdom;2014/10/10;Argo UK Bio
+6901176;United Kingdom;2015/06/07;Argo UK
+6901177;United Kingdom;2015/06/05;Argo UK
+6901178;United Kingdom;2015/06/24;Argo UK
+6901179;United Kingdom;2015/06/26;Argo UK
+6901180;United Kingdom;2015/11/13;Argo UK Bio
+6901181;United Kingdom;2015/11/12;Argo UK Bio
+6901182;United Kingdom;2015/12/28;Argo UK Bio
+6901183;United Kingdom;2015/12/26;Argo UK Bio
+6901184;United Kingdom;2015/12/29;Argo UK
+6901185;United Kingdom;2015/12/25;Argo UK
+6901188;United Kingdom;2015/12/28;Argo UK Bio
+6901189;United Kingdom;2016/06/12;Argo UK
+6901190;United Kingdom;2016/06/13;Argo UK
+6901191;United Kingdom;2016/06/13;Argo UK
+6901192;United Kingdom;2016/07/11;Argo UK
+6901193;United Kingdom;2016/07/11;Argo UK
+6901194;United Kingdom;2016/08/03;Argo UK
+6901195;United Kingdom;2017/03/22;Argo UK
+6901196;United Kingdom;2017/03/16;Argo UK
+6901197;United Kingdom;2017/03/05;Argo UK
+6901198;United Kingdom;2017/02/17;Argo UK
+6901199;United Kingdom;2017/05/16;Argo UK
+6901200;United Kingdom;2017/05/17;Argo UK
+6901201;United Kingdom;2017/05/24;Argo UK
+6901202;United Kingdom;2017/05/23;Argo UK
+6901205;United Kingdom;2017/10/02;Argo UK
+6901206;United Kingdom;2017/10/03;Argo UK
+6901207;United Kingdom;2018/07/16;Argo UK
+6901208;United Kingdom;2018/07/12;Argo UK
+6901211;United Kingdom;2018/11/06;Argo UK
+6901212;United Kingdom;2018/11/05;Argo UK
+6901213;United Kingdom;2018/11/02;Argo UK
+6901214;United Kingdom;2018/11/12;Argo UK
+6901215;United Kingdom;2018/11/13;Argo UK
+6901217;Germany;2012/05/01;Argo BSH
+6901218;Germany;2012/04/29;Argo BSH
+6901219;Germany;2012/05/01;Argo BSH
+6901220;Germany;2012/05/01;Argo BSH
+6901221;Germany;2012/07/25;Argo BSH
+6901222;Germany;2013/02/24;Argo BSH
+6901223;Germany;2013/03/03;Argo BSH
+6901224;Germany;2013/03/02;Argo BSH
+6901225;Germany;2013/03/02;Argo BSH
+6901226;Germany;2013/07/28;Argo BSH
+6901227;Germany;2013/05/31;Argo BSH
+6901228;Germany;2013/05/15;Argo BSH
+6901229;Germany;2013/06/13;Argo BSH
+6901230;Germany;2013/07/29;Argo BSH
+6901231;Germany;2013/08/14;Argo BSH
+6901232;Germany;2013/07/28;Argo BSH
+6901233;Germany;2013/07/27;Argo BSH
+6901234;Germany;2013/07/27;Argo BSH
+6901235;Germany;2014/06/12;Argo BSH
+6901236;Germany;2014/06/12;Argo BSH
+6901237;Spain;2012/12/21;Argo SPAIN
+6901238;Spain;2013/09/17;Argo SPAIN
+6901239;Spain;2014/05/01;Argo SPAIN
+6901240;Spain;2014/04/20;Argo SPAIN
+6901241;Spain;2012/12/10;Argo SPAIN
+6901242;Spain;2014/10/01;Argo SPAIN
+6901243;Spain;2014/10/01;Argo SPAIN
+6901244;Spain;2014/10/01;Argo SPAIN
+6901245;Spain;2014/11/21;Argo SPAIN
+6901246;European Union;2015/03/03;E-AIMS
+6901247;Spain;2015/07/14;Argo SPAIN
+6901248;Spain;2016/11/01;Argo SPAIN
+6901249;Spain;2017/02/16;Argo SPAIN
+6901250;Spain;2017/05/10;Argo SPAIN
+6901251;Spain;2017/07/19;Argo SPAIN
+6901252;Spain;2018/08/11;Argo SPAIN
+6901253;Spain;2018/05/29;Argo SPAIN
+6901254;Spain;2018/10/23;Argo SPAIN
+6901255;Spain;2018/10/19;Argo SPAIN
+6901256;Spain;2018/06/01;Argo SPAIN
+6901257;Spain;2019/03/07;Argo SPAIN
+6901258;Spain;2018/06/04;Argo SPAIN
+6901259;Spain;2019/03/11;Argo SPAIN
+6901260;Spain;2018/06/18;Argo SPAIN
+6901261;Morocco;2019/11/14;Argo Morocco
+6901262;Spain;2018/06/08;Argo SPAIN
+6901263;Spain;2019/02/07;Argo SPAIN
+6901264;Spain;2018/06/17;Argo SPAIN
+6901265;Spain;2018/06/10;Argo SPAIN
+6901266;Spain;2018/06/13;Argo SPAIN
+6901267;Spain;2018/07/18;Argo SPAIN
+6901268;Spain;2019/03/18;Argo SPAIN
+6901269;Spain;2018/06/16;Argo SPAIN
+6901270;Spain;2018/08/18;Argo SPAIN
+6901271;Spain;2018/10/30;Argo SPAIN
+6901272;Spain;2019/03/26;Argo SPAIN
+6901273;Spain;2018/12/11;Argo SPAIN
+6901274;Spain;2019/03/04;Argo SPAIN
+6901275;Spain;2019/03/05;Argo SPAIN
+6901277;Spain;2019/07/31;Argo SPAIN
+6901278;European Union;2020/03/12;Euro-Argo RISE
+6901279;Spain;2020/03/12;Argo SPAIN
+6901280;Spain;2020/08/12;Argo SPAIN
+6901281;Spain;2020/11/04;Argo SPAIN
+6901282;Spain;2021/12/13;Argo SPAIN
+6901283;Spain;2021/12/14;Argo SPAIN
+6901284;Spain;2021/12/14;Argo SPAIN
+6901387;Poland;2010/06/29;Argo POLAND
+6901388;Poland;2010/06/27;Argo POLAND
+6901407;France;2012/06/20;Coriolis
+6901408;France;2012/11/10;Coriolis
+6901409;France;2012/10/19;Coriolis
+6901410;France;2012/10/04;Coriolis
+6901411;France;2012/10/12;Coriolis
+6901412;France;2012/10/20;Coriolis
+6901413;France;2012/10/31;Coriolis
+6901414;France;2012/11/08;Coriolis
+6901415;France;2012/10/20;Coriolis
+6901416;France;2014/11/08;Coriolis
+6901417;France;2013/01/27;NAOS-France
+6901418;France;2012/05/11;Coriolis
+6901419;France;2012/05/12;Coriolis
+6901421;France;2012/06/17;Coriolis-Previmer
+6901422;France;2012/12/07;NAOS-France
+6901423;France;2012/12/07;NAOS-France
+6901424;France;2012/12/07;NAOS-France
+6901425;France;2012/12/07;NAOS-France
+6901426;France;2012/12/09;NAOS-France
+6901427;France;2012/12/09;NAOS-France
+6901428;France;2012/12/10;NAOS-France
+6901429;France;2012/12/11;NAOS-France
+6901430;France;2015/07/01;NAOS-France
+6901431;France;2012/12/11;NAOS-France
+6901432;France;2012/12/12;NAOS-France
+6901433;France;2013/02/14;NAOS-France
+6901434;France;2013/02/15;NAOS-France
+6901435;France;2013/02/15;NAOS-France
+6901436;France;2013/02/17;NAOS-France
+6901437;France;2012/11/07;Coriolis-remOcean
+6901438;France;2012/11/07;Coriolis-remOcean
+6901439;France;2012/11/07;Coriolis-remOcean
+6901440;France;2012/11/07;Coriolis-remOcean
+6901441;France;2012/08/24;NAOS-France
+6901442;France;2012/11/30;NAOS-France
+6901443;France;2012/11/27;NAOS-France
+6901444;France;2012/12/11;NAOS-France
+6901445;France;2013/04/01;NAOS-France
+6901446;France;2013/03/31;NAOS-France
+6901447;France;2013/03/30;NAOS-France
+6901448;France;2013/03/27;NAOS-France
+6901449;France;2014/12/10;NAOS-France
+6901450;France;2014/10/05;NAOS-France
+6901451;France;2013/06/13;NAOS-France
+6901452;France;2013/06/09;NAOS-France
+6901453;France;2013/06/08;NAOS-France
+6901454;France;2013/06/07;NAOS-France
+6901455;France;2013/06/05;NAOS-France
+6901456;France;2013/06/04;NAOS-France
+6901457;France;2016/07/06;Coriolis
+6901458;France;2014/02/03;Coriolis
+6901459;France;2014/02/04;Coriolis
+6901460;France;2014/07/10;Coriolis
+6901461;France;2014/02/19;Coriolis
+6901462;France;2014/03/30;Coriolis
+6901463;France;2014/07/20;Coriolis
+6901464;France;2014/07/10;Coriolis
+6901465;France;2014/07/07;Coriolis
+6901466;France;2014/08/22;Coriolis
+6901467;France;2012/11/22;Coriolis
+6901468;France;2012/09/04;NAOS-France
+6901469;France;2013/01/27;Coriolis
+6901470;France;2013/01/29;Coriolis
+6901471;France;2013/01/27;Coriolis
+6901472;France;2012/10/23;Coriolis-remOcean
+6901473;France;2012/10/23;Coriolis-remOcean
+6901474;France;2012/10/23;Coriolis-remOcean
+6901475;France;2012/10/23;Coriolis-remOcean
+6901476;France;2014/03/30;Coriolis
+6901477;France;2012/10/02;Coriolis-Previmer
+6901478;France;2012/10/21;NAOS-France
+6901479;France;2012/10/21;NAOS-France
+6901480;France;2013/06/16;Coriolis-remOcean
+6901481;France;2013/06/16;Coriolis-remOcean
+6901482;France;2013/06/16;Coriolis-remOcean
+6901483;France;2013/07/22;NAOS-France
+6901484;France;2013/06/16;Coriolis-remOcean
+6901485;France;2013/06/16;Coriolis-remOcean
+6901486;France;2013/06/16;Coriolis-remOcean
+6901487;France;2012/11/22;Coriolis
+6901488;France;2013/01/23;NAOS-France
+6901489;France;2013/06/16;Coriolis-remOcean
+6901490;France;2013/06/15;NAOS-France
+6901491;France;2013/06/15;NAOS-France
+6901492;France;2013/12/01;Coriolis-BIOArgo
+6901493;France;2013/12/03;Coriolis-BIOArgo
+6901494;France;2013/10/09;Coriolis-BIOArgo
+6901495;France;2013/10/08;Coriolis-BIOArgo
+6901496;France;2013/07/15;NAOS-France
+6901497;France;2013/11/07;Infrastructure de Recherche Littorale et Cotiere 
+6901498;France;2013/08/24;NAOS-France
+6901499;France;2013/08/24;NAOS-France
+6901500;France;2013/09/08;Coriolis-Good Hope
+6901501;France;2013/12/02;Coriolis-Good Hope
+6901502;France;2014/02/20;Coriolis
+6901503;France;2014/02/03;Coriolis
+6901504;France;2014/02/03;Coriolis
+6901505;France;2014/12/04;Coriolis
+6901506;France;2013/11/20;Coriolis
+6901507;France;2013/12/05;Coriolis
+6901508;France;2014/05/10;Coriolis
+6901509;France;2013/12/15;Coriolis
+6901510;France;2013/05/26;NAOS-France
+6901511;France;2013/02/17;NAOS-France
+6901512;France;2013/04/09;NAOS-France
+6901513;France;2013/05/08;NAOS-France
+6901514;France;2013/04/17;Coriolis-remOcean
+6901515;France;2013/04/17;Coriolis-remOcean
+6901516;France;2013/04/17;Coriolis-remOcean
+6901517;France;2013/04/17;Coriolis-remOcean
+6901518;France;2013/04/17;Coriolis-remOcean
+6901519;France;2013/04/17;Coriolis-remOcean
+6901520;France;2013/04/17;Coriolis-remOcean
+6901521;France;2013/05/15;Coriolis-remOcean
+6901522;France;2013/05/14;Coriolis-remOcean
+6901523;France;2013/05/15;Coriolis-remOcean
+6901524;France;2013/05/15;Coriolis-remOcean
+6901525;France;2013/05/15;Coriolis-remOcean
+6901526;France;2013/05/15;Coriolis-remOcean
+6901527;France;2013/05/15;Coriolis-remOcean
+6901528;France;2013/05/15;NAOS-France
+6901529;France;2013/05/25;NAOS-France
+6901541;France;2013/08/01;Coriolis
+6901542;France;2014/02/04;Coriolis
+6901543;France;2013/11/30;Coriolis-Good Hope
+6901544;France;2014/02/04;Coriolis
+6901545;France;2013/08/01;Coriolis
+6901546;France;2013/11/30;Coriolis-Good Hope
+6901547;France;2013/09/07;Coriolis-Good Hope
+6901548;France;2013/11/29;Coriolis-Good Hope
+6901549;France;2013/11/30;Coriolis-Good Hope
+6901550;France;2013/12/03;Coriolis-Good Hope
+6901551;France;2014/02/22;Coriolis
+6901552;France;2013/02/25;Coriolis
+6901553;France;2014/02/27;Coriolis
+6901554;France;2014/05/14;Coriolis
+6901555;France;2014/02/13;Coriolis
+6901556;France;2014/02/17;Coriolis
+6901557;France;2014/12/06;Coriolis
+6901558;France;2014/12/06;Coriolis
+6901559;France;2014/12/07;Coriolis
+6901560;France;2014/12/07;Coriolis
+6901561;France;2014/12/07;Coriolis
+6901562;France;2014/12/10;Coriolis
+6901563;France;2015/03/28;Coriolis-PIRATA
+6901564;France;2014/06/06;Coriolis-OVIDE
+6901565;France;2014/06/05;Coriolis-OVIDE
+6901566;France;2014/06/09;Coriolis-OVIDE
+6901567;France;2014/05/23;Coriolis-OVIDE
+6901568;France;2014/06/02;Coriolis-OVIDE
+6901569;France;2014/05/28;Coriolis-OVIDE
+6901570;France;2014/05/31;Coriolis-OVIDE
+6901571;France;2013/10/10;Coriolis
+6901572;France;2013/10/12;Coriolis
+6901573;France;2014/11/30;Coriolis-remOcean
+6901574;France;2015/01/20;Coriolis-remOcean
+6901575;France;2014/11/30;Coriolis-remOcean
+6901576;France;2014/12/09;Coriolis-remOcean
+6901577;France;2014/11/30;Coriolis-remOcean
+6901578;France;2014/11/30;Coriolis-remOcean
+6901579;France;2015/01/20;Coriolis-remOcean
+6901580;France;2015/01/24;Coriolis-remOcean
+6901581;France;2015/01/21;Coriolis-remOcean
+6901582;France;2014/12/09;Coriolis-remOcean
+6901583;France;2014/11/30;Coriolis-remOcean
+6901584;France;2014/11/30;Coriolis-remOcean
+6901585;France;2014/12/10;Coriolis-remOcean
+6901586;France;2014/03/14;Coriolis
+6901587;France;2014/03/17;Coriolis
+6901588;France;2014/11/29;Coriolis
+6901589;France;2014/06/24;Coriolis
+6901590;France;2014/02/03;Coriolis
+6901591;France;2014/02/01;Coriolis
+6901592;France;2014/06/09;Coriolis-OVIDE
+6901593;France;2014/06/06;Coriolis-OVIDE
+6901594;France;2015/06/18;Coriolis-OVIDE
+6901595;France;2015/06/18;Coriolis-OVIDE
+6901596;France;2014/08/22;Coriolis
+6901597;France;2013/11/17;NAOS-France
+6901598;France;2013/12/14;Coriolis
+6901599;France;2014/02/20;Coriolis
+6901600;France;2014/08/22;NAOS-France
+6901601;France;2018/07/04;Coriolis
+6901602;France;2015/07/03;Coriolis-OVIDE
+6901603;France;2017/08/06;NAOS-France
+6901604;France;2020/07/12;Coriolis
+6901605;France;2014/02/11;NAOS-France
+6901607;France;2014/09/14;Coriolis
+6901608;France;2014/09/14;Coriolis
+6901609;France;2015/03/21;Coriolis
+6901610;France;2015/03/22;Coriolis
+6901611;France;2016/04/01;Coriolis
+6901612;France;2014/04/24;Coriolis-PIRATA
+6901613;France;2014/04/25;Coriolis-PIRATA
+6901614;France;2014/05/08;Coriolis-PIRATA
+6901615;France;2014/05/12;Coriolis-PIRATA
+6901616;France;2014/05/17;Coriolis-PIRATA
+6901617;France;2014/05/19;Coriolis-PIRATA
+6901618;France;2014/11/29;Coriolis
+6901619;France;2015/01/26;Coriolis
+6901620;France;2015/05/15;Coriolis
+6901621;France;2014/09/06;Coriolis
+6901622;France;2014/12/16;Coriolis
+6901623;France;2014/10/22;Coriolis
+6901624;France;2014/12/01;Coriolis
+6901625;France;2015/05/05;Coriolis
+6901626;France;2014/12/05;Coriolis
+6901627;European Union;2014/06/10;E-AIMS
+6901628;European Union;2015/06/14;E-AIMS
+6901629;France;2014/10/19;Coriolis
+6901630;France;2014/11/19;Coriolis
+6901631;France;2014/05/23;Coriolis-OVIDE
+6901632;France;2014/05/31;Coriolis-OVIDE
+6901633;France;2014/11/19;Coriolis
+6901634;France;2014/12/05;Coriolis-Good Hope
+6901635;France;2014/12/06;Coriolis-Good Hope
+6901636;France;2014/12/07;Coriolis-Good Hope
+6901637;France;2014/12/08;Coriolis-Good Hope
+6901638;France;2014/12/08;Coriolis-Good Hope
+6901639;France;2014/12/09;Coriolis-Good Hope
+6901640;France;2014/12/09;Coriolis-Good Hope
+6901641;France;2014/12/10;Coriolis-Good Hope
+6901642;France;2014/12/10;Coriolis-Good Hope
+6901643;France;2014/12/10;Coriolis-Good Hope
+6901644;France;2015/02/13;Coriolis-Good Hope
+6901645;France;2015/02/14;Coriolis-Good Hope
+6901646;France;2014/06/15;Coriolis-remOcean
+6901647;France;2014/06/09;Coriolis-BIOArgo
+6901648;France;2014/07/07;Coriolis-BIOArgo
+6901649;France;2014/07/15;Coriolis-BIOArgo
+6901650;France;2015/04/01;Coriolis-BIOArgo
+6901651;France;2014/10/19;Coriolis-remOcean
+6901652;France;2023/01/12;Coriolis-BIOArgo
+6901653;France;2014/07/07;Coriolis-BIOArgo
+6901654;France;2015/05/01;Coriolis-remOcean
+6901655;France;2014/08/02;NAOS-France
+6901656;France;2015/03/02;Coriolis-BIOArgo
+6901657;France;2018/06/24;NAOS-France
+6901658;France;2015/02/01;Coriolis-BIOArgo
+6901659;France;2015/10/13;Coriolis-remOcean
+6901660;France;2014/12/31;Coriolis-BIOArgo
+6901661;France;2015/02/12;NAOS-France
+6901662;France;2015/02/14;NAOS-France
+6901663;France;2015/03/11;NAOS-France
+6901664;France;2015/03/12;NAOS-France
+6901665;France;2015/10/29;NAOS-France
+6901666;France;2015/03/13;NAOS-France
+6901667;France;2015/03/13;NAOS-France
+6901668;France;2015/03/20;NAOS-France
+6901669;France;2015/03/22;NAOS-France
+6901670;France;2015/03/22;NAOS-France
+6901671;France;2015/03/28;NAOS-France
+6901672;France;2015/09/06;NAOS-France
+6901673;France;2015/07/01;NAOS-France
+6901674;France;2015/07/01;NAOS-France
+6901675;France;2015/07/01;NAOS-France
+6901676;France;2015/07/01;NAOS-France
+6901677;France;2015/07/01;NAOS-France
+6901678;France;2015/07/01;NAOS-France
+6901679;France;2015/03/30;NAOS-France
+6901680;France;2015/03/31;NAOS-France
+6901681;France;2014/07/27;Coriolis
+6901682;France;2014/07/27;Coriolis
+6901683;France;2015/01/23;Coriolis-FNOB-JCOMMOPS
+6901684;France;2015/01/23;Coriolis-FNOB-JCOMMOPS
+6901685;France;2015/01/23;Coriolis-FNOB-JCOMMOPS
+6901686;France;2015/01/15;Coriolis-FNOB-JCOMMOPS
+6901687;France;2014/12/31;Coriolis-remOcean
+6901688;France;2014/12/10;Coriolis-remOcean
+6901689;France;2015/01/21;Coriolis-remOcean
+6901690;France;2015/02/12;Coriolis-Good Hope
+6901691;France;2015/01/23;Coriolis-FNOB-JCOMMOPS
+6901692;France;2015/03/20;Coriolis
+6901693;France;2015/01/23;Coriolis-FNOB-JCOMMOPS
+6901694;France;2015/01/23;Coriolis-FNOB-JCOMMOPS
+6901695;France;2015/03/18;Coriolis
+6901696;France;2015/01/23;Coriolis-FNOB-JCOMMOPS
+6901697;France;2015/03/10;Coriolis
+6901698;France;2015/03/19;Coriolis
+6901699;France;2015/03/20;Coriolis
+6901700;France;2015/03/12;Coriolis
+6901701;France;2015/03/19;Coriolis
+6901702;France;2015/04/19;Coriolis
+6901703;France;2015/04/15;Coriolis
+6901704;France;2015/04/09;Coriolis
+6901705;France;2015/04/11;Coriolis
+6901706;France;2015/04/13;Coriolis
+6901707;France;2015/01/12;Coriolis
+6901708;France;2015/01/13;Coriolis
+6901709;France;2015/05/07;Coriolis
+6901710;France;2015/05/07;Coriolis
+6901711;France;2015/05/07;Coriolis
+6901712;France;2015/05/02;Coriolis
+6901713;France;2015/05/02;Coriolis
+6901714;France;2015/05/02;Coriolis
+6901715;France;2015/04/17;Coriolis
+6901716;France;2015/05/02;Coriolis
+6901717;France;2015/05/01;Coriolis
+6901718;France;2015/05/13;Coriolis
+6901719;France;2016/07/22;Coriolis
+6901720;France;2016/07/22;Coriolis
+6901721;France;2016/02/01;NAOS-France
+6901722;France;2016/07/18;NAOS-France
+6901723;France;2015/09/01;NAOS-France
+6901724;France;2016/07/18;NAOS-France
+6901725;France;2015/06/28;NAOS-France
+6901726;France;2016/07/23;NAOS-France
+6901727;France;2015/05/22;NAOS-France
+6901728;France;2015/02/25;NAOS-France
+6901729;France;2015/02/26;NAOS-France
+6901730;France;2015/08/20;NAOS-France
+6901731;France;2015/08/21;NAOS-France
+6901732;France;2015/04/06;NAOS-France
+6901733;France;2015/03/24;NAOS-France
+6901734;France;2015/10/05;NAOS-France
+6901735;France;2015/03/31;NAOS-France
+6901736;France;2015/04/05;NAOS-France
+6901737;France;2015/04/11;NAOS-France
+6901738;France;2015/08/22;Coriolis
+6901739;France;2015/08/23;Coriolis
+6901740;France;2015/08/24;Coriolis
+6901741;France;2015/08/25;Coriolis
+6901742;France;2015/05/09;Coriolis
+6901743;France;2015/05/10;Coriolis
+6901744;France;2015/05/26;Coriolis
+6901745;France;2015/05/19;Coriolis
+6901746;Indonesia;2017/07/29;Argo INDONESIA
+6901747;Indonesia;2018/09/04;Argo INDONESIA
+6901750;France;2015/06/14;Coriolis-OVIDE
+6901751;France;2015/06/17;Coriolis-OVIDE
+6901752;France;2015/06/20;Coriolis-OVIDE
+6901753;France;2016/07/12;Coriolis
+6901754;France;2016/07/10;Coriolis
+6901755;France;2016/07/09;Coriolis
+6901756;France;2020/07/06;Coriolis
+6901757;France;2015/06/08;Coriolis-OVIDE
+6901758;France;2015/07/03;Coriolis-OVIDE
+6901759;France;2015/07/03;Coriolis-OVIDE
+6901760;France;2016/07/11;Coriolis
+6901762;France;2016/07/11;Coriolis
+6901763;France;2018/06/23;Coriolis
+6901764;France;2015/06/01;NAOS-France
+6901765;France;2015/06/01;NAOS-France
+6901766;France;2015/06/01;NAOS-France
+6901767;France;2015/06/01;NAOS-France
+6901768;France;2015/06/01;NAOS-France
+6901769;France;2015/06/01;NAOS-France
+6901770;France;2015/06/01;NAOS-France
+6901771;France;2015/06/01;NAOS-France
+6901772;France;2018/06/19;NAOS-France
+6901773;France;2015/06/01;NAOS-France
+6901774;France;2018/06/25;NAOS-France
+6901775;France;2018/06/18;NAOS-France
+6901776;France;2014/03/14;NAOS-France
+6901813;Italy;2013/01/11;Argo ITALY
+6901814;Italy;2013/01/15;Argo ITALY
+6901815;Italy;2013/01/15;Argo ITALY
+6901816;Italy;2013/12/13;Argo ITALY
+6901817;Italy;2012/11/15;Argo ITALY
+6901818;Italy;2012/11/15;Argo ITALY
+6901820;Italy;2012/11/15;Argo ITALY
+6901821;Italy;2013/03/05;Argo ITALY
+6901822;Italy;2013/03/05;Argo ITALY
+6901823;Italy;2014/09/14;Argo ITALY
+6901824;Italy;2013/11/01;Argo ITALY
+6901825;Italy;2013/11/01;Argo ITALY
+6901826;Italy;2013/05/10;Argo ITALY
+6901827;Italy;2013/05/10;Argo ITALY
+6901828;Italy;2013/09/30;Argo ITALY
+6901829;Italy;2014/02/13;Argo ITALY
+6901830;Italy;2014/02/14;Argo ITALY
+6901831;Italy;2014/07/18;Argo ITALY
+6901832;Italy;2014/09/12;Argo ITALY
+6901833;Italy;2016/06/01;Argo ITALY
+6901834;Italy;2015/11/25;Argo ITALY
+6901835;Italy;2014/06/06;Argo ITALY
+6901836;Italy;2014/06/08;Argo ITALY
+6901837;Italy;2014/11/14;Argo ITALY
+6901838;Italy;2015/01/06;Argo ITALY
+6901839;Italy;2014/05/17;Argo ITALY
+6901840;Italy;2015/01/03;Argo ITALY
+6901841;Italy;2015/01/03;Argo ITALY
+6901842;Italy;2015/01/06;Argo ITALY
+6901843;Italy;2015/01/03;Argo ITALY
+6901844;Italy;2015/11/24;Argo ITALY
+6901845;Italy;2014/08/18;Argo ITALY
+6901846;Italy;2014/04/13;Argo ITALY
+6901847;Italy;2014/04/15;Argo ITALY
+6901848;Italy;2014/04/17;Argo ITALY
+6901849;Italy;2014/01/02;Argo ITALY
+6901850;Italy;2014/01/01;Argo ITALY
+6901854;Italy;2014/02/15;Argo ITALY
+6901855;Italy;2014/01/02;Argo ITALY
+6901856;Italy;2013/12/30;Argo ITALY
+6901857;Italy;2014/01/02;Argo ITALY
+6901860;Italy;2014/02/12;Argo ITALY
+6901861;Italy;2014/05/25;Argo ITALY
+6901862;Italy;2015/03/26;Argo ITALY
+6901863;Italy;2015/05/26;Argo ITALY
+6901864;Italy;2015/05/30;Argo ITALY
+6901865;Italy;2014/02/18;Argo ITALY
+6901866;Italy;2015/05/27;Argo ITALY
+6901867;Italy;2015/05/26;Argo ITALY
+6901868;Italy;2014/12/01;Argo ITALY
+6901869;Italy;2015/05/22;Argo ITALY
+6901870;Italy;2015/08/06;Argo ITALY
+6901871;Italy;2015/01/04;Argo ITALY
+6901872;Italy;2015/01/04;Argo ITALY
+6901873;Italy;2015/01/04;Argo ITALY
+6901874;Italy;2015/01/06;Argo ITALY
+6901875;Italy;2015/01/03;Argo ITALY
+6901876;European Union;2015/03/04;EuroArgo
+6901877;European Union;2014/05/20;EuroArgo
+6901878;European Union;2014/06/19;EuroArgo
+6901879;Italy;2014/04/05;Argo ITALY
+6901880;Italy;2019/02/10;Argo ITALY
+6901881;European Union;2013/10/30;EuroArgo
+6901882;Greece;2014/03/11;Argo GREECE
+6901883;Greece;2013/11/28;Argo GREECE
+6901884;Greece;2014/10/07;Argo GREECE
+6901885;Greece;2014/10/08;Argo GREECE
+6901886;Greece;2014/11/12;Argo GREECE
+6901887;Greece;2014/11/13;Argo GREECE
+6901888;Greece;2015/07/03;Argo GREECE
+6901889;Greece;2015/07/07;Argo GREECE
+6901890;Greece;2015/07/04;Argo GREECE
+6901895;Turkey;2013/08/02;DEKOSIM
+6901896;Turkey;2013/08/05;DEKOSIM
+6901897;Turkey;2013/11/21;DEKOSIM
+6901898;Turkey;2013/11/21;DEKOSIM
+6901899;Turkey;2014/05/02;DEKOSIM
+6901900;Turkey;2014/05/02;DEKOSIM
+6901901;Finland;2012/05/17;Argo FINLAND
+6901902;Poland;2012/07/02;Argo POLAND
+6901903;Finland;2012/09/04;Argo FINLAND
+6901904;Finland;2012/09/01;Argo FINLAND
+6901905;Finland;2013/07/20;Argo FINLAND
+6901906;Finland;2013/07/20;Argo FINLAND
+6901907;Germany;2014/05/25;Argo BSH
+6901908;Germany;2014/06/11;Argo BSH
+6901909;Germany;2014/05/25;Argo BSH
+6901910;Germany;2014/05/25;Argo BSH
+6901911;Germany;2015/05/15;Argo BSH
+6901913;Ireland;2012/09/06;Argo IRELAND
+6901914;Ireland;2013/03/26;Argo IRELAND
+6901915;Ireland;2012/09/12;Argo IRELAND
+6901919;Ireland;2015/04/22;Argo IRELAND
+6901920;Ireland;2015/04/22;Argo IRELAND
+6901921;Ireland;2016/03/21;Argo IRELAND
+6901922;Ireland;2016/04/14;Argo IRELAND
+6901923;Ireland;2016/04/09;Argo IRELAND
+6901924;Ireland;2017/02/10;Argo IRELAND
+6901925;Ireland;2017/02/11;Argo IRELAND
+6901926;Ireland;2017/05/20;Argo IRELAND
+6901927;Ireland;2018/02/12;Argo IRELAND
+6901928;Ireland;2018/02/12;Argo IRELAND
+6901929;Ireland;2018/02/12;Argo IRELAND
+6901930;Ireland;2018/03/27;Argo IRELAND
+6901931;Ireland;2019/12/06;Argo IRELAND
+6901932;Ireland;2019/05/29;Argo IRELAND
+6901933;Ireland;2019/05/28;Argo IRELAND
+6901934;Ireland;2020/08/31;Argo IRELAND
+6901935;Ireland;2020/09/10;Argo IRELAND
+6901937;Ireland;2020/09/05;Argo IRELAND
+6901938;Ireland;2021/03/07;Argo IRELAND
+6901939;Ireland;2021/03/08;Argo IRELAND
+6901959;Italy;2012/06/10;Argo ITALY
+6901960;Italy;2012/06/09;Argo ITALY
+6901961;Italy;2012/11/07;Argo ITALY
+6901962;Italy;2012/08/15;Argo ITALY
+6901963;Netherlands;2012/10/19;Argo NETHERLANDS
+6901964;Netherlands;2012/10/31;Argo NETHERLANDS
+6901965;Netherlands;2012/10/20;Argo NETHERLANDS
+6901966;Netherlands;2012/12/01;Argo NETHERLANDS
+6901967;Netherlands;2012/12/11;Argo NETHERLANDS
+6901968;Netherlands;2012/11/14;Argo NETHERLANDS
+6901969;Netherlands;2012/11/20;Argo NETHERLANDS
+6901971;Netherlands;2013/11/10;Argo NETHERLANDS
+6901972;Netherlands;2013/11/30;Argo NETHERLANDS
+6901973;Netherlands;2014/04/09;Argo NETHERLANDS
+6901974;Netherlands;2014/12/12;Argo NETHERLANDS
+6901975;Netherlands;2013/12/06;Argo NETHERLANDS
+6901976;Netherlands;2014/01/22;Argo NETHERLANDS
+6901977;Netherlands;2013/10/22;Argo NETHERLANDS
+6901978;Netherlands;2014/10/22;Argo NETHERLANDS
+6901979;Netherlands;2014/10/27;Argo NETHERLANDS
+6901980;Netherlands;2015/04/07;Argo NETHERLANDS
+6901981;Netherlands;2015/04/15;Argo NETHERLANDS
+6901982;Netherlands;2014/12/11;Argo NETHERLANDS
+6901983;Netherlands;2014/12/07;Argo NETHERLANDS
+6901984;Netherlands;2014/12/05;Argo NETHERLANDS
+6901985;Netherlands;2019/11/05;Argo NETHERLANDS
+6901986;Netherlands;2019/10/26;Argo NETHERLANDS
+6901987;Netherlands;2022/03/04;Argo NETHERLANDS
+6901988;Netherlands;2022/03/05;Argo NETHERLANDS
+6901989;Netherlands;2021/11/25;Argo NETHERLANDS
+6901990;Netherlands;2022/03/24;Argo NETHERLANDS
+6901991;Netherlands;2022/03/26;Argo NETHERLANDS
+6901992;Netherlands;2022/03/31;Argo NETHERLANDS
+6901993;Netherlands;2022/03/14;Argo NETHERLANDS
+6901994;Netherlands;2021/11/23;Argo NETHERLANDS
+6901995;Netherlands;2021/11/17;Argo NETHERLANDS
+6901996;Netherlands;2021/11/24;Argo NETHERLANDS
+6901997;Netherlands;2021/11/28;Argo NETHERLANDS
+6901998;Netherlands;2021/11/19;Argo NETHERLANDS
+6902013;Finland;2013/06/13;Argo FINLAND
+6902014;Finland;2013/08/14;Argo FINLAND
+6902015;Finland;2014/05/20;Argo FINLAND
+6902016;Finland;2014/05/20;Argo FINLAND
+6902017;Finland;2014/05/31;Argo FINLAND
+6902018;Finland;2014/05/31;Argo FINLAND
+6902019;Finland;2014/08/21;Argo FINLAND
+6902020;Finland;2015/08/05;Argo FINLAND
+6902021;Finland;2015/09/22;Argo FINLAND
+6902022;Finland;2016/05/13;Argo FINLAND
+6902023;Finland;2016/07/13;Argo FINLAND
+6902024;Finland;2016/08/03;Argo FINLAND
+6902025;Finland;2017/05/09;Argo FINLAND
+6902026;Finland;2017/06/06;Argo FINLAND
+6902027;Finland;2017/06/15;Argo FINLAND
+6902028;Finland;2017/08/06;Argo FINLAND
+6902029;Finland;2017/08/06;Argo FINLAND
+6902030;Finland;2018/07/10;Argo FINLAND
+6902036;Poland;2016/11/29;Argo POLAND
+6902038;Poland;2015/09/28;Argo POLAND
+6902039;Poland;2015/09/30;Argo POLAND
+6902040;Poland;2015/09/30;Argo POLAND
+6902041;European Union;2014/07/01;E-AIMS
+6902042;European Union;2014/07/10;E-AIMS
+6902543;Norway;2013/11/17;Argo NORWAY
+6902544;Norway;2013/11/15;Argo NORWAY
+6902545;Norway;2014/01/22;Argo NORWAY
+6902546;European Union;2014/01/20;E-AIMS
+6902547;European Union;2014/01/22;E-AIMS
+6902548;Norway;2014/07/20;Argo NORWAY
+6902549;Norway;2014/07/28;Argo NORWAY
+6902550;Norway;2014/08/03;Argo NORWAY
+6902552;Germany;2014/06/21;Argo BSH
+6902553;Germany;2014/06/22;Argo BSH
+6902554;Germany;2014/06/23;Argo BSH
+6902555;Germany;2014/12/24;Argo BSH
+6902556;Germany;2014/12/24;Argo BSH
+6902557;Germany;2014/09/30;Argo BSH
+6902558;Germany;2014/09/30;Argo BSH
+6902559;Germany;2014/09/30;Argo BSH
+6902560;Germany;2014/09/30;Argo BSH
+6902561;Germany;2014/12/14;Argo BSH
+6902562;Germany;2014/12/15;Argo BSH
+6902563;Germany;2014/10/03;Argo BSH
+6902564;Germany;2014/09/21;Argo BSH
+6902565;Germany;2014/09/25;Argo BSH
+6902566;Germany;2014/10/05;Argo BSH
+6902567;Germany;2014/10/04;Argo BSH
+6902568;Germany;2015/05/15;Argo BSH
+6902569;Germany;2015/05/15;Argo BSH
+6902570;Germany;2015/05/15;Argo BSH
+6902571;Germany;2014/12/06;Argo BSH
+6902572;Germany;2014/12/08;Argo BSH
+6902573;Germany;2014/12/23;Argo BSH
+6902574;Germany;2014/12/26;Argo BSH
+6902575;Germany;2015/01/05;Argo BSH
+6902576;Germany;2015/01/06;Argo BSH
+6902577;Germany;2014/11/11;Argo BSH
+6902578;Germany;2014/11/13;Argo BSH
+6902579;Germany;2014/11/19;Argo BSH
+6902580;Germany;2014/11/22;Argo BSH
+6902581;Germany;2014/11/25;Argo BSH
+6902582;Germany;2014/11/27;Argo BSH
+6902584;Germany;2014/09/19;Argo BSH
+6902586;Germany;2014/09/21;Argo BSH
+6902587;Germany;2014/09/22;Argo BSH
+6902588;Germany;2014/09/20;Argo BSH
+6902589;Germany;2014/09/25;Argo BSH
+6902601;Germany;2015/02/04;Argo BSH
+6902602;Germany;2015/02/08;Argo BSH
+6902603;Germany;2015/03/11;Argo BSH
+6902604;Germany;2015/03/15;Argo BSH
+6902605;Germany;2015/03/17;Argo BSH
+6902606;Germany;2015/05/15;Argo BSH
+6902607;Germany;2015/05/17;Argo BSH
+6902608;Germany;2015/05/15;Argo BSH
+6902609;Germany;2015/05/15;Argo BSH
+6902610;Germany;2015/05/15;Argo BSH
+6902611;Germany;2015/05/15;Argo BSH
+6902612;Germany;2015/05/15;Argo BSH
+6902613;Germany;2015/05/15;Argo BSH
+6902614;Germany;2015/05/15;Argo BSH
+6902615;Germany;2015/05/15;Argo BSH
+6902616;Germany;2015/10/06;Argo BSH
+6902617;Germany;2015/10/05;Argo BSH
+6902618;Germany;2015/09/26;Argo BSH
+6902619;Germany;2015/09/27;Argo BSH
+6902620;Germany;2015/09/28;Argo BSH
+6902621;Germany;2015/04/11;Argo BSH
+6902622;Germany;2015/04/12;Argo BSH
+6902623;Germany;2015/04/12;Argo BSH
+6902624;Germany;2015/04/13;Argo BSH
+6902625;Germany;2015/04/13;Argo BSH
+6902626;Germany;2015/04/13;Argo BSH
+6902627;Germany;2015/06/18;Argo BSH
+6902628;Germany;2015/06/18;Argo BSH
+6902629;Germany;2015/10/28;Argo BSH
+6902630;Germany;2015/09/15;Argo BSH
+6902631;Germany;2015/09/15;Argo BSH
+6902632;Germany;2015/09/26;Argo BSH
+6902633;Germany;2015/09/27;Argo BSH
+6902634;Germany;2015/09/26;Argo BSH
+6902635;Germany;2015/09/27;Argo BSH
+6902636;Germany;2015/10/02;Argo BSH
+6902637;Germany;2015/10/30;Argo BSH
+6902638;Germany;2015/11/01;Argo BSH
+6902639;Germany;2015/11/22;Argo BSH
+6902640;Germany;2015/12/19;Argo BSH
+6902641;Germany;2015/11/10;Argo BSH
+6902642;Germany;2015/12/11;Argo BSH
+6902643;Germany;2016/04/29;Argo BSH
+6902644;Germany;2016/04/28;Argo BSH
+6902645;Germany;2016/04/21;Argo BSH
+6902646;Germany;2016/04/20;Argo BSH
+6902647;Germany;2016/04/13;Argo BSH
+6902648;Germany;2016/04/13;Argo BSH
+6902649;Germany;2016/04/07;Argo BSH
+6902650;Germany;2019/10/13;Argo BSH
+6902651;Germany;2019/10/02;Argo BSH
+6902652;France;2016/03/13;Coriolis
+6902653;France;2016/03/18;Coriolis
+6902654;France;2015/11/13;Coriolis
+6902655;France;2015/10/06;Coriolis
+6902656;France;2016/05/20;Coriolis
+6902657;France;2016/05/22;Coriolis
+6902658;France;2016/05/13;Coriolis
+6902659;France;2015/09/25;Coriolis
+6902660;France;2015/09/24;Coriolis
+6902661;France;2015/09/06;Coriolis
+6902662;France;2015/09/03;Coriolis
+6902663;France;2015/08/18;Coriolis
+6902664;France;2015/08/19;Coriolis
+6902665;France;2015/11/22;Coriolis
+6902666;France;2017/07/23;NAOS-France
+6902667;France;2016/07/09;NAOS-France
+6902668;France;2016/07/09;NAOS-France
+6902669;France;2017/07/20;NAOS-France
+6902670;France;2017/07/20;NAOS-France
+6902671;France;2017/07/23;NAOS-France
+6902672;France;2015/11/25;Coriolis
+6902673;France;2016/01/28;Coriolis
+6902674;France;2016/01/31;Coriolis
+6902675;France;2015/12/13;Coriolis
+6902676;France;2015/12/14;Coriolis
+6902677;France;2016/03/31;Coriolis
+6902681;France;2015/08/26;Coriolis
+6902682;France;2015/08/12;Coriolis
+6902683;France;2015/08/25;Coriolis
+6902684;France;2016/11/15;Coriolis
+6902685;France;2017/04/04;Coriolis
+6902686;France;2017/07/28;Coriolis
+6902687;France;2016/05/28;Coriolis
+6902688;France;2016/05/21;Coriolis
+6902689;France;2016/03/23;Coriolis
+6902690;France;2016/03/28;Coriolis
+6902691;France;2016/06/02;Coriolis
+6902692;France;2016/06/03;Coriolis
+6902693;France;2016/06/08;Coriolis
+6902694;France;2017/08/14;Coriolis
+6902695;France;2017/04/15;Coriolis
+6902696;France;2017/02/01;Coriolis
+6902697;France;2016/09/01;Coriolis
+6902698;France;2016/05/09;Coriolis
+6902699;France;2016/05/10;Coriolis
+6902700;France;2015/11/05;Coriolis-BIOArgo
+6902701;France;2016/07/08;Coriolis-BIOArgo
+6902702;France;2016/08/07;Coriolis
+6902703;France;2016/08/07;Coriolis
+6902704;France;2016/08/08;Coriolis
+6902705;France;2016/08/08;Coriolis
+6902706;France;2016/09/01;Coriolis
+6902707;France;2016/11/15;Coriolis
+6902708;France;2017/02/01;Coriolis
+6902709;France;2017/04/15;Coriolis
+6902710;France;2016/08/14;Coriolis
+6902711;France;2017/01/30;Coriolis
+6902712;France;2017/01/02;Coriolis
+6902713;France;2016/12/29;Coriolis
+6902714;France;2016/09/12;Coriolis
+6902715;France;2017/02/12;Coriolis
+6902718;France;2018/10/22;NAOS-France
+6902719;France;2017/03/25;NAOS-France
+6902720;France;2017/03/25;NAOS-France
+6902721;France;2017/03/19;NAOS-France
+6902722;France;2017/01/21;NAOS-France
+6902723;France;2018/03/19;NAOS-France
+6902724;France;2018/03/20;NAOS-France
+6902725;France;2017/09/16;NAOS-France
+6902726;France;2017/09/19;NAOS-France
+6902727;France;2019/07/17;NAOS-France
+6902728;France;2017/08/27;NAOS-France
+6902729;France;2017/10/13;NAOS-France
+6902730;France;2017/08/26;NAOS-France
+6902731;France;2018/03/20;NAOS-France
+6902732;France;2016/05/27;NAOS-France
+6902733;France;2016/05/27;NAOS-France
+6902734;France;2016/10/16;SOCLIM
+6902735;France;2016/10/19;Coriolis-BIOArgo
+6902736;France;2016/10/18;SOCLIM
+6902737;France;2016/10/18;SOCLIM
+6902738;France;2016/10/16;SOCLIM
+6902739;France;2016/10/19;Coriolis-BIOArgo
+6902740;France;2016/10/17;Coriolis-remOcean
+6902741;France;2016/10/11;Coriolis-remOcean
+6902742;France;2016/10/21;SOCLIM
+6902743;France;2016/10/21;SOCLIM
+6902744;France;2017/12/03;NAOS-France
+6902745;France;2017/12/03;NAOS-France
+6902746;France;2017/06/07;NAOS-France
+6902747;France;2017/11/28;NAOS-France
+6902748;France;2017/11/26;NAOS-France
+6902749;France;2017/09/01;NAOS-France
+6902750;France;2017/11/15;NAOS-France
+6902751;France;2018/07/01;NAOS-France
+6902752;France;2018/07/08;NAOS-France
+6902753;France;2017/09/01;NAOS-France
+6902754;France;2017/11/16;NAOS-France
+6902755;France;2018/07/02;NAOS-France
+6902756;France;2018/04/15;NAOS-France
+6902757;France;2017/06/07;NAOS-France
+6902758;France;2017/03/26;NAOS-France
+6902759;France;2017/04/09;NAOS-France
+6902760;France;2017/04/13;NAOS-France
+6902761;France;2017/03/02;NAOS-France
+6902762;France;2017/03/30;NAOS-France
+6902763;France;2018/02/09;NAOS-France
+6902764;France;2017/02/02;Coriolis
+6902765;France;2017/02/02;Coriolis
+6902766;France;2017/03/28;Coriolis
+6902767;France;2017/02/02;Coriolis
+6902768;France;2017/03/25;Coriolis
+6902769;France;2017/01/20;Coriolis
+6902770;France;2017/01/26;Coriolis
+6902771;France;2017/07/07;Coriolis
+6902772;France;2017/07/07;Coriolis
+6902773;France;2017/09/01;Coriolis
+6902774;France;2018/02/09;Coriolis
+6902775;France;2018/02/09;Coriolis
+6902776;France;2018/02/08;Coriolis
+6902777;France;2018/02/08;Coriolis
+6902778;France;2018/02/08;Coriolis
+6902779;France;2018/02/08;Coriolis
+6902780;France;2018/02/07;Coriolis
+6902781;France;2018/02/07;Coriolis
+6902782;France;2018/02/07;Coriolis
+6902783;France;2017/08/02;Coriolis
+6902784;France;2017/10/09;Coriolis
+6902785;France;2017/08/01;Coriolis
+6902786;France;2018/09/01;Coriolis
+6902787;France;2018/11/15;Coriolis
+6902788;France;2019/02/01;Coriolis
+6902789;France;2019/04/15;Coriolis
+6902790;France;2018/09/01;Coriolis
+6902791;France;2018/11/15;Coriolis
+6902792;France;2019/02/01;Coriolis
+6902793;France;2019/04/15;Coriolis
+6902794;France;2018/06/10;Coriolis
+6902795;France;2018/06/10;Coriolis
+6902796;France;2018/06/10;Coriolis
+6902797;France;2019/05/04;Coriolis
+6902798;France;2017/03/19;Coriolis
+6902799;France;2017/03/19;Coriolis
+6902800;France;2018/07/02;Coriolis
+6902801;France;2017/07/19;Coriolis
+6902802;France;2018/07/05;Coriolis
+6902803;France;2017/09/08;Coriolis
+6902804;France;2017/09/01;Coriolis
+6902805;France;2017/07/09;Coriolis
+6902806;France;2018/06/27;Coriolis
+6902807;France;2017/07/24;Coriolis
+6902808;France;2017/07/27;Coriolis
+6902809;France;2017/04/11;Coriolis
+6902810;France;2017/08/06;NAOS-France
+6902811;France;2017/08/09;NAOS-France
+6902812;France;2017/08/09;NAOS-France
+6902813;France;2018/02/11;Coriolis
+6902814;France;2018/01/30;Coriolis
+6902815;France;2022/10/01;Coriolis
+6902816;France;2022/09/01;Coriolis
+6902818;France;2018/07/04;Coriolis
+6902819;France;2017/08/11;NAOS-France
+6902820;France;2022/11/01;Coriolis
+6902826;France;2017/05/15;NAOS-France
+6902827;France;2017/04/04;Coriolis-BIOArgo
+6902828;France;2017/05/24;Coriolis-BIOArgo
+6902829;France;2017/07/23;NAOS-France
+6902830;France;2018/01/21;Coriolis
+6902831;France;2018/10/15;Coriolis
+6902832;France;2018/05/11;Coriolis
+6902833;France;2018/09/20;Coriolis
+6902834;France;2018/09/11;Coriolis
+6902835;France;2018/09/06;Coriolis
+6902836;France;2018/09/05;Coriolis
+6902837;France;2019/01/09;Coriolis
+6902838;France;2019/03/05;Coriolis
+6902839;France;2019/09/24;Coriolis
+6902840;France;2019/10/29;Coriolis
+6902841;France;2020/02/28;Coriolis
+6902842;France;2019/06/21;Coriolis
+6902843;France;2019/03/07;Coriolis
+6902844;France;2018/05/25;Coriolis
+6902845;France;2018/10/22;Coriolis
+6902846;France;2018/10/22;Coriolis
+6902847;France;2018/10/22;Coriolis
+6902848;France;2018/10/15;Coriolis
+6902849;France;2018/08/03;Coriolis
+6902850;France;2019/06/09;Coriolis
+6902851;France;2018/08/02;Coriolis
+6902852;France;2018/08/02;Coriolis
+6902853;France;2018/08/03;Coriolis
+6902854;France;2018/08/02;Coriolis
+6902855;France;2018/08/02;Coriolis
+6902856;France;2018/10/01;Coriolis
+6902857;France;2018/10/01;Coriolis
+6902858;France;2018/10/05;Coriolis
+6902859;France;2018/10/06;Coriolis
+6902860;France;2019/02/22;Coriolis
+6902861;France;2019/02/21;Coriolis
+6902862;France;2018/11/29;Coriolis
+6902863;France;2018/11/29;Coriolis
+6902864;France;2018/11/29;Coriolis
+6902865;France;2018/11/29;Coriolis
+6902868;France;2018/07/01;Coriolis
+6902869;France;2018/06/30;Coriolis
+6902870;France;2019/03/18;Coriolis
+6902871;France;2019/03/11;Coriolis
+6902872;France;2018/10/22;Coriolis
+6902873;France;2019/03/11;Coriolis
+6902874;France;2018/10/22;Coriolis
+6902875;France;2019/03/18;Coriolis
+6902876;France;2019/06/24;Coriolis
+6902878;France;2020/01/28;Coriolis
+6902879;European Union;2017/11/15;LOV_ATLANTOS
+6902880;France;2018/03/02;Coriolis-BIOArgo
+6902881;France;2018/07/08;Coriolis
+6902882;France;2018/07/08;Coriolis
+6902883;France;2022/08/01;Coriolis
+6902884;France;2018/11/29;Coriolis
+6902886;France;2020/08/25;Coriolis
+6902888;France;2020/08/25;Coriolis
+6902889;France;2022/01/07;Coriolis
+6902890;France;2022/01/07;Coriolis
+6902892;France;2021/03/13;Coriolis
+6902893;France;2022/01/07;Coriolis
+6902894;France;2021/03/13;Coriolis
+6902895;France;2022/05/29;Coriolis
+6902896;France;2018/07/17;NAOS-France
+6902897;France;2018/07/17;NAOS-France
+6902898;France;2018/10/15;NAOS-France
+6902899;European Union;2019/12/11;Euro-Argo RISE
+6902900;France;2018/10/22;NAOS-France
+6902901;France;2018/12/05;Coriolis-BIOArgo
+6902902;France;2018/10/22;NAOS-France
+6902903;France;2018/06/22;Coriolis-BIOArgo
+6902904;France;2018/10/22;NAOS-France
+6902905;France;2019/01/25;Coriolis-BIOArgo
+6902906;France;2019/02/19;Coriolis-BIOArgo
+6902907;France;2018/10/10;Coriolis-BIOArgo
+6902908;France;2018/10/05;Coriolis-BIOArgo
+6902909;France;2019/03/01;Coriolis-BIOArgo
+6902910;France;2018/08/05;Coriolis
+6902911;France;2018/08/04;Coriolis
+6902912;France;2018/08/05;Coriolis
+6902913;France;2018/10/15;Coriolis
+6902914;France;2019/02/10;Coriolis
+6902915;France;2019/02/12;Coriolis
+6902916;France;2019/02/12;Coriolis
+6902917;France;2019/02/22;Coriolis
+6902918;France;2019/02/25;Coriolis
+6902919;France;2019/02/26;Coriolis
+6902920;France;2019/02/27;Coriolis
+6902921;France;2019/02/28;Coriolis
+6902922;France;2019/03/01;Coriolis
+6902923;France;2019/03/02;Coriolis
+6902924;France;2019/03/02;Coriolis
+6902925;France;2019/03/03;Coriolis
+6902926;France;2019/03/04;Coriolis
+6902927;France;2019/12/01;Coriolis
+6902928;France;2019/03/23;Coriolis-PIRATA
+6902929;France;2019/03/11;Coriolis
+6902930;France;2019/03/13;Coriolis
+6902933;France;2019/03/15;Coriolis
+6902934;France;2019/03/15;Coriolis
+6902935;France;2019/06/21;Coriolis
+6902936;France;2019/06/24;Coriolis
+6902937;France;2019/06/09;Coriolis
+6902938;France;2019/01/16;Coriolis
+6902939;France;2019/01/18;Coriolis
+6902940;France;2019/02/23;Coriolis
+6902941;France;2019/01/28;Coriolis
+6902942;France;2019/01/29;Coriolis
+6902943;France;2019/05/28;Coriolis
+6902944;France;2020/03/15;Coriolis
+6902945;France;2019/09/27;Coriolis
+6902946;France;2019/03/03;Coriolis
+6902947;France;2019/03/03;Coriolis
+6902948;France;2019/03/03;Coriolis
+6902949;France;2019/08/28;Coriolis
+6902950;France;2019/08/28;Coriolis
+6902951;France;2019/08/27;Coriolis
+6902952;France;2019/07/14;Coriolis
+6902953;France;2018/10/04;NAOS-France
+6902954;France;2019/06/12;NAOS-France
+6902955;France;2019/03/22;Coriolis-PIRATA
+6902956;France;2021/06/10;Coriolis
+6902957;France;2020/02/02;Coriolis
+6902958;France;2020/01/28;Coriolis
+6902959;France;2023/01/28;Coriolis
+6902960;France;2021/04/28;Coriolis
+6902961;France;2021/09/23;Coriolis
+6902962;France;2021/10/20;Coriolis
+6902963;France;2021/09/25;Coriolis
+6902964;France;2020/02/05;Coriolis
+6902965;France;2020/09/10;Coriolis
+6902966;France;2020/02/02;Coriolis
+6902967;France;2019/07/14;NAOS-France
+6902968;France;2019/05/28;Coriolis-BIOArgo
+6902969;European Union;2019/04/16;LOV_ATLANTOS
+6902970;France;2020/08/18;Coriolis
+6902971;France;2020/07/16;Coriolis
+6902972;France;2020/07/06;Coriolis
+6902973;France;2020/07/16;Coriolis
+6902974;France;2020/07/12;Coriolis
+6902975;France;2020/07/14;Coriolis
+6902976;France;2020/08/21;Coriolis
+6902977;France;2021/03/14;Coriolis
+6902978;France;2020/07/14;Coriolis
+6902979;France;2021/03/14;Coriolis
+6902980;France;2022/01/07;Coriolis
+6902981;France;2021/03/15;Coriolis
+6902982;France;2021/06/05;Coriolis
+6902983;France;2020/03/07;Coriolis
+6902984;France;2020/03/16;Coriolis
+6902985;France;2019/11/14;Coriolis
+6902986;France;2019/11/23;Coriolis
+6902987;France;2021/06/10;Coriolis
+6902988;France;2019/11/27;Coriolis
+6902989;France;2019/11/29;Coriolis
+6902990;France;2021/03/31;Coriolis
+6902991;France;2021/03/26;Coriolis
+6902992;France;2021/03/29;Coriolis
+6902993;France;2021/03/24;Coriolis
+6902994;France;2021/03/28;Coriolis
+6902995;France;2021/10/30;Coriolis
+6902996;France;2021/05/01;Coriolis
+6902997;France;2021/04/28;Coriolis
+6902998;France;2021/10/30;Coriolis
+6902999;France;2021/10/30;Coriolis
+6903000;France;2021/09/24;Coriolis
+6903001;France;2021/10/15;Coriolis
+6903002;France;2021/09/26;Coriolis
+6903003;France;2021/09/26;Coriolis
+6903004;France;2021/10/16;Coriolis
+6903005;France;2021/10/22;Coriolis
+6903006;France;2019/09/22;Coriolis
+6903007;France;2021/05/04;Coriolis
+6903008;France;2021/05/05;Coriolis
+6903009;France;2019/09/21;Coriolis
+6903010;France;2020/12/10;Coriolis
+6903011;France;2020/02/27;Coriolis
+6903014;France;2020/10/14;Coriolis
+6903015;France;2021/02/13;Coriolis
+6903016;France;2020/10/14;Coriolis
+6903017;France;2021/02/13;Coriolis
+6903018;France;2020/03/17;Coriolis
+6903019;France;2020/03/17;Coriolis
+6903020;France;2020/02/28;Coriolis
+6903022;France;2011/10/10;Infrastructure de Recherche Littorale et Cotiere 
+6903023;France;2016/09/25;Infrastructure de Recherche Littorale et Cotiere 
+6903024;France;2019/11/24;Coriolis-BIOArgo
+6903025;France;2019/11/10;Coriolis-BIOArgo
+6903026;France;2020/01/17;Argo FPAII-GMMC
+6903027;France;2020/07/08;Coriolis
+6903028;France;2021/06/08;Coriolis
+6903029;France;2020/08/18;Coriolis
+6903030;France;2020/08/21;Coriolis
+6903031;France;2022/10/27;Coriolis
+6903032;France;2020/08/22;Coriolis
+6903033;France;2022/11/25;Coriolis
+6903034;France;2020/08/22;Coriolis
+6903035;France;2021/06/10;Coriolis
+6903036;France;2021/06/12;Coriolis
+6903038;France;2021/06/18;Coriolis
+6903039;France;2021/06/20;Coriolis
+6903040;France;2021/06/21;Coriolis
+6903041;France;2021/06/22;Coriolis
+6903042;France;2021/06/22;Coriolis
+6903043;France;2020/11/17;Coriolis
+6903044;France;2020/11/18;Coriolis
+6903045;France;2020/12/14;Coriolis
+6903046;France;2021/05/05;Coriolis
+6903047;France;2022/03/26;Coriolis
+6903048;France;2021/03/13;Coriolis
+6903049;France;2021/03/13;Coriolis
+6903050;France;2021/03/14;Coriolis
+6903051;France;2021/03/14;Coriolis
+6903052;France;2021/03/15;Coriolis
+6903053;France;2021/03/24;Coriolis
+6903054;France;2021/03/28;Coriolis
+6903055;France;2021/03/09;Coriolis
+6903056;France;2021/03/28;Coriolis
+6903057;France;2021/04/03;Coriolis
+6903058;France;2021/05/05;Coriolis
+6903059;France;2021/06/15;Coriolis
+6903060;France;2021/05/06;Coriolis
+6903061;France;2021/06/25;Coriolis
+6903062;France;2021/05/05;Coriolis
+6903063;France;2021/05/05;Coriolis
+6903064;France;2021/06/15;Coriolis
+6903065;France;2020/10/10;Coriolis
+6903066;France;2020/10/07;Coriolis
+6903067;France;2021/03/05;Coriolis
+6903068;France;2021/06/15;Coriolis
+6903069;France;2020/07/16;Coriolis-BIOArgo
+6903070;France;2021/02/16;Argo FPAII-GMMC
+6903071;France;2021/01/27;Coriolis
+6903072;France;2021/01/22;Coriolis
+6903075;France;2020/12/11;Coriolis
+6903076;France;2020/12/11;Coriolis
+6903077;France;2021/11/15;Coriolis
+6903078;France;2021/11/24;Coriolis
+6903079;France;2022/03/26;Coriolis
+6903080;France;2021/06/05;Coriolis
+6903081;France;2021/06/08;Coriolis
+6903082;France;2021/06/17;Coriolis
+6903083;France;2021/06/20;Coriolis
+6903084;France;2022/11/27;Coriolis
+6903085;France;2021/06/17;Coriolis
+6903086;France;2021/06/20;Coriolis
+6903088;France;2022/10/15;Coriolis
+6903090;France;2023/04/26;Coriolis
+6903091;France;2021/03/05;Coriolis-BIOArgo
+6903093;France;2020/12/22;Argo FPAII-GMMC
+6903094;France;2020/12/25;Argo FPAII-GMMC
+6903095;France;2021/04/13;Coriolis-BIOArgo
+6903096;France;2021/05/04;Coriolis-BIOArgo
+6903102;France;2021/07/30;Coriolis
+6903103;France;2022/03/29;Coriolis
+6903105;France;2022/03/08;Coriolis
+6903106;France;2021/12/11;Coriolis
+6903107;France;2021/12/11;Coriolis
+6903108;France;2021/12/11;Coriolis
+6903109;France;2021/12/11;Coriolis
+6903110;France;2022/03/22;Coriolis
+6903111;France;2022/07/06;Coriolis
+6903112;France;2022/07/07;Coriolis
+6903113;France;2022/08/22;Coriolis
+6903114;France;2022/01/08;Coriolis
+6903115;France;2022/01/11;Coriolis
+6903116;France;2022/01/11;Coriolis
+6903117;France;2022/01/11;Coriolis
+6903118;France;2022/01/11;Coriolis
+6903119;France;2021/09/07;Coriolis
+6903120;France;2021/09/06;Coriolis
+6903121;France;2021/11/27;Coriolis
+6903122;France;2021/11/27;Coriolis
+6903123;France;2021/11/28;Coriolis
+6903124;European Union;2021/02/25;Euro-Argo RISE
+6903125;France;2021/10/25;NAOS-France
+6903126;France;2021/10/25;NAOS-France
+6903127;France;2021/10/25;NAOS-France
+6903128;France;2022/01/23;Coriolis-BIOArgo
+6903129;France;2022/01/08;Coriolis-BIOArgo
+6903130;France;2021/10/15;Argo FPAII-GMMC
+6903131;France;2022/09/01;Coriolis
+6903132;France;2023/04/05;Coriolis
+6903133;France;2023/03/31;Coriolis
+6903134;France;2022/04/21;Coriolis
+6903135;France;2022/04/22;Coriolis
+6903136;France;2022/04/22;Coriolis
+6903137;France;2022/04/22;Coriolis
+6903138;France;2023/05/17;Coriolis
+6903139;France;2023/05/17;Coriolis
+6903140;France;2023/05/25;Coriolis
+6903141;France;2023/05/25;Coriolis
+6903143;France;2022/08/01;Coriolis
+6903144;France;2022/08/01;Coriolis
+6903145;France;2022/07/25;Coriolis
+6903146;France;2022/07/28;Coriolis
+6903147;France;2022/07/28;Coriolis
+6903148;France;2022/10/16;Coriolis
+6903149;France;2022/10/15;Coriolis
+6903150;France;2022/10/21;Coriolis
+6903151;France;2022/11/27;Coriolis
+6903152;Greece;2015/07/04;Argo GREECE
+6903153;Greece;2015/07/17;Argo GREECE
+6903172;Italy;2015/08/29;Argo ITALY
+6903173;Italy;2015/08/29;Argo ITALY
+6903174;Italy;2015/12/14;Argo ITALY
+6903175;Italy;2015/11/15;Argo ITALY
+6903176;Italy;2015/11/15;Argo ITALY
+6903177;Italy;2015/10/02;Argo ITALY
+6903178;Italy;2015/10/30;Argo ITALY
+6903179;Italy;2016/02/25;Argo ITALY
+6903180;Italy;2016/05/31;Argo ITALY
+6903181;Italy;2016/01/17;Argo ITALY
+6903182;Italy;2016/01/18;Argo ITALY
+6903183;Italy;2016/01/17;Argo ITALY
+6903184;Italy;2016/01/18;Argo ITALY
+6903185;Italy;2016/01/18;Argo ITALY
+6903186;Italy;2016/01/19;Argo ITALY
+6903187;Italy;2016/01/19;Argo ITALY
+6903188;Italy;2016/01/20;Argo ITALY
+6903189;Italy;2016/01/19;Argo ITALY
+6903190;Italy;2016/01/19;Argo ITALY
+6903191;Italy;2016/02/05;Argo ITALY
+6903192;Italy;2016/02/04;Argo ITALY
+6903193;Italy;2016/02/04;Argo ITALY
+6903194;Italy;2016/02/06;Argo ITALY
+6903195;Italy;2016/02/07;Argo ITALY
+6903196;Italy;2016/05/14;Argo ITALY
+6903197;Italy;2016/04/07;Argo ITALY
+6903198;Italy;2016/06/06;Argo ITALY
+6903199;Italy;2016/06/24;Argo ITALY
+6903200;Italy;2016/06/08;Argo ITALY
+6903201;Italy;2016/10/20;Argo ITALY
+6903202;Italy;2017/03/30;Argo ITALY
+6903203;Italy;2016/12/07;Argo ITALY
+6903204;Italy;2016/12/08;Argo ITALY
+6903205;Italy;2017/01/03;Argo ITALY
+6903206;Italy;2017/01/02;Argo ITALY
+6903207;Italy;2017/01/02;Argo ITALY
+6903208;Italy;2017/01/02;Argo ITALY
+6903209;Italy;2017/01/02;Argo ITALY
+6903210;Italy;2017/01/03;Argo ITALY
+6903211;Italy;2017/01/03;Argo ITALY
+6903212;Italy;2017/01/03;Argo ITALY
+6903213;Italy;2017/01/03;Argo ITALY
+6903214;Italy;2017/01/22;Argo ITALY
+6903215;Italy;2017/01/23;Argo ITALY
+6903216;Italy;2017/01/28;Argo ITALY
+6903217;Italy;2017/01/30;Argo ITALY
+6903218;Italy;2017/01/31;Argo ITALY
+6903219;Italy;2017/02/01;Argo ITALY
+6903220;Italy;2017/01/31;Argo ITALY
+6903221;Italy;2017/02/07;Argo ITALY
+6903222;Italy;2017/02/07;Argo ITALY
+6903223;Italy;2016/12/17;Argo ITALY
+6903224;Italy;2017/06/10;Argo ITALY
+6903225;Italy;2017/05/23;Argo ITALY
+6903226;Italy;2017/10/11;Argo ITALY
+6903227;Italy;2017/11/19;Argo ITALY
+6903228;Italy;2016/11/01;Argo ITALY
+6903229;Italy;2018/02/23;Argo ITALY
+6903230;Italy;2018/02/24;Argo ITALY
+6903231;Italy;2018/02/25;Argo ITALY
+6903232;Italy;2018/02/25;Argo ITALY
+6903233;Italy;2018/02/26;Argo ITALY
+6903234;Italy;2018/03/04;Argo ITALY
+6903235;Italy;2018/03/11;Argo ITALY
+6903236;Italy;2018/03/11;Argo ITALY
+6903237;Italy;2018/03/16;Argo ITALY
+6903238;Italy;2018/03/21;Argo ITALY
+6903239;Italy;2018/03/22;Argo ITALY
+6903240;Italy;2018/03/29;Argo ITALY
+6903241;Italy;2018/07/04;Argo ITALY
+6903242;Italy;2018/08/20;Argo ITALY
+6903243;Italy;2018/10/18;Argo ITALY
+6903244;Italy;2018/10/25;Argo ITALY
+6903245;Italy;2018/10/18;Argo ITALY
+6903246;Italy;2018/10/25;Argo ITALY
+6903247;Italy;2018/10/18;Argo ITALY
+6903248;Italy;2018/09/26;Argo ITALY
+6903249;Italy;2018/10/06;Argo ITALY
+6903250;Italy;2018/10/08;Argo ITALY
+6903251;Italy;2019/02/10;Argo ITALY
+6903252;Italy;2019/02/03;Argo ITALY
+6903253;Italy;2019/02/10;Argo ITALY
+6903254;Italy;2019/02/09;Argo ITALY
+6903255;Italy;2019/02/28;Argo ITALY
+6903256;Italy;2019/02/28;Argo ITALY
+6903257;Italy;2019/03/01;Argo ITALY
+6903258;Italy;2019/03/01;Argo ITALY
+6903259;Italy;2019/03/03;Argo ITALY
+6903260;Italy;2019/03/05;Argo ITALY
+6903261;Italy;2019/03/08;Argo ITALY
+6903262;Italy;2019/03/18;Argo ITALY
+6903263;Italy;2019/03/23;Argo ITALY
+6903264;Italy;2019/03/30;Argo ITALY
+6903265;Italy;2019/03/30;Argo ITALY
+6903266;Italy;2019/04/05;Argo ITALY
+6903267;Italy;2019/07/19;Argo ITALY
+6903268;Italy;2019/10/22;Argo ITALY
+6903269;Italy;2019/09/11;Argo ITALY
+6903270;Italy;2019/09/12;Argo ITALY
+6903271;European Union;2019/10/01;Euro-Argo RISE
+6903272;Norway;2016/01/14;Argo NORWAY
+6903273;Norway;2016/01/14;Argo NORWAY
+6903275;Greece;2016/05/18;Argo GREECE
+6903276;Greece;2016/07/13;Argo GREECE
+6903277;Greece;2016/12/06;Argo GREECE
+6903278;Greece;2017/04/02;Argo GREECE
+6903279;Greece;2017/04/05;Argo GREECE
+6903280;Greece;2017/04/06;Argo GREECE
+6903281;Greece;2018/05/23;Argo GREECE
+6903282;Greece;2018/05/23;Argo GREECE
+6903283;Greece;2018/06/17;Argo GREECE
+6903284;Greece;2018/06/19;Argo GREECE
+6903285;Greece;2019/07/12;Argo GREECE
+6903286;Greece;2019/07/23;Argo GREECE
+6903287;Greece;2019/07/15;Argo GREECE
+6903288;European Union;2020/02/09;Euro-Argo RISE
+6903289;Greece;2020/08/29;Argo GREECE
+6903290;Greece;2020/08/29;Argo GREECE
+6903291;Greece;2020/11/27;Argo GREECE
+6903292;Greece;2020/12/16;Argo GREECE
+6903296;Greece;2021/09/13;Argo GREECE
+6903297;Greece;2021/10/17;Argo GREECE
+6903298;Greece;2021/11/13;Argo GREECE
+6903545;Norway;2018/05/29;Argo NORWAY
+6903546;Norway;2018/05/29;Argo NORWAY
+6903547;Norway;2018/05/31;Argo NORWAY
+6903548;Norway;2018/06/30;Argo NORWAY
+6903549;Norway;2019/05/19;Argo NORWAY
+6903550;Norway;2019/05/20;Argo NORWAY
+6903551;Norway;2019/05/29;Argo NORWAY
+6903552;Norway;2020/11/06;Argo NORWAY
+6903553;Norway;2019/05/20;Argo NORWAY
+6903554;Norway;2019/05/19;Argo NORWAY
+6903555;Norway;2019/05/29;Argo NORWAY
+6903556;Norway;2020/05/17;Argo NORWAY
+6903557;Norway;2019/05/20;Argo NORWAY
+6903558;Norway;2019/05/29;Argo NORWAY
+6903559;Norway;2019/06/01;Argo NORWAY
+6903560;Norway;2019/05/27;Argo NORWAY
+6903561;Norway;2019/05/27;Argo NORWAY
+6903562;Norway;2019/06/02;Argo NORWAY
+6903563;Norway;2019/05/28;Argo NORWAY
+6903564;Norway;2019/11/25;Argo NORWAY
+6903565;Norway;2020/05/07;Argo NORWAY
+6903566;Norway;2020/05/14;Argo NORWAY
+6903567;Norway;2020/05/02;Argo NORWAY
+6903568;Norway;2020/05/16;Argo NORWAY
+6903569;Norway;2020/05/17;Argo NORWAY
+6903570;Norway;2020/08/28;Argo NORWAY
+6903571;Norway;2020/05/14;Argo NORWAY
+6903572;Norway;2020/08/26;Argo NORWAY
+6903573;Norway;2020/08/28;Argo NORWAY
+6903574;Norway;2020/08/02;Argo NORWAY
+6903575;Norway;2021/04/18;Argo NORWAY
+6903576;Norway;2022/06/04;Argo NORWAY
+6903577;Norway;2021/05/08;Argo NORWAY
+6903578;Norway;2021/04/30;Argo NORWAY
+6903579;Norway;2021/04/20;Argo NORWAY
+6903580;Norway;2021/04/20;Argo NORWAY
+6903581;Norway;2021/04/13;Argo NORWAY
+6903582;Norway;2021/05/01;Argo NORWAY
+6903583;Norway;2021/04/15;Argo NORWAY
+6903584;Norway;2021/04/29;Argo NORWAY
+6903585;Norway;2021/04/22;Argo NORWAY
+6903586;Norway;2021/04/21;Argo NORWAY
+6903587;Norway;2021/04/22;Argo NORWAY
+6903588;Norway;2021/11/15;Argo NORWAY
+6903589;Norway;2021/11/15;Argo NORWAY
+6903590;Norway;2022/06/12;Argo NORWAY
+6903591;Norway;2022/06/17;Argo NORWAY
+6903592;Norway;2022/06/05;Argo NORWAY
+6903695;Finland;2018/09/28;Argo FINLAND
+6903696;Finland;2018/09/30;Argo FINLAND
+6903697;Finland;2018/10/15;Argo FINLAND
+6903698;Finland;2019/05/30;Argo FINLAND
+6903699;Finland;2019/05/30;Argo FINLAND
+6903700;Finland;2019/06/01;Argo FINLAND
+6903701;Finland;2019/08/17;Argo FINLAND
+6903702;Finland;2020/06/04;Argo FINLAND
+6903703;European Union;2020/06/10;Euro-Argo RISE
+6903704;Finland;2020/06/10;Argo FINLAND
+6903705;Finland;2020/10/14;Argo FINLAND
+6903706;European Union;2021/05/19;Euro-Argo RISE
+6903707;Finland;2021/06/06;Argo FINLAND
+6903708;Finland;2021/05/19;Argo FINLAND
+6903709;European Union;2021/05/19;Euro-Argo RISE
+6903710;European Union;2021/05/21;Euro-Argo RISE
+6903711;Finland;2021/05/21;Argo FINLAND
+6903715;United Kingdom;2019/10/27;Argo UK
+6903716;United Kingdom;2020/03/18;Argo UK
+6903717;United Kingdom;2020/03/24;Argo UK
+6903718;United Kingdom;2020/01/31;Argo UK
+6903719;United Kingdom;2020/02/02;Argo UK
+6903720;United Kingdom;2020/02/04;Argo UK
+6903721;United Kingdom;2020/02/06;Argo UK
+6903722;United Kingdom;2020/02/05;Argo UK
+6903723;United Kingdom;2020/10/22;Argo UK
+6903724;United Kingdom;2020/10/22;Argo UK
+6903725;United Kingdom;2020/10/11;Argo UK
+6903726;United Kingdom;2020/10/21;Argo UK
+6903727;United Kingdom;2020/12/27;Argo UK
+6903751;United Kingdom;2020/11/20;Argo UK Bio
+6903752;United Kingdom;2020/12/21;Argo UK
+6903753;United Kingdom;2020/12/18;Argo UK
+6903754;United Kingdom;2020/12/23;Argo UK
+6903755;United Kingdom;2020/12/25;Argo UK
+6903758;United Kingdom;2022/02/21;Argo UK
+6903760;United Kingdom;2021/10/15;Argo UK
+6903761;United Kingdom;2021/10/14;Argo UK
+6903765;Italy;2019/10/25;Argo ITALY
+6903766;Italy;2019/12/02;Argo ITALY
+6903767;Italy;2020/01/09;Argo ITALY
+6903768;Italy;2020/01/09;Argo ITALY
+6903769;Italy;2020/01/10;Argo ITALY
+6903770;Italy;2020/01/10;Argo ITALY
+6903771;Italy;2020/01/10;Argo ITALY
+6903772;Italy;2020/01/28;Argo ITALY
+6903773;Italy;2020/01/28;Argo ITALY
+6903774;Italy;2020/02/17;Argo ITALY
+6903775;Italy;2020/02/17;Argo ITALY
+6903776;Italy;2020/02/17;Argo ITALY
+6903777;Italy;2020/02/18;Argo ITALY
+6903778;Italy;2020/02/19;Argo ITALY
+6903779;Italy;2020/03/17;Argo ITALY
+6903780;Italy;2020/03/14;Argo ITALY
+6903781;Italy;2020/06/25;Argo ITALY
+6903782;Italy;2020/07/23;Argo ITALY
+6903783;European Union;2020/07/31;Euro-Argo RISE
+6903784;Italy;2020/08/24;Argo ITALY
+6903785;Italy;2020/09/16;Argo ITALY
+6903786;Italy;2020/09/16;Argo ITALY
+6903787;Italy;2020/10/25;Argo ITALY
+6903788;Italy;2020/10/15;Argo ITALY
+6903789;Italy;2020/12/27;Argo ITALY
+6903790;Italy;2020/12/28;Argo ITALY
+6903791;Italy;2020/12/28;Argo ITALY
+6903792;Italy;2021/01/18;Argo ITALY
+6903793;Italy;2021/01/19;Argo ITALY
+6903794;Italy;2021/01/21;Argo ITALY
+6903795;Italy;2021/01/31;Argo ITALY
+6903796;Italy;2021/02/24;Argo ITALY
+6903797;Italy;2021/02/24;Argo ITALY
+6903798;Italy;2021/02/24;Argo ITALY
+6903799;Italy;2021/04/25;Argo ITALY
+6903800;Italy;2021/05/04;Argo ITALY
+6903801;Italy;2021/06/10;Argo ITALY
+6903802;Italy;2021/08/10;Argo ITALY
+6903803;Italy;2021/09/20;Argo ITALY
+6903804;Italy;2021/09/20;Argo ITALY
+6903805;Italy;2021/11/11;Argo ITALY
+6903806;Italy;2021/12/10;Argo ITALY
+6903807;Italy;2021/12/11;Argo ITALY
+6903808;Italy;2022/01/11;Argo ITALY
+6903809;Italy;2022/01/12;Argo ITALY
+6903810;Italy;2022/01/27;Argo ITALY
+6903811;Italy;2022/01/27;Argo ITALY
+6903812;Italy;2022/02/01;Argo ITALY
+6903813;Italy;2022/03/08;Argo ITALY
+6903814;Italy;2022/03/11;Argo ITALY
+6903815;Italy;2022/03/17;Argo ITALY
+6903816;Italy;2022/02/23;Argo ITALY
+6903817;Italy;2022/03/04;Argo ITALY
+6903818;Italy;2022/03/03;Argo ITALY
+6903819;Italy;2022/05/19;Argo ITALY
+6903820;Italy;2022/05/21;Argo ITALY
+6903821;Italy;2022/05/25;Argo ITALY
+6903822;Italy;2022/06/01;Argo ITALY
+6903823;Italy;2022/11/21;Argo ITALY
+6903824;Italy;2022/11/25;Argo ITALY
+6903825;Italy;2022/12/14;Argo ITALY
+6903826;Italy;2022/12/15;Argo ITALY
+6903827;Italy;2022/12/16;Argo ITALY
+6903828;Italy;2022/12/18;Argo ITALY
+6903829;Italy;2023/01/09;Argo ITALY
+6903830;Italy;2023/01/10;Argo ITALY
+6903831;Italy;2023/01/26;Argo ITALY
+6903832;Italy;2023/01/27;Argo ITALY
+6903833;Italy;2023/01/29;Argo ITALY
+6903865;European Union;2020/07/24;Euro-Argo RISE
+6903866;Bulgaria;2020/11/22;BulArgo
+6903867;Bulgaria;2020/11/17;BulArgo
+6903868;Bulgaria;2020/12/11;BulArgo
+6903869;European Union;2021/06/10;EuroSea Argo
+6903870;European Union;2021/06/12;EuroSea Argo
+6903871;European Union;2021/06/18;EuroSea Argo
+6903872;European Union;2021/06/20;EuroSea Argo
+6903873;European Union;2021/06/21;EuroSea Argo
+6903874;European Union;2021/03/28;EuroSea Argo
+6903875;European Union;2021/03/12;EuroSea Argo
+6903876;European Union;2021/04/03;EuroSea Argo
+6903877;European Union;2021/04/03;EuroSea Argo
+6903878;European Union;2021/03/12;EuroSea Argo
+6904065;Spain;2020/08/14;Argo SPAIN
+6904066;Germany;2021/02/28;Argo BSH
+6904067;Germany;2020/12/31;Argo BSH
+6904068;Germany;2020/12/31;Argo BSH
+6904069;Germany;2021/02/26;Argo BSH
+6904070;Germany;2021/03/02;Argo BSH
+6904071;Germany;2020/12/28;Argo BSH
+6904072;Germany;2021/01/01;Argo BSH
+6904073;Germany;2020/12/28;Argo BSH
+6904074;Germany;2021/12/06;Argo BSH
+6904075;Germany;2021/12/07;Argo BSH
+6904076;Germany;2021/12/07;Argo BSH
+6904077;Germany;2021/12/05;Argo BSH
+6904078;Germany;2021/12/08;Argo BSH
+6904079;Germany;2022/02/13;Argo BSH
+6904080;Germany;2022/02/11;Argo BSH
+6904081;Germany;2022/02/10;Argo BSH
+6904082;Germany;2022/02/09;Argo BSH
+6904083;Germany;2022/02/09;Argo BSH
+6904084;Germany;2021/07/07;Argo BSH
+6904085;Germany;2021/07/04;Argo BSH
+6904086;Germany;2021/07/16;Argo BSH
+6904087;Germany;2021/07/16;Argo BSH
+6904088;Germany;2021/06/11;Argo BSH
+6904089;Germany;2021/06/11;Argo BSH
+6904090;Germany;2022/03/19;Argo BSH
+6904091;Germany;2022/01/02;Argo BSH
+6904092;Germany;2022/02/08;Argo BSH
+6904093;Germany;2022/01/16;Argo BSH
+6904094;Germany;2021/06/02;Argo BSH
+6904095;Germany;2021/03/01;Argo BSH
+6904096;Germany;2021/01/12;Argo BSH
+6904097;Germany;2021/01/15;Argo BSH
+6904098;Germany;2021/01/12;Argo BSH
+6904099;Germany;2021/01/12;Argo BSH
+6904100;Germany;2021/01/12;Argo BSH
+6904101;Germany;2021/01/12;Argo GERMANY 2025
+6904102;Germany;2021/01/12;Argo GERMANY 2025
+6904103;Germany;2021/01/12;Argo GERMANY 2025
+6904104;Germany;2021/01/12;Argo GERMANY 2025
+6904105;Germany;2021/01/12;Argo GERMANY 2025
+6904106;Germany;2021/06/10;Argo BSH
+6904107;Germany;2021/05/06;Argo BSH
+6904108;Germany;2021/05/02;Argo BSH
+6904109;Germany;2021/05/02;Argo BSH
+6904110;Germany;2021/07/29;Argo GERMANY 2025
+6904111;Germany;2021/07/29;Argo GERMANY 2025
+6904112;Germany;2021/07/30;Argo GERMANY 2025
+6904113;Germany;2021/08/15;Argo GERMANY 2025
+6904114;Germany;2021/08/15;Argo GERMANY 2025
+6904115;Germany;2021/08/15;Argo GERMANY 2025
+6904116;Germany;2021/03/25;Argo GERMANY
+6904117;Germany;2021/02/01;Argo GERMANY
+6904118;Germany;2021/09/24;Argo BSH
+6904119;Germany;2021/09/15;Argo BSH
+6904120;Germany;2021/06/02;Argo BSH
+6904121;Germany;2021/06/02;Argo BSH
+6904122;Germany;2022/03/05;Argo BSH
+6904123;Germany;2022/03/04;Argo BSH
+6904124;Germany;2022/03/04;Argo BSH
+6904125;Germany;2022/03/05;Argo BSH
+6904126;Germany;2021/11/28;Argo BSH
+6904127;Germany;2022/02/25;Argo BSH
+6904128;Germany;2021/11/24;Argo BSH
+6904129;Germany;2021/12/23;Argo BSH
+6904130;Germany;2022/03/15;Argo BSH
+6904131;Germany;2021/12/28;Argo BSH
+6904132;Germany;2021/12/29;Argo BSH
+6904133;Germany;2021/12/15;Argo BSH
+6904134;Germany;2021/06/08;Argo GERMANY
+6904135;Germany;2021/09/18;Argo BSH
+6904136;Germany;2021/09/17;Argo BSH
+6904137;Germany;2021/10/02;Argo BSH
+6904138;Germany;2021/10/02;Argo BSH
+6904139;Germany;2021/07/13;Argo BSH
+6904140;Germany;2021/11/26;Argo BSH
+6904141;Germany;2021/11/18;Argo BSH
+6904142;Germany;2021/11/27;Argo BSH
+6904144;Germany;2022/03/29;Argo BSH
+6904179;United Kingdom;2022/03/04;Argo UK
+6904180;United Kingdom;2022/03/03;Argo UK
+6904181;United Kingdom;2022/02/16;Argo UK
+6904182;United Kingdom;2022/02/16;Argo UK Bio
+6904183;United Kingdom;2022/03/03;Argo UK Bio
+6904184;United Kingdom;2022/03/04;Argo UK Bio
+6904185;United Kingdom;2022/07/24;Argo UK Bio
+6904186;United Kingdom;2023/02/23;Argo UK Bio
+6904187;United Kingdom;2023/03/04;Argo UK Bio
+6904188;United Kingdom;2023/03/09;Argo UK Bio
+6904189;United Kingdom;2023/03/13;Argo UK Bio
+6904191;United Kingdom;2022/07/24;Argo UK Bio
+6904192;United Kingdom;2022/07/16;Argo UK Bio
+6904205;Germany;2022/04/05;Argo BSH
+6904206;Germany;2022/04/11;Argo BSH
+6904207;Germany;2022/03/13;Argo BSH
+6904208;Germany;2022/03/11;Argo BSH
+6904209;Germany;2022/03/09;Argo BSH
+6904210;Germany;2022/03/15;Argo BSH
+6904211;Germany;2022/03/07;Argo BSH
+6904212;Germany;2022/04/26;Argo BSH
+6904213;Germany;2022/04/26;Argo BSH
+6904214;Germany;2022/04/26;Argo BSH
+6904215;Germany;2022/05/07;Argo BSH
+6904216;Germany;2023/04/07;Argo BSH
+6904217;Germany;2023/04/10;Argo BSH
+6904218;Germany;2023/04/10;Argo BSH
+6904219;Germany;2023/04/03;Argo BSH
+6904220;Germany;2023/03/29;Argo BSH
+6904221;Germany;2022/07/16;Argo BSH
+6904222;Germany;2022/07/16;Argo BSH
+6904223;Germany;2022/11/25;Argo BSH
+6904226;Germany;2022/03/31;Argo BSH
+6904231;Germany;2022/10/01;Argo BSH
+6904234;France;2022/11/28;Coriolis
+6904235;France;2021/12/11;Coriolis-BIOArgo
+6904236;Sweden;2020/02/16;Argo Sweden
+6904237;France;2023/02/04;Coriolis
+6904238;France;2022/12/06;Coriolis
+6904239;France;2022/09/15;Coriolis
+6904240;France;2022/05/21;REFINE
+6904241;France;2022/05/29;REFINE
+6904242;Norway;2022/06/01;Argo NORWAY
+6904243;Finland;2022/06/05;Argo FINLAND
+6990501;Germany;2022/08/31;Argo BSH
+6990502;Netherlands;2023/02/20;Argo NETHERLANDS
+6990503;France;2022/10/28;REFINE
+6990504;France;2022/11/02;Argo FPAII-GMMC
+6990505;France;2022/10/16;NAOS-France
+6990507;Finland;2022/10/03;Argo FINLAND
+6990512;France;2023/03/07;Coriolis
+6990519;United Kingdom;2023/05/16;Argo UK
+6990528;France;2023/04/27;Coriolis-BIOArgo
+7900013;Germany;2002/12/09;Argo eq. AWI
+7900014;Germany;2002/12/17;Argo eq. AWI
+7900015;Germany;2002/12/19;Argo eq. AWI
+7900016;Germany;2002/12/22;Argo eq. AWI
+7900017;Germany;2002/12/23;Argo eq. AWI
+7900018;Germany;2002/12/25;Argo eq. AWI
+7900019;Germany;2002/12/28;Argo eq. AWI
+7900020;Germany;2003/01/06;Argo eq. AWI
+7900021;Germany;2003/01/08;Argo eq. AWI
+7900022;Germany;2003/01/09;Argo eq. AWI
+7900038;Germany;2004/04/19;Argo eq. AWI
+7900039;Germany;2004/04/20;Argo eq. AWI
+7900040;Germany;2004/04/21;Argo eq. AWI
+7900041;Germany;2004/04/22;Argo eq. AWI
+7900042;Germany;2004/04/22;Argo eq. AWI
+7900068;Germany;2005/01/26;Argo AWI
+7900069;Germany;2005/01/31;Argo AWI
+7900070;Germany;2005/02/01;Argo AWI
+7900071;European Union;2005/02/06;MERSEA
+7900072;European Union;2005/02/07;MERSEA
+7900073;Germany;2005/02/08;Argo AWI
+7900074;Germany;2005/02/08;Argo AWI
+7900075;Germany;2005/02/09;Argo AWI
+7900076;Germany;2005/02/16;Argo AWI
+7900077;European Union;2005/02/16;MERSEA
+7900078;Germany;2005/02/17;Argo AWI
+7900079;European Union;2005/02/17;MERSEA
+7900080;Germany;2005/02/21;Argo AWI
+7900081;Germany;2005/02/23;Argo AWI
+7900082;Germany;2005/02/24;Argo AWI
+7900083;European Union;2005/02/25;MERSEA
+7900084;European Union;2005/02/25;MERSEA
+7900085;European Union;2005/02/27;MERSEA
+7900086;Germany;2005/02/28;Argo AWI
+7900087;Germany;2005/02/28;Argo AWI
+7900088;Germany;2005/03/03;Argo AWI
+7900089;Germany;2005/03/03;Argo AWI
+7900090;Germany;2005/03/04;Argo AWI
+7900091;Germany;2005/03/07;Argo AWI
+7900092;Germany;2005/03/08;Argo AWI
+7900093;Germany;2005/03/08;Argo AWI
+7900095;Germany;2005/03/13;Argo AWI
+7900096;European Union;2005/03/13;MERSEA
+7900097;European Union;2005/03/15;MERSEA
+7900101;United Kingdom;2006/01/16;Argo UK
+7900102;United Kingdom;2006/01/17;Argo UK
+7900103;United Kingdom;2006/01/15;Argo UK
+7900104;United Kingdom;2006/01/14;Argo UK
+7900105;United Kingdom;2006/01/17;Argo UK
+7900106;United Kingdom;2006/01/18;Argo UK
+7900122;European Union;2006/07/01;MERSEA
+7900123;Germany;2006/07/02;Argo AWI
+7900126;European Union;2006/07/13;MERSEA
+7900129;Germany;2006/09/30;Argo AWI
+7900130;Germany;2006/10/01;Argo AWI
+7900131;Germany;2006/10/12;Argo AWI
+7900132;Germany;2006/10/12;Argo AWI
+7900133;Germany;2006/10/16;Argo AWI
+7900151;United Kingdom;2007/02/12;Argo UK eq.
+7900152;United Kingdom;2007/02/11;Argo UK eq.
+7900153;United Kingdom;2007/02/12;Argo UK
+7900154;United Kingdom;2007/02/12;Argo UK
+7900155;European Union;2007/02/11;MERSEA
+7900156;European Union;2007/02/15;MERSEA
+7900157;European Union;2007/02/15;MERSEA
+7900158;European Union;2007/02/16;MERSEA
+7900159;European Union;2007/02/16;MERSEA
+7900160;European Union;2007/02/16;MERSEA
+7900161;European Union;2007/02/17;MERSEA
+7900162;European Union;2007/02/17;MERSEA
+7900163;Germany;2007/02/17;Argo AWI
+7900164;Germany;2007/02/18;Argo AWI
+7900165;Germany;2007/02/18;Argo AWI
+7900166;Germany;2007/02/18;Argo AWI
+7900167;Germany;2007/02/19;Argo AWI
+7900168;Germany;2007/02/20;Argo AWI
+7900169;Germany;2007/07/20;Argo eq. UHH
+7900170;Germany;2007/07/20;Argo eq. UHH
+7900171;Germany;2007/07/20;Argo eq. UHH
+7900172;Germany;2007/07/20;Argo eq. UHH
+7900173;Germany;2007/08/13;Argo eq. UHH
+7900174;Germany;2007/08/13;Argo eq. UHH
+7900175;Germany;2007/08/21;Argo eq. UHH
+7900176;Germany;2007/08/21;Argo eq. UHH
+7900177;Germany;2007/08/21;Argo eq. UHH
+7900178;Germany;2007/07/20;Argo eq. UHH
+7900218;Germany;2008/03/08;Argo AWI
+7900219;Germany;2008/03/13;Argo AWI
+7900221;Germany;2008/03/16;Argo AWI
+7900222;Germany;2008/03/11;Argo AWI
+7900223;Germany;2008/03/10;Argo AWI
+7900224;Germany;2008/02/29;Argo AWI
+7900226;Germany;2008/02/29;Argo AWI
+7900227;Germany;2008/03/09;Argo AWI
+7900228;Germany;2008/03/16;Argo AWI
+7900229;Germany;2008/03/17;Argo AWI
+7900230;Germany;2008/03/19;Argo AWI
+7900231;Germany;2008/03/10;Argo AWI
+7900232;Germany;2008/02/28;Argo AWI
+7900233;Germany;2008/03/17;Argo AWI
+7900234;Germany;2008/03/15;Argo AWI
+7900235;Germany;2008/03/24;Argo AWI
+7900286;Germany;2010/12/20;Argo BSH
+7900287;Germany;2010/12/11;Argo BSH
+7900288;Germany;2010/12/23;Argo BSH
+7900289;Germany;2010/12/12;Argo BSH
+7900291;Germany;2012/01/26;Argo BSH
+7900292;Germany;2012/01/29;Argo BSH
+7900293;Germany;2012/02/13;Argo BSH
+7900294;Germany;2012/02/13;Argo BSH
+7900295;Germany;2012/02/25;Argo BSH
+7900338;Germany;2010/12/13;Argo AWI
+7900339;Germany;2010/12/14;Argo AWI
+7900340;Germany;2010/12/15;Argo AWI
+7900341;Germany;2010/12/16;Argo AWI
+7900342;Germany;2010/12/16;Argo AWI
+7900343;Germany;2010/12/18;Argo AWI
+7900344;Germany;2010/12/18;Argo AWI
+7900345;Germany;2010/12/19;Argo AWI
+7900346;Germany;2010/12/23;Argo AWI
+7900347;Germany;2010/12/26;Argo AWI
+7900348;Germany;2010/12/27;Argo AWI
+7900349;Germany;2010/12/28;Argo AWI
+7900350;Germany;2010/12/28;Argo AWI
+7900351;Germany;2010/12/29;Argo AWI
+7900352;Germany;2010/12/30;Argo AWI
+7900353;Germany;2010/12/31;Argo AWI
+7900354;Germany;2011/01/03;Argo AWI
+7900355;Germany;2011/01/04;Argo AWI
+7900356;Germany;2011/01/05;Argo AWI
+7900357;Germany;2012/12/17;Argo AWI
+7900358;Germany;2013/01/03;Argo AWI
+7900359;Germany;2012/12/15;Argo AWI
+7900360;Germany;2012/12/25;Argo AWI
+7900361;Germany;2012/12/25;Argo AWI
+7900362;Germany;2012/12/26;Argo AWI
+7900363;Germany;2012/12/26;Argo AWI
+7900364;Germany;2012/12/26;Argo AWI
+7900365;Germany;2012/12/26;Argo AWI
+7900366;Germany;2012/12/26;Argo AWI
+7900367;Germany;2012/12/26;Argo AWI
+7900368;Germany;2012/12/13;Argo AWI
+7900369;Germany;2012/12/30;Argo AWI
+7900370;Germany;2012/12/31;Argo AWI
+7900371;Germany;2012/12/30;Argo AWI
+7900372;Germany;2012/12/31;Argo AWI
+7900373;Germany;2012/12/29;Argo AWI
+7900374;Germany;2012/12/29;Argo AWI
+7900375;Germany;2012/12/25;Argo AWI
+7900376;Germany;2012/12/27;Argo AWI
+7900377;Germany;2013/01/30;Argo AWI
+7900378;Germany;2012/12/25;Argo AWI
+7900379;Germany;2013/01/01;Argo AWI
+7900380;Germany;2012/12/13;Argo AWI
+7900381;Germany;2012/12/28;Argo AWI
+7900382;Germany;2012/12/29;Argo AWI
+7900383;Germany;2012/12/31;Argo AWI
+7900384;Germany;2012/12/12;Argo AWI
+7900385;Germany;2012/12/16;Argo AWI
+7900387;Germany;2012/02/27;Argo BSH
+7900399;Germany;2013/01/30;Argo AWI
+7900400;Germany;2013/01/08;Argo AWI
+7900401;Germany;2013/01/04;Argo AWI
+7900402;Germany;2013/01/09;Argo AWI
+7900403;Germany;2012/12/11;Argo AWI
+7900404;Germany;2012/12/11;Argo AWI
+7900405;Germany;2013/01/07;Argo AWI
+7900406;Germany;2012/12/09;Argo AWI
+7900407;Germany;2012/12/12;Argo AWI
+7900408;Germany;2013/01/05;Argo AWI
+7900409;Germany;2013/01/16;Argo AWI
+7900410;Germany;2013/01/16;Argo AWI
+7900411;Germany;2012/12/08;Argo AWI
+7900412;Germany;2013/01/04;Argo AWI
+7900413;Germany;2013/01/02;Argo AWI
+7900414;Germany;2013/01/03;Argo AWI
+7900415;Germany;2013/10/25;Argo BSH
+7900416;Germany;2013/10/26;Argo BSH
+7900417;Germany;2013/11/02;Argo BSH
+7900418;Germany;2013/11/03;Argo BSH
+7900419;Germany;2013/11/04;Argo BSH
+7900420;Germany;2013/11/06;Argo BSH
+7900464;Germany;2017/01/13;Argo AWI
+7900465;Germany;2010/05/07;Argo AWI
+7900466;Germany;2010/05/07;Argo AWI
+7900467;Germany;2017/01/20;Argo AWI
+7900468;Germany;2017/01/12;Argo AWI
+7900471;Germany;2017/01/14;Argo AWI
+7900472;Germany;2017/01/20;Argo AWI
+7900473;Germany;2017/01/20;Argo AWI
+7900477;Germany;2017/01/21;Argo AWI
+7900488;Germany;2017/01/23;Argo AWI
+7900489;Germany;2017/01/23;Argo AWI
+7900491;Germany;2017/01/13;Argo AWI
+7900492;Germany;2017/01/14;Argo AWI
+7900493;Germany;2017/01/12;Argo AWI
+7900496;Germany;2017/01/08;Argo BSH
+7900497;Germany;2016/12/29;Argo BSH
+7900498;Germany;2016/12/28;Argo BSH
+7900499;Germany;2016/12/26;Argo BSH
+7900500;Germany;2016/12/23;Argo BSH
+7900501;Germany;2016/12/20;Argo BSH
+7900502;Germany;2016/12/21;Argo BSH
+7900503;Germany;2017/02/04;Argo BSH
+7900504;Germany;2017/02/06;Argo BSH
+7900505;Germany;2017/02/07;Argo BSH
+7900506;Germany;2017/02/10;Argo BSH
+7900507;Germany;2017/02/14;Argo BSH
+7900508;Germany;2018/11/28;Argo BSH
+7900509;Germany;2018/11/27;Argo BSH
+7900510;Germany;2018/12/21;Argo BSH
+7900511;Germany;2018/12/21;Argo BSH
+7900512;Germany;2018/12/21;Argo BSH
+7900513;Germany;2018/12/20;Argo BSH
+7900514;Germany;2018/12/20;Argo BSH
+7900515;Germany;2018/12/21;Argo BSH
+7900516;Germany;2018/12/31;Argo BSH
+7900517;Germany;2018/12/31;Argo BSH
+7900518;Germany;2019/05/07;Argo BSH
+7900519;Germany;2019/05/06;Argo BSH
+7900520;Germany;2019/05/04;Argo BSH
+7900521;Germany;2019/05/02;Argo BSH
+7900522;Germany;2019/04/29;Argo BSH
+7900523;Germany;2019/05/26;Argo BSH
+7900524;Germany;2019/05/30;Argo BSH
+7900525;Germany;2019/06/05;Argo BSH
+7900526;Germany;2019/06/06;Argo BSH
+7900527;Germany;2019/06/08;Argo BSH
+7900528;Germany;2019/06/10;Argo BSH
+7900529;Germany;2019/06/07;Argo BSH
+7900530;Germany;2019/06/13;Argo BSH
+7900531;Germany;2019/06/07;Argo BSH
+7900532;Germany;2019/06/04;Argo BSH
+7900533;Germany;2019/06/03;Argo BSH
+7900534;Germany;2019/06/09;Argo BSH
+7900535;Germany;2019/08/10;Argo BSH
+7900536;Germany;2019/08/10;Argo BSH
+7900537;Germany;2019/08/06;Argo BSH
+7900538;Germany;2020/02/28;Argo BSH
+7900539;Germany;2020/08/15;Argo BSH
+7900540;Germany;2021/02/04;Argo BSH
+7900541;Germany;2019/11/24;Argo BSH
+7900542;Germany;2019/11/26;Argo BSH
+7900543;Germany;2019/12/18;Argo BSH
+7900544;Germany;2019/11/30;Argo BSH
+7900545;Germany;2019/12/09;Argo BSH
+7900546;Germany;2019/09/25;Argo BSH
+7900547;Germany;2019/09/29;Argo BSH
+7900548;Germany;2020/02/27;Argo BSH
+7900549;Germany;2020/10/02;Argo BSH
+7900550;Germany;2020/10/02;Argo BSH
+7900551;Germany;2020/03/27;Argo BSH
+7900552;Germany;2020/03/22;Argo BSH
+7900553;Germany;2019/12/17;Argo BSH
+7900554;Germany;2019/12/12;Argo BSH
+7900555;Germany;2020/03/27;Argo BSH
+7900556;Germany;2020/07/11;Argo BSH
+7900557;Germany;2020/07/19;Argo BSH
+7900558;Germany;2020/07/22;Argo BSH
+7900559;Germany;2019/11/24;Argo GERMANY
+7900560;Germany;2019/12/01;Argo GERMANY
+7900561;Germany;2019/12/01;Argo GERMANY
+7900562;Germany;2019/09/27;Argo GERMANY
+7900563;Germany;2020/09/12;Argo GERMANY
+7900565;Germany;2021/02/04;Argo BSH
+7900566;Germany;2020/08/21;Argo GERMANY
+7900567;Germany;2020/07/02;Argo BSH
+7900568;Germany;2020/07/01;Argo BSH
+7900569;Germany;2020/07/01;Argo BSH
+7900570;Germany;2020/07/01;Argo BSH
+7900571;Germany;2020/06/30;Argo BSH
+7900572;Germany;2020/06/29;Argo BSH
+7900573;Germany;2020/06/26;Argo BSH
+7900574;Germany;2021/03/29;Argo BSH
+7900575;Germany;2021/03/28;Argo BSH
+7900576;Germany;2020/12/29;Argo BSH
+7900577;Germany;2021/02/28;Argo BSH
+7900578;Germany;2021/02/04;Argo BSH
+7900579;Germany;2021/03/25;Argo GERMANY 2025
+7900580;Germany;2021/03/25;Argo GERMANY 2025
+7900583;Germany;2022/04/18;Argo GERMANY
+7900585;Germany;2021/07/29;Argo GERMANY 2025
+7900586;Germany;2021/03/25;Argo GERMANY 2025
+7900587;Germany;2021/03/25;Argo GERMANY 2025
+7900588;Germany;2021/07/29;Argo GERMANY 2025
+7900589;Germany;2021/08/15;Argo GERMANY 2025
+7900590;Bulgaria;2013/08/29;BulArgo
+7900591;European Union;2013/12/16;E-AIMS
+7900592;European Union;2013/12/15;E-AIMS
+7900593;European Union;2014/06/02;EuroArgo
+7900594;European Union;2015/06/26;MEDARGO
+7900595;Bulgaria;2019/08/10;BulArgo
+7900596;Bulgaria;2019/12/05;BulArgo
+7900971;Germany;2022/04/17;Argo AWI
+7900972;Germany;2022/04/17;Argo AWI
+7900973;Germany;2021/02/05;Argo AWI
+7900979;Germany;2022/04/18;Argo AWI
+7900980;Germany;2022/04/18;Argo AWI
+7900981;Germany;2022/04/10;Argo AWI
+7900982;Germany;2022/04/10;Argo AWI
+7900983;Germany;2022/04/15;Argo AWI
+7900984;Germany;2022/04/11;Argo AWI
+7900985;Germany;2022/04/10;Argo AWI
+7900987;Germany;2022/04/16;Argo AWI
+7900988;Germany;2022/04/08;Argo AWI
+7900990;Germany;2022/03/20;Argo AWI
+7900994;Germany;2022/04/16;Argo AWI
+7900996;Germany;2022/04/09;Argo AWI
+7900997;Germany;2022/04/10;Argo AWI
+7900998;Germany;2022/03/20;Argo AWI
+7900999;Germany;2022/03/20;Argo AWI
+7901001;Germany;2022/03/02;Argo BSH
+7901002;France;2023/02/07;Coriolis
+7901003;France;2022/11/21;Coriolis
+7901004;France;2022/11/19;Coriolis
+7901005;France;2023/02/04;Coriolis
+7901006;Norway;2022/06/15;Argo NORWAY
+7901007;Norway;2022/05/31;Argo NORWAY
+7901008;United Kingdom;2023/02/24;Argo UK
+7901010;Netherlands;2023/01/18;Argo NETHERLANDS
+7901013;France;2022/10/18;Coriolis
+7901014;France;2022/09/20;Coriolis
+7901017;Greece;2022/11/26;Argo GREECE
+7901018;Germany;2023/01/11;Argo BSH
+7901019;Italy;2023/03/02;Argo ITALY
+7901022;France;2023/03/19;Coriolis
+7901028;Norway;2023/05/21;Argo NORWAY
+7901065;Bulgaria;2023/05/15;BulArgo
+7901066;France;2023/05/03;Coriolis
+7901091;European Union;2023/05/28;EuroArgo
+7901093;United Kingdom;2023/05/09;Argo UK

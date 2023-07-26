@@ -1,0 +1,20 @@
+# DMQC status and Data quality control statistics
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+# Statistics per country for parameter CDOM
+Param_name,Country,nb_floats,nb_floats_more1year,Nb_floats_DM_done,nb_floats_more1year_DM_done,nb_profiles,nb_profiles_more1year,nb_profiles_DM_done,nb_profiles_more1year_DM_done, 
+CDOM,BGR,1,0,0,0,7,0,0,0
+CDOM,DEU,17,16,0,0,2305,2082,0,0
+CDOM,ESP,0,0,0,0,0,0,0,0
+CDOM,EUR,18,17,0,0,2826,2599,0,0
+CDOM,EXT,9,7,0,0,497,388,0,0
+CDOM,FIN,0,0,0,0,0,0,0,0
+CDOM,FRA,164,149,0,0,28334,26923,0,0
+CDOM,GBR,10,3,0,0,523,91,0,0
+CDOM,GRC,0,0,0,0,0,0,0,0
+CDOM,IRL,0,0,0,0,0,0,0,0
+CDOM,ITA,18,14,0,0,2635,2383,0,0
+CDOM,NOR,25,22,0,0,2624,1734,0,0
+CDOM,POL,0,0,0,0,0,0,0,0
+CDOM,All countries,262,228,0,0,39751,36200,0,0

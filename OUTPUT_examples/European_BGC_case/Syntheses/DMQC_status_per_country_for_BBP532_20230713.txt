@@ -1,0 +1,20 @@
+# DMQC status and Data quality control statistics
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+# Statistics per country for parameter BBP532
+Param_name,Country,nb_floats,nb_floats_more1year,Nb_floats_DM_done,nb_floats_more1year_DM_done,nb_profiles,nb_profiles_more1year,nb_profiles_DM_done,nb_profiles_more1year_DM_done, 
+BBP532,BGR,0,0,0,0,0,0,0,0
+BBP532,DEU,2,2,0,0,108,71,0,0
+BBP532,ESP,0,0,0,0,0,0,0,0
+BBP532,EUR,6,6,0,0,1194,1194,0,0
+BBP532,EXT,0,0,0,0,0,0,0,0
+BBP532,FIN,0,0,0,0,0,0,0,0
+BBP532,FRA,0,0,0,0,0,0,0,0
+BBP532,GBR,11,11,0,0,3746,3729,0,0
+BBP532,GRC,0,0,0,0,0,0,0,0
+BBP532,IRL,0,0,0,0,0,0,0,0
+BBP532,ITA,0,0,0,0,0,0,0,0
+BBP532,NOR,0,0,0,0,0,0,0,0
+BBP532,POL,0,0,0,0,0,0,0,0
+BBP532,All countries,19,19,0,0,5048,4994,0,0

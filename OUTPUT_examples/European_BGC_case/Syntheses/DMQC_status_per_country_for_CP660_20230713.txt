@@ -1,0 +1,20 @@
+# DMQC status and Data quality control statistics
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+# Statistics per country for parameter CP660
+Param_name,Country,nb_floats,nb_floats_more1year,Nb_floats_DM_done,nb_floats_more1year_DM_done,nb_profiles,nb_profiles_more1year,nb_profiles_DM_done,nb_profiles_more1year_DM_done, 
+CP660,BGR,0,0,0,0,0,0,0,0
+CP660,DEU,0,0,0,0,0,0,0,0
+CP660,ESP,0,0,0,0,0,0,0,0
+CP660,EUR,0,0,0,0,0,0,0,0
+CP660,EXT,1,1,0,0,15,15,0,0
+CP660,FIN,0,0,0,0,0,0,0,0
+CP660,FRA,16,16,0,0,4464,4452,0,0
+CP660,GBR,0,0,0,0,0,0,0,0
+CP660,GRC,0,0,0,0,0,0,0,0
+CP660,IRL,0,0,0,0,0,0,0,0
+CP660,ITA,0,0,0,0,0,0,0,0
+CP660,NOR,0,0,0,0,0,0,0,0
+CP660,POL,0,0,0,0,0,0,0,0
+CP660,All countries,17,17,0,0,4479,4467,0,0
