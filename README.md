@@ -143,6 +143,7 @@ BAD data = QC flag values of 3 or 4
 The exact number and relative percentages are also indicated above the bars. 
 The relative percentages for the profiles processed in delayed mode provide a consolidated view.
 A few profiles do not have a profile QC in the index file. This observation deserves further analysis.
+Here is an example for the batch of floats declared as ASD:
 
 
 <p float="center">
