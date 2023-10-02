@@ -26,7 +26,7 @@ This script computes DMQC statistics for a given list of floats <br />
        COUNTRY_CODE is a 3-digit CODE that will be used on graphs and outputs.<br />
     The default template country_code_template.csv from the script directory can be used.<br />
     This default contains all the countries associated to Argo in OceanOPS with the<br />
-    corresponding OTAN (https://en.wikipedia.org/wiki/List_of_NATO_country_codes) official <br />
+    corresponding NATO (https://en.wikipedia.org/wiki/List_of_NATO_country_codes) official <br />
     3-digits codes (list of relevant countries extracted the 2023/07/07 from OceanOPS database)<br />
 <br />
 
@@ -59,7 +59,7 @@ This script computes DMQC statistics for a given list of floats <br />
   - grep (Matlab grep equivalent function)
 
  **WARNING 1** : Profile_QC for PRES information is not yet available in the Argo detailed index. <br />
- It is filled with qc="X" in the scriptfor the moment, and plots related to pres profile<br />
+ It is filled with qc="X" in the script for the moment, and plots related to pres profile<br />
  qc are skipped.<br />
 
  **WARINING 2** : the detailed index has an issue with some psal adjustments 
@@ -71,7 +71,7 @@ This script computes DMQC statistics for a given list of floats <br />
  **Version**: 3.3 (2023/10/02)<br />
 
  **Historic**:<br />
- - V1.0 : This script originally created by Andrea Garcia Juan and Romain<br />
+ - V1.0 : This script was originally created by Andrea Garcia Juan and Romain<br />
         Cancouët, and updated by Luca Arduini Plaisant.
  - V2.0 (2023/06/19): 
    - The script architecture was reviewed on 2023/06/19 by Delphine Dobler <br />
