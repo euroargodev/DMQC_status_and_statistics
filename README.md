@@ -44,12 +44,13 @@ This script computes DMQC statistics for a given list of floats <br />
    recorded. (Graphs will be recorded by bunch of 40 floats max. For treatment with a large<br />
    number of floats, this may not be relevant)
  - **n_max_float_per_graph**: associated to output_graphs_per_float.
+ - **i_group_AB_profQC**: 1 means that on QC-related plots profile QC A and profile QC B will be grouped
 <br />
 
 **OUTPUTS**
- - **Figures**   saved in folder outputs_yyyy-mm-dd/Plots 
- - **Analyses**  saved in folder outputs_yyyy-mm-dd/Syntheses 
- - **Copy of input files** saved in folder outputs_yyyy-mm-dd
+ - **Figures**   saved in folder outputs_yyyy-mm-dd_hhmmss/Plots 
+ - **Analyses**  saved in folder outputs_yyyy-mm-dd_hhmmss/Syntheses 
+ - **Copy of input files** saved in folder outputs_yyyy-mm-dd_hhmmss
 
  **Auxiliary functions needed**
   - read_csv
@@ -67,7 +68,7 @@ This script computes DMQC statistics for a given list of floats <br />
 
  **Author**: Euro-Argo ERIC (contact@euro-argo.eu)<br />
 
- **Version**: 3.2 (2023/07/21)<br />
+ **Version**: 3.3 (2023/10/02)<br />
 
  **Historic**:<br />
  - V1.0 : This script originally created by Andrea Garcia Juan and Romain<br />
@@ -105,7 +106,11 @@ This script computes DMQC statistics for a given list of floats <br />
    - dealing with graph layout when n_countries is large
    - special workaround for float 4900566 that used QC 1 instead of QC A for profile QC.
    - add quotes in synthese output for program, in case comma is used.
-
+ - V3.3 (2023/10/02) :
+   - add hhmmss in the output directory name
+   - change search for param name in index for a more robust means
+   - add x grid and minor grid for psal adjustment display by wmo.
+   - add an option to group prof QC A and B
 
 ## B. Graphical outputs for **get_DMQC_stats.m** 
 Different outputs are produced: graphical and textual. Here after are examples of graphical outputs obtained for floats from the MOCCA project.
