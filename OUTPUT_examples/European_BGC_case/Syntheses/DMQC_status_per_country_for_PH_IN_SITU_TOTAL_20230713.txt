@@ -1,0 +1,20 @@
+# DMQC status and Data quality control statistics
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+# Statistics per country for parameter PH_IN_SITU_TOTAL
+Param_name,Country,nb_floats,nb_floats_more1year,Nb_floats_DM_done,nb_floats_more1year_DM_done,nb_profiles,nb_profiles_more1year,nb_profiles_DM_done,nb_profiles_more1year_DM_done, 
+PH_IN_SITU_TOTAL,BGR,0,0,0,0,0,0,0,0
+PH_IN_SITU_TOTAL,DEU,17,16,0,0,1818,1474,0,0
+PH_IN_SITU_TOTAL,ESP,0,0,0,0,0,0,0,0
+PH_IN_SITU_TOTAL,EUR,7,7,0,0,691,572,0,0
+PH_IN_SITU_TOTAL,EXT,0,0,0,0,0,0,0,0
+PH_IN_SITU_TOTAL,FIN,0,0,0,0,0,0,0,0
+PH_IN_SITU_TOTAL,FRA,18,9,1,1,849,454,97,97
+PH_IN_SITU_TOTAL,GBR,10,3,0,0,523,91,0,0
+PH_IN_SITU_TOTAL,GRC,0,0,0,0,0,0,0,0
+PH_IN_SITU_TOTAL,IRL,0,0,0,0,0,0,0,0
+PH_IN_SITU_TOTAL,ITA,1,1,0,0,33,33,0,0
+PH_IN_SITU_TOTAL,NOR,11,9,1,1,1167,756,124,124
+PH_IN_SITU_TOTAL,POL,0,0,0,0,0,0,0,0
+PH_IN_SITU_TOTAL,All countries,64,45,2,2,5081,3380,221,221

@@ -25,7 +25,7 @@ function [IndexData] = get_data_from_index(index_file, nb_header_lines,float_ref
 %
 % Author: Euro-Argo ERIC (contact@euro-argo.eu)
 %
-% Version: 3.1 (2023/07/13)
+% Version: 3.2 (2023/07/21)
 %
 %
 % Historic:
@@ -52,6 +52,9 @@ function [IndexData] = get_data_from_index(index_file, nb_header_lines,float_ref
 %        yet).
 %        - add number of header lines in the function argument (cases when 
 %        index file optimization is not possible).
+% v3.2 (2023/07/21):
+%        - handle float ref as a string, not a char array to allow
+%        different lengths in WMO.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -64,7 +67,7 @@ end
 
 %% extracting the number of floats from the list of wmos provided in the input file.
 
-float_ref_char = char(float_ref);
+%float_ref_char = char(float_ref);
 
 % Lets try a different approach, maybe more efficient way of reading a structured
 % file :). importdata is interesting however the separation into text and
@@ -126,7 +129,7 @@ i_ascending_cycles=~contains(RT_OUT_cycles,"D");
 
 % subsetting the index information for lines concerning wmos provided in input 
 % and accounting for ascending or descending profiles option.
-i_index_wmos_in_wmo_list=ismember(RT_OUT_wmos,float_ref_char);
+i_index_wmos_in_wmo_list=ismember(RT_OUT_wmos,float_ref);
 if i_descending_profile
     i_relevant_index_lines=i_index_wmos_in_wmo_list;
 else
@@ -235,8 +238,10 @@ else
     
     %replace DOXY2 by DOX2 and DOXY3 by DOX3, otherise contains method will
     %find them. Matlab is not an easy tool for whole-word search.
+    % To be improved
     RT_OUT_PARAM_split=replace(RT_OUT_PARAM_split,"DOXY2","DOX2");
     RT_OUT_PARAM_split=replace(RT_OUT_PARAM_split,"DOXY3","DOX3");
+    RT_OUT_PARAM_split=replace(RT_OUT_PARAM_split,"BBP700_2","2ND_BP700");
     %---------------------------------------------------------------------------------
     
     % now, let's find the list of parameters in the file:
@@ -294,7 +299,7 @@ else
 end
 
 disp('---- List of unfound WMOs in the index file or without any ascending profile if conf i_descending_profile=0')
-i_unfound_wmos=~ismember(float_ref_char,IndexData.profile_WMO);
-disp(float_ref_char(i_unfound_wmos,:))
-IndexData.WMOs_unfound_in_IndexFile=string(float_ref_char(i_unfound_wmos,:));
+i_unfound_wmos=~ismember(float_ref,IndexData.profile_WMO);
+disp(float_ref(i_unfound_wmos))
+IndexData.WMOs_unfound_in_IndexFile=string(float_ref(i_unfound_wmos));
 

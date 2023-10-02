@@ -1,0 +1,23 @@
+# DMQC status and Data quality control statistics
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+# Statistics per float for parameter CP660
+PARAM,WMO,DAC,COUNTRY,PROGRAM,launch_date,prof_last_date,DM_done,float_age,float_more1year,greylist,nb_prof,nb_prof_more1year,nb_prof_DM,nb_prof_noDM_more1year,prof_last_DM_date,prof_last_DM_update_date,percentage_DM_prof,nb_prof_QC_A,nb_prof_DM_QC_A,nb_prof_QC_B,nb_prof_DM_QC_B,nb_prof_QC_C,nb_prof_DM_QC_C,nb_prof_QC_D,nb_prof_DM_QC_D,nb_prof_QC_E,nb_prof_DM_QC_E,nb_prof_QC_F,nb_prof_DM_QC_F,nb_prof_QC_X,nb_prof_DM_QC_X 
+CP660,5906868,coriolis,EXT,Argo SAUDI ARABIA,2022/03/29,2022/04/21 09:44:00,0,471,1,0,15,15,0,15,,,0.00,0,0,0,0,0,0,0,0,0,0,0,0,15,0
+CP660,6901004,coriolis,FRA,Coriolis-remOcean,2015/01/24,2018/01/06 23:59:00,0,3092,1,0,347,347,0,347,,,0.00,0,0,0,0,0,0,0,0,0,0,12,0,335,0
+CP660,6901440,coriolis,FRA,Coriolis-remOcean,2012/11/07,2012/12/10 06:49:00,0,3900,1,0,16,15,0,15,,,0.00,0,0,0,0,0,0,0,0,0,0,0,0,16,0
+CP660,6901473,coriolis,FRA,Coriolis-remOcean,2012/10/23,2016/07/11 10:00:00,0,3915,1,1,543,543,0,543,,,0.00,0,0,0,0,0,0,0,0,0,0,154,0,389,0
+CP660,6901474,coriolis,FRA,Coriolis-remOcean,2012/10/23,2015/06/26 08:52:00,0,3915,1,0,393,393,0,393,,,0.00,0,0,0,0,0,0,0,0,0,0,0,0,393,0
+CP660,6901496,coriolis,FRA,NAOS-France,2013/07/15,2014/03/13 11:38:00,0,3650,1,0,179,179,0,179,,,0.00,0,0,0,0,0,0,0,0,0,0,0,0,179,0
+CP660,6901581,coriolis,FRA,Coriolis-remOcean,2015/01/21,2017/09/15 04:03:00,0,3095,1,1,352,352,0,352,,,0.00,0,0,0,0,0,0,0,0,0,0,1,0,351,0
+CP660,6901582,coriolis,FRA,Coriolis-remOcean,2014/12/09,2018/09/29 11:07:00,0,3138,1,0,325,325,0,325,,,0.00,0,0,0,0,0,0,0,0,0,0,37,0,288,0
+CP660,6901583,coriolis,FRA,Coriolis-remOcean,2014/11/30,2018/11/15 01:48:00,0,3147,1,0,311,311,0,311,,,0.00,0,0,0,0,0,0,0,0,0,0,1,0,310,0
+CP660,6901584,coriolis,FRA,Coriolis-remOcean,2014/11/30,2018/11/17 06:55:00,0,3147,1,1,362,362,0,362,,,0.00,0,0,0,0,0,0,0,0,0,0,3,0,359,0
+CP660,6901585,coriolis,FRA,Coriolis-remOcean,2014/12/10,2017/10/08 08:37:00,0,3137,1,0,225,225,0,225,,,0.00,0,0,0,0,0,0,0,0,0,0,1,0,224,0
+CP660,6901646,coriolis,FRA,Coriolis-remOcean,2014/06/15,2017/09/01 15:43:00,0,3315,1,0,247,247,0,247,,,0.00,0,0,0,0,0,0,0,0,0,0,23,0,224,0
+CP660,6901776,coriolis,FRA,NAOS-France,2014/03/14,2015/04/09 11:34:00,0,3408,1,0,289,289,0,289,,,0.00,0,0,0,0,0,0,0,0,0,0,33,0,256,0
+CP660,6902738,coriolis,FRA,SOCLIM,2016/10/16,2017/02/18 06:44:00,0,2461,1,0,67,67,0,67,,,0.00,0,0,0,0,0,0,0,0,0,0,1,0,66,0
+CP660,6902739,coriolis,FRA,Coriolis-BIOArgo,2016/10/19,2019/08/30 01:59:00,0,2458,1,0,358,358,0,358,,,0.00,0,0,0,0,0,0,0,0,0,0,0,0,358,0
+CP660,6902828,coriolis,FRA,Coriolis-BIOArgo,2017/05/24,2017/09/12 17:00:00,0,2241,1,0,349,349,0,349,,,0.00,0,0,0,0,0,0,0,0,0,0,6,0,343,0
+CP660,6903070,coriolis,FRA,Argo FPAII-GMMC,2021/02/16,2022/10/24 11:37:00,0,877,1,0,101,90,0,90,,,0.00,0,0,0,0,0,0,0,0,0,0,0,0,101,0

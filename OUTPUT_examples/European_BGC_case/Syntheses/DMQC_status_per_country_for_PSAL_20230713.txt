@@ -1,0 +1,20 @@
+# DMQC status and Data quality control statistics
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+# Statistics per country for parameter PSAL
+Param_name,Country,nb_floats,nb_floats_more1year,Nb_floats_DM_done,nb_floats_more1year_DM_done,nb_profiles,nb_profiles_more1year,nb_profiles_DM_done,nb_profiles_more1year_DM_done, 
+PSAL,BGR,8,5,3,3,780,487,323,269
+PSAL,DEU,92,90,79,79,10962,10360,8958,8820
+PSAL,ESP,4,4,3,3,331,331,233,233
+PSAL,EUR,52,51,33,33,7143,6133,5264,5215
+PSAL,EXT,26,24,21,21,4670,4560,4230,4229
+PSAL,FIN,18,18,0,0,1554,1427,0,0
+PSAL,FRA,375,342,244,244,53802,49619,40143,40003
+PSAL,GBR,21,14,11,11,4450,4001,3557,3557
+PSAL,GRC,7,7,0,0,501,501,0,0
+PSAL,IRL,2,2,1,1,230,158,133,114
+PSAL,ITA,55,46,26,26,8074,6426,3626,3598
+PSAL,NOR,56,51,48,48,7325,5763,6507,5635
+PSAL,POL,10,8,1,1,1994,1555,15,15
+PSAL,All countries,726,662,470,470,101816,91321,72989,71688

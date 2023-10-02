@@ -1,0 +1,20 @@
+# DMQC status and Data quality control statistics
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+# Statistics per country for parameter NITRATE
+Param_name,Country,nb_floats,nb_floats_more1year,Nb_floats_DM_done,nb_floats_more1year_DM_done,nb_profiles,nb_profiles_more1year,nb_profiles_DM_done,nb_profiles_more1year_DM_done, 
+NITRATE,BGR,1,0,0,0,7,0,0,0
+NITRATE,DEU,3,2,0,0,420,403,0,0
+NITRATE,ESP,0,0,0,0,0,0,0,0
+NITRATE,EUR,9,8,1,1,2051,1990,277,277
+NITRATE,EXT,7,5,2,2,442,333,211,211
+NITRATE,FIN,0,0,0,0,0,0,0,0
+NITRATE,FRA,65,57,45,45,8796,8293,7183,7183
+NITRATE,GBR,10,3,0,0,523,91,0,0
+NITRATE,GRC,0,0,0,0,0,0,0,0
+NITRATE,IRL,0,0,0,0,0,0,0,0
+NITRATE,ITA,10,8,2,2,1761,1518,360,360
+NITRATE,NOR,11,9,2,2,1166,756,253,253
+NITRATE,POL,0,0,0,0,0,0,0,0
+NITRATE,All countries,116,92,52,52,15166,13384,8284,8284

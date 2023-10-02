@@ -54,15 +54,20 @@ This script computes DMQC statistics for a given list of floats <br />
  **Auxiliary functions needed**
   - read_csv
   - get_data_from_index 
-  - plotBarStackGroups 
+  - plotBarStackGroups
+  - grep (Matlab grep equivalent function)
 
- **WARNING** : Profile_QC for PRES information is not yet available in the Argo detailed index. <br />
+ **WARNING 1** : Profile_QC for PRES information is not yet available in the Argo detailed index. <br />
  It is filled with qc="X" in the scriptfor the moment, and plots related to pres profile<br />
  qc are skipped.<br />
 
+ **WARINING 2** : the detailed index has an issue with some psal adjustments 
+ (not filled when it should). A correction was asked to the dev team. 
+ In the meanwhile, plots with PSAL adjustment may not be complete.
+
  **Author**: Euro-Argo ERIC (contact@euro-argo.eu)<br />
 
- **Version**: 3.1 (2023/07/12)<br />
+ **Version**: 3.2 (2023/07/21)<br />
 
  **Historic**:<br />
  - V1.0 : This script originally created by Andrea Garcia Juan and Romain<br />
@@ -92,6 +97,14 @@ This script computes DMQC statistics for a given list of floats <br />
      => These plots replace the old get_DMQC_adjustment.m script
    - stop duplicating graphs for CTD mode
    - skip plots with PRES profile_QC (information not yet available in index)
+ - V3.2 (2023/07/21) :
+   - correct bug at the final zipping step when file does not exist<br />
+     (in case i_bgc = 0).
+   - add case All Argo Fleet and manage optimization section for large number of floats.
+   - dealing with float_wmo type for cases when not all WMOs are coded on 7 characters.
+   - dealing with graph layout when n_countries is large
+   - special workaround for float 4900566 that used QC 1 instead of QC A for profile QC.
+   - add quotes in synthese output for program, in case comma is used.
 
 
 ## B. Graphical outputs for **get_DMQC_stats.m** 
@@ -112,6 +125,16 @@ src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTP
 - __Plot 03__: Profile quality (all profiles and only Delayed Mode - i.e. consolidated - profiles) in number of floats profiles (one plot per parameter) <br />
 
 This plot presents the number of profiles with respect to the profile_QC code, both for all processed mode and for D-mode only. 
+Profile QC codes are defined in the Reference table 2a of the Argo QC manual (https://archimer.ifremer.fr/doc/00228/33951/32470.pdf) and is recalled hereafter:
+GOOD data = QC flag values of 1, 2, 5 or 8
+BAD data = QC flag values of 3 or 4
+- profile QC A: 100% GOOD data (All the measurement points of the profile are GOOD data);
+- profile QC B: 75% to 100% GOOD data;
+- profile QC C: 50% to 75% GOOD data;
+-	profile QC D: 25% to 50% GOOD data;
+-	profile QC E:  0% to 25% GOOD data;
+-	profile QC F: no good data GOOD data
+
 The exact number and relative percentages are also indicated above the bars. 
 The relative percentages for the profiles processed in delayed mode provide a consolidated view.
 A few profiles do not have a profile QC in the index file. This observation deserves further analysis.
@@ -172,6 +195,9 @@ src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTP
 </p>
 
 - __Plot 10 and 11__ DMQC and quality profile status by batch of WMOs per cycle (one plot per parameter) <br />
+These plots show the DMQC (plot 10) and quality profile status (plot 11) by batch of WMOs per cycle (one plot per parameter).
+These plots are output only on demand. The number of WMOs shown by graph can be tuned.
+
 <p float="center">
  <img 
 src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/10_MOCCA_Fleet_CTD_RAD_mode_per_wmo_per_cycle_001_20230713.png" width="400" /> 
@@ -180,6 +206,14 @@ src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTP
 </p>
 
 - __Plot 12__ PSAL adjustment by batch of WMOs per cycle  <br />
+This plot shows PSAL_adjustment by batch of WMOs per cycle.
+This plot is output only on demand. The number of WMOs shown by graph can be tuned.
+In grey color: the profiles that are not yet processed in delayed mode and that are not profile QC F.
+In black: the profiles (either real-time or delayed mode) that are QC-F.
+In jet colorscale, the value of the PSAL adjustment bounded by [-0.07 0.07]. The same bounds are used for all plots for better intercomparison and to ensure that "no adjustment" case will always appear in green.
+
+/!\ WARNING 2: There is an issue with Argo detailed index: for a few floats, PSAL_adjustment is not computed (https://gitlab.ifremer.fr/coriolis/actions/actions-argo/-/issues/63).
+
  <img 
 src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/12_MOCCA_Fleet_PSAL_PSAL_adj_per_wmo_per_cycle_001_20230713.png" width="400" /> 
 </p>
@@ -195,7 +229,7 @@ If i_bgc=1, it also indicates which BGC parameters, if any, were not found in th
 -  DMQC_status_per_country_for_{param}_{yyyymmdd}.txt
  This file is the numbered information for plots 01 and plots 02.
 
--  DMQC_status_per_wmo_for_{param}_{yyyymmdd}.txt is a synthesis by wmo. This output can be used to define priorities and the list of floats to be treated in DMQC with respect to personnal criteria. There is quite a number of indication. Some may be added if needed. The associated parameter is recalled in the first column to make sure that the information is understood as being relative to this parameter only. The column name are quite straightforward, however a few may deserve some more details:
+-  DMQC_status_per_wmo_for_{param}_{yyyymmdd}.txt is a synthesis by wmo. This output can be used to define priorities and the list of floats to be treated in DMQC with respect to some given-criteria. There is quite a number of indication. Some may be added if needed. The associated parameter is recalled in the first column to make sure that the information is understood as being relative to this parameter only. The column name are quite straightforward, however a few may deserve some more details:
    - The nb_prof_QC_X and nb_prof_DM_QC_X refer to profiles with no value for profile QC (see Plot 03 comment above).
    - DM_done column refers to the fact that this WMO has been seen in delayed mode at least once. To get the delayed mode completeness, refer to percentage_DM_prof column.
    - greylist means that the float was put on greylist with QC3 or QC4 for the given parameter.
@@ -211,3 +245,4 @@ Name & Description of the auxiliary functions:
 - read_csv:	read a csv file and generates an struct with file variables	
 - get_data_from_index: gets chosen variables from index file for a given list of floats
 - plotBarStackGroups: Permit to make a bar plot with stacked bars for one graph tick.
+- grep : Matlab equivalent of the unix grep command (not as performant).

@@ -1,0 +1,10 @@
+# DMQC status and Data quality control statistics
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+# Statistics per float for parameter BISULFIDE
+PARAM,WMO,DAC,COUNTRY,PROGRAM,launch_date,prof_last_date,DM_done,float_age,float_more1year,greylist,nb_prof,nb_prof_more1year,nb_prof_DM,nb_prof_noDM_more1year,prof_last_DM_date,prof_last_DM_update_date,percentage_DM_prof,nb_prof_QC_A,nb_prof_DM_QC_A,nb_prof_QC_B,nb_prof_DM_QC_B,nb_prof_QC_C,nb_prof_DM_QC_C,nb_prof_QC_D,nb_prof_DM_QC_D,nb_prof_QC_E,nb_prof_DM_QC_E,nb_prof_QC_F,nb_prof_DM_QC_F,nb_prof_QC_X,nb_prof_DM_QC_X 
+BISULFIDE,6901866,coriolis,ITA,Argo ITALY,2015/05/27,2019/07/07 10:03:00,0,2969,1,0,301,301,0,301,,,0.00,301,0,0,0,0,0,0,0,0,0,0,0,0,0
+BISULFIDE,6903240,coriolis,ITA,Argo ITALY,2018/03/29,2022/07/13 04:58:00,0,1932,1,0,324,323,0,323,,,0.00,324,0,0,0,0,0,0,0,0,0,0,0,0,0
+BISULFIDE,6904116,coriolis,DEU,Argo GERMANY,2021/03/25,2022/03/30 03:24:28,0,840,1,0,202,202,0,202,,,0.00,202,0,0,0,0,0,0,0,0,0,0,0,0,0
+BISULFIDE,6904117,coriolis,DEU,Argo GERMANY,2021/02/01,2021/11/12 10:28:08,0,892,1,0,201,201,0,201,,,0.00,201,0,0,0,0,0,0,0,0,0,0,0,0,0

@@ -1,0 +1,20 @@
+# DMQC status and Data quality control statistics
+# Project : European_BGC_Fleet
+# Update date : 20230713022802
+
+# Statistics per country for parameter BISULFIDE
+Param_name,Country,nb_floats,nb_floats_more1year,Nb_floats_DM_done,nb_floats_more1year_DM_done,nb_profiles,nb_profiles_more1year,nb_profiles_DM_done,nb_profiles_more1year_DM_done, 
+BISULFIDE,BGR,0,0,0,0,0,0,0,0
+BISULFIDE,DEU,2,2,0,0,403,403,0,0
+BISULFIDE,ESP,0,0,0,0,0,0,0,0
+BISULFIDE,EUR,0,0,0,0,0,0,0,0
+BISULFIDE,EXT,0,0,0,0,0,0,0,0
+BISULFIDE,FIN,0,0,0,0,0,0,0,0
+BISULFIDE,FRA,0,0,0,0,0,0,0,0
+BISULFIDE,GBR,0,0,0,0,0,0,0,0
+BISULFIDE,GRC,0,0,0,0,0,0,0,0
+BISULFIDE,IRL,0,0,0,0,0,0,0,0
+BISULFIDE,ITA,2,2,0,0,625,624,0,0
+BISULFIDE,NOR,0,0,0,0,0,0,0,0
+BISULFIDE,POL,0,0,0,0,0,0,0,0
+BISULFIDE,All countries,4,4,0,0,1028,1027,0,0
