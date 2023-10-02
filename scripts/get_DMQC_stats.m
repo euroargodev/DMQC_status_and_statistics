@@ -28,7 +28,7 @@
 %       COUNTRY_CODE is a 3-digit CODE that will be used on graphs and outputs.
 %    The default template country_code_template.csv from the script directory can be used.
 %    This default contains all the countries associated to Argo in OceanOPS with the
-%    corresponding OTAN (https://en.wikipedia.org/wiki/List_of_NATO_country_codes) official 
+%    corresponding NATO (https://en.wikipedia.org/wiki/List_of_NATO_country_codes) official 
 %    3-digits codes (list of relevant countries extracted the 2023/07/07 from OceanOPS database)
 %
 %
@@ -49,9 +49,9 @@
 % default, set to 30.
 %
 % Outputs
-% - Figures   saved in folder outputs_yyyy-mm-dd/Plots 
-% - Analyses  saved in folder outputs_yyyy-mm-dd/Syntheses
-% - Copy of input files saved in folder outputs_yyyy-mm-dd.
+% - Figures   saved in folder outputs_yyyy-mm-dd_hhmmss/Plots 
+% - Analyses  saved in folder outputs_yyyy-mm-dd_hhmmss/Syntheses
+% - Copy of input files saved in folder outputs_yyyy-mm-dd_hhmmss.
 %
 % Auxiliary functions needed:
 %    read_csv
@@ -68,10 +68,10 @@
 %
 % Author: Euro-Argo ERIC (contact@euro-argo.eu)
 %
-% Version: 3.2 (2023/07/21)
+% Version: 3.3 (2023/10/02)
 %
 % Historic:
-% V1.0 : This script originally created by Andrea Garcia Juan and Romain
+% V1.0 : This script was originally created by Andrea Garcia Juan and Romain
 %        Cancouët, and updated by Luca Arduini Plaisant.
 % V2.0 (2023/06/19): 
 %        - The script architecture was reviewed on 2023/06/19 by Delphine Dobler 
@@ -113,6 +113,11 @@
 %        profile QC.
 %        - add quotes in synthese output for program, in case comma is
 %        used.
+% V3.3 (2023/10/02) :
+%        - add hhmmss in the output directory name
+%        - change search for param name in index for a more robust means
+%        - add x grid and minor grid for psal adjustment display by wmo.
+%        - add an option to group prof QC A and B
 
 %option explicit
 
@@ -131,19 +136,11 @@ switch icase
     case 1
         test_case_dir = '/home1/datahome/co_arg/ddobler/DMQC_Status/01_EuropeanFleet_case/';
         i_bgc = 1;
-        wmo_list_file = [test_case_dir 'input_files/wmo_list_all_european_floats.txt'];
+        wmo_list_file = [test_case_dir 'input_files/wmo_list_all_european_floats.csv'];
         country_code_file = [test_case_dir 'input_files/country_codes.csv'];
         project_name = 'European_Fleet';
         output_graphs_per_float = 0;
 
-    case 2
-        test_case_dir = '/home1/datahome/co_arg/ddobler/DMQC_Status/02_EuropeanFleet_BGC_case/';
-        i_bgc = 1;
-        wmo_list_file = [test_case_dir 'input_files/wmo_list_all_european_BGC_floats.txt'];
-        country_code_file = [test_case_dir 'input_files/country_codes.csv'];
-        project_name = 'European_BGC_Fleet';
-        output_graphs_per_float = 0;
-        
     case 3
         test_case_dir = '/home1/datahome/co_arg/ddobler/DMQC_Status/03_RBR_case/';
         i_bgc = 0;
@@ -173,6 +170,15 @@ switch icase
         country_code_file = [test_case_dir 'input_files/country_codes.csv'];
         project_name = 'AllArgo_Fleet';
         output_graphs_per_float = 0;
+
+    case 7
+        test_case_dir = '/home1/datahome/co_arg/ddobler/DMQC_Status/07_ASD_floats/';
+        i_bgc = 0;
+        wmo_list_file = [test_case_dir 'input_files/wmo_list_asd_floats.csv'];
+        country_code_file = [test_case_dir 'input_files/country_codes.csv'];
+        project_name = 'ASD_Fleet';
+        output_graphs_per_float = 1;
+
 end
         
 
@@ -184,7 +190,7 @@ disp([newline ' Treating CTD parameters for ' project_name ' case']);
 if i_bgc == 1
     index_file_synthetic = '/home/ref-argo/gdac/etc/argo_synthetic-profile_detailled_index.txt';
     index_file_synthetic_short = [test_case_dir 'input_files/argo_synthetic-profile_detailed_index_subset.txt'];
-    input_list_of_BGC_parameters_to_treat=["DOXY";"CHLA";"NITRATE";"PH_IN_SITU_TOTAL";"TURBIDITY";"BISULFIDE";"CDOM";...
+    input_list_of_BGC_parameters_to_treat=["DOXY";"DOXY2";"CHLA";"NITRATE";"PH_IN_SITU_TOTAL";"TURBIDITY";"BISULFIDE";"CDOM";...
         "BBP532";"BBP700";"DOWNWELLING_PAR";"DOWN_IRRADIANCE380";"DOWN_IRRADIANCE412";"DOWN_IRRADIANCE443";"DOWN_IRRADIANCE490";...
         "DOWN_IRRADIANCE555";"DOWN_IRRADIANCE665";"DOWN_IRRADIANCE670";"CP660"];
     disp([newline ' Treating BGC parameters for ' project_name ' case']);
@@ -201,6 +207,7 @@ print_svg=0; % (interesting for high quality, but a little longer to save).
 %   recorded. For treatmant with a large
 %   number of floats, this may not be relevant)
 n_max_float_per_graph = 31;  % associated to output_graphs_per_float.
+i_group_AB_profQC  = 1;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -225,7 +232,7 @@ tStart = tic;
 % This makes it available for later understanding of any bugs / or rerun 
 % with data from the same date. For the seek of space: to be zipped once
 % finished.
-test_date=char(datetime('now','TimeZone','local','Format','yyyy-MM-dd'));
+test_date=char(datetime('now','TimeZone','local','Format','yyyy-MM-dd_HHmmSS'));
 
 output_dir=[ test_case_dir '/outputs_' test_date '/'];
 
@@ -1168,8 +1175,19 @@ for i=1:n_param
     hold on
 
     for ix=1:7
-        bT=bar(ix,nb_profiles_per_qc.(i_param)(ix),0.3,'FaceColor',bars_colors(4+ix,:));
-        bD=bar(ix+0.3,nb_profiles_DMQCed_per_qc.(i_param)(ix),0.3,'FaceColor',bars_colors(13+ix,:));
+        if i_group_AB_profQC == 1 && ix==1
+            nb_prof_AB=nb_profiles_per_qc.(i_param)(1)+nb_profiles_per_qc.(i_param)(2);
+            nb_prof_DMQCed_AB=nb_profiles_DMQCed_per_qc.(i_param)(1)+nb_profiles_DMQCed_per_qc.(i_param)(2);
+            
+            bT=bar(2,nb_prof_AB,0.3,'FaceColor',bars_colors(4+ix,:));
+            bD=bar(2+0.3,nb_prof_DMQCed_AB,0.3,'FaceColor',bars_colors(13+ix,:));  
+        else
+            if i_group_AB_profQC == 0 || ix > 2
+                bT=bar(ix,nb_profiles_per_qc.(i_param)(ix),0.3,'FaceColor',bars_colors(4+ix,:));
+                bD=bar(ix+0.3,nb_profiles_DMQCed_per_qc.(i_param)(ix),0.3,'FaceColor',bars_colors(13+ix,:));
+            end
+        end
+            
     end
     
 
@@ -1177,26 +1195,54 @@ for i=1:n_param
     hold on
     plot(1,0,'w'); % for comment in legend
     % xlabels
-    set(gca,'xtick',1:7,'xticklabel', [nb_per_qc_x(1:end-1); 'No QC'])
+    if i_group_AB_profQC == 1
+        set(gca,'xtick',1:7,'xticklabel', [''; 'A+B'; nb_per_qc_x(3:end-1); 'No QC'])
+    else
+        set(gca,'xtick',1:7,'xticklabel', [nb_per_qc_x(1:end-1); 'No QC'])
+    end
+    
     % title with update date
     title([ char(i_param) ' profile QC (updated ',update_date_str,')'], 'Interpreter', 'none')
     ylabel('Number of profiles')
 
     % figure labels
-    ymax=max(nb_profiles_per_qc.(i_param));
+    if i_group_AB_profQC == 1
+        ymax=max(max(nb_profiles_per_qc.(i_param)(1)+nb_profiles_per_qc.(i_param)(2),nb_profiles_per_qc.(i_param)(3:end)));
+    else
+        ymax=max(nb_profiles_per_qc.(i_param));
+    end
     set(gca,'YLim',[0 ymax+ymax/4]);
     for ix =1:7
-        text(ix+0.17 , nb_profiles_per_qc.(i_param)(ix) + ymax/20, ...
-            [num2str(nb_profiles_per_qc.(i_param)(ix)) newline ...
-             num2str(round(100*nb_profiles_per_qc.(i_param)(ix)/ ...
-                       sum(nb_profiles_per_qc.(i_param)),1)) '%'], ...
-            'HorizontalAlignment', 'right');
+        
+        if i_group_AB_profQC == 1 && ix==1
+            text(2 +0.17 , nb_prof_AB + ymax/20, ...
+                [num2str(nb_prof_AB) newline ...
+                 num2str(round(100*nb_prof_AB/ ...
+                           sum(nb_profiles_per_qc.(i_param)),1)) '%'], ...
+                'HorizontalAlignment', 'right');
 
-        text(ix+0.17, nb_profiles_DMQCed_per_qc.(i_param)(ix) + ymax/20, ...
-            ['D-' num2str(nb_profiles_DMQCed_per_qc.(i_param)(ix)) newline ...
-                  num2str(round(100*nb_profiles_DMQCed_per_qc.(i_param)(ix)/ ...
-                            sum(nb_profiles_DMQCed_per_qc.(i_param)),1)) '%'], ...
-            'HorizontalAlignment', 'left');
+            text(2 +0.17, nb_prof_DMQCed_AB + ymax/20, ...
+                ['D-' num2str(nb_prof_DMQCed_AB) newline ...
+                      num2str(round(100*nb_prof_DMQCed_AB/ ...
+                                sum(nb_profiles_DMQCed_per_qc.(i_param)),1)) '%'], ...
+                'HorizontalAlignment', 'left');
+        else
+            if i_group_AB_profQC == 0 || ix > 2
+                text(ix+0.17 , nb_profiles_per_qc.(i_param)(ix) + ymax/20, ...
+                    [num2str(nb_profiles_per_qc.(i_param)(ix)) newline ...
+                     num2str(round(100*nb_profiles_per_qc.(i_param)(ix)/ ...
+                               sum(nb_profiles_per_qc.(i_param)),1)) '%'], ...
+                    'HorizontalAlignment', 'right');
+
+                text(ix+0.17, nb_profiles_DMQCed_per_qc.(i_param)(ix) + ymax/20, ...
+                    ['D-' num2str(nb_profiles_DMQCed_per_qc.(i_param)(ix)) newline ...
+                          num2str(round(100*nb_profiles_DMQCed_per_qc.(i_param)(ix)/ ...
+                                    sum(nb_profiles_DMQCed_per_qc.(i_param)),1)) '%'], ...
+                    'HorizontalAlignment', 'left');
+            end
+        end
+        
+        
     end
     % background color
     set(gcf,'color','w');
@@ -1251,20 +1297,24 @@ for i=1:n_param
     ax1 = subplot(211);
     title(ax1,[ char(i_param) ' profile QC evolution (updated ',update_date_str,')'], 'Interpreter', 'none')
     hold on
-    plot(ax1,1:n_launch_years,percent_prof_QC_A_per_launch_year.(i_param),'color',bars_colors(5,:),'LineWidth',2)
-    plot(ax1,1:n_launch_years,percent_prof_QC_B_per_launch_year.(i_param),'color',bars_colors(6,:),'LineWidth',2)
+    if i_group_AB_profQC == 1
+        plot(ax1,1:n_launch_years,percent_prof_QC_A_per_launch_year.(i_param)+percent_prof_QC_B_per_launch_year.(i_param),'color',bars_colors(5,:),'LineWidth',2)
+    else
+        plot(ax1,1:n_launch_years,percent_prof_QC_A_per_launch_year.(i_param),'color',bars_colors(5,:),'LineWidth',2)
+        plot(ax1,1:n_launch_years,percent_prof_QC_B_per_launch_year.(i_param),'color',bars_colors(6,:),'LineWidth',2)
+    end
     plot(ax1,1:n_launch_years,percent_prof_QC_C_per_launch_year.(i_param),'color',bars_colors(7,:),'LineWidth',2)
     plot(ax1,1:n_launch_years,percent_prof_QC_D_per_launch_year.(i_param),'color',bars_colors(8,:),'LineWidth',2)
     plot(ax1,1:n_launch_years,percent_prof_QC_E_per_launch_year.(i_param),'color',bars_colors(9,:),'LineWidth',2)
     plot(ax1,1:n_launch_years,percent_prof_QC_F_per_launch_year.(i_param),'color',bars_colors(10,:),'LineWidth',2)
     
-    lgnd=legend(ax1,'QC A' ,...
-                    'QC B' ,...
-                    'QC C' ,...
-                    'QC D' ,...
-                    'QC E' ,...
-                    'QC F' ,...
-                    'location','east');   
+    if i_group_AB_profQC == 1
+        lgnd=legend(ax1,'QC A+B','QC C' ,'QC D' ,'QC E' ,'QC F' ,...
+                    'location','east');
+    else
+        lgnd=legend(ax1,'QC A','QC B','QC C' ,'QC D' ,'QC E' ,'QC F' ,...
+                    'location','east');
+    end
     set(lgnd,'color','none');
     
     ylabel(ax1,'Percent of profiles [%]')
@@ -1327,20 +1377,24 @@ for i=1:n_param
     ax1 = subplot(211);
     title(ax1,[ char(i_param) ' D-profile QC evolution (updated ',update_date_str,')'], 'Interpreter', 'none')
     hold on
-    plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_A_per_launch_year.(i_param),'color',bars_colors(5,:),'LineWidth',2)
-    plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_B_per_launch_year.(i_param),'color',bars_colors(6,:),'LineWidth',2)
+    if i_group_AB_profQC == 1
+        plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_A_per_launch_year.(i_param)+percent_prof_DMQCed_QC_B_per_launch_year.(i_param),'color',bars_colors(5,:),'LineWidth',2)
+    else
+        plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_A_per_launch_year.(i_param),'color',bars_colors(5,:),'LineWidth',2)
+        plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_B_per_launch_year.(i_param),'color',bars_colors(6,:),'LineWidth',2)
+    end
     plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_C_per_launch_year.(i_param),'color',bars_colors(7,:),'LineWidth',2)
     plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_D_per_launch_year.(i_param),'color',bars_colors(8,:),'LineWidth',2)
     plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_E_per_launch_year.(i_param),'color',bars_colors(9,:),'LineWidth',2)
     plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_F_per_launch_year.(i_param),'color',bars_colors(10,:),'LineWidth',2)
     
-    lgnd=legend(ax1,'QC A' ,...
-                    'QC B' ,...
-                    'QC C' ,...
-                    'QC D' ,...
-                    'QC E' ,...
-                    'QC F' ,...
-                    'location','east');   
+    if i_group_AB_profQC == 1
+        lgnd=legend(ax1,'QC A+B','QC C' ,'QC D' ,'QC E' ,'QC F' ,...
+                    'location','east');
+    else
+        lgnd=legend(ax1,'QC A','QC B','QC C' ,'QC D' ,'QC E' ,'QC F' ,...
+                    'location','east');
+    end  
     set(lgnd,'color','none');
     
     ylabel(ax1,'Percent of profiles [%]')
@@ -2000,12 +2054,24 @@ if output_graphs_per_float ==1
         % grid in y axis
         ax = gca;
         ax.YGrid = 'on';
+        ax.XGrid = 'on';
+        
+        % Add minor ticks/grid along the x axis.
+        xt=ax.XTick;                   % and the current tick values
+        nT=length(xt);                 % how many ticks are there???
+        nMinorT=5;                     % set how many minor tick divisions wanted
+        ax.XAxis.MinorTickValues=linspace(xt(1),xt(end),(nT-1)*nMinorT+1); % set those values
+
+        ax.XMinorTick = 'on';
+        ax.XMinorGrid = 'on';
+        
 
          % save figure
         out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param) '_PSAL_adj_per_wmo_per_cycle_' sprintf('%03d',i_graph) '_' working_date];
         disp(['saving ' out_name])
         %     export_fig([out_name '.png'])
         print('-dpng ', '-r100',[out_name '.png'])
+
         if print_svg == 1
             saveas(gcf,[out_name '.svg'])
         end
