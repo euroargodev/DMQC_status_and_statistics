@@ -154,7 +154,7 @@ src="OUTPUT_examples/ASD_case/Plots/03_ASD_Fleet_TEMP_profile_QC_20231002.svg" w
 
 - __Plot 04 and 05__ Profile quality evolution (all profiles and only Delayed Mode - i.e. consolidated - profiles) in percentage of floats profiles (one plot per parameter) <br />
 
-The upper panel of this plot is a time evolution view of plot 03 for all profiles (plot 04) and D-profiles only (plot 05), with respect to the float launch year (rapid proxi for sensor generation). To indicate the significance of the statistics, the number of profiles for the corresponding year is also provided on the lower panel.
+The upper panel of this plot is a time evolution view of plot 03 for all profiles (plot 04) and D-profiles only (plot 05), with respect to the float launch year (rapid proxi for sensor generation). To indicate the significance of the statistics, the number of profiles for the corresponding year is also provided on the lower panel. Here is an example for the batch of floats declared as ASD:
 
 <p float="center">
 <img 
