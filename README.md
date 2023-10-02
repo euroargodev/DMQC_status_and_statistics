@@ -123,8 +123,8 @@ Here country refers to country associated to the float in the OceanOPS database.
 
 <p float="left">
 <img 
-src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/01_MOCCA_Fleet_CTD_DMQC_status_nb_floats_by_country_20230713.png" width="400" /> 
-<img src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/02_MOCCA_Fleet_CTD_DMQC_status_nb_profiles_by_country_20230713.png" width="400" />
+src="OUTPUT_examples/MOCCA_case/Plots/01_MOCCA_Fleet_CTD_DMQC_status_nb_floats_by_country_20230713.png" width="400" /> 
+<img src="OUTPUT_examples/MOCCA_case/Plots/02_MOCCA_Fleet_CTD_DMQC_status_nb_profiles_by_country_20230713.png" width="400" />
 </p>
 
 - __Plot 03__: Profile quality (all profiles and only Delayed Mode - i.e. consolidated - profiles) in number of floats profiles (one plot per parameter) <br />
@@ -147,9 +147,9 @@ A few profiles do not have a profile QC in the index file. This observation dese
 
 <p float="center">
 <img 
-src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/03_MOCCA_Fleet_PSAL_profile_QC_20230713.png" width="400" /> 
+src="OUTPUT_examples/ASD_case/Plots/03_ASD_Fleet_PSAL_profile_QC_20231002.svg" width="400" /> 
  <img 
-src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/03_MOCCA_Fleet_TEMP_profile_QC_20230713.png" width="400" /> 
+src="OUTPUT_examples/ASD_case/Plots/03_ASD_Fleet_TEMP_profile_QC_20231002.svg" width="400" /> 
 </p>
 
 - __Plot 04 and 05__ Profile quality evolution (all profiles and only Delayed Mode - i.e. consolidated - profiles) in percentage of floats profiles (one plot per parameter) <br />
@@ -158,9 +158,9 @@ The upper panel of this plot is a time evolution view of plot 03 for all profile
 
 <p float="center">
 <img 
-src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/04_MOCCA_Fleet_PSAL_profile_QC_evolution_20230713.png" width="400" /> 
+src="OUTPUT_examples/ASD_case/Plots/04_ASD_Fleet_PSAL_profile_QC_evolution_20231002.svg" width="400" /> 
  <img 
-src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/05_MOCCA_Fleet_PSAL_Dprofile_QC_evolution_20230713.png" width="400" /> 
+src="OUTPUT_examples/ASD_case/Plots/05_ASD_Fleet_PSAL_Dprofile_QC_evolution_20231002.svg" width="400" /> 
 </p>
 
 - __Plot 06__ Global DMQC status and grey list information (one plot per parameter) <br />
@@ -176,7 +176,7 @@ This limit is arbitrary and can be tuned.
 
 <p float="center">
 <img 
-src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/06_MOCCA_Fleet_PSAL_DMQC_status_and_grey_list_20230713.png" width="400" /> 
+src="OUTPUT_examples/MOCCA_case/Plots/06_MOCCA_Fleet_PSAL_DMQC_status_and_grey_list_20230713.png" width="400" /> 
 </p>
 
 - __Plot 07 and 08__ DMQC status per profile year, and age histogram of non-DMQC profiles (one plot per parameter) <br />
@@ -186,9 +186,9 @@ Plot 08 presents the age histogram of profiles with no DMQC performed yet.
 
 <p float="center">
 <img 
-src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/07_MOCCA_Fleet_CTD_prof_DMQCstatus_byyear_20230713.png" width="400" /> 
+src="OUTPUT_examples/MOCCA_case/Plots/07_MOCCA_Fleet_CTD_prof_DMQCstatus_byyear_20230713.png" width="400" /> 
  <img 
-src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/08_MOCCA_Fleet_CTD_prof_DMQCstatus_agehist_20230713.png" width="400" /> 
+src="OUTPUT_examples/MOCCA_case/Plots/08_MOCCA_Fleet_CTD_prof_DMQCstatus_agehist_20230713.png" width="400" /> 
 </p>
 
 - __Plot 09__ R-A-D status for all parameters <br />
@@ -196,7 +196,7 @@ Plot 09 presents by parameter (x axis), the number of R-profiles, A-profiles and
 
 <p float="center">
 <img 
-src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/09_MOCCA_Fleet_prof_RAD_mode_per_param_20230713.png" width="400" /> 
+src="OUTPUT_examples/MOCCA_case/Plots/09_MOCCA_Fleet_prof_RAD_mode_per_param_20230713.png" width="400" /> 
 </p>
 
 - __Plot 10 and 11__ DMQC and quality profile status by batch of WMOs per cycle (one plot per parameter) <br />
@@ -205,9 +205,9 @@ These plots are output only on demand. The number of WMOs shown by graph can be 
 
 <p float="center">
  <img 
-src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/10_MOCCA_Fleet_CTD_RAD_mode_per_wmo_per_cycle_001_20230713.png" width="400" /> 
+src="OUTPUT_examples/MOCCA_case/Plots/10_MOCCA_Fleet_CTD_RAD_mode_per_wmo_per_cycle_001_20230713.png" width="400" /> 
  <img 
-src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/11_MOCCA_Fleet_PSAL_profile_QC_per_wmo_per_cycle_001_20230713.png" width="400" /> 
+src="OUTPUT_examples/MOCCA_case/Plots/11_MOCCA_Fleet_PSAL_profile_QC_per_wmo_per_cycle_001_20230713.png" width="400" /> 
 </p>
 
 - __Plot 12__ PSAL adjustment by batch of WMOs per cycle  <br />
@@ -220,7 +220,7 @@ In jet colorscale, the value of the PSAL adjustment bounded by [-0.07 0.07]. The
 /!\ WARNING 2: There is an issue with Argo detailed index: for a few floats, PSAL_adjustment is not computed (https://gitlab.ifremer.fr/coriolis/actions/actions-argo/-/issues/63).
 
  <img 
-src="https://github.com/delphinedobler/DMQC_status_and_statistics/blob/main/OUTPUT_examples/MOCCA_case/Plots/12_MOCCA_Fleet_PSAL_PSAL_adj_per_wmo_per_cycle_001_20230713.png" width="400" /> 
+src="OUTPUT_examples/MOCCA_case/Plots/12_MOCCA_Fleet_PSAL_PSAL_adj_per_wmo_per_cycle_001_20230713.png" width="400" /> 
 </p>
 
 ## C. Syntheses outputs for **get_DMQC_stats.m** 
