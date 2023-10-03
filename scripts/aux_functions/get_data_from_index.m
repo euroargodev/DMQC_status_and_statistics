@@ -55,6 +55,8 @@ function [IndexData] = get_data_from_index(index_file, nb_header_lines,float_ref
 % v3.2 (2023/07/21):
 %        - handle float ref as a string, not a char array to allow
 %        different lengths in WMO.
+% v3.3 (2023/09/01):
+%        - correct issue with parameter search: use of "(==)" instead of "contains" 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -239,9 +241,9 @@ else
     %replace DOXY2 by DOX2 and DOXY3 by DOX3, otherise contains method will
     %find them. Matlab is not an easy tool for whole-word search.
     % To be improved
-    RT_OUT_PARAM_split=replace(RT_OUT_PARAM_split,"DOXY2","DOX2");
-    RT_OUT_PARAM_split=replace(RT_OUT_PARAM_split,"DOXY3","DOX3");
-    RT_OUT_PARAM_split=replace(RT_OUT_PARAM_split,"BBP700_2","2ND_BP700");
+    %RT_OUT_PARAM_split=replace(RT_OUT_PARAM_split,"DOXY2","DOX2");
+    %RT_OUT_PARAM_split=replace(RT_OUT_PARAM_split,"DOXY3","DOX3");
+    %RT_OUT_PARAM_split=replace(RT_OUT_PARAM_split,"BBP700_2","2ND_BP700");
     %---------------------------------------------------------------------------------
     
     % now, let's find the list of parameters in the file:
@@ -270,7 +272,9 @@ else
         
         %find the param position in the index file (both lines and position in
         %param field):
-        i_pos_param=contains(RT_OUT_PARAM_split,i_param);
+        %i_pos_param=contains(RT_OUT_PARAM_split,i_param); - replace by
+        % exact correspondence)
+        i_pos_param=(RT_OUT_PARAM_split==i_param);
         
         %check if there is no anomaly:
         i_line_with_multiple_param=(sum(i_pos_param,2)>1);
