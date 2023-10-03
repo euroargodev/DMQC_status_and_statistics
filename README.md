@@ -216,12 +216,12 @@ This plot shows PSAL_adjustment by batch of WMOs per cycle.
 This plot is output only on demand. The number of WMOs shown by graph can be tuned.
 In grey color: the profiles that are not yet processed in delayed mode and that are not profile QC F.
 In black: the profiles (either real-time or delayed mode) that are QC-F.
-In jet colorscale, the value of the PSAL adjustment bounded by [-0.07 0.07]. The same bounds are used for all plots for better intercomparison and to ensure that "no adjustment" case will always appear in green.
+In jet colorscale, the value of the PSAL adjustment for D-profiles bounded by [-0.07 0.07]. The same bounds are used for all plots for better intercomparison and to ensure that "no adjustment" case will always appear in green.
 
-/!\ WARNING 2: There is an issue with Argo detailed index: for a few floats, PSAL_adjustment is not computed (https://gitlab.ifremer.fr/coriolis/actions/actions-argo/-/issues/63).
+/!\ WARNING 2: There is an issue with Argo detailed index: for a few {floats,cycles}, PSAL_adjustment is not computed in the detailed index (https://gitlab.ifremer.fr/coriolis/actions/actions-argo/-/issues/63).
 
  <img 
-src="OUTPUT_examples/MOCCA_case/Plots/12_MOCCA_Fleet_PSAL_PSAL_adj_per_wmo_per_cycle_001_20230713.png" width="400" /> 
+src="OUTPUT_examples/ASD_case/Plots/12_ASD_Fleet_PSAL_PSAL_adj_per_wmo_per_cycle_001_20231002.svg" width="500" /> 
 </p>
 
 ## C. Syntheses outputs for **get_DMQC_stats.m** 
