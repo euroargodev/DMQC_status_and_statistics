@@ -1,0 +1,2371 @@
+PLATFORM_CODE,PARAMETER_NAME,START_DATE,END_DATE,QUALITY_CODE,COMMENT,DAC
+1900432,PRES,20071129,,3,sensor problem,AO
+1900432,PSAL,20071129,,3,sensor problem,AO
+1900432,TEMP,20071129,,3,sensor problem,AO
+1900727,PRES,20150612,,3,sensor problems,AO
+1900727,PSAL,20150612,,3,sensor problems,AO
+1900727,TEMP,20150612,,3,sensor problems,AO
+1900734,PSAL,20060811,,4,sensor failure,AO
+1900734,TEMP,20060811,,4,sensor failure,AO
+1900951,PSAL,20140409,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+1900953,PSAL,20140409,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+1900954,PSAL,20140413,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+1900957,PSAL,20141101,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+1900958,PSAL,20141103,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+1900959,PSAL,20150413,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+1900960,PSAL,20150414,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+1900961,PSAL,20150418,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+1900976,PRES,20120702,,3,pressure microleak; snowflake starting 06-02-2014,AO
+1900976,PSAL,20120702,,3,pressure microleak; snowflake starting 06-02-2014,AO
+1900976,TEMP,20120702,,3,pressure microleak; snowflake starting 06-02-2014,AO
+1901369,PSAL,20131001,,4,salinity sensor problem,AO
+1901396,PSAL,20110910,,4,salinity calibration jump,AO
+1901397,PSAL,20110713,,4,salinity calibration jump,AO
+1901410,PSAL,20170818,,4,sensor problem,AO
+1901446,PSAL,20201208,,4,salty drift nearly .05,AO
+1901447,PSAL,20220209,,4,salty drift nearly .05,AO
+1901509,PSAL,20221027,,4,salty drift exceeds .05 psu,AO
+1901514,PRES,20141102,,4,beached float,AO
+1901514,PSAL,20141102,,4,beached float,AO
+1901514,TEMP,20141102,,4,beached float,AO
+1901519,PSAL,20151026,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+1901520,PSAL,20151023,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+1901521,PSAL,20151101,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+1901522,PSAL,20160610,,3,sensor problem,AO
+1901522,TEMP,20160610,,3,sensor problem,AO
+1901685,PRES,20160404,,4,frozen profile due to low voltage,AO
+1901685,PSAL,20160404,,4,frozen profile due to low voltage,AO
+1901685,TEMP,20160404,,4,frozen profile due to low voltage,AO
+1901696,PSAL,20140419,,4,salinity sensor problem,AO
+1901715,PSAL,20160813,,4,salinity drift,AO
+1901717,PSAL,20181126,,4,bad sensor,AO
+1901722,PSAL,20201005,,4,sensor drift,AO
+1901728,PSAL,20140913,,4,psal offset,AO
+1901731,PSAL,20150914,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+1901732,PSAL,20160723,20220302,3,sensor problem,AO
+1901732,PSAL,20220302,,4,salinity jump,AO
+1901733,PSAL,20161020,,4,sensor problem,AO
+1901785,PSAL,20150907,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+1901796,PSAL,20160603,,4,sensor problem,AO
+1901800,PSAL,20160222,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+1901803,PSAL,20170322,,4,sensor drift,AO
+1901805,PSAL,20200718,,4,sensor problem,AO
+1901806,PSAL,20210417,,4,sensor problems,AO
+1901810,PSAL,20230505,,4,jump in salinity,AO
+1901812,PSAL,20191219,,4,salinity drift,AO
+1901817,PSAL,20220523,,4,salinity drift,AO
+1901818,PSAL,20200219,,4,drifting,AO
+1901830,PSAL,20201129,,4,salinity drift,AO
+1901832,PSAL,20190913,,4,sensor problem,AO
+1901834,PSAL,20160512,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+1901839,PSAL,20190807,,4,sensor problem,AO
+1901840,PSAL,20210201,,4,sensor failure,AO
+1902024,PSAL,20190103,20190915,3,sensor problem,AO
+1902024,PSAL,20190915,,4,sensor problem,AO
+1902025,PRES,20190414,,4,sensor problem,AO
+1902025,PSAL,20190414,,4,sensor problem,AO
+1902025,TEMP,20190414,,4,sensor problem,AO
+1902026,PSAL,20220215,,4,sensor failure,AO
+1902033,PSAL,20220420,,4,sensor failure,AO
+1902034,PSAL,20221110,,4,sensor failure,AO
+1902036,PSAL,20211025,,4,sensor failure,AO
+1902038,PSAL,20210210,,4,sensor failure,AO
+1902039,PSAL,20191210,,4,sensor problem,AO
+1902043,PSAL,20201005,,4,sensor problem,AO
+1902057,PSAL,20190803,,4,Drift/Jump,AO
+1902063,PSAL,20230706,,4,salinity jump,AO
+1902065,PSAL,20190724,,4,salinity drift,AO
+1902069,PSAL,20191231,,4,jump in salinity,AO
+1902181,PSAL,20171117,,4,pump failure,AO
+1902184,PSAL,20200123,,4,drifting sensor,AO
+1902194,PSAL,20200225,,4,salinity drifter,AO
+1902198,PSAL,20200807,,3,sensor problem,AO
+1902199,PSAL,20190130,,4,strong fresh drifter,AO
+1902207,PSAL,20180321,,3,sensor problem,AO
+1902222,PSAL,20210122,,4,jump in salinity,AO
+1902223,PSAL,20220104,,4,salinity drift,AO
+1902224,PSAL,20200906,,4,sensor drift,AO
+1902269,PSAL,20200310,,3,sensor problem,AO
+1902275,PSAL,20230917,,4,salinity jump,AO
+1902303,PH_IN_SITU_TOTAL,20210526,,4,sensor problem,AO
+1902303,PSAL,20220224,,4,salinity jump,AO
+1902379,PSAL,20230205,,4,salinity drift,AO
+1902404,PSAL,20211228,,4,due to clogged cell or failed pump,AO
+1902404,TEMP,20211228,,2,due to clogged cell or failed pump,AO
+1902449,PSAL,20230224,,4,salinity drift,AO
+2900090,PSAL,20050523,,3,sensor drift,AO
+2900368,PRES,20061129,,4,pressure sensor problem,AO
+2900368,PSAL,20061129,,3,pressure sensor problem,AO
+2900368,TEMP,20061129,,3,pressure sensor problem,AO
+2900385,PRES,20080213,,3,sensor problem,AO
+2900385,PSAL,20080213,,3,sensor problem,AO
+2900385,TEMP,20080213,,3,sensor problem,AO
+2900801,PRES,20080205,,3,sensor problem,AO
+2900801,PSAL,20080205,,3,sensor problem,AO
+2900801,TEMP,20080205,,3,sensor problem,AO
+2900803,PRES,20080220,,3,sensor problem,AO
+2900803,PSAL,20080220,,3,sensor problem,AO
+2900803,TEMP,20080220,,3,sensor problem,AO
+2901406,PSAL,20130411,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901418,PSAL,20120720,,4,sensor problems,AO
+2901438,PRES,20140406,,4,sensor problem,AO
+2901438,PSAL,20140406,,4,sensor problem,AO
+2901438,TEMP,20140406,,4,sensor problem,AO
+2901448,PSAL,20130412,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901449,PSAL,20130412,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901450,PSAL,20130428,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901464,PSAL,20131215,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901467,PSAL,20140812,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901471,PSAL,20141126,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901473,PSAL,20141126,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901475,PSAL,20141218,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901477,PSAL,20141125,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901478,PSAL,20141130,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901479,PSAL,20160428,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901480,PSAL,20160427,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901481,PSAL,20160427,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901482,PSAL,20160427,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901637,PSAL,20141111,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901638,PSAL,20141108,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901641,PSAL,20150409,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901642,PSAL,20141110,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901643,PSAL,20141217,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2901644,PSAL,20141216,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902036,PSAL,20160325,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902037,PSAL,20160325,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902038,PSAL,20150404,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902039,PSAL,20150405,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902040,PSAL,20150405,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902041,PSAL,20150406,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902044,PSAL,20150908,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902045,PSAL,20150909,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902046,PSAL,20150909,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902047,PSAL,20160621,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902050,PSAL,20151010,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902051,PSAL,20151009,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902052,PSAL,20151012,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902053,PSAL,20151008,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902054,PSAL,20151009,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902055,PSAL,20151003,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902056,PSAL,20160426,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902057,PSAL,20151003,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902059,PSAL,20151105,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902060,PSAL,20151130,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902061,PSAL,20151125,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902062,PSAL,20151216,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902063,PSAL,20151217,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902064,PSAL,20151108,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902065,PSAL,20151108,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+2902389,PSAL,20190308,,4,sensor problem,AO
+2902390,PSAL,20220324,,4,salinity jump,AO
+2902391,PSAL,20180506,20191211,4,sensor problem,AO
+2902391,PSAL,20191211,,4,salinity drift,AO
+2902394,PSAL,20221222,,4,jump in salinity,AO
+2902395,PSAL,20191010,,3,drifting salinity sensor,AO
+2902397,PSAL,20200506,,4,jump in salinity,AO
+2902398,PSAL,20170723,,4,salinity drift,AO
+2903135,PSAL,20180531,,3,pump failure,AO
+2903418,PSAL,20211101,,4,sensor failure,AO
+2903423,PSAL,20210910,,4,sensor failure,AO
+2903426,PSAL,20211220,,4,sensor failure,AO
+3900440,PSAL,20060707,,3,salinity drift,AO
+3900670,PSAL,20180426,,4,salinity sensor drift,AO
+3900738,PRES,20140926,,3,pressure microleak; no snowflake as of profile 184,AO
+3900738,PSAL,20140926,,3,pressure microleak; no snowflake as of profile 184,AO
+3900738,TEMP,20140926,,3,pressure microleak; no snowflake as of profile 184,AO
+3900776,PSAL,20171212,,3,salinity sensor drift,AO
+3900845,PRES,20140804,,3,sensor problem,AO
+3900845,PSAL,20140804,,3,sensor problem,AO
+3900845,TEMP,20140804,,3,sensor problem,AO
+3901037,PRES,20160827,,4,frozen profiles,AO
+3901037,PSAL,20160827,,4,frozen profiles,AO
+3901037,TEMP,20160827,,4,frozen profiles,AO
+3901043,PSAL,20191208,,4,sensor drift,AO
+3901048,PSAL,20141019,,4,sensor problem,AO
+3901063,PSAL,20170210,,3,sensor problem,AO
+3901064,PSAL,20171008,,4,sensor problem,AO
+3901105,PSAL,20150916,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+3901108,PSAL,20180225,,3,salinity drift,AO
+3901109,PSAL,20171114,,3,sensor problem,AO
+3901110,PSAL,20160724,,3,salinity drift,AO
+3901111,PSAL,20171125,,4,sensor problem,AO
+3901114,PSAL,20150913,20210219,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+3901114,PSAL,20210219,,4,sensor drift,AO
+3901155,PSAL,20161221,,4,salinity drift,AO
+3901169,PSAL,20220313,,3,Drift,AO
+3901179,PSAL,20230104,,3,Slight drift,AO
+3901184,PSAL,20170818,,3,salinity sensor drift,AO
+3901191,PSAL,20220517,,3,Slight Drift ?,AO
+3901199,PSAL,20200224,,3,N/A,AO
+3901214,PSAL,20180620,,4,sensor problem,AO
+3901215,PSAL,20150525,20200101,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+3901215,PSAL,20200101,,4,sensor problem,AO
+3901216,PSAL,20161229,,4,sensor problem,AO
+3901218,PSAL,20180603,,4,sensor problem,AO
+3901219,PSAL,20190912,,4,salinity drift,AO
+3901220,PSAL,20170424,,4,salinity drift,AO
+3901221,PSAL,20150907,20220816,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+3901221,PSAL,20220817,,4,salinity drift,AO
+3901222,PSAL,20150910,20201010,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+3901222,PSAL,20201010,,4,sensor drift,AO
+3901223,PSAL,20230711,,4,salinity jump,AO
+3901224,PSAL,20210831,,4,salinity drift,AO
+3901225,PSAL,20150918,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+3901226,PSAL,20170228,,4,sensor problem,AO
+3901227,PSAL,20150917,20210218,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+3901227,PSAL,20210218,,4,sensor drift,AO
+3901229,PSAL,20150914,20210215,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+3901229,PSAL,20210215,,4,sensor drift,AO
+3901230,PSAL,20150915,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+3901234,PSAL,20200121,,4,broken sensor,AO
+3901238,PSAL,20191020,,3,drifting salinity sensor,AO
+3901240,PSAL,20230515,,4,salinity drift,AO
+3901244,PRES,20151214,,4,sensor problem,AO
+3901244,PSAL,20151214,,4,sensor problem,AO
+3901244,TEMP,20151214,,4,sensor problem,AO
+3901246,PSAL,20190520,,4,sensor problem,AO
+3901247,PSAL,20210205,,4,sensor problem,AO
+3901249,PSAL,20230101,,4,sensor problems,AO
+3901250,PSAL,20230301,,4,sensor failure,AO
+3901251,PSAL,20200601,,4,sensor problem,AO
+3901252,PSAL,20190920,,4,sensor problem,AO
+3901253,PSAL,20200701,,4,sensor problem,AO
+3901257,PSAL,20210319,,3,sensor drift,AO
+3901259,PSAL,20190125,,3,sensor drift,AO
+3901268,PSAL,20181108,,4,sensor problem,AO
+3901270,PSAL,20220615,,4,sensor problem; AO,AO
+3901271,PSAL,20190830,,4,sensor problem,AO
+3901272,PSAL,20201001,,4,sensor problem,AO
+3901273,PSAL,20200608,,4,sensor problem,AO
+3901274,PSAL,20220218,,4,sensor problems,AO
+3901282,PSAL,20190117,,3,N/A,AO
+3901283,PSAL,20200229,,3,Slight drift,AO
+3901285,PSAL,20180922,,4,salinity drift,AO
+3901287,PSAL,20220320,,3,Drift,AO
+3901289,PSAL,20190108,,3,sensor problem,AO
+3901291,PSAL,20200705,,3,N/A,AO
+3901293,PSAL,20210504,,3,Slight drift,AO
+3901296,PSAL,20220410,,3,Drift,AO
+3901299,PSAL,20200413,,4,strong salty drifter,AO
+3901301,PSAL,20210817,,3,Slight drift,AO
+3901306,PSAL,20211118,,3,N/A,AO
+3901307,PSAL,20210119,,3,Slight drift,AO
+3901308,PSAL,20210508,,3,Slight drift,AO
+3901469,PSAL,20170921,,4,sensor problem,AO
+3901469,TEMP,20170921,,4,sensor problem,AO
+3901791,PSAL,20230111,,4,sensor failure,AO
+3901801,PSAL,20210716,,3,Beginning of slight drift?,AO
+3901802,PSAL,20190504,,4,sensor problem,AO
+3901803,PSAL,20200925,,4,sensor problem,AO
+3901808,PSAL,20200528,,4,sensor drift,AO
+3901809,PSAL,20191111,,4,drifting,AO
+3901811,PSAL,20230313,,4,salinity drift,AO
+3901812,PSAL,20121208,,4,drifting,AO
+3901813,PSAL,20210214,,4,sensor drift,AO
+3901814,PSAL,20181016,,4,salinity drift,AO
+3901815,PSAL,20190203,,4,salinity sensor drift,AO
+3901816,PSAL,20190216,,4,sensor drift,AO
+3901817,PSAL,20171118,,4,salinity drift,AO
+3901819,PSAL,20190401,,4,bad sensor,AO
+3901821,PSAL,20190207,,4,bad sensor,AO
+3901822,PSAL,20210406,,4,due to drifting,AO
+3901823,PSAL,20190717,,4,salinity drift,AO
+3902143,PSAL,20210921,,4,sensor drift,AO
+3902144,PRES,20210614,,4,sensor drift,AO
+3902144,PSAL,20210225,20210614,4,sensor drift,AO
+3902144,PSAL,20210614,,4,sensor drift,AO
+3902144,TEMP,20210614,,4,sensor drift,AO
+3902145,PSAL,20191218,20210225,4,jump in salinity,AO
+3902145,PSAL,20210225,,4,sensor drift,AO
+3902146,PSAL,20210714,,4,sensor drift,AO
+3902151,PSAL,20221216,,3,Slight drift ?,AO
+3902152,PSAL,20200808,,3,Bad profiles,AO
+3902163,PSAL,20220821,,3,Slight drift,AO
+3902164,PSAL,20200725,,4,drifting,AO
+3902165,PSAL,20210519,,4,salinity drift,AO
+3902184,PSAL,20220901,,4,sensor problem,AO
+3902185,PSAL,20200305,,4,sensor problem,AO
+3902185,TEMP,20200305,,4,sensor problem,AO
+3902207,PSAL,20210305,,3,bad profile,AO
+3902243,PSAL,20220323,,4,sensor problem,AO
+3902244,PSAL,20211019,,4,salinity drift,AO
+4900489,PRES,20080212,,3,sensor problem,AO
+4900489,PSAL,20080212,,3,sensor problem,AO
+4900489,TEMP,20080212,,3,sensor problem,AO
+4900658,PSAL,20130331,,4,salinity drift,AO
+4900853,PRES,20130123,,3,pressure snowflake; microleak could start earlier; life-long TNPD,AO
+4900853,PSAL,20130123,,3,pressure snowflake; microleak could start earlier; life-long TNPD,AO
+4900853,TEMP,20130123,,3,pressure snowflake; microleak could start earlier; life-long TNPD,AO
+4900858,PRES,20081023,,3,microleak,AO
+4900858,PSAL,20081023,,3,microleak,AO
+4900858,TEMP,20081023,,3,microleak,AO
+4901046,PSAL,20140721,,3,sensor problem,AO
+4901047,PRES,20101029,,4,sensor failure,AO
+4901047,PSAL,20101029,,4,sensor failure,AO
+4901047,TEMP,20101029,,4,sensor failure,AO
+4901050,PRES,20120206,,3,pressure microleak; snowflake starting 26-07-2012,AO
+4901050,PSAL,20120206,,3,pressure microleak; snowflake starting 26-07-2012,AO
+4901050,TEMP,20120206,,3,pressure microleak; snowflake starting 26-07-2012,AO
+4901476,PRES,20180429,,4,frozen CTD profile due to low voltage,AO
+4901476,PSAL,20180429,,4,frozen CTD profile due to low voltage,AO
+4901476,TEMP,20180429,,4,frozen CTD profile due to low voltage,AO
+4901477,PRES,20180624,,4,frozen CTD profile due to low voltage,AO
+4901477,PSAL,20180624,,4,frozen CTD profile due to low voltage,AO
+4901477,TEMP,20180624,,4,frozen CTD profile due to low voltage,AO
+4901483,PRES,20180522,,4,frozen profiles,AO
+4901483,PSAL,20180522,,4,frozen profiles,AO
+4901483,TEMP,20180522,,4,frozen profiles,AO
+4901487,PSAL,20180105,,3,salinity drift,AO
+4901568,PSAL,20140916,,4,sensor problem,AO
+4901582,PRES,20170920,,4,frozen profile due to low voltage,AO
+4901582,PSAL,20170920,,4,frozen profile due to low voltage,AO
+4901582,TEMP,20170920,,4,frozen profile due to low voltage,AO
+4901591,PSAL,20200514,,4,sensor problem,AO
+4901594,PSAL,20190823,,4,large jump in salinity,AO
+4901595,PSAL,20141003,,4,salinity drift,AO
+4901640,PSAL,20190201,,4,sensor problem,AO
+4901642,PSAL,20131128,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4901643,PSAL,20140424,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4901644,PSAL,20140423,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4901645,PSAL,20140623,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4901647,PSAL,20131211,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4901648,PSAL,20230109,,3,Strange profiles,AO
+4901651,PSAL,20210719,,3,Drift,AO
+4901656,PSAL,20221011,,3,bad profiles from cycle 293,AO
+4901659,PSAL,20210910,,3,N/A,AO
+4901667,PSAL,20140420,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4901668,PSAL,20140506,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4901669,PSAL,20140506,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4901670,PSAL,20140711,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4901671,PSAL,20140713,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4901672,PSAL,20140714,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902057,PSAL,20140830,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902059,PSAL,20141021,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902060,PSAL,20141024,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902061,PSAL,20141023,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902062,PSAL,20141113,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902063,PSAL,20141113,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902064,PSAL,20141115,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902065,PSAL,20150301,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902066,PSAL,20141129,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902067,PSAL,20141202,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902068,PSAL,20150221,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902069,PSAL,20141129,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902070,PSAL,20141203,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902071,PSAL,20150117,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902072,PSAL,20150117,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902073,PSAL,20150121,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902076,PSAL,20150909,,4,sensor drift,AO
+4902087,PSAL,20181019,,4,sensor problem,AO
+4902088,PSAL,20220430,,3,Drift and bad values,AO
+4902091,PSAL,20150410,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902092,PSAL,20150411,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902093,PSAL,20150412,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902094,PSAL,20150409,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902095,PSAL,20150408,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902101,PSAL,20170111,20210121,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902101,PSAL,20210121,,4,sensor drift,AO
+4902102,PSAL,20151002,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902104,PSAL,20170719,,4,sensor problem,AO
+4902106,PSAL,20151031,20210411,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902106,PSAL,20210411,,4,salinity drift,AO
+4902107,PSAL,20151031,20200823,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902107,PSAL,20200823,,4,sensor jump,AO
+4902110,PSAL,20230619,,4,jump in salinity,AO
+4902112,PSAL,20160618,,4,pump failure,AO
+4902112,TEMP,20160618,,3,pump failure,AO
+4902120,PSAL,20220808,,4,jump in salinity,AO
+4902124,PSAL,20150722,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902125,PSAL,20150720,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902126,PSAL,20150720,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902127,PSAL,20150723,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902128,PSAL,20150820,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902129,PSAL,20150820,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902291,PSAL,20150901,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902293,PSAL,20151015,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902295,PSAL,20151015,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902296,PSAL,20151015,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+4902301,PSAL,20170603,,4,sensor drift,AO
+4902303,PSAL,20210612,,3,N/A,AO
+4902306,PSAL,20201018,,4,sensor problem,AO
+4902309,PSAL,20181007,,4,salinity drift,AO
+4902312,PSAL,20190327,,4,sensor problem,AO
+4902314,PSAL,20220707,,3,Slight drift,AO
+4902315,PSAL,20190625,,4,sensor problem,AO
+4902316,PSAL,20210515,,4,sensor problem,AO
+4902317,PSAL,20190812,,4,sensor problem,AO
+4902319,PSAL,20180630,,4,sensor problem,AO
+4902321,PSAL,20191210,,4,sensor problem,AO
+4902326,PSAL,20221125,,4,sensor problem;AO,AO
+4902330,PSAL,20181002,,4,sensor problem,AO
+4902333,PSAL,20201001,,4,sensor failure,AO
+4902334,PSAL,20210906,,4,sensor failure,AO
+4902343,PSAL,20230417,,4,salinity jump,AO
+4902345,PSAL,20200613,,4,sensor failure,AO
+4902346,PSAL,20160919,,3,pump failure,AO
+4902346,TEMP,20160919,,3,pump failure,AO
+4902348,PRES,20170611,,4,sensor problem,AO
+4902348,PSAL,20170611,,4,sensor problem,AO
+4902348,TEMP,20170611,,4,sensor problem,AO
+4902890,PSAL,20220222,,3,Slight drift,AO
+4902892,PSAL,20210726,,3,N/A,AO
+4902893,PSAL,20191011,,3,Salty profiles,AO
+4902895,PSAL,20190310,,4,sensor problem,AO
+4902896,PSAL,20180602,,4,salinity sensor drift,AO
+4902897,PSAL,20210423,,3,N/A,AO
+4902900,PSAL,20210315,,3,Slight drift,AO
+4902901,PSAL,20190107,,3,N/A,AO
+4902902,PSAL,20180709,,4,sensor drift,AO
+4902903,PSAL,20211229,,3,Drift,AO
+4902905,PSAL,20190727,,4,sensor problem,AO
+4902907,PSAL,20220819,,3,Slight drift,AO
+4902908,PSAL,20210305,,3,Drift,AO
+4902909,PSAL,20190811,,4,bad sensor,AO
+4902911,PSAL,20190815,,4,salinity drift,AO
+4902912,PSAL,20211104,,4,salinity drift,AO
+4902913,PSAL,20170423,,3,possible bad CTD pump,AO
+4902913,TEMP,20170423,,3,possible bad CTD pump,AO
+4902914,PSAL,20170820,,4,salinity drift,AO
+4902915,PRES,20171123,,4,sensor problems,AO
+4902915,PSAL,20171123,,4,sensor problems,AO
+4902915,TEMP,20171123,,4,sensor problems,AO
+4902916,PSAL,20210219,,4,sensor drift,AO
+4902920,PSAL,20191209,,4,sensor drift,AO
+4902947,PSAL,20221009,,3,Drift; jump ?,AO
+4902996,PSAL,20200618,,3,N/A,AO
+4902997,PSAL,20200527,,4,sensor problem,AO
+4902999,PSAL,20221009,,3,slight drift,AO
+4903000,PSAL,20200323,,4,sensor problem,AO
+4903008,PSAL,20190501,,4,sensor problem,AO
+4903011,PSAL,20210701,,4,sensor failure,AO
+4903012,PSAL,20200701,,4,sensor problem,AO
+4903014,PSAL,20221025,,4,sensor problem,AO
+4903015,PSAL,20201013,,4,sensor failure,AO
+4903017,PSAL,20200708,,4,sensor problem,AO
+4903018,PSAL,20201101,,4,sensor problem,AO
+4903019,PSAL,20210110,,4,sensor problem,AO
+4903020,PSAL,20200725,,4,sensor problem,AO
+4903021,PSAL,20211027,20220101,4,sensor problem,AO
+4903021,PSAL,20220101,,4,sensor failure,AO
+4903022,PSAL,20200320,,4,sensor problem,AO
+4903023,PSAL,20200320,,4,sensor problem,AO
+4903024,PSAL,20200810,,4,sensor problem,AO
+4903027,PSAL,20200109,,4,salinity drifter,AO
+4903028,PSAL,20200314,,4,sensor problem,AO
+4903028,TEMP,20200314,,3,sensor problem,AO
+4903030,PSAL,20191117,,3,salinity drift,AO
+4903031,PSAL,20200605,,4,sensor problem,AO
+4903032,PSAL,20200204,,4,sensor problem,AO
+4903033,PSAL,20190920,,4,Rapidly drifting,AO
+4903034,PSAL,20190804,,4,strong salt drifter,AO
+4903042,PSAL,20210721,,4,salinity drift,AO
+4903046,PRES,20200812,,4,CTD issues,AO
+4903046,PSAL,20200812,,4,CTD issues,AO
+4903046,TEMP,20200812,,4,CTD issues,AO
+4903048,PSAL,20200723,,4,sensor drift,AO
+4903055,PSAL,20200522,,4,salinity drift,AO
+4903056,PSAL,20210420,,4,jump in salinity,AO
+4903057,PSAL,20210109,,4,salinity drift,AO
+4903058,PSAL,20211120,,4,sensor drift,AO
+4903059,PSAL,20200702,,4,jump in salinity,AO
+4903171,PSAL,20200526,,4,sensor problem,AO
+4903172,PSAL,20200102,,4,sensor problem,AO
+4903173,PSAL,20191025,,3,salinity drift,AO
+4903174,PSAL,20191113,,4,sensor problem,AO
+4903175,PSAL,20190805,,4,sensor problem,AO
+4903176,PSAL,20200214,,4,sensor problem,AO
+4903177,PSAL,20190904,,4,sensor problem,AO
+4903178,PSAL,20210420,,3,Bad profiles PSAL but comes back to more correct profiles,AO
+4903180,PSAL,20210721,,3,Slight drift,AO
+4903181,PSAL,20190523,,4,sensor problem,AO
+4903182,PSAL,20200426,,4,sensor problem,AO
+4903184,PSAL,20191108,,3,Drift,AO
+4903185,PSAL,20200913,,4,sensor problem,AO
+4903186,PSAL,20190714,,4,sensor problem,AO
+4903188,PSAL,20200226,,3,N/A,AO
+4903194,PSAL,20210815,,3,N/A,AO
+4903196,PSAL,20221222,,3,ASD ?,AO
+4903197,PSAL,20200324,,4,sensor problem,AO
+4903198,PSAL,20210903,,3,Drift,AO
+4903202,PSAL,20200211,,3,Drift,AO
+4903204,PSAL,20220721,,3,Slight drift,AO
+4903210,PSAL,20220208,,3,Slight drift,AO
+4903215,PSAL,20190319,,4,sensor problem,AO
+4903217,PSAL,20220214,,4,salinity jump,AO
+4903231,PSAL,20210324,,4,jump in salinity,AO
+4903233,PSAL,20200701,,4,drifting conductivity sensor,AO
+4903237,PSAL,20210412,,4,sensor drift,AO
+4903247,PSAL,20200924,,4,salinity jump,AO
+4903249,PSAL,20210809,,4,salty drift,AO
+4903251,PSAL,20210504,,4,salty drift,AO
+4903262,PSAL,20210311,,4,sensor drift,AO
+4903263,PSAL,20210327,,4,salinity drift,AO
+4903275,PSAL,20201005,,3,global pilot of RBR CTD,AO
+4903278,PSAL,20220925,,4,salinity jump,AO
+4903281,PSAL,20200804,,4,sensor problem,AO
+4903282,PSAL,20210321,,3,Slight drift,AO
+4903283,PSAL,20200120,,4,sensor problem,AO
+4903285,PSAL,20220218,,3,Slight drift,AO
+4903288,PSAL,20211111,,3,Slight drift,AO
+4903293,PSAL,20200925,,3,Beginning of drift or jump ?,AO
+4903293,TEMP,20200925,,3,Beginning of drift or jump ?,AO
+4903344,PRES,20200608,,4,sensor problem,AO
+4903344,PSAL,20200608,,4,sensor problem,AO
+4903344,TEMP,20200608,,4,sensor problem,AO
+4903349,PSAL,20210423,,4,sensor problem,AO
+4903358,PSAL,20210921,,4,salinity jump,AO
+4903364,PSAL,20210809,,3,global pilot of RBR CTD,AO
+4903375,PSAL,20221009,,4,stuck profile,AO
+5900666,PSAL,20221125,,4,salty drift exceeds .05 psu; some version 2.1,AO
+5900668,PSAL,20221125,,4,salty drift exceeds .05 psu; some version 2.1,AO
+5900884,PSAL,20080803,,3,salinity fresh shift,AO
+5900893,PRES,20060808,,4,pressure sensor problem,AO
+5900893,PSAL,20060808,,3,pressure sensor problem,AO
+5900893,TEMP,20060808,,3,pressure sensor problem,AO
+5900944,PSAL,20140717,,4,sensor drift,AO
+5901014,PSAL,20130613,,3,salinity fresh shift,AO
+5901015,PSAL,20130521,,4,salty drifter,AO
+5901040,PSAL,20150212,,4,salty drifter,AO
+5901061,PRES,20140805,,4,sensor problem,AO
+5901061,PSAL,20140805,,4,sensor problem,AO
+5901061,TEMP,20140805,,4,sensor problem,AO
+5901091,PRES,20080225,,3,sensor problem,AO
+5901091,PSAL,20080225,,3,sensor problem,AO
+5901091,TEMP,20080225,,3,sensor problem,AO
+5901231,PSAL,20221125,,4,salty drift reaches .045 psu,AO
+5901303,PSAL,20190401,,4,salty drifter,AO
+5901389,PSAL,20190107,,4,salty drifter,AO
+5901393,PRES,20110730,,3,pressure sensor problem,AO
+5901393,PSAL,20110730,,3,pressure sensor problem,AO
+5901393,TEMP,20110730,,3,pressure sensor problem,AO
+5901431,PSAL,20080825,,3,sensor problem,AO
+5901434,PSAL,20140620,,4,salty drifter,AO
+5901810,PSAL,20170308,,4,salinity drift,AO
+5901866,PSAL,20170721,,4,salinity drift,AO
+5901886,PRES,20130116,,3,microleak problem,AO
+5901886,PSAL,20130116,,3,microleak problem,AO
+5901886,TEMP,20130116,,3,microleak problem,AO
+5901894,PSAL,20141022,,3,salinity drift,AO
+5901896,PRES,20100301,,3,Druck oil microleak,AO
+5901896,PSAL,20100301,,4,Druck oil microleak,AO
+5901896,TEMP,20100301,,3,Druck oil microleak,AO
+5901898,PRES,20110723,,4,oil microleak,AO
+5901898,PSAL,20110723,,4,oil microleak,AO
+5901898,TEMP,20110723,,4,oil microleak,AO
+5902082,PRES,20130128,,3,microleak problem,AO
+5902082,PSAL,20130128,,3,microleak problem,AO
+5902082,TEMP,20130128,,3,microleak problem,AO
+5902092,PRES,20140714,,3,sensor problem,AO
+5902092,PSAL,20140714,,3,sensor problem,AO
+5902092,TEMP,20140714,,3,sensor problem,AO
+5902133,PRES,20161212,,3,sensor problem,AO
+5902133,PSAL,20161212,,3,sensor problem,AO
+5902133,TEMP,20161212,,3,sensor problem,AO
+5902215,PRES,20140622,,3,pressure microleak; no snowflake as of profile 193,AO
+5902215,PSAL,20140622,,3,pressure microleak; no snowflake as of profile 193,AO
+5902215,TEMP,20140622,,3,pressure microleak; no snowflake as of profile 193,AO
+5902216,PRES,20111101,,3,pressure microleak; snowflake starting 06-08-2012,AO
+5902216,PSAL,20111101,,3,pressure microleak; snowflake starting 06-08-2012,AO
+5902216,TEMP,20111101,,3,pressure microleak; snowflake starting 06-08-2012,AO
+5902220,PSAL,20221027,,4,salty drift exceeds .05 psu,AO
+5902234,PRES,20140630,,3,pressure microleak; no snowflake as of profile 189,AO
+5902234,PSAL,20140630,,3,pressure microleak; no snowflake as of profile 189,AO
+5902234,TEMP,20140630,,3,pressure microleak; no snowflake as of profile 189,AO
+5902239,PSAL,20100720,,3,salinity problem,AO
+5902245,PSAL,20130902,,3,salinity fresh shift,AO
+5902364,PSAL,20161027,,4,sensor problem,AO
+5902369,PSAL,20141126,,3,sensor problem,AO
+5902391,PSAL,20150915,,4,noisy data,AO
+5902395,PSAL,20220210,,4,sensor failure,AO
+5902396,PSAL,20180820,,4,sensor problem,AO
+5902399,PSAL,20191201,,4,sensor problem,AO
+5902400,PSAL,20190920,,4,sensor problem,AO
+5902402,PSAL,20150923,20190403,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5902402,PSAL,20190403,,4,sensor problem,AO
+5902403,PSAL,20180715,,4,sensor problem,AO
+5902404,PSAL,20180804,,4,sensor problem,AO
+5902406,PSAL,20161026,,4,sensor problem,AO
+5902407,PSAL,20161006,,4,sensor problem,AO
+5902414,PSAL,20190102,,4,sensor problem,AO
+5902416,PSAL,20200615,,4,sensor problem,AO
+5902419,PSAL,20151013,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5902420,PSAL,20151014,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5902421,PSAL,20151015,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5902422,PSAL,20151017,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5902424,PSAL,20151021,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5902428,PSAL,20151024,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5902429,PSAL,20151025,20200101,2,maybe poor sensor performance; reason SBE sensor serial# in 6000-7100,AO
+5902429,PSAL,20200101,,4,sensor problem,AO
+5902430,PSAL,20190901,,4,sensor problem,AO
+5902431,PSAL,20151027,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5902432,PSAL,20151027,20190911,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5902432,PSAL,20190911,,4,sensor problem,AO
+5902434,PSAL,20151029,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5902435,PSAL,20151029,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5902439,PSAL,20210110,,4,sensor problems,AO
+5902444,PSAL,20200105,,4,sensor problem,AO
+5902445,PSAL,20171022,,4,sensor problem,AO
+5902448,PSAL,20180219,,4,sensor problem,AO
+5902449,PSAL,20160917,,3,sensor failure,AO
+5902453,PSAL,20220201,,4,sensor failure,AO
+5902465,PSAL,20220101,,4,sensor failure,AO
+5902468,PSAL,20190303,20191201,3,salinity drift,AO
+5902468,PSAL,20191201,,4,sensor problem,AO
+5902470,PSAL,20230101,,4,sensor problems,AO
+5902473,PSAL,20201101,,4,sensor failure,AO
+5902480,PSAL,20220901,,4,sensor problem,AO
+5902480,TEMP,20220901,,4,sensor problem,AO
+5902482,PSAL,20190323,,4,sensor failure,AO
+5902488,PSAL,20190818,,4,sensor problem,AO
+5902489,PSAL,20180407,20190101,3,sensor drift,AO
+5902489,PSAL,20190101,,4,sensor problem,AO
+5902490,PSAL,20180408,,4,sensor problem,AO
+5902491,PSAL,20190704,,4,sensor problem,AO
+5902492,PSAL,20230101,,4,sensor problem;AO,AO
+5902493,PSAL,20230101,,4,sensor problem;AO,AO
+5902511,PSAL,20200608,,4,sensor problem,AO
+5902512,PSAL,20200620,,4,sensor problem,AO
+5902513,PSAL,20200608,,4,sensor problem,AO
+5902515,PSAL,20181114,,4,sensor problem,AO
+5902516,PSAL,20181204,20200819,4,sensor problem,AO
+5902516,PSAL,20200820,,4,sensor problem,AO
+5902516,TEMP,20200820,,4,sensor problem,AO
+5902517,PSAL,20190104,,4,sensor problem,AO
+5902519,PSAL,20200901,,4,sensor problems,AO
+5902524,PSAL,20180815,,4,sensor problem,AO
+5902526,PSAL,20200701,,4,sensor problem,AO
+5903292,PSAL,20120304,,4,sensor failure,AO
+5903347,PRES,20170919,,3,sensor problem,AO
+5903347,PSAL,20170919,,3,sensor problem,AO
+5903347,TEMP,20170919,,3,sensor problem,AO
+5903390,PSAL,20151203,,4,sensor problem,AO
+5903429,PSAL,20150115,,3,sensor problem,AO
+5903431,PRES,20120810,,3,sensor problem,AO
+5903431,PSAL,20120810,,3,sensor problem,AO
+5903431,TEMP,20120810,,3,sensor problem,AO
+5903436,PRES,20110927,,3,sensor problem,AO
+5903436,PSAL,20110927,,3,sensor problem,AO
+5903436,TEMP,20110927,,3,sensor problem,AO
+5903466,PSAL,20221018,,4,dead/done; salty drift nearly .05,AO
+5903563,PSAL,20221018,,4,salty drift nearly .05,AO
+5903573,PSAL,20131106,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5903583,PSAL,20150120,,3,sensor problem,AO
+5903598,PRES,20171125,,4,sensor problem,AO
+5903598,PSAL,20171125,,4,sensor problem,AO
+5903598,TEMP,20171125,,4,sensor problem,AO
+5903710,PSAL,20131109,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5903712,PSAL,20121231,,3,sensor problem,AO
+5903725,PSAL,20131108,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5903728,PSAL,20131107,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5903731,PSAL,20131109,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5903806,PSAL,20200216,,3,Salty profiles,AO
+5903807,PSAL,20210416,,3,Drift,AO
+5903821,PSAL,20200707,,3,sensor problem,AO
+5903822,PSAL,20220422,,4,salty drift exceeds .05,AO
+5903826,PSAL,20220422,,4,salty drift exceeds .05,AO
+5903862,PSAL,20221209,,4,salty drift reaches .05 psu,AO
+5903872,PSAL,20130621,,3,salinity fresh shift,AO
+5903974,PRES,20131125,,4,sensor problem,AO
+5903974,PSAL,20131125,,4,sensor problem,AO
+5903974,TEMP,20131125,,4,sensor problem,AO
+5903975,PRES,20141005,,4,sensor problem,AO
+5903975,PSAL,20141005,,4,sensor problem,AO
+5903975,TEMP,20141005,,4,sensor problem,AO
+5903976,PRES,20180111,,4,sensor problem,AO
+5903976,PSAL,20180111,,4,sensor problem,AO
+5903976,TEMP,20180111,,4,sensor problem,AO
+5903978,PRES,20140622,,3,sensor problem,AO
+5903978,PSAL,20140622,,3,sensor problem,AO
+5903978,TEMP,20140622,,3,sensor problem,AO
+5903980,PRES,20140112,,4,sensor problem,AO
+5903980,PSAL,20140112,,4,sensor problem,AO
+5903980,TEMP,20140112,,4,sensor problem,AO
+5903981,PSAL,20121203,,4,salinity sensor problem,AO
+5903982,PRES,20131016,20201110,3,sensor problems,AO
+5903982,PSAL,20131016,20201110,3,sensor problems,AO
+5903982,PSAL,20201110,,4,sensor problems,AO
+5903982,TEMP,20131016,20201110,3,sensor problems,AO
+5903985,PRES,20131219,,4,sensor problem,AO
+5903985,PSAL,20131219,,4,sensor problem,AO
+5903985,TEMP,20131219,,4,sensor problem,AO
+5903987,PRES,20131010,,3,sensor problem,AO
+5903987,PSAL,20131010,,3,sensor problem,AO
+5903987,TEMP,20131010,,3,sensor problem,AO
+5903989,PSAL,20201117,,4,sensor problems,AO
+5903992,PRES,20141023,,4,sensor problem,AO
+5903992,PSAL,20141023,,4,sensor problem,AO
+5903992,TEMP,20141023,,4,sensor problem,AO
+5904001,PSAL,20130526,,4,salinity sensor problem,AO
+5904049,PSAL,20131001,,4,sensor problem,AO
+5904049,TEMP,20131001,,4,sensor problem,AO
+5904056,PSAL,20220906,,3,Strange profile; drift ? Or bad profile ?,AO
+5904068,PSAL,20121228,,4,sensor problem,AO
+5904068,TEMP,20121228,,4,sensor problem,AO
+5904122,PSAL,20131106,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904128,PSAL,20130715,,3,salinity sensor problem,AO
+5904130,PSAL,20150110,,3,sensor problem,AO
+5904143,PRES,20150117,,3,sensor problems,AO
+5904143,PSAL,20150117,,3,sensor problems,AO
+5904143,TEMP,20150117,,3,sensor problems,AO
+5904155,PSAL,20160604,,3,sensor problem,AO
+5904175,PSAL,20140210,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904176,PSAL,20140211,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904186,PSAL,20190510,,4,sensor drift,AO
+5904196,PRES,20150303,,4,sensor problem,AO
+5904196,PSAL,20150303,,4,sensor problem,AO
+5904196,TEMP,20150303,,4,sensor problem,AO
+5904198,PSAL,20210318,,4,sensor problem,AO
+5904198,TEMP,20210318,,4,sensor problem,AO
+5904203,PSAL,20131009,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904204,PSAL,20131008,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904206,PSAL,20140405,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904207,PSAL,20131011,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904292,PSAL,20160317,,4,strong salinity drift,AO
+5904325,PSAL,20131009,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904326,PSAL,20131009,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904327,PSAL,20131009,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904328,PSAL,20131008,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904329,PSAL,20131011,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904357,PSAL,20200709,,4,sensor problem,AO
+5904380,PSAL,20180719,,4,salinity drift,AO
+5904392,PRES,20160618,,4,frozen profile due to low voltage,AO
+5904392,PSAL,20160618,,4,frozen profile due to low voltage,AO
+5904392,TEMP,20160618,,4,frozen profile due to low voltage,AO
+5904399,PSAL,20140710,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904400,PSAL,20140816,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904401,PSAL,20140812,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904402,PSAL,20140815,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904403,PSAL,20140715,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904404,PSAL,20140713,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904405,PRES,20150115,,4,sensor problem,AO
+5904405,PSAL,20150115,,4,sensor problem,AO
+5904405,TEMP,20150115,,4,sensor problem,AO
+5904407,PRES,20150111,,3,sensor problem,AO
+5904407,PSAL,20150111,,3,sensor problem,AO
+5904407,TEMP,20150111,,3,sensor problem,AO
+5904409,PSAL,20140814,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904410,PSAL,20141117,,3,sensor problem,AO
+5904412,PSAL,20141128,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904414,PSAL,20141026,,3,sensor problem,AO
+5904416,PSAL,20141126,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904422,PSAL,20141017,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904424,PSAL,20141125,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904425,PSAL,20141124,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904426,PSAL,20141203,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904427,PSAL,20141113,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904428,PSAL,20141123,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904429,PSAL,20141024,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904430,PSAL,20141125,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904431,PSAL,20141117,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904433,PSAL,20141204,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904434,PSAL,20150131,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904435,PSAL,20141130,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904436,PSAL,20141202,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904437,PSAL,20141018,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904438,PSAL,20141205,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904439,PSAL,20141206,,4,sensor problem,AO
+5904440,PSAL,20141028,,3,salinity drift,AO
+5904441,PSAL,20141015,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904442,PSAL,20141016,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904443,PSAL,20141027,,4,sensor problem,AO
+5904444,PSAL,20141120,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904445,PSAL,20141031,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904446,PSAL,20141013,20180906,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904446,PSAL,20180906,,3,sensor problem,AO
+5904447,PSAL,20170823,,4,sensor problem,AO
+5904448,PSAL,20141115,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904449,PRES,20180420,,4,sensor problem,AO
+5904449,PSAL,20180420,,4,sensor problem,AO
+5904449,TEMP,20180420,,4,sensor problem,AO
+5904450,PSAL,20141023,,3,sensor problem,AO
+5904451,PSAL,20151002,,3,salinity drift,AO
+5904452,PSAL,20141017,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904453,PSAL,20141023,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904454,PRES,20141104,,3,sensor problem,AO
+5904454,PSAL,20141104,,3,sensor problem,AO
+5904454,TEMP,20141104,,3,sensor problem,AO
+5904455,PSAL,20141101,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904456,PRES,20141102,,4,sensor problem,AO
+5904456,PSAL,20141102,,4,sensor problem,AO
+5904456,TEMP,20141102,,4,sensor problem,AO
+5904457,PSAL,20141103,,3,sensor problem,AO
+5904466,PSAL,20141031,,3,sensor problem,AO
+5904467,PSAL,20190506,,3,sensor drift,AO
+5904468,PSAL,20190514,,4,sensor drift,AO
+5904469,PSAL,20190518,,3,sensor drift,AO
+5904485,PSAL,20181003,,4,sensor problem,AO
+5904485,TEMP,20181003,,4,sensor problem,AO
+5904489,PSAL,20150203,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904490,PSAL,20150204,20201210,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904490,PSAL,20201210,,4,bad & unadjustable,AO
+5904491,PSAL,20150205,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904492,PSAL,20150129,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904510,PSAL,20201120,,4,sensor problem,AO
+5904536,PSAL,20191002,,4,sensor problem,AO
+5904543,PSAL,20200525,,3,Gap or drift starting ?,AO
+5904551,PSAL,20160724,,4,sensor drift,AO
+5904568,PSAL,20170414,,4,sensor drift,AO
+5904586,PSAL,20190507,,3,sensor drift,AO
+5904587,PSAL,20191224,,3,salinity drift,AO
+5904591,PSAL,20171107,,4,salinity drift,AO
+5904603,PSAL,20150428,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904604,PSAL,20150429,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904609,PSAL,20220611,,4,limit of adjustability exceeded,AO
+5904610,PSAL,20151031,20200516,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904610,PSAL,20200516,,3,necessary calibrations approaching allowable limit,AO
+5904622,PSAL,20160818,20180520,4,sensor problem,AO
+5904622,PSAL,20180520,,4,obvious sensor drift,AO
+5904624,PSAL,20151026,20191121,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904624,PSAL,20191121,,4,obvious sensor drift,AO
+5904626,PSAL,20210731,,4,salinity error becomes non-linear; possibly cell failure,AO
+5904627,PSAL,20210414,,4,adjustment threshhold of 0.05 exceeded,AO
+5904628,PSAL,20200510,20230201,3,necessary calibrations approaching allowable limit,AO
+5904628,PSAL,20230202,,4,Conductivity cell failure,AO
+5904629,PSAL,20200504,,3,necessary calibrations approaching allowable limit,AO
+5904632,PSAL,20151019,20190718,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904632,PSAL,20190718,,4,severe sensor drift,AO
+5904633,PSAL,20201112,,4,sensor problem,AO
+5904634,PSAL,20151021,20200305,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904634,PSAL,20200305,20220522,4,severe sensor drift,AO
+5904634,PSAL,20220522,,3,unadjustable,AO
+5904638,PSAL,20200309,,4,sensor problem,AO
+5904639,PSAL,20191212,,4,severe sensor drift,AO
+5904644,PSAL,20150826,20200519,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904644,PSAL,20200519,20211220,3,necessary calibrations approaching allowable limit,AO
+5904644,PSAL,20211220,,4,PSAL adjustment threshhold of 0.05 exceeded,AO
+5904647,PSAL,20150826,20200209,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904647,PSAL,20190209,,4,obvious sensor drift,AO
+5904649,PSAL,20150820,20200307,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904649,PSAL,20200307,,4,bad & unadjustable,AO
+5904650,PSAL,20151030,20220903,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904650,PSAL,20220903,,4,threshold for adjustability has been exceeded,AO
+5904651,PSAL,20151030,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904652,PSAL,20151102,20181125,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904652,PSAL,20181125,,4,severe sensor drift,AO
+5904653,PSAL,20151101,20190103,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904653,PSAL,20190103,,4,severe sensor drift,AO
+5904654,PSAL,20151029,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904657,PSAL,20160109,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904658,PSAL,20160108,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904659,PSAL,20160107,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904660,PSAL,20190514,,4,sensor drift,AO
+5904661,PSAL,20151228,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904662,PSAL,20160416,,3,sensor problem,AO
+5904663,PSAL,20190513,,3,sensor drift,AO
+5904664,PSAL,20160105,20170912,3,sensor problem,AO
+5904664,PSAL,20170912,,4,apparent sensor failure,AO
+5904665,PSAL,20160102,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904666,PSAL,20151230,20180729,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904666,PSAL,20180729,,4,drift exceeds maximum allowed for adjustment,AO
+5904667,PSAL,20151228,20170422,3,sensor problem,AO
+5904667,PSAL,20170422,,4,sensor failure,AO
+5904669,PSAL,20151223,20191109,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904669,PSAL,20191109,,4,sensor drift,AO
+5904670,PSAL,20160123,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904671,PSAL,20160215,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904674,PSAL,20190520,,4,sensor drift,AO
+5904676,PSAL,20160117,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904677,PSAL,20190526,,4,sensor drift,AO
+5904678,PSAL,20190515,,3,sensor drift,AO
+5904682,PSAL,20160301,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904683,PSAL,20160303,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904684,PSAL,20160228,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904685,PSAL,20170108,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904686,PSAL,20160224,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904688,PSAL,20160305,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904689,PSAL,20160325,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904690,PSAL,20160327,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904692,PSAL,20160402,20170801,3,sensor problem,AO
+5904692,PSAL,20170801,,4,sensor failure,AO
+5904701,PSAL,20160811,,3,sensor drift,AO
+5904702,PSAL,20180217,,4,salinity drift,AO
+5904707,PSAL,20210912,,3,Slight Drift,AO
+5904708,PSAL,20170224,,4,sensor drift,AO
+5904711,PSAL,20180602,,4,salinity drift,AO
+5904712,PSAL,20170316,,4,sensor problem,AO
+5904713,PSAL,20180116,,4,salinity drift,AO
+5904715,PSAL,20180718,,4,sensor problem,AO
+5904717,PSAL,20180104,,3,salinity sensor drift,AO
+5904718,PSAL,20180606,,3,salinity sensor drift,AO
+5904719,PSAL,20170917,,4,salinity drift,AO
+5904736,PSAL,20200615,,4,sensor problem,AO
+5904738,PSAL,20191229,,3,Saltier surrounding profiles,AO
+5904739,PSAL,20190326,,3,N/A,AO
+5904740,PSAL,20200525,,4,sensor problem,AO
+5904741,PSAL,20191212,,4,strong salty drifter,AO
+5904746,PSAL,20160428,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904747,PSAL,20160428,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904748,PSAL,20150909,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904749,PSAL,20160529,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904750,PSAL,20170623,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904751,PSAL,20150622,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904752,PSAL,20150622,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904753,PSAL,20150623,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904754,PSAL,20150623,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904755,PSAL,20150623,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904756,PSAL,20150622,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904757,PSAL,20150707,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904758,PSAL,20150708,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904759,PSAL,20150708,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904763,PSAL,20190517,,3,sensor drift,AO
+5904769,PSAL,20160531,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904770,PSAL,20160529,,3,sensor drift,AO
+5904771,PSAL,20160521,20220308,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904771,PSAL,20220308,,4,bad & unadjustable,AO
+5904772,PSAL,20160519,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904773,PSAL,20180304,,4,salinity sensor drift,AO
+5904774,PSAL,20160528,20190221,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904774,PSAL,20190221,,4,severe sensor drift,AO
+5904777,PSAL,20160903,,3,salinity drift,AO
+5904778,PSAL,20210624,,4,likely cndc cell failure,AO
+5904780,PSAL,20180829,,4,sensor problem,AO
+5904781,PSAL,20200509,,4,sensor malfunction,AO
+5904782,PSAL,20220906,,4,bad & unadjustable,AO
+5904785,PSAL,20190214,,4,sensor malfunction,AO
+5904787,PSAL,20170118,20220108,3,sensor problem,AO
+5904787,PSAL,20220109,,4,apparent sensor failure,AO
+5904790,PSAL,20210418,20210508,3,PSAL approaching limit of adjustment,AO
+5904790,PSAL,20210508,,4,PSAL approaching limit of adjustment,AO
+5904792,PSAL,20160926,20220511,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904792,PSAL,20220512,,4,threshold of acceptable adjustment exceeded,AO
+5904793,PSAL,20160925,20190527,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904793,PSAL,20190527,,4,sensor sensor drift,AO
+5904794,PSAL,20161002,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904795,PSAL,20160930,20201014,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904795,PSAL,20201014,,4,Exceeded adjustable limits,AO
+5904796,PSAL,20170607,,4,sensor drift,AO
+5904797,PSAL,20160927,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904798,PSAL,20160927,20210530,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904798,PSAL,20210530,,4,exceeds limit of adjustability,AO
+5904799,PSAL,20160923,20191003,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904799,PSAL,20191003,,4,exceeded adjustable limits,AO
+5904807,PSAL,20230511,,4,PSAL has exceeded acceptable limits of adjustmen,AO
+5904810,PSAL,20210714,,4,cndc cell failure,AO
+5904812,PSAL,20210405,,4,unadjustable,AO
+5904812,PSAL,20210415,,4,apparent sensor malfunction,AO
+5904813,PSAL,20230108,,4,apparent and abrupt conductivity cell failure,AO
+5904814,PSAL,20211208,,4,exceeds the limit of adjustablity,AO
+5904816,PSAL,20220611,,4,bad & unadjustable,AO
+5904818,PSAL,20180602,,4,sensor problem,AO
+5904823,PSAL,20190129,20190428,3,salinity drift,AO
+5904823,PSAL,20190428,,4,sensor malfunction,AO
+5904825,PSAL,20220511,20220818,4,bad & unadjustable,AO
+5904825,PSAL,20220818,,3,Slight drift ?,AO
+5904826,PSAL,20190405,20190604,3,salinity drift,AO
+5904826,PSAL,20190604,,4,sensor failure,AO
+5904828,PSAL,20200804,,4,sensor malfunction,AO
+5904830,PSAL,20180208,,4,sensor problem,AO
+5904831,PSAL,20190413,20190622,3,salinity drift,AO
+5904831,PSAL,20190622,,4,sensor failure,AO
+5904832,PSAL,20210518,,4,exceeds limit of adjustability,AO
+5904833,PSAL,20211006,,4,conductivity cell failure,AO
+5904835,PSAL,20200504,,4,sudden and extreme drift,AO
+5904842,PSAL,20170115,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904843,PSAL,20170106,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904846,PSAL,20210926,,4,apparent sensor malfunction,AO
+5904861,PSAL,20210424,,3,sensor drift,AO
+5904862,PSAL,20180529,,4,sensor problem,AO
+5904863,PSAL,20200712,,3,sensor drift,AO
+5904864,PSAL,20210919,,3,Slight drift,AO
+5904867,PSAL,20221017,,3,Slight drift,AO
+5904868,PSAL,20180910,,4,salinity drift,AO
+5904943,PSAL,20181022,,4,salinity drift,AO
+5904948,PSAL,20181103,,3,Jump; drift ?,AO
+5904950,PSAL,20160308,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904951,PSAL,20160308,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904952,PSAL,20160308,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904953,PSAL,20160308,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904954,PSAL,20160308,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5904974,PSAL,20210604,,3,Slight drift,AO
+5904987,PSAL,20230108,,3,Incorrect profile compared to the entire time series,AO
+5905066,PSAL,20190929,,4,sensor malfunction,AO
+5905068,PSAL,20180414,,4,salinity drift,AO
+5905077,PSAL,20190613,,4,sensor drift,AO
+5905082,PSAL,20170303,20180527,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905082,PSAL,20180527,,4,request by D-mode operator,AO
+5905083,PSAL,20170304,20210227,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905083,PSAL,20210227,,4,PSAL had exceeded adjustable limits,AO
+5905084,PSAL,20170304,20180528,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905084,PSAL,20180528,,4,request by D-mode operator,AO
+5905085,PSAL,20170304,20180717,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905085,PSAL,20180717,,4,request by D-mode operator,AO
+5905086,PSAL,20170305,20180224,3,sensor drift,AO
+5905086,PSAL,20180224,,4,request by D-mode operator,AO
+5905087,PSAL,20170305,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905088,PSAL,20170305,20180419,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905088,PSAL,20180419,,4,request by D-mode operator,AO
+5905089,PSAL,20170305,20171220,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905089,PSAL,20171220,,4,request by D-mode operator,AO
+5905090,PSAL,20170305,20181125,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905090,PSAL,20181125,,4,request by D-mode operator,AO
+5905096,PSAL,20200609,,3,potential abrupt salty drift,AO
+5905098,PSAL,20190706,,4,abrupt salty drift,AO
+5905106,PSAL,20201214,,4,sensor failure,AO
+5905108,PSAL,20181111,,4,salinity drift,AO
+5905109,PSAL,20170910,20220803,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905109,PSAL,20220803,,4,PSAL adjustment has exceeded acceptable threshold,AO
+5905114,PSAL,20220517,,3,unadjustable,AO
+5905115,PSAL,20190915,20190925,3,salinity drift,AO
+5905115,PSAL,20190925,,4,sudden and extreme drift,AO
+5905116,PSAL,20210301,,4,sensor failure,AO
+5905126,PSAL,20170922,20190414,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905126,PSAL,20190414,,4,salinity drift,AO
+5905149,PSAL,20171013,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905150,PSAL,20200923,,4,sensor problem,AO
+5905151,PSAL,20171125,,4,sensor drift,AO
+5905156,PSAL,20210320,,4,PSAL had exceeded adjustable limits,AO
+5905162,PSAL,20230615,,4,sensor failure,AO
+5905236,PSAL,20230515,,4,sensor contamination,AO
+5905242,PSAL,20230101,,4,sensor problems,AO
+5905244,PSAL,20221220,,4,sensor failure,AO
+5905245,PSAL,20200320,,4,sensor failure,AO
+5905246,PSAL,20210225,,4,sensor failure,AO
+5905247,PSAL,20190830,,4,sensor problem,AO
+5905254,PRES,20201218,,4,presumed sensor problem,AO
+5905254,PSAL,20201218,,4,presumed sensor problem,AO
+5905254,TEMP,20201218,,4,presumed sensor problem,AO
+5905255,PRES,20180204,,4,sensor problem,AO
+5905255,PSAL,20180204,,4,sensor problem,AO
+5905255,TEMP,20180204,,4,sensor problem,AO
+5905258,PSAL,20220901,,4,sensor problem,AO
+5905260,PSAL,20211125,,4,sensor failure,AO
+5905273,PSAL,20211101,,4,sensor problems,AO
+5905273,TEMP,20221115,,4,sensor problems,AO
+5905288,PSAL,20191129,,4,sensor problem,AO
+5905306,PSAL,20171027,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905307,PSAL,20171027,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905317,PSAL,20210527,,4,conductivity cell failure,AO
+5905320,PSAL,20191119,,4,sensor failure,AO
+5905320,TEMP,20191119,,4,sensor failure,AO
+5905324,PSAL,20200204,,4,bad & unadjustable PSAL,AO
+5905347,PSAL,20211224,,4,CNDC cell failure,AO
+5905351,PSAL,20230130,,3,Slight drift,AO
+5905352,PSAL,20171003,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905353,PSAL,20171030,20190413,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905353,PSAL,20190413,,4,salinity drift,AO
+5905354,PSAL,20180908,,4,sensor problem,AO
+5905356,PSAL,20171211,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+5905357,PSAL,20190416,,4,salinity drift,AO
+5905362,PSAL,20200429,20220419,4,apparent sensor failure,AO
+5905362,PSAL,20220419,,4,unadjustable,AO
+5905365,PSAL,20210205,,4,sensor malfunction,AO
+5905379,PSAL,20190601,,4,sensor drift,AO
+5905667,PSAL,20220820,,3,Slight drift,AO
+5905669,PSAL,20201118,,4,strong salty drifter,AO
+5905674,PSAL,20210109,,4,strong salty drifter,AO
+5905676,PSAL,20200302,,4,sensor problem,AO
+5905682,PSAL,20200315,,4,sensor problem,AO
+5905683,PSAL,20200710,,4,sensor problem,AO
+5905684,PSAL,20200526,,4,sensor problem,AO
+5905687,PSAL,20210401,,4,sensor failure,AO
+5905688,PSAL,20200501,,4,sensor problem,AO
+5905689,PSAL,20210301,,4,sensor problem; AO,AO
+5905691,PSAL,20191210,,4,sensor problem,AO
+5905693,PSAL,20220310,,4,sensor problem,AO
+5905696,PSAL,20191101,,4,sensor problems,AO
+5905697,PSAL,20200610,,4,sensor problem,AO
+5905698,PSAL,20201101,,4,sensor problems,AO
+5905699,PSAL,20211015,,4,sensor failure,AO
+5905700,PSAL,20200101,,4,sensor problem,AO
+5905701,PSAL,20220501,,4,sensor failure;AO,AO
+5905702,PSAL,20210420,,4,sensor failure,AO
+5905703,PSAL,20200301,,4,sensor problem,AO
+5905707,PSAL,20210131,,4,sensor problem,AO
+5905708,PSAL,20221101,,2,anomalous salty offset,AO
+5905710,PRES,20190130,,3,sensor issue,AO
+5905710,PSAL,20190130,,3,sensor issue,AO
+5905710,TEMP,20190130,,3,sensor issue,AO
+5905711,PSAL,20211201,,4,sensor failure,AO
+5905715,PSAL,20221020,,4,sensor contamination,AO
+5905720,PSAL,20190803,,4,sensor failure,AO
+5905721,PSAL,20200527,,4,sensor problem,AO
+5905724,PSAL,20230325,,4,sensor failure,AO
+5905727,PSAL,20220113,,3,Bad profiles,AO
+5905730,PSAL,20191210,,3,N/A,AO
+5905732,PSAL,20190511,,4,salty drifter,AO
+5905733,PSAL,20210217,,3,Slight drift is starting,AO
+5905736,PSAL,20190503,,4,sensor problem,AO
+5905742,PSAL,20220914,,3,Drift ? Small jump ?,AO
+5905743,PSAL,20191007,,3,sensor problem,AO
+5905744,PSAL,20190401,,4,sensor problem,AO
+5905748,PSAL,20210331,,4,strong fresh drifter,AO
+5905757,PSAL,20191001,,4,sensor problem,AO
+5905758,PSAL,20210818,,4,sensor problem,AO
+5905763,PSAL,20221001,,4,sensor failure,AO
+5905765,PSAL,20230201,,4,sensor failure,AO
+5905767,PSAL,20210101,,4,sensor failure,AO
+5905768,PSAL,20210501,,4,sensor failure,AO
+5905770,PSAL,20211115,,4,sensor problems,AO
+5905772,PSAL,20220101,,4,sensor failure,AO
+5905778,PSAL,20210901,,4,sensor failure,AO
+5905779,PSAL,20220701,,4,sensor problems,AO
+5905780,PSAL,20210923,,4,sensor failure,AO
+5905786,PSAL,20201001,,4,sensor problem,AO
+5905787,PSAL,20220501,,4,sensor failure,AO
+5905788,PSAL,20201210,,4,sensor failure,AO
+5905789,PSAL,20221101,,4,sensor failure,AO
+5905790,PSAL,20200109,,4,sensor problem,AO
+5905791,PSAL,20210301,,4,sensor problem,AO
+5905792,PSAL,20210701,,4,sensor problem,AO
+5905793,PSAL,20221010,,4,sensor problem,AO
+5905794,PSAL,20210625,,4,sensor failure,AO
+5905796,PSAL,20210418,,4,sensor failure,AO
+5905967,PSAL,20200801,,4,unadjustable,AO
+5905975,PSAL,20201123,,4,sensor malfunction,AO
+5905984,PSAL,20190610,,4,sensor drift,AO
+5905988,PSAL,20210624,,3,Drift - float seems come back in the table,AO
+5906012,PSAL,20210916,,4,conductivity cell failure,AO
+5906014,PSAL,20221215,,4,sensor problem,AO
+5906016,PSAL,20211221,,4,limit of adjustability exceeded,AO
+5906036,PSAL,20190915,20220610,4,sensor problem,AO
+5906036,PSAL,20220610,,4,other salinity issue,AO
+5906051,PSAL,20191219,20210321,4,sensor malfunction,AO
+5906051,PSAL,20210322,,4,exceeded adjustable limit,AO
+5906051,TEMP,20210322,,4,exceeded adjustable limit,AO
+5906095,PSAL,20200425,,3,sensor problem,AO
+5906096,PSAL,20220723,,3,Drift,AO
+5906098,PSAL,20200215,,3,Very fresh first cycles,AO
+5906101,PSAL,20221205,,3,Drift,AO
+5906104,PSAL,20200610,,4,sensor problem,AO
+5906109,PSAL,20200326,,4,sensor problem,AO
+5906109,TEMP,20200326,,4,sensor problem,AO
+5906115,PSAL,20221201,20221217,4,sensor failure,AO
+5906115,PSAL,20221218,,4,bad salinity,AO
+5906155,PSAL,20230123,,3,Jump with drift ? ASD ?,AO
+5906157,PSAL,20210505,,3,Slight drift,AO
+5906159,PSAL,20200428,,3,salty drift,AO
+5906170,PSAL,20201230,,3,sensor problem,AO
+5906174,PSAL,20200330,,3,Bias of salinity for 2 first cycles,AO
+5906188,PSAL,20220131,,3,Beginning of slight drift ?,AO
+5906200,PSAL,20191219,,3,possible sensor malfunction,AO
+5906203,PSAL,20230301,,4,possible conductivity cell failure,AO
+5906204,PSAL,20220131,,4,Conductivity cell failure,AO
+5906217,PSAL,20201101,,4,sensor failure,AO
+5906223,PSAL,20201204,,4,presumed sensor failure,AO
+5906232,PSAL,20220322,,4,PSAL error exceeds threshhold of adjustment,AO
+5906237,PSAL,20220321,,3,apparent fresh drift; could indicate start of sensor failure,AO
+5906252,PSAL,20200922,,4,sensor malfunction,AO
+5906257,PSAL,20220406,,4,unadjustable,AO
+5906257,PSAL,20220416,,4,apparent sensor failure,AO
+5906274,PSAL,20211130,,4,apparent conductivity cell failure,AO
+5906298,PSAL,20200815,20221020,3,global pilot of RBR CTD,AO
+5906298,PSAL,20221021,,4,apparent conductivity cell failure,AO
+5906299,PSAL,20201121,,4,global pilot of RBR CTD and salinity sensor failure,AO
+5906325,PRES,20211209,,4,complete sensor failure,AO
+5906325,PSAL,20211209,20211209,4,sensor failure,AO
+5906325,PSAL,20211209,,4,complete sensor failure,AO
+5906325,TEMP,20211209,20211209,4,sensor failure,AO
+5906325,TEMP,20211209,,4,complete sensor failure,AO
+5906383,PRES,20220605,,4,sensor failure; AO,AO
+5906383,PSAL,20201110,20220605,3,global pilot of RBR CTD,AO
+5906383,PSAL,20220605,,4,sensor failure; AO,AO
+5906383,TEMP,20220605,,4,sensor failure; AO,AO
+5906394,PSAL,20230625,,3,sensor contamination,AO
+5906418,PRES,20210801,,4,sensor failure,AO
+5906418,PSAL,20210801,,4,sensor failure,AO
+5906418,TEMP,20210801,,4,sensor failure,AO
+5906425,PSAL,20220901,,4,sensor problem,AO
+5906431,PSAL,20210913,,4,sensor failure,AO
+5906431,TEMP,20210913,,4,sensor failure,AO
+5906457,PSAL,20210915,,3,global pilot of RBR CTD,AO
+5906459,PSAL,20221113,,4,apparent conductivity cell failure,AO
+5906527,PSAL,20230605,,3,large PSAL drift that is approaching threshold of adjustment,AO
+5906578,PSAL,20200408,,4,float leak causing sensor malfunctions,AO
+5906703,PSAL,20220616,,3,CTD going through sensor drift,AO
+5906730,PSAL,20221201,,4,sensor failure;AO,AO
+5906739,PSAL,20210926,,3,global pilot of RBR CTD,AO
+5906776,PSAL,20230401,,4,float failure;AO,AO
+5906776,TEMP,20230401,,4,float failure;AO,AO
+5906897,PSAL,20230101,,4,sensor failure; uncorrectable data,AO
+5906897,TEMP,20230101,,4,sensor failure; uncorrectable data,AO
+6900320,PSAL,20151202,,4,sensor drift,AO
+6900322,PSAL,20140427,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+6900373,PSAL,20140714,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+6900374,PSAL,20141017,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+6900375,PSAL,20141013,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+6900379,PSAL,20150426,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+6900380,PSAL,20150805,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+6900381,PSAL,20150807,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+6900382,PSAL,20170531,,4,salinity drift,AO
+6900415,PSAL,20150929,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+6900416,PSAL,20151029,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+6900417,PSAL,20151024,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+6900418,PSAL,20151025,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+6900425,PSAL,20160417,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+7900207,PSAL,20160915,,3,sensor failure,AO
+7900211,PSAL,20190105,,4,sensor problem,AO
+7900213,PSAL,20220412,,3,Drift,AO
+7900215,PSAL,20161209,,4,sensor problem,AO
+7900215,TEMP,20161209,,4,sensor problem,AO
+7900304,PSAL,20220201,,4,sensor failure,AO
+7900666,PSAL,20150523,20190915,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,AO
+7900666,PSAL,20190915,,4,sensor problem,AO
+7900680,PSAL,20220501,,4,sensor problems,AO
+7900688,PSAL,20220701,,4,sensor problems,AO
+7900793,PSAL,20210410,,4,sensor failure,AO
+7900797,PRES,20210115,,4,sensor problem,AO
+7900797,PSAL,20210115,,4,sensor problem,AO
+7900797,TEMP,20210115,,4,sensor problem,AO
+1900094,PSAL,20020328,,3,DM bias in salinity,BO
+1900281,PRES,20050625,,4,sensor problem,BO
+1900281,PSAL,20050625,,4,sensor problem,BO
+1900281,TEMP,20050625,,4,sensor problem,BO
+1900938,PSAL,20110705,,4,sensor failure,BO
+1901060,PSAL,20130913,,3,Suspected biofouling drift,BO
+1901070,PRES,20100429,,4,sensor problem,BO
+1901070,PSAL,20100429,,4,sensor problem,BO
+1901070,TEMP,20100429,,4,sensor problem,BO
+1901071,PRES,20120826,,3,sensor problem - Druck microleak,BO
+1901071,PSAL,20120826,,3,sensor problem - Druck microleak,BO
+1901071,TEMP,20120826,,3,sensor problem - Druck microleak,BO
+1901220,PRES,20100924,,4,sensor problem - Druck microleak,BO
+1901220,PSAL,20100924,,4,sensor problem - Druck microleak,BO
+1901220,TEMP,20100924,,4,sensor problem - Druck microleak,BO
+1901223,PRES,20110809,,4,pressure sensor failure,BO
+1901223,PSAL,20110809,,4,pressure sensor failure,BO
+1901223,TEMP,20110809,,4,pressure sensor failure,BO
+1901228,PSAL,20101025,,4,sensor problem,BO
+1901230,PRES,20090712,,4,sensor problem - Druck microleak,BO
+1901230,PSAL,20090712,,4,sensor problem - Druck microleak,BO
+1901230,TEMP,20090712,,4,sensor problem - Druck microleak,BO
+1901235,PRES,20110926,,4,sensor problem-druck microleak,BO
+1901235,PSAL,20110926,,4,sensor problem-druck microleak,BO
+1901235,TEMP,20110926,,4,sensor problem-druck microleak,BO
+1901236,PRES,20100725,,4,sensor problem - druck microleak,BO
+1901236,PSAL,20100725,,4,sensor problem - druck microleak,BO
+1901236,TEMP,20100725,,4,sensor problem - druck microleak,BO
+1901241,PRES,20110224,,4,sensor problem - druck microleak,BO
+1901241,PSAL,20110224,,4,sensor problem - druck microleak,BO
+1901241,TEMP,20110224,,4,sensor problem - druck microleak,BO
+1901243,PSAL,20090606,,3,Severe PSAL drift to be revisited in DMQC,BO
+1901243,TEMP,20110926,,3,Temp drift to be revisited in DMQC,BO
+1901250,PSAL,20141119,,3,salinity drift,BO
+1901251,PSAL,20100414,,4,Salinity sensor problem,BO
+1901277,PSAL,20130306,,3,Salinity sensor drift to be revisited during DMQC,BO
+1901294,PSAL,20160312,,3,Severe PSAL drift to be revisited in DMQC,BO
+1901847,PSAL,20190427,,3,salty drift detected,BO
+1901850,PSAL,20150627,,4,conductivity sensor failure,BO
+1901851,PSAL,20151009,20160621,3,Severe PSAL sensor issue which self-resolved,BO
+1901860,PSAL,20180504,,3,salty drift suspected,BO
+1901863,PSAL,20190617,,3,salty drift suspected,BO
+1901866,PSAL,20190529,,4,sensor issue,BO
+1901867,PSAL,20210308,,3,salty drift detected,BO
+1901875,PSAL,20210116,,3,salty drift detected,BO
+1901877,PSAL,20210213,,3,salty drift detected,BO
+1901879,PSAL,20210220,,3,salty drift detected,BO
+1901880,PSAL,20210217,,3,salty drift detected,BO
+1901894,PSAL,20190502,,3,salty drift detected,BO
+1901896,PSAL,20200220,,3,salty drift detected,BO
+1901901,PSAL,20190327,,4,symptoms of conductivity sensor failure,BO
+1901909,PSAL,20200601,,3,salty drift suspected,BO
+1901912,PSAL,20190513,,4,Likely drift in salinity sensor,BO
+1901912,PSAL,20210304,,3,fresh offset detected,BO
+1901914,PSAL,20191010,,3,Potential offset identified requiring review in delayed-mode,BO
+1901914,PSAL,20210303,,4,fresh offset detected,BO
+1901925,PSAL,20220820,,4,salty drift detected,BO
+1901941,PSAL,20220701,,3,uncorrected RBR float,BO
+1902098,PSAL,20230305,,3,Uncorrected RBR CTD,BO
+2901097,PRES,20101224,,4,Fished up then beached,BO
+2901097,PSAL,20101224,,4,Fished up then beached,BO
+2901097,TEMP,20101224,,4,Fished up then beached,BO
+2901905,PSAL,20210914,,3,Suspected drift in PSAL,BO
+3901496,BBP532,20160826,20160827,4,noisy profile,BO
+3901496,BBP532,20181001,,4,drift,BO
+3901496,BBP700,20141027,20141028,4,saturation/(QC_table_MC.JUL18),BO
+3901496,BBP700,20160826,20160827,4,noisy profile,BO
+3901496,DOXY,20161201,20190101,4,bad sensor,BO
+3901496,DOXY,20170708,,4,sensor_issue_metbio007d,BO
+3901496,DOXY,20191125,,4,drift,BO
+3901497,BBP532,20161103,20161104,4,spike profile,BO
+3901497,BBP532,20180801,,4,drift,BO
+3901497,BBP700,20141026,20141027,4,spike profile,BO
+3901497,BBP700,20150121,20150122,4,spike profile,BO
+3901497,BBP700,20161103,20161104,4,spike profile,BO
+3901497,BBP700,20180801,,4,drift,BO
+3901497,CHLA,20141026,20141027,4,spike profile,BO
+3901497,CHLA,20180801,,4,drift,BO
+3901497,DOXY,20180501,,4,drift,BO
+3901497,DOXY,20180613,,4,sensor_issue_metbio009d,BO
+3901498,BBP532,20171206,20171207,4,background higher than usual,BO
+3901498,BBP532,20180226,20180227,4,spike profile/(QC_table_MC.JUL18),BO
+3901498,BBP532,20180805,20180806,4,spike profile/(QC_table_MC.JUL18),BO
+3901498,BBP700,20160209,20160210,4,spike profile/(QC_table_MC.JUL18),BO
+3901498,BBP700,20171102,20171106,4,noisy profile,BO
+3901498,BBP700,20180126,20180127,4,noisy profile,BO
+3901498,BBP700,20180127,20180128,4,noisy profile,BO
+3901498,CHLA,20180226,20180227,4,spike profile,BO
+3901498,DOXY,20150819,20150820,4,anomaly -/(QC_table_MC.JUL18),BO
+3901498,DOXY,20170218,20170219,4,anomaly -/(QC_table_MC.JUL18),BO
+3901499,PSAL,20141118,,3,Severe PSAL drift to be revisited in DMQC,BO
+3901499,TEMP,20141118,,3,Severe TEMP drift identified by Altimetry QC to be revisited in DMQC,BO
+3901501,PSAL,20141022,,3,salinity offset,BO
+3901511,PSAL,20160915,,3,Possible drift in salinity compared to Altimetry,BO
+3901516,PSAL,20210305,,3,salty drift detected,BO
+3901520,PSAL,20151023,,3,Bias suggested by Altimetry QC report,BO
+3901521,PSAL,20210307,,3,salty drift detected,BO
+3901531,BBP532,20180701,,4,drift,BO
+3901531,BBP700,20180204,20180205,4,spike profile,BO
+3901531,BBP700,20180719,20180927,4,bad sensor,BO
+3901548,PSAL,20190113,,4,symptoms of conductivity sensor failure,BO
+3901548,TEMP,20200212,,4,Temperature sensor failure,BO
+3901879,PSAL,20100121,,3,salinity drift detected,BO
+3901879,PSAL,20200205,,3,Salty drift detected,BO
+3901880,PSAL,20180527,,3,Severe PSAL drift to be revisited in DMQC,BO
+3901880,PSAL,20200118,,4,salinity drift detected,BO
+3901881,PSAL,20200130,,3,suspected drift,BO
+3901882,PSAL,20200122,,3,drift detected,BO
+3901883,PSAL,20190219,,3,probable sensor drift,BO
+3901883,PSAL,20200126,,4,sensor problem,BO
+3901884,PSAL,20190317,,4,symptoms of conductivity sensor failure,BO
+3901884,PSAL,20200122,,4,sensor problem,BO
+3901885,PSAL,20200819,,3,Likely drift in salinity sensor,BO
+3901886,PSAL,20200121,,3,salinity drift dsuspected,BO
+3901887,PSAL,20181226,,3,bias noted when compared to altimetry sla,BO
+3901887,PSAL,20200131,,4,drift detected,BO
+3901888,PSAL,20200124,,3,sensor problem,BO
+3901888,PSAL,20200929,,3,salty drift detected,BO
+3901889,PSAL,20190717,,4,symptoms of conductivity sensor drift,BO
+3901891,PSAL,20180521,,4,Salinity sensor providing routinely spikey data,BO
+3901893,PSAL,20181106,,3,possible drift in salinity,BO
+3901893,PSAL,20181106,,3,possible drift in salinity,BO
+3901893,PSAL,20200130,,4,Drift in salinity sensor,BO
+3901894,PSAL,20180729,,3,possible drift in salinity,BO
+3901895,PSAL,20200818,,3,Suspect salinity sensor drift,BO
+3901896,PSAL,20190416,,4,salinity drift from cycle 73,BO
+3901897,PSAL,20181113,,4,Cell failure after cycle 56,BO
+3901898,PSAL,20181003,,4,sensor problem,BO
+3901899,PSAL,20200119,,3,Salinity sensor drifting,BO
+3901900,PSAL,20200121,,3,Salinity sensor drifting,BO
+3901904,PSAL,20190219,,4,symptoms of conductivity sensor drift,BO
+3901905,PSAL,20200229,,3,Salinity sensor drifting,BO
+3901906,PSAL,20200306,,3,Salinity sensor drifting,BO
+3901909,PSAL,20180415,,4,likely salinity drift from cycle 48,BO
+3901912,PSAL,20190303,,3,Possible drift in salinity,BO
+3901913,PSAL,20180706,,3,Drifting salinity sensor potentially correctable in DMQC,BO
+3901913,PSAL,20200127,,4,Salty drift detected,BO
+3901913,PSAL,20201003,,4,salty drift detected,BO
+3901915,PSAL,20200129,,2,suspected drift,BO
+3901915,PSAL,20201003,,3,salty drift detected,BO
+3901938,PSAL,20221005,,3,salty drift detected,BO
+3901943,PSAL,20220129,,4,PSAL salty drifter,BO
+3901945,PSAL,20221024,,4,Suspected abrupt salty drift in PSAL,BO
+3901946,PSAL,20181018,,3,Unusual behaviour and unable to resolve in DMQC as of 08/03/2019,BO
+3901948,PSAL,20200129,,3,salinity drift detected,BO
+3901949,PSAL,20200129,,3,salinity drift suspected,BO
+3901951,PSAL,20220427,,4,Suspected abrupt salty drift in PSAL,BO
+3901952,PSAL,20190209,,3,Conductivity sensor drift,BO
+3901953,PSAL,20180616,,3,Alimeter warnings suggesting salinity drift from cycle 26 onwards,BO
+3901954,PSAL,20190104,,4,Significant uncorrectable salinity drift,BO
+3901955,PSAL,20210616,,4,Drift in salinity sensor,BO
+3901956,PSAL,20180415,,4,sensor problem,BO
+3901957,PSAL,20190927,,4,Bad salinity,BO
+3901961,PSAL,20200311,,4,Suspected fast salinity drift from cycle 78 onwards,BO
+3901962,PSAL,20190921,,3,Severe PSAL drift,BO
+3901963,PSAL,20191223,,4,Salinity drift confirmed in DMQC,BO
+3901964,PSAL,20221102,,3,Suspected moderate salty drift in PSAL,BO
+3901966,PSAL,20201214,,4,Fresh drift in salinity sensor,BO
+3901970,PSAL,20180722,,3,Sensor drift,BO
+3901979,PSAL,20181229,,3,likely salinity drift from cycle 109,BO
+3901981,PSAL,20180514,,4,CTD plugs accidentally left on so the salinity is spurious,BO
+3902398,PSAL,20220819,,3,Suspected drift in PSAL,BO
+3902400,PSAL,20211008,,4,salty drift detected,BO
+5906966,PSAL,20230224,,3,Uncorrected RBR sensor,BO
+6900614,PSAL,20100805,,4,flushing or pump problem,BO
+6900615,PRES,20120125,,4,pressure sensor fail,BO
+6900615,PSAL,20120125,,4,pressure sensor fail,BO
+6900615,TEMP,20120125,,4,pressure sensor fail,BO
+6900617,PRES,20121114,,4,Mechanical (piston) failure,BO
+6900617,PSAL,20121114,,4,Mechanical (piston) failure,BO
+6900617,TEMP,20121114,,4,Mechanical (piston) failure,BO
+6900622,PRES,20120620,,4,Druck microleak,BO
+6900622,PSAL,20120620,,4,Druck microleak,BO
+6900622,TEMP,20120620,,4,Druck microleak,BO
+6900647,PRES,20120620,,4,Mechanical (piston) failure,BO
+6900647,PSAL,20080312,20081218,3,sensor problem,BO
+6900647,TEMP,20120620,,4,Mechanical (piston) failure,BO
+6900651,PSAL,20090201,,3,flushing or pump problem,BO
+6900654,PRES,20100628,,4,sensor problem,BO
+6900654,PSAL,20100628,,4,sensor problem,BO
+6900654,TEMP,20100628,,4,sensor problem,BO
+6901119,PSAL,20160207,,4,Conductivity sensor problem,BO
+6901151,BBP532,20131024,,4,bad sensor,BO
+6901151,BBP700,20131024,,4,bad sensor,BO
+6901151,CHLA,20131024,,4,bad sensor,BO
+6901151,DOXY,20140501,,4,drift,BO
+6901151,DOXY,20140523,20141022,4,sensor_issue_metbio001b,BO
+6901151,DOXY,20141023,20150124,3,sensor_issue_metbio001b,BO
+6901151,DOXY,20150125,,4,sensor_issue_metbio001b,BO
+6901152,BBP532,20140918,,4,drift/shift/(QC_table_MC.JUL18),BO
+6901152,BBP700,20140205,20140216,3,bad sensor,BO
+6901152,BBP700,20140918,,4,drift/shift/(QC_table_MC.JUL18),BO
+6901152,CHLA,20150701,,4,shift/(QC_table_MC.JUL18),BO
+6901152,DOXY,20150701,,4,drift/(QC_table_MC.JUL18),BO
+6901152,DOXY,20150831,,4,sensor_issue_metbio002b,BO
+6901168,PSAL,20150709,,3,Salinity sensor problem - routine spiking and resultant improbable density profile,BO
+6901170,PSAL,20220623,,3,salty drift detected,BO
+6901174,BBP532,20160320,20160321,4,spike profile,BO
+6901174,BBP532,20171002,,4,drift,BO
+6901174,BBP700,20150808,20150809,4,spike profile,BO
+6901174,BBP700,20160320,20160321,4,spike profile,BO
+6901174,BBP700,20170209,20170210,4,spike profile,BO
+6901174,BBP700,20171002,,4,drift,BO
+6901174,CHLA,20171002,,4,drift,BO
+6901174,DOXY,20170510,,4,drift/(QC_table_MC.JUL18),BO
+6901174,DOXY,20170803,,4,sensor_issue_metbio004d,BO
+6901174,PRES,20190228,,4,symptoms of conductivity sensor drift,BO
+6901174,PSAL,20190228,,4,symptoms of conductivity sensor drift,BO
+6901174,TEMP,20190228,,4,symptoms of conductivity sensor drift,BO
+6901180,BBP532,20190301,,4,drift,BO
+6901181,BBP532,20180303,20180304,4,bad sensor,BO
+6901181,BBP532,20200626,20200627,4,bad sensor,BO
+6901181,BBP700,20200626,20200627,3,saturation/(QC_table_MC.JUL18),BO
+6901181,BBP700,20200626,20200627,4,bad sensor,BO
+6901182,BBP532,20161015,,4,bad sensor,BO
+6901182,BBP700,20161015,,4,bad sensor,BO
+6901182,CHLA,20161015,,4,bad sensor,BO
+6901183,BBP532,20170717,20170718,4,spike profile,BO
+6901183,BBP532,20170901,,4,drift,BO
+6901183,BBP700,20160815,20160816,4,spike profile,BO
+6901183,BBP700,20170722,20170723,4,spike profile,BO
+6901192,PSAL,20190727,,3,Bias suggested by Altimetry QC report,BO
+6901195,PSAL,20190721,,3,salty drift detected,BO
+6901198,PSAL,20190726,,4,sensor problem,BO
+6901202,PSAL,20210914,,3,Possible drift in PSAL,BO
+6901211,PSAL,20181115,,3,Bias suggested by Altimetry QC report,BO
+6901213,PSAL,20220819,,3,Suspected drift in PSAL,BO
+6901924,PSAL,20230103,,3,salty drift detected,BO
+6901926,PSAL,20220819,,3,Suspected drift in PSAL,BO
+6901929,PSAL,20220223,,3,salty drift detected,BO
+6901930,PSAL,20210921,,3,Suspected drift in PSAL,BO
+6901930,PSAL,20220225,,4,salty drift detected,BO
+6901933,DOXY,20210707,,4,Sensor fail,BO
+6901933,PSAL,20220609,,3,Suspected drift in PSAL,BO
+6901935,PSAL,20210214,,4,salty drift detected,BO
+6901939,DOXY,20221121,,3,No RTQC applied to DOXY yet,BO
+6903720,PSAL,20200801,,3,Salty drift in salinity sensor,BO
+6904179,PSAL,20220304,,3,RBR correction not yet applied,BO
+6904180,PSAL,20220303,,3,RBR correction not yet applied,BO
+1901735,PSAL,20220509,,4,rapid onset salinity drift,CS
+1901744,PSAL,20200926,,4,Uncorrectable PSAL jump,CS
+1901749,PSAL,20210412,20210710,4,temporary offset in PSAL,CS
+1901753,PSAL,20220627,,4,uncorrectable salinity drift,CS
+1901764,PSAL,20210818,,4,Sudden uncorrectable offset in PSAL,CS
+2901861,PSAL,20221127,,3,anomalous drifting data,CS
+5904925,PSAL,20150724,,3,pre 2021 RBR float with PSAL bias dependant on pressure,CS
+5904927,PSAL,20160313,,3,poor sensor performance; reason SBE sensor serial # in 6000-7100. Assessed as drifting.,CS
+5904928,PSAL,20150920,,3,poor sensor performance; reason SBE sensor serial # in 6000-7100. Assessed as drifting.,CS
+5904996,PSAL,20210626,,3,PSAL drift larger than 0.03 PSU; SBE sensor serial # in 6000-7100,CS
+5904997,PSAL,20211216,,3,suspect SN and PSAL drift,CS
+5904998,PSAL,20211218,,3,suspect SN and PSAL drift,CS
+5905000,PSAL,20140101,,2,possible poor sensor performance; reason SBE sensor serial # in 6000-7100,CS
+5905003,PSAL,20190908,,3,suspect SN range and accelerated PSAL drift,CS
+5905004,PSAL,20140101,,2,possible poor sensor performance; reason SBE sensor serial # in 6000-7100,CS
+5905025,PSAL,20220727,,3,possible ASD,CS
+5905026,PSAL,20180215,,4,poor sensor performance; reason SBE sensor serial # in 6000-7100. Assessed as drifting.,CS
+5905028,PSAL,20140101,,2,possible poor sensor performance; reason SBE sensor serial # in 6000-7100,CS
+5905030,DOXY,20160417,20160613,4,faulty sensor identified in Josh Plant audit,CS
+5905036,PSAL,20220408,,3,correctable salinity drift,CS
+5905039,PSAL,20180425,,4,drift in salinity identified. SBE sensor serial # in 6000-7100 assessed as OK prior to this date,CS
+5905042,PSAL,20190109,,3,Drift in salinity identified,CS
+5905170,PSAL,20201201,,3,possibly correctable PSAL drift,CS
+5905173,PSAL,20140101,,2,possible poor sensor performance; reason SBE sensor serial # in 6000-7100,CS
+5905174,PSAL,20200205,,4,Uncorrectable PSAL drift from cycle 120,CS
+5905178,PSAL,20220121,,3,possibly correctable PSAL drift,CS
+5905182,PSAL,20210528,,3,Correctable PSAL drift,CS
+5905184,PSAL,20181207,,4,Uncorrectable drift in PSAL from cycle 75,CS
+5905185,PSAL,20180604,,4,Uncorrectable drift in PSAL from cycle 50,CS
+5905186,PSAL,20190307,,4,Uncorrectable drift in PSAL from cycle 84,CS
+5905188,PSAL,20200829,,4,Salinity Drift,CS
+5905191,PSAL,20211028,,3,potentially correctable salinity drift,CS
+5905193,PSAL,20200502,,4,uncorrectable salinity drift; reason SBE sensor serial # in 6000-7100,CS
+5905196,PRES,20210120,,2,not sending profile PTS,CS
+5905196,PSAL,20210120,,2,not sending profile PTS,CS
+5905196,TEMP,20210120,,2,not sending profile PTS,CS
+5905204,PSAL,20210520,,4,probably damaged float,CS
+5905207,PRES,20210106,,2,not sending profile PTS,CS
+5905207,PSAL,20210106,,2,not sending profile PTS,CS
+5905207,TEMP,20210106,,2,not sending profile PTS,CS
+5905392,PSAL,20180407,,3,Drift in salinity identified,CS
+5905414,PSAL,20200901,,4,Uncorrectable PSAL offset,CS
+5905416,PSAL,20181010,,4,Fresh offset throughout,CS
+5905417,PSAL,20200904,,4,Uncorrectable PSAL offset,CS
+5905418,PSAL,20210415,,4,Uncorrectable PSAL drift from cycle 92 and SN in Seabird recall range,CS
+5905456,PSAL,20200804,,4,Uncorrectable PSAL drift from cycle 20,CS
+5905461,PSAL,20230727,,3,probably bad sensor,CS
+5905465,PSAL,20210707,,4,FSD with accelerated PSAL drift,CS
+5905482,PRES,20200921,,3,experimental float with CTD issue,CS
+5905482,PSAL,20200921,,3,experimental float with CTD issue,CS
+5905482,TEMP,20200921,,3,experimental float with CTD issue,CS
+5905485,PSAL,20220618,,4,rapid onset salinity drift,CS
+5905489,PSAL,20220206,20220501,3,potentially fresh data,CS
+5905519,PSAL,20221120,,3,salty drift,CS
+5906614,PSAL,20220819,,4,float with faulty TCond sensor,CS
+5906615,PRES,20210911,20211011,3,Technical issues,CS
+5906615,PSAL,20210911,20211011,3,Technical issues,CS
+5906615,TEMP,20210911,20211011,3,Technical issues,CS
+5906645,PH_IN_SITU_TOTAL,20210616,,4,Bad sensor,CS
+5906659,PSAL,20220515,,3,possible salinity drift,CS
+7900329,PRES,20120110,,2,Float in experimental mission. waiting for DMQC,CS
+7900329,PSAL,20120110,,4,Bad salinity sensor,CS
+7900329,TEMP,20120110,,2,Float in experimental mission. waiting for DMQC,CS
+7900330,PRES,20120111,,2,Float in experimental mission. waiting for DMQC,CS
+7900330,PSAL,20120111,,4,Bad saliniy sensor,CS
+7900330,TEMP,20120111,,2,Float in experimental mission. waiting for DMQC,CS
+7900396,PRES,20141225,,2,Float in experimental mission. waiting for DMQC,CS
+7900396,PSAL,20141225,,2,Float in experimental mission. waiting for DMQC,CS
+7900396,TEMP,20141225,,2,Float in experimental mission. waiting for DMQC,CS
+7900397,PRES,20141226,,2,Float in experimental mission. waiting for DMQC,CS
+7900397,PSAL,20141226,,2,Float in experimental mission. waiting for DMQC,CS
+7900397,TEMP,20141226,,2,Float in experimental mission. waiting for DMQC,CS
+7900398,PRES,20141228,,2,Float in experimental mission. waiting for DMQC,CS
+7900398,PSAL,20141228,,2,Float in experimental mission. waiting for DMQC,CS
+7900398,TEMP,20141228,,2,Float in experimental mission. waiting for DMQC,CS
+7900602,PRES,20150101,,2,Float in experimental mission. waiting for DMQC,CS
+7900602,PSAL,20150101,,2,Float in experimental mission. waiting for DMQC,CS
+7900602,TEMP,20150101,,2,Float in experimental mission. waiting for DMQC,CS
+7900603,PRES,20150107,,2,Float in experimental mission. waiting for DMQC,CS
+7900603,PSAL,20150107,,2,Float in experimental mission. waiting for DMQC,CS
+7900603,TEMP,20150107,,2,Float in experimental mission. waiting for DMQC,CS
+7900604,PRES,20150114,,2,Float in experimental mission. waiting for DMQC,CS
+7900604,PSAL,20150114,,2,Float in experimental mission. waiting for DMQC,CS
+7900604,TEMP,20150114,,2,Float in experimental mission. waiting for DMQC,CS
+7900605,PRES,20150114,,2,Float in experimental mission. waiting for DMQC,CS
+7900605,PSAL,20150114,,2,Float in experimental mission. waiting for DMQC,CS
+7900605,TEMP,20150114,,2,Float in experimental mission. waiting for DMQC,CS
+7900606,PRES,20150114,,2,Float in experimental mission. waiting for DMQC,CS
+7900606,PSAL,20150114,,2,Float in experimental mission. waiting for DMQC,CS
+7900606,TEMP,20150114,,2,Float in experimental mission. waiting for DMQC,CS
+7900607,PRES,20150115,,2,Float in experimental mission. waiting for DMQC,CS
+7900607,PSAL,20150115,,2,Float in experimental mission. waiting for DMQC,CS
+7900607,TEMP,20150115,,2,Float in experimental mission. waiting for DMQC,CS
+7900608,PRES,20150117,,2,Float in experimental mission. waiting for DMQC,CS
+7900608,PSAL,20150117,,2,Float in experimental mission. waiting for DMQC,CS
+7900608,TEMP,20150117,,2,Float in experimental mission. waiting for DMQC,CS
+7900611,PSAL,20171222,,4,poor sensor performance; reason SBE sensor serial # in 6000-7100. Uncorrectable salinity drift,CS
+7900612,PSAL,20151217,,3,poor sensor performance; reason SBE sensor serial # in 6000-7100. Assessed as drifting.,CS
+7900613,PSAL,20220425,,4,cell failure causing fresh offset,CS
+7900614,PSAL,20151219,,4,uncorrectable PSAL drift,CS
+7900615,PSAL,20140101,,2,possible poor sensor performance; reason SBE sensor serial # in 6000-7100,CS
+7900616,PSAL,20210918,,3,Correctable PSAL drift,CS
+7900617,PSAL,20140101,,2,possible poor sensor performance; reason SBE sensor serial # in 6000-7100,CS
+7900618,PSAL,20200614,,3,Drift in salinity identified,CS
+7900620,PSAL,20160505,,4,cracked cell probably,CS
+7900620,TEMP,20160505,,4,cracked cell probably,CS
+7900621,PSAL,20191225,,4,Uncorrectable PSAL offset,CS
+7900623,PSAL,20190515,,4,Uncorrectable salinity drift,CS
+7900624,PSAL,20200904,,4,Uncorrectable PSAL drift,CS
+7900627,PSAL,20211202,,4,uncorrectable salinity drift,CS
+7900631,PSAL,20200814,,4,Uncorrectable PSAL offset,CS
+7900634,PSAL,20221104,,3,possible ASD,CS
+7900636,PSAL,20201223,,4,sensor failure,CS
+7900638,PSAL,20220620,,4,uncorrectable salinity drift,CS
+7900642,PSAL,20190420,,4,Uncorrectable drift in PSAL from deployment,CS
+7900644,PSAL,20191227,,3,Drift in salinity identified,CS
+7900897,PRES,20200203,,2,Float in experimental mission. waiting for DMQC,CS
+7900897,PSAL,20200203,,2,Float in experimental mission. waiting for DMQC,CS
+7900897,TEMP,20200203,,2,Float in experimental mission. waiting for DMQC,CS
+7900898,PRES,20200203,,2,Float in experimental mission. waiting for DMQC,CS
+7900898,PSAL,20200203,,2,Float in experimental mission. waiting for DMQC,CS
+7900898,TEMP,20200203,,2,Float in experimental mission. waiting for DMQC,CS
+7900899,PRES,20200220,,2,Float in experimental mission. waiting for DMQC,CS
+7900899,PSAL,20200220,,2,Float in experimental mission. waiting for DMQC,CS
+7900899,TEMP,20200220,,2,Float in experimental mission. waiting for DMQC,CS
+7900901,PRES,20200226,,2,Float in experimental mission. waiting for DMQC,CS
+7900901,PSAL,20200226,,2,Float in experimental mission. waiting for DMQC,CS
+7900901,TEMP,20200226,,2,Float in experimental mission. waiting for DMQC,CS
+7900902,PRES,20200226,,2,Float in experimental mission. waiting for DMQC,CS
+7900902,PSAL,20200226,,2,Float in experimental mission. waiting for DMQC,CS
+7900902,TEMP,20200226,,2,Float in experimental mission. waiting for DMQC,CS
+7900903,PRES,20200226,,2,Float in experimental mission. waiting for DMQC,CS
+7900903,PSAL,20200226,,2,Float in experimental mission. waiting for DMQC,CS
+7900903,TEMP,20200226,,2,Float in experimental mission. waiting for DMQC,CS
+7900904,PRES,20200226,,2,Float in experimental mission. waiting for DMQC,CS
+7900904,PSAL,20200226,,2,Float in experimental mission. waiting for DMQC,CS
+7900904,TEMP,20200226,,2,Float in experimental mission. waiting for DMQC,CS
+7900905,PRES,20200226,,2,Float in experimental mission. waiting for DMQC,CS
+7900905,PSAL,20200226,,2,Float in experimental mission. waiting for DMQC,CS
+7900905,TEMP,20200226,,2,Float in experimental mission. waiting for DMQC,CS
+7900906,PSAL,20211205,,3,Erratic fresh values possibly biofoul,CS
+7900914,PSAL,20211221,,3,slow salty drift,CS
+7900927,PRES,20220127,,2,Float in experimental mission. waiting for DMQC,CS
+7900927,PSAL,20220127,,2,Float in experimental mission. waiting for DMQC,CS
+7900927,TEMP,20220127,,2,Float in experimental mission. waiting for DMQC,CS
+7900928,PRES,20220131,,2,Float in experimental mission. waiting for DMQC,CS
+7900928,PSAL,20220131,,2,Float in experimental mission. waiting for DMQC,CS
+7900928,TEMP,20220131,,2,Float in experimental mission. waiting for DMQC,CS
+7900929,PRES,20220131,,2,Float in experimental mission. waiting for DMQC,CS
+7900929,PSAL,20220131,,2,Float in experimental mission. waiting for DMQC,CS
+7900929,TEMP,20220131,,2,Float in experimental mission. waiting for DMQC,CS
+2901157,PRES,20091027,,4,pressure sensor problem,HZ
+2901157,PSAL,20091027,,4,pressure sensor problem,HZ
+2901157,TEMP,20091027,,4,pressure sensor problem,HZ
+2901177,DOXY,20090420,,3,poor sensor performance,HZ
+2901179,PSAL,20090709,,4,sensor problem,HZ
+2901486,PRES,20110513,,4,sensor problem,HZ
+2901486,PSAL,20110513,,4,sensor problem,HZ
+2901486,TEMP,20110513,,4,sensor problem,HZ
+2901489,PSAL,20120904,,4,sensor problem,HZ
+2901512,PSAL,20111114,,4,sensor problem,HZ
+2901545,PSAL,20180821,,3,sensor problem,HZ
+2901549,PSAL,20150909,,4,sensor problem,HZ
+2902548,PSAL,20120225,,4,sensor problem,HZ
+2902570,PSAL,20181121,,3,salinity drift,HZ
+2902588,PSAL,20150311,,3,sensor problem,HZ
+2902590,PSAL,20140717,,3,sensor problem,HZ
+2902606,PSAL,20150202,,3,sensor problem,HZ
+2902609,PSAL,20181216,,3,salinity drift,HZ
+2902611,PSAL,20160912,,4,sensor problem,HZ
+2902614,PSAL,20170821,,3,salinity drift,HZ
+2902615,PSAL,20180627,,3,salinity drift,HZ
+2902670,PSAL,20150909,,4,sensor problem,HZ
+2902682,PSAL,20200919,,3,conductivity sensor problem,HZ
+2902689,PSAL,20160814,,3,sensor problem,HZ
+2902715,PSAL,20180829,,3,salinity drift,HZ
+2902723,PSAL,20180529,,4,sensor problem,HZ
+2902730,PRES,20180112,,2,RBR sensor problem,HZ
+2902737,PSAL,20180102,,3,sensor problem,HZ
+2902738,PSAL,20200109,,3,maybe poor sensor performance,HZ
+2902747,PSAL,20210703,,4,conductivity sensor problem,HZ
+2902759,PSAL,20191006,,2,maybe poor sensor performance,HZ
+2902811,PSAL,20221118,,3,salinity drift,HZ
+2902824,PSAL,20221110,,3,salinity drift,HZ
+1900650,DOXY,20060611,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+1900651,DOXY,20060619,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+1900652,DOXY,20060703,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+2903783,BBP700,20230106,20230517,4,sensor issue,IF
+3900275,DOXY,20040825,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+3900281,DOXY,20040825,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+3900515,DOXY,20051027,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+3900516,DOXY,20051027,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+3900522,DOXY,20060531,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+3900522,PSAL,20060918,,4,DD 20190703 jump 3 PSU fresher,IF
+3901601,PSAL,20220515,,3,CC 20221219 ASD Feedback,IF
+3901602,PSAL,20210205,,3,CC 20210301 Feedback from PI,IF
+3901605,PSAL,20181112,,3,CC 20210830 Feedback from PI,IF
+3901650,PSAL,20220929,,3,CC 20221006 Feedback from DM op,IF
+3901654,PSAL,20191208,,3,CC 20210611 Feedback from PI,IF
+3901670,PSAL,20220830,,3,CC 20220906 Minmax alert - Feedback from DM op,IF
+3901671,PSAL,20200707,,4,CC 20201006 Minmax alert,IF
+3901672,PSAL,20210302,,3,CC 20210823 Feedback from PI,IF
+3901675,PSAL,20200912,,4,CC 20201005 Minmax alert,IF
+3901680,PSAL,20210627,,4,CC 20210819 Feedback from PI QC3 11/08/2020 then updated to QC4 20230116,IF
+3901838,PSAL,20201231,,3,CC 20210104 Feedback from PI,IF
+3901840,PSAL,20180110,,3,CC 20210830 Feedback from PI,IF
+3901841,PSAL,20201208,,3,CC 20210602 Minmax alert,IF
+3901844,PSAL,20230609,,3,CC 20210601 Feedback from DM operator,IF
+3901845,PSAL,20210502,,4,CC 20220222 Feedback from DM op,IF
+3901846,PSAL,20180724,,3,CC 20221220 ASD Feedback,IF
+3901847,PSAL,20201122,,4,CC 20210323 Minmax alert,IF
+3901847,TEMP,20201122,,4,CC 20210323 Minmax alert,IF
+3901853,PSAL,20190702,,3,DD 20200203 drifting OWC Giulio,IF
+3901857,PSAL,20191117,,3,CC 20220207 Feedback from DM op,IF
+3901859,PSAL,20181122,,4,DD 20190408 drift not rescueable OWC Birgit,IF
+3901860,PSAL,20211109,,4,CC 20220309 Feedback from DM op,IF
+3901864,PSAL,20181009,,3,CC 20220613 Feedback from DM op,IF
+3901865,PSAL,20230602,,3,CC 20230725 Minmax alert,IF
+3901866,PSAL,20220909,,3,CC 20221219 ASD Feedback,IF
+3901867,PSAL,20181122,20190220,3,DD 20190405 drift,IF
+3901867,PSAL,20190220,,4,DD 20190405 hard drift,IF
+3901868,PSAL,20210302,,3,CC 20210602 Minmax alert,IF
+3901869,PSAL,20191217,,3,DD 20200128 drift,IF
+3901870,PSAL,20221005,,3,CC 20221202 Minmax alert,IF
+3901871,PSAL,20190826,,4,CC 20220302 Feedback from DM op,IF
+3901872,PSAL,20181223,,3,DD drift,IF
+3901873,PSAL,20190623,,3,DD 20191120 drifting,IF
+3901875,PSAL,20210809,,3,CC 20210907 Feedback from PI,IF
+3901890,PSAL,20190902,,3,DD 20191024 fast salty drift,IF
+3901903,PSAL,20201028,,3,CC 20201127 Minmax alert,IF
+3901907,PSAL,20180518,,4,DD 20191220 drifting,IF
+3901908,PSAL,20190517,,4,DD 20200309 fast salty drift update,IF
+3901911,PSAL,20220901,,3,CC 20221220 ASD Feedback,IF
+3901989,PSAL,20221012,,3,CC 20221020 Feedback from DM op,IF
+3901999,PSAL,20210225,,3,CC 20210602 Minmax alert,IF
+3902004,PSAL,20220606,,3,CC 20221116 Minmax alert,IF
+3902005,PSAL,20220210,,3,CC 20230213 Feedback from DM op,IF
+3902007,DOXY,20220212,,4,coefficients issue vbernard 20221213,IF
+3902009,DOXY,20220213,,4,sensor issue vracape 20230223,IF
+3902010,PSAL,20220911,,3,CC 20221025 Minmax alert,IF
+3902120,DOXY,20180313,20180315,4,remove_first_prof_april2019_ap,IF
+3902120,DOXY,20190116,,4,dead_sensor_april2019_ap,IF
+3902121,BBP700,20190321,,4, dead_prof_july2019_ap,IF
+3902121,CDOM,20190921,,4, sensor_issue_APJUN20,IF
+3902121,CHLA,20201128,,4,biofouling,IF
+3902121,DOXY,20180315,20180318,4,remove_first_prof_april2019_ap,IF
+3902121,DOXY,20190420,,4,dead_sensor_april2019_ap,IF
+3902122,BBP700,20190908,20190909,4,sensor noise_4mars2022_cycle_165,IF
+3902122,BBP700,20200515,,4,biofouling,IF
+3902122,CDOM,20200315,,4,biofouling,IF
+3902122,CHLA,20200515,,4,biofouling,IF
+3902122,DOXY,20200928,,4,sensor_issue,IF
+3902124,BBP700,20200312,20200318,4,sensor problem Bbp_audit_V0,IF
+3902125,DOXY,20171018,20171020,4,remove_first_prof_april2019_ap,IF
+3902135,PSAL,20190128,,3,CC 20210531 Feedback from PI,IF
+3902463,PSAL,20230313,,3,CC 20230504 Minmax alert,IF
+4900607,DOXY,20030907,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+4900608,DOXY,20040902,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+4900609,DOXY,20040901,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+4900610,DOXY,20040919,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+4900611,DOXY,20040915,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+4903642,PSAL,20230111,,3,CC 20230405 Feedback from DM op-Minmax alert,IF
+4903711,NITRATE,20230511,,3,Henry Bittig recommendation 20230724,IF
+5906969,PSAL,20221201,,4,CC 20230403 Minmax alert,IF
+6900346,DOXY,20050914,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+6900347,DOXY,20051007,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+6900348,DOXY,20070815,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+6900359,PSAL,20090115,,4,VB 20101022 beached float,IF
+6900359,TEMP,20090115,,4,VB 20101022 beached float,IF
+6900366,PSAL,20061005,,4,LPV 22/12/08,IF
+6900366,TEMP,20061005,,4,LPV 22/12/08,IF
+6900499,DOXY,20060413,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+6900500,DOXY,20060407,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+6900785,PSAL,20120119,,4,DD 20190206 wrecked,IF
+6900790,PSAL,20230528,,3,CC 20230605 Minmax alert,IF
+6900793,PSAL,20220905,,3,CC 20230308 QC Altimetry,IF
+6900796,DOXY,20100530,20100917,4,vracape 20200612,IF
+6900797,DOXY,20100601,20110409,4,vracape 20200612 sensor issue,IF
+6900798,DOXY,20100702,20150914,4,vracape sensor issue 20200612,IF
+6900799,DOXY,20120801,20130921,4,vracape sensor issue 20200612,IF
+6900876,BBP700,20140630,,4,RD_LOV_SEP2019,IF
+6900876,DOXY,20140630,,4,anomaly ; TC 20190510 via A.Barth ; vracape 20200612 update,IF
+6900877,BBP700,20160101,,4,sensor_issue_APJUN20,IF
+6900877,CHLA,20160101,,4,sensor_issue_APJUN20,IF
+6900877,DOXY,20140629,,4,anomaly ; TC 20190510 via A.Barth,IF
+6900889,PSAL,20161127,,3,CL 20170110,IF
+6900893,PSAL,20230601,,3,CC 20230605 Minmax alert,IF
+6900944,DOXY,20121024,20121114,3,vracape 20200612,IF
+6901250,PSAL,20230303,,3,CC 20230307 Minmax alert,IF
+6901253,PSAL,20200311,,3,CC 20210318 Minmax alert,IF
+6901255,PSAL,20221002,,3,CC 20221202 Minmax alert,IF
+6901256,PSAL,20191125,,3,DD 20200128 drift,IF
+6901268,PSAL,20210118,,3,CC 20210318 Minmax alert,IF
+6901269,PSAL,20221005,,3,CC 20221107 Minmax alert,IF
+6901273,PSAL,20191226,,3,CC 20210329 QC Altimetry,IF
+6901433,PSAL,20130214,,4,VB 20130219 decalage capteur CNDC,IF
+6901473,BBP700,20150302,,4,drift/dead_float/MULTI QC_table_MC.JUL18,IF
+6901473,CDOM,20150302,,4,drift/dead_float/MULTI QC_table_MC.JUL18,IF
+6901473,CHLA,20150302,,4,drift/dead_float/MULTI QC_table_MC.JUL18,IF
+6901473,CP660,20150302,,4,drift/dead_float/MULTI QC_table_MC.JUL18,IF
+6901473,DOWNWELLING_PAR,20150302,,4,drift/dead_float/MULTI QC_table_MC.JUL18,IF
+6901473,DOWN_IRRADIANCE380,20150302,,4,drift/dead_float/MULTI QC_table_MC.JUL18,IF
+6901473,DOWN_IRRADIANCE412,20150302,,4,drift/dead_float/MULTI QC_table_MC.JUL18,IF
+6901473,DOWN_IRRADIANCE490,20150302,,4,drift/dead_float/MULTI QC_table_MC.JUL18,IF
+6901473,DOXY,20140824,,4,sensor_issue_lovbio010b,IF
+6901473,PSAL,20151207,20160726,4,sensor_issue/dead_sensor_lovbio010b,IF
+6901473,TEMP,20151207,20160726,4,sensor_issue/dead_sensor_lovbio010b,IF
+6901475,BBP700,20121106,20121120,3,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901475,BBP700,20121226,20121227,3,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901475,BBP700,20130125,20130126,4,sensor_issue_lovbio007b,IF
+6901475,CDOM,20121106,20121120,4,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901475,CDOM,20121226,20121227,4,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901475,CDOM,20130125,20130126,4,sensor_issue_lovbio007b,IF
+6901475,CHLA,20121106,20121120,3,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901475,CHLA,20121226,20121227,3,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901475,CHLA,20130125,20130126,4,sensor_issue_lovbio007b,IF
+6901489,BBP700,20131009,20131010,3,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901489,BBP700,20140117,20140128,3,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901489,BBP700,20140522,20140523,3,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901489,CDOM,20130629,20130630,4,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901489,CDOM,20130830,20130831,4,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901489,CDOM,20130929,20130930,4,sensor shift/dead_float/ QC_table_MC.JUL18,IF
+6901489,CDOM,20131009,20131010,4,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901489,CDOM,20140117,20140128,4,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901489,CDOM,20140512,20140513,4,sensor shift/dead_float/ QC_table_MC.JUL18,IF
+6901489,CDOM,20140522,20140523,4,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901489,CDOM,20140527,20140528,4,sensor shift/dead_float/ QC_table_MC.JUL18,IF
+6901489,CDOM,20140601,20140602,4,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901489,CDOM,20140611,20140612,4,sensor shift/dead_float/ QC_table_MC.JUL18,IF
+6901489,CDOM,20140701,20140702,4,sensor_issue_noise 0 300,IF
+6901489,CDOM,20150201,20150202,4,sensor shift/dead_float/ QC_table_MC.JUL18,IF
+6901489,CDOM,20150212,20150213,4,sensor shift/dead_float/ QC_table_MC.JUL18,IF
+6901489,CDOM,20150220,20150221,4,sensor shift/dead_float/ QC_table_MC.JUL18,IF
+6901489,CHLA,20131009,20131010,3,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901489,CHLA,20140117,20140128,3,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901489,CHLA,20140522,20140523,3,sensor noise/dead_float/ QC_table_MC.JUL18,IF
+6901489,PSAL,20130630,20130701,4,density inversion -/dead_float/ QC_table_MC.18JAN18_MC.csv,IF
+6901489,PSAL,20140318,20140319,4,density inversion -/dead_float/ QC_table_MC.18JAN18_MC.csv,IF
+6901495,BBP700,20131001,,4,dead_prof_jully2019_ap,IF
+6901495,CDOM,20131001,,4,dead_prof_jully2019_ap,IF
+6901495,CHLA,20131001,,4,dead_prof_jully2019_ap,IF
+6901575,BBP700,20150615,20150616,4,spikes/ QC_table_MC.JUL18,IF
+6901575,BBP700,20150616,20150617,4,sensor problem Bbp_audit_V0,IF
+6901575,BBP700,20160718,20160719,4,spikes/ QC_table_MC.JUL18,IF
+6901575,BBP700,20160719,20160720,4,sensor problem Bbp_audit_V0,IF
+6901575,BBP700,20161014,20161015,4,noisy profil Bbp_audit_V0,IF
+6901575,CDOM,20150615,20150616,4,spikes/ QC_table_MC.JUL18,IF
+6901575,CDOM,20160718,20160719,4,spikes/ QC_table_MC.JUL18,IF
+6901575,CDOM,20180331,20181102,4,sensor_issue_lovbio047c,IF
+6901575,CHLA,20150615,20150616,4,spikes/ QC_table_MC.JUL18,IF
+6901575,CHLA,20150616,20150617,4,sensor problem Bbp_audit_V0,IF
+6901575,CHLA,20160718,20160719,4,spikes/ QC_table_MC.JUL18,IF
+6901575,CHLA,20160719,20160720,4,sensor problem Bbp_audit_V0,IF
+6901580,BBP700,20160304,20160305,4,sensor_issue_lovbio042d,IF
+6901580,CDOM,20160304,20160305,4,sensor_issue_lovbio042d,IF
+6901580,CHLA,20160304,20160305,4,sensor_issue_lovbio042d,IF
+6901580,PSAL,20150723,20150724,4,density inversion +/dead_float/ QC_table_MC.18JAN18_MC.csv,IF
+6901581,BBP700,20150719,20150720,4,spike profile/dead_float/ QC_table_MC.JUL18,IF
+6901581,BBP700,20151005,20151006,4,spike profile/dead_float/ QC_table_MC.JUL18,IF
+6901581,BBP700,20151218,20151219,4,sensor_issue_lovbio050b,IF
+6901581,BBP700,20170115,20170116,4,sensor_issue_lovbio050b,IF
+6901581,BBP700,20170627,,4,drift/dead_float/ QC_table_MC.JUL18,IF
+6901581,BBP700,20170826,20170827,4,spike profile/dead_float/ QC_table_MC.JUL18,IF
+6901581,CDOM,20151218,20151219,4,sensor_issue_lovbio050b,IF
+6901581,CDOM,20170115,20170116,4,sensor_issue_lovbio050b,IF
+6901581,CHLA,20151218,20151219,4,sensor_issue_lovbio050b,IF
+6901581,CHLA,20160911,20160912,4,one data Bbp_audit_V0,IF
+6901581,CHLA,20170115,20170116,4,sensor_issue_lovbio050b,IF
+6901581,CP660,20160609,20160610,4,spike profile/dead_float/ QC_table_MC.JUL18,IF
+6901581,DOXY,20160604,,4,drift/dead_float/ QC_table_MC.JUL18,IF
+6901584,CP660,20151006,20151007,4,spike profile/MULTI QC_table_MC.JUL18,IF
+6901584,CP660,20171016,20171017,4,spike profile/MULTI QC_table_MC.JUL18,IF
+6901584,CP660,20171025,20171026,4,spike profile/MULTI QC_table_MC.JUL18,IF
+6901584,DOXY,20171202,,4,drift/MULTI QC_table_MC.JUL18,IF
+6901605,PSAL,20140716,20140717,4,density inversion -/dead_float/ QC_table_MC.18JAN18_MC.csv,IF
+6901623,PSAL,20170501,,3,CP 20170721,IF
+6901653,BBP700,20161117,,4,shift/dead_float/ QC_table_MC.JUL18,IF
+6901653,CDOM,20161117,,4,shift/dead_float/ QC_table_MC.JUL18,IF
+6901653,CHLA,20161117,,4,shift/dead_float/ QC_table_MC.JUL18,IF
+6901656,BBP700,20160407,20160408,4,spike profile/ QC_table_MC.JUL18,IF
+6901656,PSAL,20160706,20160707,4,shift/ QC_table_MC.18JAN18_MC.csv,IF
+6901660,BBP700,20200901,20200902,4,sensor noise_15NOV2021_cycle255,IF
+6901687,BBP700,20171015,,4,sensor issue 01oct18 lov,IF
+6901687,CHLA,20171015,,4,sensor issue 01oct18 lov,IF
+6901687,PSAL,20150522,20150523,4,sensor_issue_lovbio080b,IF
+6901687,TEMP,20150522,20150523,4,sensor_issue_lovbio080b,IF
+6901688,BBP700,20150826,,4,shift/ QC_table_MC.JUL18,IF
+6901688,CDOM,20150826,,4,shift/ QC_table_MC.JUL18,IF
+6901688,CHLA,20150826,,4,shift/ QC_table_MC.JUL18,IF
+6901688,DOWNWELLING_PAR,20161116,20161117,4,sensor_issue_lovbio081b,IF
+6901688,DOWN_IRRADIANCE380,20161116,20161117,4,sensor_issue_lovbio081b,IF
+6901688,DOWN_IRRADIANCE412,20161116,20161117,4,sensor_issue_lovbio081b,IF
+6901688,DOWN_IRRADIANCE490,20161116,20161117,4,sensor_issue_lovbio081b,IF
+6901688,PSAL,20161116,20161117,4,sensor_issue_lovbio081b,IF
+6901688,TEMP,20161116,20161117,4,sensor_issue_lovbio081b,IF
+6901701,PSAL,20161220,20170826,3,CL 20170106,IF
+6901701,PSAL,20170826,,4,DD 20180206 wreckage,IF
+6901702,PSAL,20190410,,3,DD 20190607 drifting,IF
+6901703,PSAL,20181017,,3,DD 20181023 drift,IF
+6901704,PSAL,20181023,,3,DD 20181023 drift,IF
+6901742,PSAL,20161111,,3,CL 20170106,IF
+6901743,PSAL,20170531,,3,CP 20170830 Derive,IF
+6901748,CHLA,20150204,,4,sensor issue ?,IF
+6901748,TURBIDITY,20150204,,4,sensor issue ?,IF
+6901772,CDOM,20191201,,4,sensor_issue_APJUN20,IF
+6901772,DOXY,20180618,20180620,4,remove_first_prof_april2019_ap,IF
+6901772,PSAL,20201126,,4,CC 20210323 Minmax alert,IF
+6901775,DOXY,20180617,20180619,4,remove_first_prof_april2019_ap,IF
+6901833,PSAL,20201214,,3,CC 20210127 Feedback from PI,IF
+6901838,PSAL,20160922,,3,CC 20170110 feedback altimetry cls,IF
+6901841,PSAL,20201213,,4,CC 20210316 Minmax alert,IF
+6901861,BBP700,20150419,,4,dead_prof_may2019_ap,IF
+6901864,BBP700,20170815,20170816,4,sensor_issue_ogsbio002b,IF
+6901864,BBP700,20180318,,4,sensor issue 01oct18 lov,IF
+6901864,CDOM,20170815,20170816,4,sensor_issue_ogsbio002b,IF
+6901864,CDOM,20180318,,4,sensor issue 01oct18 lov,IF
+6901864,CHLA,20170815,20170816,4,sensor_issue_ogsbio002b,IF
+6901864,CHLA,20180318,,4,sensor issue 01oct18 lov,IF
+6901864,DOWNWELLING_PAR,20170815,20170816,4,sensor_issue_ogsbio002b,IF
+6901864,DOWN_IRRADIANCE380,20170815,20170816,4,sensor_issue_ogsbio002b,IF
+6901864,DOWN_IRRADIANCE412,20170815,20170816,4,sensor_issue_ogsbio002b,IF
+6901864,DOWN_IRRADIANCE490,20170815,20170816,4,sensor_issue_ogsbio002b,IF
+6901864,PSAL,20170815,20170816,4,sensor_issue_ogsbio002b,IF
+6901864,PSAL,20171019,20171020,4,density inversion/ QC_table_MC.18JAN18_MC.csv,IF
+6901864,PSAL,20180318,,3,VB 20180518 shift,IF
+6901864,TEMP,20170815,20170816,4,sensor_issue_ogsbio002b,IF
+6901865,BBP700,20150324,,4,drift/dead_float/ QC_table_MC.JUL18,IF
+6901865,CDOM,20150324,,4,drift/dead_float/ QC_table_MC.JUL18,IF
+6901865,CHLA,20150324,,4,drift/dead_float/ QC_table_MC.JUL18,IF
+6901885,PSAL,20190101,20190725,3,DD 20190308 drift,IF
+6901885,PSAL,20190725,,4,DD 20190903 hard jump,IF
+6901889,PSAL,20160901,,3,CL 20170106,IF
+6901979,PSAL,20210901,,3,CC 20221219 ASD Feedback,IF
+6901981,PSAL,20220429,,3,CC 20221219 ASD Feedback,IF
+6901982,PSAL,20150809,,4,CC 20201006 Minmax alert,IF
+6902021,DOXY,20150922,,4,vracape 20200616,IF
+6902602,PSAL,20150908,,4,DD 20191211 drift OWC,IF
+6902656,PSAL,20180901,,3,DD drift OW method,IF
+6902658,PSAL,20190818,,3,DD 202001128 bias,IF
+6902659,PSAL,20180404,,3,DD 202001128 drift,IF
+6902660,PSAL,20160402,20161011,3,DD 20190214 hard drift OW method,IF
+6902660,PSAL,20161011,,4,CL 20161005,IF
+6902671,NITRATE,20171005,20171006,4,anomaly - / QC_table_MC.JUL18,IF
+6902671,PSAL,20171005,20171006,4,density inversion +/ QC_table_MC.18JAN18_MC.csv,IF
+6902674,PSAL,20191112,,3,DD 20200128 drift,IF
+6902675,PSAL,20190107,,3,DD bias,IF
+6902676,PSAL,20161021,,3,CL 20170705,IF
+6902715,PSAL,20200708,,3,CC 20201007 Minmax alert,IF
+6902726,PSAL,20181209,,4,DD 20190607 hard drifting,IF
+6902742,BBP700,20161021,20161023,4,sensor_issue_lovapm002a,IF
+6902742,BBP700,20161112,20161118,4,sensor_issue_lovapm002a,IF
+6902742,BBP700,20161202,20161211,4,sensor_issue_lovapm002a,IF
+6902742,CDOM,20161021,20161023,4,sensor_issue_lovapm002a,IF
+6902742,CDOM,20161112,20161118,4,sensor_issue_lovapm002a,IF
+6902742,CDOM,20161202,20161211,4,sensor_issue_lovapm002a,IF
+6902742,CHLA,20161021,20161023,4,sensor_issue_lovapm002a,IF
+6902742,CHLA,20161112,20161118,4,sensor_issue_lovapm002a,IF
+6902742,CHLA,20161202,20161211,4,sensor_issue_lovapm002a,IF
+6902742,CHLA,20170315,20170316,4,one data Bbp_audit_V0,IF
+6902742,PSAL,20161101,20161102,4,density inversion +/dead_float/MULTI QC_table_MC.18JAN18_MC.csv,IF
+6902743,BBP700,20170103,20170104,4,sensor_issue_lovapm004a,IF
+6902743,CDOM,20170103,20170104,4,sensor_issue_lovapm004a,IF
+6902743,CHLA,20170103,20170104,4,sensor_issue_lovapm004a,IF
+6902743,PSAL,20161225,20161226,4,density inversion +/dead_float/MULTI QC_table_MC.18JAN18_MC.csv,IF
+6902743,PSAL,20170108,20170109,4,density inversion +/dead_float/MULTI QC_table_MC.18JAN18_MC.csv,IF
+6902743,PSAL,20170118,20170119,4,density inversion -/dead_float/MULTI QC_table_MC.18JAN18_MC.csv,IF
+6902759,PSAL,20210729,,3,CC 20210908 Minmax alert,IF
+6902760,PSAL,20221115,,3,CC 20230110 Minmax alert,IF
+6902762,PSAL,20200922,,3,CC 20210322 Minmax alert,IF
+6902763,PSAL,20230205,,3,CC 20230308 Minmax alert,IF
+6902771,PSAL,20210613,,3,CC 20210823 Feedback from PI,IF
+6902772,PSAL,20210613,,3,CC 20210823 Feedback from PI,IF
+6902779,PSAL,20201027,,3,CC 20201203 Minmax alert,IF
+6902781,PSAL,20210901,,3,CC 20211103 Minmax alert,IF
+6902782,PSAL,20211101,,3,CC 20211206 Minmax alert,IF
+6902797,PSAL,20201106,,3,CC 20201203 Minmax alert,IF
+6902798,DOXY,20170319,20170320,4,vracape 20211116 sensor issue,IF
+6902798,DOXY,20180513,20180514,4,vracape 20211116 sensor issue,IF
+6902799,DOXY,20200113,,4,vracape 20200616,IF
+6902801,DOXY,20170719,,4,vracape 20200616 sensor issue,IF
+6902809,PSAL,20200911,,3,CC 20201123 Minmax alert,IF
+6902813,PSAL,20201030,,4,CC 20210329 Minmax alert,IF
+6902827,BBP700,20200312,20200318,4,sensor problem Bbp_audit_V0,IF
+6902827,BBP700,20210421,,4,biofouling_15NOV2021_cycle346_to_end,IF
+6902827,CDOM,20170101,,4,shift QC_table_MC.JUL18,IF
+6902827,CHLA,20210421,,4,biofouling_15NOV2021_cycle346_to_end,IF
+6902827,PSAL,20180303,,3,DD 20190308 drift ,IF
+6902838,PSAL,20210425,,3,CC 20210615 Minmax alert,IF
+6902845,PSAL,20221021,,3,CC 20221107 Minmax alert,IF
+6902848,PSAL,20221008,,3,CC 20230412 Minmax alert,IF
+6902855,PSAL,20190829,,3,DD 20200128 drift,IF
+6902856,PSAL,20220806,,3,CC 20221107 QC Altimetry alert,IF
+6902859,PSAL,20230330,,3,CC 20230504 Minmax alert,IF
+6902874,PSAL,20181022,20181024,4,DD 20200203 first fresh cycles,IF
+6902874,PSAL,20191223,,4,DD 20200128 hard fresh jump,IF
+6902875,PSAL,20220927,,3,CC 20221026 Minmax alert - Feedback from DM op,IF
+6902879,DOXY,20170101,20171209,4,CTD_descent_pump_off,IF
+6902879,PH_IN_SITU_FREE,20170101,20171209,4,CTD_descent_pump_off,IF
+6902879,PH_IN_SITU_TOTAL,20170101,20171209,4,CTD_descent_pump_off,IF
+6902880,DOXY,20180816,20180817,4,shift_lovbio111b,IF
+6902881,DOXY,20200310,,4,vracape 20211109 sensor issue,IF
+6902892,PSAL,20230608,,4,CC 20230904 Minmax alert,IF
+6902898,BBP700,20181031,20181101,4,spike_profile_lovbio015e,IF
+6902898,BBP700,20210609,,4,biofouling_15NOV2021_cycle316_to_end,IF
+6902898,CDOM,20181027,20181029,4,sensor_shift_lovbio015e,IF
+6902898,CDOM,20181031,20181101,4,sensor_shift_lovbio015e,IF
+6902898,CDOM,20181102,20181103,4,sensor_shift_lovbio015e,IF
+6902898,CDOM,20181125,20181126,4,sensor_shift_lovbio015e,IF
+6902898,CDOM,20181127,20181128,4,sensor_shift_lovbio015e,IF
+6902898,CDOM,20200415,,4, sensor_issue_APJUN20,IF
+6902898,CHLA,20210609,,4,biofouling_15NOV2021_cycle316_to_end,IF
+6902902,BBP700,20200401,,4,drift_biofooling_APJUN20 ,IF
+6902902,CDOM,20200401,,4,drift_biofooling_APJUN20 ,IF
+6902902,CHLA,20200401,,4,drift_biofooling_APJUN20 ,IF
+6902904,BBP700,20200917,20200918,4,noisy profil Bbp_audit_V0,IF
+6902904,BBP700,20210729,20210730,4,sensor noise_4mars2022_cycle_210,IF
+6902904,DOXY,20181021,20181023,4,remove_first_prof_april2019_ap,IF
+6902905,BBP700,20201028,20201029,4,BBP700_audit_coriolis_052021_AP_DM_ NOISE_cycle211,IF
+6902905,BBP700,20210923,,4,noise_4mars2022_cycle_376_to_end,IF
+6902905,CHLA,20201028,20201028,4,sensor noise_4mars2022_cycle_211,IF
+6902905,DOXY,20190222,20190223,4,prof_issue_april2019_ap,IF
+6902907,BBP700,20190131,20190202,4, dead_prof_may2019_ap,IF
+6902907,CDOM,20181011,,4,shift_lovbio114b,IF
+6902908,BBP700,20181031,20181101,4,spike_profile_lovbio115b,IF
+6902913,PSAL,20191126,,3,CC 20191126 Feedback from DM op- ASD,IF
+6902914,PSAL,20220226,,3,CC 20221220 ASD Feedback,IF
+6902916,PSAL,20210613,,4,CC 20210823 Feedback from PI QC4 updated 20230116,IF
+6902917,PSAL,20220708,,3,CC 20220905 Minmax alert,IF
+6902918,PSAL,20210904,,3,CC 20211108 Minmax alert,IF
+6902919,PSAL,20210428,,3,CC 20210701 Minmax alert,IF
+6902921,PSAL,20191127,,3,DD 20200128 drift,IF
+6902922,PSAL,20200923,,3,CC 20201123 Minmax alert,IF
+6902923,PSAL,20220826,,3,CC 20221202 Minmax alert,IF
+6902924,PSAL,20220417,,3,CC 20220602 Minmax alert - drift on psal,IF
+6902925,PSAL,20230609,,3,CC 20230904 Minmax alert,IF
+6902926,PSAL,20210713,,3,CC 20211004 Minmax alert,IF
+6902928,PSAL,20220206,,3,CC 20220405 Minmax alert - drift on psal,IF
+6902930,PSAL,20220816,,3,CC 20221026 Minmax alert - Feedback from DM op,IF
+6902934,PSAL,20230810,,3,CC 20230921 Minmax alert,IF
+6902945,PSAL,20210109,,3,CC 20221214 Feedback from DM op- ASD,IF
+6902946,PSAL,20200312,,4,CC 20201006 Minmax alert,IF
+6902947,PSAL,20200504,,3,CC 20201103 Minmax alert,IF
+6902948,PSAL,20201110,,3,CC 20210128 Minmax alert,IF
+6902949,PSAL,20220814,,3,CC 20221026 Minmax alert - Feedback from DM op,IF
+6902950,PSAL,20220502,,4,CC 20220225 Feedback from DM op,IF
+6902951,PSAL,20230306,,3,CC 20230308 Minmax alert and QC Altimetry,IF
+6902957,DOXY,20200611,,4,vracape 20211118 sensor issue,IF
+6902964,PSAL,20210510,,4,CC 20211004 Minmax alert,IF
+6902981,PSAL,20230131,,3,CC 20230203 Minmax alert,IF
+6903006,PSAL,20220410,,3,CC 20230302 Feedback from DMQC,IF
+6903014,PSAL,20201014,,4,CC 20201027 Minmax alert,IF
+6903028,PSAL,20220824,,4,CC 20220913 Minmax alert - Feedback from DM op,IF
+6903068,PSAL,20220309,20220428,3,CC 20220420 Minmax alert - drift on psal,IF
+6903077,PSAL,20230219,,3,CC 20230504 Minmax alert,IF
+6903083,PSAL,20210909,,4,CC 20220203 Feedback from PI - problem on psal,IF
+6903091,BBP700,20210421,,4,BBP700_15NOV2021_audit_coriolis_052021_AP_DM_ sensor_HS_cycle_011_to_end,IF
+6903093,BBP700,20210621,20210622,4,sensor_noise_cycle_037_audit_bbp10202022,IF
+6903093,BBP700,20210804,,4,shift_data_cycle_15NOV2021_044_to_end,IF
+6903093,CHLA,20230321,20230409,4,sensor issue,IF
+6903126,BBP700,20220622,20220623,4,one_data_audit_bbp10202022,IF
+6903126,BBP700,20220805,20220806,4,one_data_audit_bbp10202022,IF
+6903126,CDOM,20220622,20220623,4,one_data_audit_bbp10202022,IF
+6903126,CDOM,20220805,20220806,4,one_data_audit_bbp10202022,IF
+6903126,CHLA,20220622,20220623,4,one_data_audit_bbp10202022,IF
+6903126,CHLA,20220805,20220806,4,one_data_audit_bbp10202022,IF
+6903126,DOWNWELLING_PAR,20220622,20220623,4,one_data_audit_bbp10202022,IF
+6903126,DOWNWELLING_PAR,20220805,20220806,4,one_data_audit_bbp10202022,IF
+6903126,DOWN_IRRADIANCE380,20220622,20220623,4,one_data_audit_bbp10202022,IF
+6903126,DOWN_IRRADIANCE380,20220805,20220806,4,one_data_audit_bbp10202022,IF
+6903126,DOWN_IRRADIANCE412,20220622,20220623,4,one_data_audit_bbp10202022,IF
+6903126,DOWN_IRRADIANCE412,20220805,20220806,4,one_data_audit_bbp10202022,IF
+6903126,DOWN_IRRADIANCE490,20220622,20220623,4,one_data_audit_bbp10202022,IF
+6903126,DOWN_IRRADIANCE490,20220805,20220806,4,one_data_audit_bbp10202022,IF
+6903126,DOXY,20220622,20220623,4,one_data_audit_bbp10202022,IF
+6903126,DOXY,20220805,20220806,4,one_data_audit_bbp10202022,IF
+6903126,NITRATE,20220622,20220623,4,one_data_audit_bbp10202022,IF
+6903126,NITRATE,20220805,20220806,4,one_data_audit_bbp10202022,IF
+6903175,PSAL,20160229,,3,DD 20191211 drift OWC,IF
+6903197,NITRATE,20161003,20161004,4,sensor_issue_ogsbio006d,IF
+6903197,NITRATE,20161212,20161218,4,sensor_issue_ogsbio006d,IF
+6903203,DOXY,20161208,20161210,4,CS sensor issues,IF
+6903203,DOXY,20170508,,4,CS sensor issues,IF
+6903216,PSAL,20220402,,3,CC 20220622 Minmax alert,IF
+6903234,PSAL,20210802,,4,CC 20211004 Minmax alert,IF
+6903235,BBP700,20180512,,4,dead_prof_may2019_ap,IF
+6903235,CHLA,20180101,20180326,4,AP_LOV_DEC_2019,IF
+6903238,PSAL,20191108,,3,DD 20200128 drift,IF
+6903239,PSAL,20210929,,4,CC 20211123 Minmax alert,IF
+6903245,PSAL,20210419,,3,CC 20210701 Minmax alert,IF
+6903247,DOXY,20210413,,4,Biofouling suspected,IF
+6903252,PSAL,20190619,20191116,4,DD 20200310 first cycles with very fresh values,IF
+6903253,PSAL,20190210,,4,DD 20190514 very fresh values,IF
+6903256,PSAL,20210510,,3,CC 20220127 Feedback from PI - drift,IF
+6903260,PSAL,20191116,20191216,3,DD 20200309 fast salty drift,IF
+6903260,PSAL,20191216,,4,DD 20200309 fast salty drift,IF
+6903262,PSAL,20230726,,3,CC 20230801 Feedback from DM op- Bad salinity,IF
+6903263,DOXY,20190323,20190324,4,vracape 20111116 sensor issue,IF
+6903266,PSAL,20211007,,3,CC 20211206 Minmax alert,IF
+6903268,PSAL,20200505,,3,CC 20210325 Feedback from PI,IF
+6903270,PSAL,20211017,,3,CC 20211206 Minmax alert,IF
+6903276,PSAL,20180519,20180710,3,DD 20181121 drift,IF
+6903276,PSAL,20180710,,4,DD 20181121 hard drift,IF
+6903291,PSAL,20220131,,3,CC 20220517 Minmax alert - drift on psal,IF
+6903547,PSAL,20201228,,3,CC 20210104 Feedback from PI,IF
+6903556,PSAL,20211110,,3,CC 20220309 Minmax alert - drift on psal,IF
+6903557,PSAL,20210302,,3,CC 20220207 Minmax alert - drift on psal,IF
+6903561,PSAL,20220722,,3,CC 20221220 ASD Feedback,IF
+6903562,PSAL,20200916,,3,CC 20210318 Minmax alert,IF
+6903567,BBP700,20200510,,4,sensor issue,IF
+6903567,CDOM,20200510,,4,sensor issue,IF
+6903567,CHLA,20200510,,4,sensor issue,IF
+6903570,DOXY,20210512,20210517,4,vracape 20211116 sensor issue,IF
+6903575,NITRATE,20210418,20210429,4,NITRATE_1st_prof_issue,IF
+6903590,NITRATE,20220610,20220613,4,NITRATE_1st_prof_issue,IF
+6903878,BBP700,20210316,20210317,4,sensor_noise_cycle_005_audit_bbp10202022,IF
+6904079,PSAL,20230130,,3,CC 20230227 Feedback from DM op- Fresh salinity,IF
+6904092,PSAL,20220928,,3,CC 20221122 Minmax alert - Feedback from DM op,IF
+6904116,NITRATE,20210325,,3,very specific area values have to be checked,IF
+6904117,NITRATE,20210201,,3,very specific area values have to be checked,IF
+6904139,PSAL,20211212,,3,CC 20220215 Feedback from DM op,IF
+7900076,DOXY,20050216,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+7900085,PSAL,20061212,20070224,4,DD 20190206 bias,IF
+7900095,DOXY,20050313,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+7900132,DOXY,20061012,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+7900133,DOXY,20061016,,3,VB 20200511 old Apex floats Doxy profiles have to be DM by a specialist,IF
+7900498,PSAL,20201228,,4,CC 20210823 Feedback from PI,IF
+7900499,PSAL,20200719,,3,CC 20230911 Feedback from DM operator,IF
+7900504,PSAL,20201208,,3,CC 20220225 Feedback from DM op,IF
+7900505,PSAL,20220523,,3,CC 20221219 ASD Feedback,IF
+7900509,PSAL,20210824,,3,CC 20211104 Feedback from PI,IF
+7900516,PSAL,20190918,,3,DD 20200128 rapid drift; 20200618 VB update start_date,IF
+7900517,PSAL,20220515,,3,CC 20220617 Minmax alert,IF
+7900556,PSAL,20211124,,4,CC 20220704 Feedback from DM op,IF
+7900557,PSAL,20210225,,3,CC 20210312 Feedback from PI,IF
+7900558,PSAL,20201021,,4,CC 20210316 Feedback from PI,IF
+7900559,BBP700,20191221,,4,sensor noise_cycle_audit_bbp10202022,IF
+7900559,CDOM,20191226,,4,sensor_noise_cycle_audit_bbp10202022,IF
+7900559,CHLA,20191226,,4,sensor noise_cycle_audit_bbp10202022,IF
+7900559,DOXY,20191125,,4,vracape 20211116 buoyancy issue,IF
+7900560,BBP700,20191201,,4,sensor dead,IF
+7900560,CHLA,20191201,,4,sensor dead,IF
+7900560,DOXY,20200127,20200207,4,vracape 20211116 sensor issue,IF
+7900561,BBP700,20191201,20200205,4,spikes/sensor issue,IF
+7900561,CHLA,20191201,20200205,4,sensor issue,IF
+7900561,DOXY,20200112,20200115,4,vracape 20211116 sensor issue,IF
+7900562,BBP700,20220725,,4,biofouling,IF
+7900562,CDOM,20220725,,4,biofouling,IF
+7900562,CHLA,20220725,,4,biofouling,IF
+7900563,BBP700,20200901,,4,BBP700_audit_coriolis_052021_AP_DM_sensor_broke,IF
+7900563,CHLA,20200901,,4,BBP700_15NOV2021_audit_coriolis_052021_AP_DM_sensor_broke,IF
+7900563,DOXY,20200901,,4,technical_issue_15NOV2021,IF
+7900567,PSAL,20210801,,3,VB 20210809 Feedback from PI,IF
+7900569,PSAL,20210217,,3,CC 20210312 Feedback from PI,IF
+7900570,PSAL,20210707,,3,CC 20211025 PI Feedback,IF
+7900574,PSAL,20210330,,3,VB 20210809 feedback from PI,IF
+7900591,PSAL,20140220,20140221,4,sensor_issue_basbio001d,IF
+7900591,TEMP,20140220,20140221,4,sensor_issue_basbio001d,IF
+7900594,PSAL,20160830,,3,DD 20191211 drift,IF
+7901065,NITRATE,20230515,,3,Henry Bittig recommendation 20230724,IF
+2902141,PSAL,20180511,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902147,PSAL,20190908,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902148,PSAL,20180417,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902149,PSAL,20190313,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902151,PSAL,20190205,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902152,PSAL,20161220,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902162,PSAL,20170609,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902163,PSAL,20180615,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902165,PSAL,20180319,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902166,PSAL,20171230,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902168,PSAL,20180621,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902169,PSAL,20171015,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902170,PSAL,20150202,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902175,PSAL,20161116,,4,salty drift and wreckage,IN
+2902188,PSAL,20180624,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902198,PSAL,20161220,,4,hard salty drift,IN
+2902203,PSAL,20170522,,4,hard drift and wreckage,IN
+2902206,PSAL,20180323,,4,fresh offset and completely wreckage,IN
+2902219,PSAL,20190321,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902220,PSAL,20190918,,4,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,IN
+2902232,PSAL,20180509,,4,jump 4 PSU with a correction,IN
+2902233,PSAL,20180208,,4,salty drift and wreckage,IN
+2902239,PSAL,20171025,,4,fresh offset and probably biofouled,IN
+2902257,PSAL,20190220,,4,salty jump and rapid wreckage,IN
+1902078,PSAL,20191013,,4,sensor problem,JA
+2900616,PRES,20060226,20060302,4,on surface,JA
+2900616,PSAL,20060226,20060302,4,on surface,JA
+2900616,TEMP,20060226,20060302,4,on surface,JA
+2900731,PSAL,20080611,20080617,3,fresh offset,JA
+2900941,PSAL,20090119,,3,fresh offset,JA
+2900942,PSAL,20090119,,3,salty drift,JA
+2901040,PRES,20111121,,4,pressure sensor problem,JA
+2901040,PSAL,20111121,,4,pressure sensor problem,JA
+2901040,TEMP,20111121,,4,pressure sensor problem,JA
+2901682,PRES,20120523,,3,salty temp drift,JA
+2901682,PSAL,20120523,,3,salty drift,JA
+2901682,TEMP,20120523,,3,temp drift,JA
+2902416,PSAL,20141002,,4,sensor problem,JA
+2902417,PSAL,20190928,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,JA
+2902418,PSAL,20190928,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,JA
+2902420,PSAL,20190928,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,JA
+2902421,PSAL,20190928,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,JA
+2902431,DOXY,20110509,,4,sensor problem,JA
+2902431,PSAL,20110509,,4,sensor problem,JA
+2902498,PSAL,20140328,,4,sensor problem,JA
+2902501,PSAL,20140928,,4,sensor problem,JA
+2902503,PSAL,20140415,,4,sensor problem,JA
+2902505,PSAL,20140323,,4,sensor problem,JA
+2902505,TEMP,20140323,,3,sensor problem,JA
+2902532,PSAL,20190928,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,JA
+2902533,PSAL,20190928,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,JA
+2902534,PSAL,20190928,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,JA
+2902535,PSAL,20190928,20210609,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,JA
+2902535,PSAL,20210618,,4,salty drift,JA
+2902536,PRES,20151009,20160924,4,sensor problem,JA
+2902536,PSAL,20151009,20160924,4,sensor problem,JA
+2902536,TEMP,20151009,20160924,4,sensor problem,JA
+2902537,PSAL,20170824,,4,sensor problem,JA
+2902945,PSAL,20160727,,3,salty drift,JA
+2902951,PSAL,20160409,,4,salty drift,JA
+2902965,PSAL,20160206,,4,sensor problem,JA
+2902965,TEMP,20160611,,3,temp drift,JA
+2902975,PSAL,20161216,20170619,3,salty drift,JA
+2902975,PSAL,20170620,,4,salty drift,JA
+2902982,PSAL,20181022,,3,salty drift,JA
+2902985,PSAL,20171115,,4,salty drift,JA
+2902986,PRES,20161002,,4,sensor problem,JA
+2902986,PSAL,20161002,,4,sensor problem,JA
+2902986,TEMP,20161002,,4,sensor problem,JA
+2902995,PSAL,20181007,,4,salty drift,JA
+2902999,PSAL,20171211,,4,fresh drift,JA
+2903177,PSAL,20170927,,4,salty drift,JA
+2903178,PSAL,20180410,,4,salty drift,JA
+2903179,PSAL,20180411,,4,salty drift,JA
+2903180,PSAL,20170914,20171018,3,salty drift,JA
+2903180,PSAL,20171019,,4,salty drift,JA
+2903181,PSAL,20170916,20170930,3,salty drift,JA
+2903181,PSAL,20171001,,4,salty drift,JA
+2903182,PSAL,20180512,,4,salty drift,JA
+2903183,PSAL,20171031,20180108,3,salty drift,JA
+2903183,PSAL,20180109,,4,salty drift,JA
+2903184,PSAL,20171109,20171113,3,salty drift,JA
+2903184,PSAL,20171114,,4,salty drift,JA
+2903185,PSAL,20180124,20180217,3,salty drift,JA
+2903185,PSAL,20180218,,4,salty drift,JA
+2903186,PSAL,20170821,20170915,3,salty drift,JA
+2903186,PSAL,20170916,20180707,4,salty drift,JA
+2903186,PSAL,20180708,,4,fresh drift,JA
+2903187,PSAL,20180619,,4,salty drift,JA
+2903188,PSAL,20180520,,4,salty drift,JA
+2903190,PSAL,20180917,,4,salty drift,JA
+2903191,PSAL,20181224,,4,salty drift,JA
+2903203,PSAL,20170831,,4,salty drift,JA
+2903207,PSAL,20190705,,4,sensor problem,JA
+2903212,PSAL,20171201,,4,fresh drift,JA
+2903214,PSAL,20190309,,4,salty drift,JA
+2903217,PSAL,20180709,,4,fresh drift,JA
+2903222,PSAL,20181031,,4,sensor problem,JA
+2903333,PSAL,20190910,,4,sensor problem,JA
+2903341,PSAL,20200611,,4,salty drift,JA
+2903358,PSAL,20221027,,4,salty drift,JA
+2903361,PSAL,20210212,,4,salty drift,JA
+2903385,PSAL,20210125,,4,salty drift,JA
+2903387,PSAL,20201215,,4,salty drift,JA
+2903389,PSAL,20201005,,4,salty drift,JA
+2903392,PSAL,20220227,,4,salty drift,JA
+2903393,PSAL,20220718,,4,salty drift,JA
+2903394,PSAL,20200721,,4,salty drift,JA
+2903395,PSAL,20210102,,4,salty drift,JA
+2903400,PSAL,20210617,,4,sensor problem,JA
+2903401,PSAL,20210613,,4,salty drift,JA
+2903403,PSAL,20220117,,4,salty drift,JA
+2903404,PSAL,20200620,,4,salty drift,JA
+2903605,PSAL,20200809,,4,salty drift,JA
+2903606,PSAL,20220926,,4,salty drift,JA
+2903607,PSAL,20220522,20220622,3,salty drift,JA
+2903607,PSAL,20220701,,4,salty drift,JA
+2903608,PSAL,20211202,,4,salty drift,JA
+2903610,PSAL,20210525,,4,fresh drift,JA
+2903612,PSAL,20200304,20200323,3,salty drift,JA
+2903612,PSAL,20200324,,4,salty drift,JA
+2903616,PSAL,20200920,,4,salty drift,JA
+2903617,PSAL,20230701,,4,salty drift,JA
+2903626,PSAL,20200611,20200806,4,fresh drift,JA
+2903644,PSAL,20220531,20220711,3,sensor problem,JA
+2903644,PSAL,20220715,,4,sensor problem,JA
+2903669,PSAL,20220218,,4,salty drift,JA
+2903675,PSAL,20230224,,3,salty drift,JA
+2903712,PSAL,20221014,,4,fresh drift,JA
+3902388,PSAL,20230215,,4,salty drift,JA
+3902392,PSAL,20201228,,2,salty drift,JA
+4902138,PSAL,20170910,,4,sensor problem,JA
+4902148,PSAL,20190928,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,JA
+4902149,PSAL,20190928,20230507,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,JA
+4902149,PSAL,20230508,,3,salty drift,JA
+4902253,PSAL,20190928,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,JA
+4902365,PSAL,20180708,,4,sensor problem,JA
+4902367,PSAL,20190222,20190402,3,sensor problem,JA
+4902367,PSAL,20190403,,4,sensor problem,JA
+4902368,PSAL,20170802,20180606,4,sensor problem,JA
+4902374,PSAL,20170721,20170731,4,sensor problem,JA
+4902374,PSAL,20181113,,4,sensor problem,JA
+4902375,PSAL,20200603,,4,salty drift,JA
+4902376,PSAL,20220902,,4,salty drift,JA
+4902380,PSAL,20220913,,4,salty drift,JA
+4902982,PSAL,20211002,,4,salty drift,JA
+4902983,PSAL,20200910,,4,salty drift,JA
+4902984,PSAL,20210405,,4,salty drift,JA
+4902985,PSAL,20200901,,4,salty drift,JA
+4902986,PSAL,20220920,20220922,4,salty drift,JA
+4902986,PSAL,20230616,,4,salty drift,JA
+4902987,PSAL,20200628,,4,salty drift,JA
+4902988,PSAL,20200928,,4,salty drift,JA
+5901581,PRES,20090305,,4,wrong value,JA
+5901581,PSAL,20090305,,4,wrong value,JA
+5901581,TEMP,20090305,,4,wrong value,JA
+5904933,PSAL,20191019,,4,sensor problem,JA
+5904934,PSAL,20171124,,4,sensor problem,JA
+5904935,PSAL,20190928,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,JA
+5905051,PSAL,20190928,,2,maybe poor sensor performance; reason SBE sensor serial # in 6000-7100,JA
+5905057,PSAL,20200724,,4,salty drift,JA
+5905215,PSAL,20220227,,2,salty drift,JA
+5905219,PSAL,20220928,,3,salty drift,JA
+5905230,PSAL,20200107,,4,salty drift,JA
+5905231,PSAL,20200323,,4,salty drift,JA
+5905841,PSAL,20220829,20220927,3,salty drift,JA
+5905841,PSAL,20220928,,4,salty drift,JA
+5905842,PSAL,20200414,,4,salty drift,JA
+5905845,PSAL,20220124,,4,salty drift,JA
+5905847,PSAL,20230828,,3,salty drift,JA
+5905852,PSAL,20210223,,2,salty drift,JA
+5905855,PSAL,20230713,,3,salty drift,JA
+5905856,PSAL,20210612,,4,fresh drift,JA
+5905861,PSAL,20210921,,4,salty drift,JA
+5905862,PSAL,20210711,,4,salty drift,JA
+5905863,PSAL,20210928,20211028,2,salty drift,JA
+5905863,PSAL,20211106,,4,salty drift,JA
+5905864,PSAL,20210825,,4,salty drift,JA
+5905865,PSAL,20210130,,4,salty drift,JA
+5905875,PSAL,20230111,,4,salty drift,JA
+5905876,PSAL,20210319,,4,salty drift,JA
+5905877,PSAL,20210726,,4,salty drift,JA
+5906390,PSAL,20210810,,4,temperature sensor problem,JA
+5906390,TEMP,20210810,,4,sensor problem,JA
+7900868,PSAL,20221030,,3,salty drift,JA
+2900525,PRES,20090929,20091103,4,duplicated profiles,KM
+2900525,PSAL,20090929,20091103,4,duplicated profiles,KM
+2900525,TEMP,20090929,20091103,4,duplicated profiles,KM
+2900638,PSAL,20140820,20141015,4,sensor drift,KM
+2900890,PRES,20090116,20110615,4,sensor problem,KM
+2900890,PSAL,20090116,20110615,4,sensor problem,KM
+2900890,TEMP,20090116,20110615,4,sensor problem,KM
+2901237,PRES,20110320,20110320,4,duplicated profiles,KM
+2901237,PSAL,20110320,20110320,4,duplicated profiles,KM
+2901237,TEMP,20110320,20110320,4,duplicated profiles,KM
+2901250,PRES,20141022,20141022,4,duplicated profiles,KM
+2901250,PRES,20141112,20141112,4,duplicated profiles,KM
+2901250,PRES,20141119,20141119,4,duplicated profiles,KM
+2901250,PSAL,20130417,20130418,4,salinity sensor problem,KM
+2901250,PSAL,20140423,20140424,4,salinity sensor problem,KM
+2901250,PSAL,20141022,20141022,4,duplicated profiles,KM
+2901250,PSAL,20141112,20141112,4,duplicated profiles,KM
+2901250,PSAL,20141119,20141119,4,duplicated profiles,KM
+2901250,TEMP,20141022,20141022,4,duplicated profiles,KM
+2901250,TEMP,20141112,20141112,4,duplicated profiles,KM
+2901250,TEMP,20141119,20141119,4,duplicated profiles,KM
+2901710,PRES,20130815,20130815,4,duplicated profiles,KM
+2901710,PRES,20131024,20131024,4,duplicated profiles,KM
+2901710,PSAL,20130815,20130815,4,duplicated profiles,KM
+2901710,PSAL,20131024,20131024,4,duplicated profiles,KM
+2901710,TEMP,20130815,20130815,4,duplicated profiles,KM
+2901710,TEMP,20131024,20131024,4,duplicated profiles,KM
+2901758,PSAL,20190913,,4,sensor drift,KM
+2901759,PSAL,20190913,,4,sensor drift,KM
+2901760,PSAL,20200710,,4,sensor drift,KM
+2901769,PRES,20170828,,4,sensor problem,KM
+2901769,PSAL,20170828,,4,sensor problem,KM
+2901769,TEMP,20170828,,4,sensor problem,KM
+2901783,PSAL,20180920,20181122,3,salinity drift,KM
+2901792,PSAL,20210814,,4,salinity drift,KM
+5900196,PRES,20090630,20090701,4,duplicated profiles,KM
+5900196,PSAL,20080826,,4,sensor unstable after grounding,KM
+5900196,PSAL,20090630,20090701,4,duplicated profiles,KM
+5900196,TEMP,20090630,20090701,4,duplicated profiles,KM
+2900603,PRES,20060717,,3,hit bottom and bad data after returned ,KO
+2900603,PSAL,20060717,,3,hit bottom and bad data after returned ,KO
+2900603,TEMP,20060717,,3,hit bottom and bad data after returned ,KO
+2901204,PRES,20101022,,3,hit bottom and bad data after returned ,KO
+2901204,PSAL,20101022,,3,hit bottom and bad data after returned ,KO
+2901204,TEMP,20101022,,3,hit bottom and bad data after returned ,KO
+2901209,PRES,20121001,,3,hit bottom and bad data after returned ,KO
+2901209,PSAL,20121001,,3,hit bottom and bad data after returned ,KO
+2901209,TEMP,20121001,,3,hit bottom and bad data after returned ,KO
+4901108,PRES,20090907,,4,TNPD problem,ME
+4901108,PSAL,20090907,,4,TNPD problem,ME
+4901108,TEMP,20090907,,4,TNPD problem,ME
+4901188,PSAL,20161101,,2,Salinity drift,ME
+4901772,PSAL,20180131,,3,Salinity drift,ME
+4901774,PSAL,20180919,,2,possible poor sensor performance; reason SBE sensor serial # in 6000-7100,ME
+4901777,PSAL,20170111,,3,Salinity drift,ME
+4901779,PSAL,20190517,,3,possible poor sensor performance; reason SBE sensor serial # in 6000-7100,ME
+4901780,PSAL,20180919,,2,possible poor sensor performance; reason SBE sensor serial # in 6000-7100,ME
+4901784,PSAL,20181220,,3,Salinity drift; SBE sensor serial # in 6000-7100,ME
+4901786,PSAL,20180919,,2,possible poor sensor performance; reason SBE sensor serial # in 6000-7100,ME
+4901788,PSAL,20180919,,2,possible poor sensor performance; reason SBE sensor serial # in 6000-7100,ME
+4901790,PSAL,20180308,,3,Salinity drift,ME
+4901792,PSAL,20170928,,3,Salinity drift,ME
+4901794,PSAL,20180919,,2,possible poor sensor performance; reason SBE sensor serial # in 6000-7100,ME
+4901797,PSAL,20180919,,2,possible poor sensor performance; reason SBE sensor serial # in 6000-7100,ME
+4901818,PSAL,20200121,,2,Salinity drift,ME
+4901822,PSAL,20190118,,3,Salinity drift,ME
+4901823,PSAL,20190118,,2,Salinity drift,ME
+4901824,PSAL,20161217,,4,Salinity drift,ME
+4901824,TEMP,20161217,,4,Temperature drift,ME
+4901825,PSAL,20170926,,3,Salinity drift,ME
+4902414,PSAL,20201110,,4,Salinity drift,ME
+4902465,PSAL,20200121,,2,Salinity drift,ME
+4902470,PSAL,20200915,,4,Salinity drift,ME
+4902480,DOXY,20200420,,4,Optode sensor failed,ME
+4902533,PRES,20210428,,3,RBR Pilot sensor,ME
+4902533,PSAL,20210428,,3,RBR Pilot sensor,ME
+4902533,TEMP,20210428,,3,RBR Pilot sensor,ME
+4902534,PRES,20210428,,3,RBR Pilot sensor,ME
+4902534,PSAL,20210428,,3,RBR Pilot sensor,ME
+4902534,TEMP,20210428,,3,RBR Pilot sensor,ME
