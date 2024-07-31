@@ -199,6 +199,10 @@ src="OUTPUT_examples/MOCCA_case/Plots/08_MOCCA_Fleet_CTD_prof_DMQCstatus_agehist
 </p>
 
 - __Plot 08 (new v3.4)__ DMQC and profile -F status per profile year<br />
+<p float="center">
+<img 
+src="OUTPUT_examples/MOCCA_case/Plots/08_MOCCA_Fleet_PSAL_prof_DMQC-and-F_status_byyear_20240731.png" width="400" /> 
+</p>
 
 - __Plot 10__ R-A-D status for all parameters <br />
 Plot 10 presents by parameter (x axis), the number of R-profiles, A-profiles and D-profiles.
