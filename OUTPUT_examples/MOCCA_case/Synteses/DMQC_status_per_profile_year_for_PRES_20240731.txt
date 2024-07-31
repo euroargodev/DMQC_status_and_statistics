@@ -1,0 +1,16 @@
+# DMQC status and Data quality control statistics
+# Project : MOCCA_Fleet
+# Update date : 20240731022802
+
+# Statistics per profile year for parameter PRES
+Param_name,Year,nb_profiles,nb_profiles_DMQCed,nb_profiles_QCF,nb_profiles_DMQCed_QCF 
+PRES,1980,1,1,0,0
+PRES,2016,574,574,0,0
+PRES,2017,4052,3970,0,0
+PRES,2018,6434,5714,0,0
+PRES,2019,7203,5880,0,0
+PRES,2020,6048,4240,0,0
+PRES,2021,5107,3310,0,0
+PRES,2022,3899,2209,0,0
+PRES,2023,2943,1240,0,0
+PRES,2024,1161,244,0,0
