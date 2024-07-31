@@ -1,0 +1,16 @@
+# DMQC status and Data quality control statistics
+# Project : MOCCA_Fleet
+# Update date : 20240731022802
+
+# Statistics per profile year for parameter TEMP
+Param_name,Year,nb_profiles,nb_profiles_DMQCed,nb_profiles_QCF,nb_profiles_DMQCed_QCF 
+TEMP,1980,1,1,0,0
+TEMP,2016,574,574,14,14
+TEMP,2017,4052,3970,61,61
+TEMP,2018,6434,5714,85,77
+TEMP,2019,7203,5880,222,222
+TEMP,2020,6048,4240,101,101
+TEMP,2021,5107,3310,102,102
+TEMP,2022,3899,2209,37,37
+TEMP,2023,2943,1240,37,37
+TEMP,2024,1161,244,21,10

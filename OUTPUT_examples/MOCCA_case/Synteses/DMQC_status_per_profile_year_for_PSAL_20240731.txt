@@ -1,0 +1,16 @@
+# DMQC status and Data quality control statistics
+# Project : MOCCA_Fleet
+# Update date : 20240731022802
+
+# Statistics per profile year for parameter PSAL
+Param_name,Year,nb_profiles,nb_profiles_DMQCed,nb_profiles_QCF,nb_profiles_DMQCed_QCF 
+PSAL,1980,1,1,0,0
+PSAL,2016,574,574,14,14
+PSAL,2017,4052,3970,124,124
+PSAL,2018,6434,5714,480,472
+PSAL,2019,7203,5880,1351,1267
+PSAL,2020,6048,4240,1930,1246
+PSAL,2021,5107,3310,2085,1246
+PSAL,2022,3899,2209,1798,978
+PSAL,2023,2943,1240,1705,655
+PSAL,2024,1161,244,706,141

@@ -118,6 +118,12 @@
 %        - change search for param name in index for a more robust means
 %        - add x grid and minor grid for psal adjustment display by wmo.
 %        - add an option to group prof QC A and B
+% V3.4 (2024/02/23) :
+%        - remove CTD from plot 09 when i_bgc=1.
+%        - 1-yr static string was replaced by the config value
+%        - add a new graph per profile year with DMQC and profile QC F + 
+%          output values in a text file
+%        - add a log (diary)
 
 %option explicit
 
@@ -130,11 +136,11 @@ disp([newline '######################'])
 disp('Configuration')
 
 
-icase = 6;
+icase = 5;
 
 switch icase
     case 1
-        test_case_dir = '/home1/datahome/co_arg/ddobler/DMQC_Status/01_EuropeanFleet_case/';
+        test_case_dir = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/01_EuropeanFleet_case/';
         i_bgc = 1;
         wmo_list_file = [test_case_dir 'input_files/wmo_list_all_european_floats.csv'];
         country_code_file = [test_case_dir 'input_files/country_codes.csv'];
@@ -142,21 +148,21 @@ switch icase
         output_graphs_per_float = 0;
 
     case 3
-        test_case_dir = '/home1/datahome/co_arg/ddobler/DMQC_Status/03_RBR_case/';
+        test_case_dir = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/03_RBR_case/';
         i_bgc = 0;
         wmo_list_file = [test_case_dir 'input_files/wmo_list_all_rbr_floats.txt'];
         country_code_file = [test_case_dir 'input_files/country_codes.csv'];
         project_name = 'RBR_Fleet';
         output_graphs_per_float = 1;
     case 4
-        test_case_dir = '/home1/datahome/co_arg/ddobler/DMQC_Status/04_RC_AtlantOS/';
+        test_case_dir = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/04_RC_AtlantOS/';
         i_bgc = 1;
         wmo_list_file = [test_case_dir 'input_files/AtlantOS_EuroSea.csv'];
         country_code_file = [test_case_dir 'input_files/country_codes.csv'];
         project_name = 'AtlantOS_BGC_Fleet';
         output_graphs_per_float = 1;
     case 5
-        test_case_dir = '/home1/datahome/co_arg/ddobler/DMQC_Status/05_RC_Mocca/';
+        test_case_dir = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/05_RC_Mocca/';
         i_bgc = 0;
         wmo_list_file = [test_case_dir 'input_files/MOCCA.csv'];
         country_code_file = [test_case_dir 'input_files/country_codes.csv'];
@@ -164,7 +170,7 @@ switch icase
         output_graphs_per_float = 1;
         
     case 6
-        test_case_dir = '/home1/datahome/co_arg/ddobler/DMQC_Status/06_AllArgoFleet_case/';
+        test_case_dir = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/06_AllArgoFleet_case/';
         i_bgc = 1;
         wmo_list_file = [test_case_dir 'input_files/wmo_list_all_Argo_floats.txt'];
         country_code_file = [test_case_dir 'input_files/country_codes.csv'];
@@ -172,41 +178,56 @@ switch icase
         output_graphs_per_float = 0;
 
     case 7
-        test_case_dir = '/home1/datahome/co_arg/ddobler/DMQC_Status/07_ASD_floats/';
+        test_case_dir = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/07_ASD_floats/';
         i_bgc = 0;
         wmo_list_file = [test_case_dir 'input_files/wmo_list_asd_floats.csv'];
         country_code_file = [test_case_dir 'input_files/country_codes.csv'];
         project_name = 'ASD_Fleet';
         output_graphs_per_float = 1;
+        
+    case 8
+        test_case_dir = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/08_Atlantic_case/';
+        i_bgc = 1;
+        wmo_list_file = [test_case_dir 'input_files/wmo_list_atlantic_case.csv'];
+        country_code_file = [test_case_dir 'input_files/country_codes.csv'];
+        project_name = 'Atlantic_Fleet';
+        output_graphs_per_float = 0;
 
 end
         
 
 index_file = '/home/ref-argo/gdac/etc/argo_profile_detailled_index.txt';
+%index_file = [test_case_dir 'input_files/argo_profile_detailled_index_2023-01-08.txt'];
+
 index_file_short = [test_case_dir 'input_files/argo_profile_detailed_index_subset.txt'];
 input_list_of_parameters_to_treat=["TEMP"; "PRES"; "PSAL"];
 disp([newline ' Treating CTD parameters for ' project_name ' case']);
     
 if i_bgc == 1
     index_file_synthetic = '/home/ref-argo/gdac/etc/argo_synthetic-profile_detailled_index.txt';
-    index_file_synthetic_short = [test_case_dir 'input_files/argo_synthetic-profile_detailed_index_subset.txt'];
-    input_list_of_BGC_parameters_to_treat=["DOXY";"DOXY2";"CHLA";"NITRATE";"PH_IN_SITU_TOTAL";"TURBIDITY";"BISULFIDE";"CDOM";...
-        "BBP532";"BBP700";"DOWNWELLING_PAR";"DOWN_IRRADIANCE380";"DOWN_IRRADIANCE412";"DOWN_IRRADIANCE443";"DOWN_IRRADIANCE490";...
-        "DOWN_IRRADIANCE555";"DOWN_IRRADIANCE665";"DOWN_IRRADIANCE670";"CP660"];
+    %index_file_synthetic = [test_case_dir 'input_files/argo_synthetic-profile_detailled_index_2023-07-13.txt'];
+    
+    index_file_synthetic_short = [test_case_dir 'input_files/argo_profile_detailled_index_subset.txt'];
+    input_list_of_BGC_parameters_to_treat=["DOXY";"CHLA";"NITRATE";"PH_IN_SITU_TOTAL";"BBP700";"DOWN_IRRADIANCE380"];
+%     input_list_of_BGC_parameters_to_treat=["DOXY";"DOXY2";"CHLA";"NITRATE";"PH_IN_SITU_TOTAL";"TURBIDITY";"BISULFIDE";"CDOM";...
+%         "BBP532";"BBP700";"DOWNWELLING_PAR";"DOWN_IRRADIANCE380";"DOWN_IRRADIANCE412";"DOWN_IRRADIANCE443";"DOWN_IRRADIANCE490";...
+%         "DOWN_IRRADIANCE555";"DOWN_IRRADIANCE665";"DOWN_IRRADIANCE670";"CP660"];
     disp([newline ' Treating BGC parameters for ' project_name ' case']);
 end
 
 greylist_file = '/home/ref-argo/gdac/ar_greylist.txt';
-script_path = '/home1/datahome/co_arg/ddobler/DMQC_Status/scripts/';
+script_path = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/scripts/';
 
 
 i_descending_profile = 0; % 0 means not including descending profiles, 1 means including descending profiles
-sage  = 365; % threshold [days]. More than 1 year (floats and profiles)
-print_svg=0; % (interesting for high quality, but a little longer to save).
+sage  = 720; % threshold [days]. More than 1 year (floats and profiles)
+sage_yr_str= sprintf('%.1f',sage/365); % for plots and logs
+
+print_svg=1; % (interesting for high quality, but a little longer to save).
 %output_graphs_per_float = 1; % Indicate if graphs per float should be
 %   recorded. For treatmant with a large
 %   number of floats, this may not be relevant)
-n_max_float_per_graph = 31;  % associated to output_graphs_per_float.
+n_max_float_per_graph = 30;  % associated to output_graphs_per_float.
 i_group_AB_profQC  = 1;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -233,6 +254,7 @@ tStart = tic;
 % with data from the same date. For the seek of space: to be zipped once
 % finished.
 test_date=char(datetime('now','TimeZone','local','Format','yyyy-MM-dd_HHmmSS'));
+%test_date='2023-01-08_000000';
 
 output_dir=[ test_case_dir '/outputs_' test_date '/'];
 
@@ -241,6 +263,9 @@ if ~exist(output_dir, 'dir')
     mkdir(output_dir)
 end
 
+log_file=[output_dir 'matlab_log.txt'];
+diary(log_file)
+diary on
 
 disp('-- creating a local copy of the index file ...')
 local_index_file=[output_dir 'argo_profile_detailled_index_' test_date '.txt'];
@@ -585,7 +610,9 @@ working_date = IndexData.index_update(1:8);
 tEnd = toc(tStart);
 disp([newline 'End of reading index files (' char(string(floor(tEnd))) ' s)'])
 disp('######################')
+diary off
 %%
+diary on
 
 % Compute values for graphs:
 disp('')
@@ -627,6 +654,12 @@ for i=1:n_param
     i_R_or_A_profile.(i_param)=(IndexData.param.(i_param).mode == 'R' | IndexData.param.(i_param).mode == 'A');
     wmos_with_R_or_A_profile.(i_param)=unique(IndexData.profile_WMO(i_R_or_A_profile.(i_param)));
     
+    % Index the profiles that have profile_QC = 'F'
+    i_Fprof.(i_param)=(IndexData.param.(i_param).qc == 'F');
+    
+    % Index the profiles that have param
+    i_pres.(i_param)=(IndexData.param.(i_param).presence == 1);
+
 end
 
 
@@ -660,7 +693,7 @@ for i=1:n_param
     nb_floats_per_country.(i_param)(loc)=val;
     nb_float_tot.(i_param)=sum(val);
 
-    fprintf('-- compute nb of floats with at least 1 profile > 1yr for %s per country\n',i_param)
+    fprintf('-- compute nb of floats with at least 1 profile > %s yr for %s per country\n',sage_yr_str,i_param)
     wmos_xage.param.(i_param)=unique(IndexData.profile_WMO(i_more_than_x_days & (IndexData.param.(i_param).presence==1)));
     [~,loc]=ismember(wmos_xage.param.(i_param),Floats_list.WMO);
     wmos_xage_country=string(Floats_list.COUNTRYCODE(loc,:));
@@ -681,7 +714,7 @@ for i=1:n_param
     nb_floats_DMQCed_per_country.(i_param)(loc)=val;
     nb_float_DMQCed_tot.(i_param)=sum(val);
 
-    fprintf('-- compute nb of floats with at least 1 profile DMQCed for %s and with at least 1 profile > 1yr per country\n',i_param)
+    fprintf('-- compute nb of floats with at least 1 profile DMQCed for %s and with at least 1 profile > %s yr per country\n',i_param,sage_yr_str)
     wmos_xage_DMQCed=unique(IndexData.profile_WMO(i_DMQCed.(i_param) & i_more_than_x_days));
     [~,loc]=ismember(wmos_xage_DMQCed,Floats_list.WMO);
     wmos_xage_dmqced_country=string(Floats_list.COUNTRYCODE(loc,:));
@@ -713,7 +746,7 @@ for i=1:n_param
     [~,loc]=ismember(xx,nb_per_country_x);
     nb_profiles_per_country.(i_param)(loc)=val;
 
-    fprintf('-- compute nb of profiles > 1yr for %s per country\n',i_param)
+    fprintf('-- compute nb of profiles > %s yr for %s per country\n',sage_yr_str,i_param)
     [xx,~,ic]=unique(IndexData.country(i_more_than_x_days & IndexData.param.(i_param).presence==1));
     val=accumarray(ic,1);
     [~,loc]=ismember(xx,nb_per_country_x);
@@ -725,7 +758,7 @@ for i=1:n_param
     [~,loc]=ismember(xx,nb_per_country_x);
     nb_profiles_DMQCed_per_country.(i_param)(loc)=val;
 
-    fprintf('-- compute nb of profiles DMQCed and > 1yr for %s per country\n',i_param)
+    fprintf('-- compute nb of profiles DMQCed and > %s yr for %s per country\n',sage_yr_str, i_param)
     [xx,~,ic]=unique(IndexData.country(i_DMQCed.(i_param) & i_more_than_x_days));
     val=accumarray(ic,1);
     [~,loc]=ismember(xx,nb_per_country_x);
@@ -871,6 +904,8 @@ for i=1:n_param
     %output initialisation
     nb_profiles_per_year.(i_param)=zeros(n_years,1);
     nb_profiles_DMQCed_per_year.(i_param)=zeros(n_years,1);
+    nb_profiles_QCF_per_year.(i_param)=zeros(n_years,1);
+    nb_profiles_DMQCed_QCF_per_year.(i_param)=zeros(n_years,1);
     
     % Extract year from the profile date
     %i_missing_profile_date=ismissing(IndexData.date);
@@ -885,17 +920,31 @@ for i=1:n_param
         IndexData.profile_year.(i_param)(i_not_missing_profile_date)=string(tmp(:,1:4));
     end
 
-    % compute nb of profiles per year
-    [xx,~,ic]=unique(IndexData.profile_year.(i_param));
+    % compute nb of profiles per profile year
+    [xx,~,ic]=unique(IndexData.profile_year.(i_param)(i_pres.(i_param)));
     val=accumarray(ic,1);
     [~,loc]=ismember(xx,nb_per_year_x);
     nb_profiles_per_year.(i_param)(loc)=val;
     
-    % compute nb of D-profile per year
-    [xx,~,ic]=unique(IndexData.profile_year.(i_param)(i_DMQCed.(i_param)));
+    % compute nb of D-profile per profile year
+    [xx,~,ic]=unique(IndexData.profile_year.(i_param)(i_DMQCed.(i_param) & i_pres.(i_param)));
     val=accumarray(ic,1);
     [~,loc]=ismember(xx,nb_per_year_x);
     nb_profiles_DMQCed_per_year.(i_param)(loc)=val;
+    
+    % compute nb of F-profile per profile year
+    [xx,~,ic]=unique(IndexData.profile_year.(i_param)(i_Fprof.(i_param) & i_pres.(i_param)));
+    val=accumarray(ic,1);
+    [~,loc]=ismember(xx,nb_per_year_x);
+    nb_profiles_QCF_per_year.(i_param)(loc)=val;
+    
+    % compute nb of DF-profile per profile year
+    [xx,~,ic]=unique(IndexData.profile_year.(i_param)(i_DMQCed.(i_param) & i_Fprof.(i_param) & i_pres.(i_param)));
+    val=accumarray(ic,1);
+    [~,loc]=ismember(xx,nb_per_year_x);
+    nb_profiles_DMQCed_QCF_per_year.(i_param)(loc)=val;
+    
+    
 end
 
 %nb_profiles_DMQCed_per_year.(i_param)
@@ -910,8 +959,10 @@ disp(['End of computations for graphics (' char(string(floor(tEnd))) ' s)'])
 disp('######################')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+diary off
 %% Make graphics
+diary on
+
 close all
 
 disp(' ')
@@ -952,11 +1003,14 @@ bars_colors = [0.5273    0.8047    0.9180; ... % 1  - total obs/floats (dark blu
                0.6863    0.5059    0.0157; ... % 17 - qc D for D profiles "verge d'or" with darker coefficients (not standard)
                     0    0.5020    0.5020; ... % 18 - qc E for D profiles "sarcelle"
                0.1176    0.5647    1.0000; ... % 19 - qc F for D profiles "dodgerblue"
-               0.2000    0.2000    0.2000];    % 20 - qc X for D profiles 
+               0.2000    0.2000    0.2000; ... % 20 - qc X for D profiles 
+               255/255   69/255     0/255; ... % 21 - qc F (perprofyear)                "Orange Red"
+               174/255   12/255     0/255];    % 22 - qc F (perprofyear) for D profiles "Mordant Red 19"
 
 
-           
-%%
+diary off
+%% 
+diary on
 tStart = tic;
 for i=1:n_param
     close all
@@ -1021,15 +1075,15 @@ for i=1:n_param
         legend([hndl(1,2), hndl(1,1), hndl(2,2), hndl(2,1), hp], ...
             {['Number of floats (Total: ',                       num2str(sum(nb_floats_per_country.(i_param),'omitnan')),')'],...
              ['Number of floats with D-profiles (Total: ',       num2str(sum(nb_floats_DMQCed_per_country.(i_param),'omitnan')),')'], ...
-             ['Number of floats with profiles > 1-yr (Total: ',  num2str(sum(nb_floats_xage_per_country.(i_param),'omitnan')),')'],...
-             ['Number of floats with D-profiles > 1-yr (Total: ',num2str(sum(nb_floats_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
+             ['Number of floats with profiles > ' sage_yr_str '-yr (Total: ',  num2str(sum(nb_floats_xage_per_country.(i_param),'omitnan')),')'],...
+             ['Number of floats with D-profiles > ' sage_yr_str '-yr (Total: ',num2str(sum(nb_floats_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
             prof_included})
     else
         legend([hndl(1,2), hndl(1,1), hndl(2,2), hndl(2,1), hp], ...
             {['Nb of floats to be managed at Euro-Argo (Total: ',                       num2str(sum(nb_floats_per_country.(i_param),'omitnan')),')'],...
              ['Nb of floats already addressed once in DMQC (Total: ',       num2str(sum(nb_floats_DMQCed_per_country.(i_param),'omitnan')),')'], ...
-             ['Nb of floats for which DMQC can now be performed (older than 1-yr) (Total: ',  num2str(sum(nb_floats_xage_per_country.(i_param),'omitnan')),')'],...
-             ['Nb of floats already addressed once in DMQC (and older than 1-yr) (Total: ',num2str(sum(nb_floats_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
+             ['Nb of floats for which DMQC can now be performed (older than ' sage_yr_str '-yr) (Total: ',  num2str(sum(nb_floats_xage_per_country.(i_param),'omitnan')),')'],...
+             ['Nb of floats already addressed once in DMQC (and older than ' sage_yr_str '-yr) (Total: ',num2str(sum(nb_floats_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
             })
     end
     
@@ -1062,7 +1116,7 @@ for i=1:n_param
     floats_tobedone_str = num2str(round(floats_tobedone));
     H = figure(1);
     set(H,'units','pix')
-    annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Floats older than 1-yr to be DMQCed: ',floats_tobedone_str,'%'],...
+    annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Floats older than ' sage_yr_str '-yr to be DMQCed: ',floats_tobedone_str,'%'],...
         'FitBoxToText','on','verticalalignment', 'bottom','HorizontalAlignment', 'right','FontWeight','bold')
 
     % save figure
@@ -1119,8 +1173,8 @@ for i=1:n_param
     legend([hndl(1,2), hndl(1,1), hndl(2,2), hndl(2,1), hp], ...
         {['Number of profiles (Total: ',num2str(sum(nb_profiles_per_country.(i_param),'omitnan')),')'],...
          ['Number of D-profiles (Total: ',num2str(sum(nb_profiles_DMQCed_per_country.(i_param),'omitnan')),')'], ...
-         ['Number of profiles older than 1-yr (Total: ',num2str(sum(nb_profiles_xage_per_country.(i_param),'omitnan')),')'],...
-         ['Number of D-profiles older than 1-yr (Total: ',num2str(sum(nb_profiles_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
+         ['Number of profiles older than ' sage_yr_str '-yr (Total: ',num2str(sum(nb_profiles_xage_per_country.(i_param),'omitnan')),')'],...
+         ['Number of D-profiles older than ' sage_yr_str '-yr (Total: ',num2str(sum(nb_profiles_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
         prof_included})
     % background color
     set(gcf,'color','w');
@@ -1135,7 +1189,7 @@ for i=1:n_param
     obs_tobedone = sum(nb_profiles_xage_per_country.(i_param)-nb_profiles_xage_DMQCed_per_country.(i_param),'omitnan')/sum(nb_profiles_xage_per_country.(i_param),'omitnan')*100;
     H = figure(i_fig);
     set(H,'units','pix')
-    annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Profiles older than 1-yr to be DMQCed: ',num2str(round(obs_tobedone)),'%'],...
+    annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Profiles older than ' sage_yr_str '-yr to be DMQCed: ',num2str(round(obs_tobedone)),'%'],...
         'FitBoxToText','on','verticalalignment', 'bottom','HorizontalAlignment', 'right','FontWeight','bold')
 
     % save figure
@@ -1148,7 +1202,9 @@ for i=1:n_param
     end
     
 end
-%%
+diary off
+%% 
+diary on
 for i=1:n_param
     close all
  
@@ -1428,7 +1484,9 @@ for i=1:n_param
     
     
 end
-%%
+diary off
+%% 
+diary on
 for i=1:n_param
     close all
     
@@ -1465,9 +1523,9 @@ for i=1:n_param
     ylabel('Number of floats')
     % legend with total number
     legend(['All floats ('          num2str(nb_float_tot.(i_param)) ')'],...
-           ['Floats > 1-yr ('       num2str(nb_float_xage_tot.(i_param)) ')'],...
+           ['Floats > ' sage_yr_str '-yr ('       num2str(nb_float_xage_tot.(i_param)) ')'],...
            ['Floats DMQC at least once ('              num2str(nb_float_DMQCed_tot.(i_param)) ')'],...
-           ['Floats > 1-yr and DMQC at least once ('    num2str(nb_floats_xage_DMQCed_tot.(i_param)) ')'],...
+           ['Floats > ' sage_yr_str '-yr and DMQC at least once ('    num2str(nb_floats_xage_DMQCed_tot.(i_param)) ')'],...
            ['Active Floats in grey list ('     num2str(nb_wmo_ope_in_greylist_with_qc_3_or_4.(i_param)) ...
               '/' num2str(nb_operational_floats.(i_param)) ' ->' ...
               num2str(round(100*nb_wmo_ope_in_greylist_with_qc_3_or_4.(i_param)/nb_operational_floats.(i_param),1)) '% of active floats)'],...
@@ -1510,7 +1568,9 @@ for i=1:n_param
     end
 
 end
-%%
+diary off
+%% 
+diary on
 for i=1:n_param
     close all
     
@@ -1600,16 +1660,127 @@ for i=1:n_param
     if print_svg == 1
         saveas(gcf,[out_name '.svg'])
     end
-% end
-% %%
-% for i=1:n_param
-%     i_param=list_of_parameters_to_treat(i);
-%     fprintf('Making Plots for %s \n',i_param)
-%     
-%     close all
+
+    
+    
+end
+diary off
+%% 
+diary on
+%for i=1:3
+for i=1:n_param
+    close all
+    
+    i_param=list_of_parameters_to_treat(i);
+    
+    if ismember("PSAL",list_of_parameters_to_treat)
+        if (i_param == "PRES") 
+            % no need to output plot as mode fro PRES is the same as mode 
+            % for PSAL eand TEMP and profile_qc unavailable in index.
+            continue
+        else
+            i_param_str=i_param;
+        end
+    else
+        i_param_str=i_param;
+    end
+    
+    fprintf('Making Plots for %s \n',i_param_str)
+    
+    close all
+    %%%%%%%%%%%%%% DMQC status per profile year %%%%%%%%%%%%%%
+    disp('DMQC and QC-F status per profile year')
+    i_fig=8;
+    figure(i_fig)
+
+    % bigger figure
+    set(gcf, 'Position', [200, 200, 1000, 600])
+    % figure name
+    set(gcf,'Name','DMQC and F status per profile year')
+
+    if (nb_per_year_x(1) == string(1980))
+        nb_per_year_x_cr=nb_per_year_x(2:end);
+        nb_profiles_DMQCed_per_year_cr=nb_profiles_DMQCed_per_year.(i_param)(2:end);
+        nb_profiles_per_year_cr=nb_profiles_per_year.(i_param)(2:end);
+        nb_profiles_QCF_per_year_cr=nb_profiles_QCF_per_year.(i_param)(2:end);
+        nb_profiles_DMQCed_QCF_per_year_cr=nb_profiles_DMQCed_QCF_per_year.(i_param)(2:end);
+    else
+        nb_per_year_x_cr=nb_per_year_x;
+        nb_profiles_DMQCed_per_year_cr=nb_profiles_DMQCed_per_year.(i_param);
+        nb_profiles_per_year_cr=nb_profiles_per_year.(i_param);
+        nb_profiles_QCF_per_year_cr=nb_profiles_QCF_per_year.(i_param);
+        nb_profiles_DMQCed_QCF_per_year_cr=nb_profiles_DMQCed_QCF_per_year.(i_param);
+    end
+    
+    stackData = cat(3,[(nb_profiles_per_year_cr-nb_profiles_QCF_per_year_cr) ...
+                       (nb_profiles_DMQCed_per_year_cr-nb_profiles_DMQCed_QCF_per_year_cr)], ...
+                      [ nb_profiles_QCF_per_year_cr ...
+                        nb_profiles_DMQCed_QCF_per_year_cr]);
+                   
+    hndl = plotBarStackGroups(stackData, 1:length(nb_per_year_x_cr));
+    
+
+    % FIGURE FORMAT
+    hold on
+    %plot(1,0,'w'); % for comment in legend
+    % bars colors
+    set(hndl(1,1),'facecolor',bars_colors(4,:))
+    set(hndl(1,2),'facecolor',bars_colors(21,:))
+    set(hndl(2,1),'facecolor',bars_colors(3,:))
+    set(hndl(2,2),'facecolor',bars_colors(22,:))
+    % xlabels
+    set(gca,'xtick',1:length(nb_per_year_x_cr),'xticklabel', nb_per_year_x_cr)
+    xtickangle(90)
+    % title with update date
+    title(['DMQC and profile-F status for ' char(i_param_str) ' per profile year (updated ',update_date_str,')'], 'Interpreter', 'none')
+    ylabel('Number of profiles')
+    % legend with total number
+    legend(['Number of profiles with prof_QC<>F(Total: ',num2str(sum(nb_profiles_per_year_cr,'omitnan')),')'],...
+           ['Number of profiles with prof_QC=F (Total: ',num2str(sum(nb_profiles_QCF_per_year_cr,'omitnan')),')'],...
+           ['Number of D-profiles with prof_QC<>F (Total: ',num2str(sum(nb_profiles_DMQCed_per_year_cr,'omitnan')),')'], ...
+           ['Number of D-profiles with prof_QC=F (Total: ',num2str(sum(nb_profiles_DMQCed_QCF_per_year_cr,'omitnan')),')'], ...
+        prof_included,'Location','southoutside', 'Interpreter', 'none')
+    % background color
+    set(gcf,'color','w');
+    % grid in y axis
+    ax = gca;
+    ax.YGrid = 'on';
+
+    % figure labels
+    ymax=max(nb_profiles_per_year_cr);
+    set(gca,'YLim',[0 ymax+ymax/10]);
+%     for iyear = 1: length(nb_per_year_x_cr)
+%         if nb_profiles_per_year_cr(iyear) > 0
+%             percent_str = [num2str(round(nb_profiles_DMQCed_per_year_cr(iyear)/nb_profiles_per_year_cr(iyear)*100,1)) ' %'];
+%             h=text(iyear + 0.15, nb_profiles_DMQCed_per_year_cr(iyear) + ymax/30 ,percent_str);
+%             set(h,'Rotation',90);
+%         end
+%     end
+
+    % save figure
+    out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param_str) '_prof_DMQC-and-F_status_byyear_' working_date];
+    disp(['saving ' out_name])
+%     export_fig([out_name '.png'])
+    print('-dpng ', '-r100',[out_name '.png'])
+    if print_svg == 1
+        saveas(gcf,[out_name '.svg'])
+    end
+
+    
+    
+end
+diary off
+%% 
+diary on
+for i=1:n_param
+    i_param=list_of_parameters_to_treat(i);
+    fprintf('Making Plots for %s \n',i_param)
+    
+    close all
+
      %%%%%%%%%%%%%% DMQC status by profile age histogram %%%%%%%%%%%%%%
     disp('DMQC status by profile age histogram')
-    i_fig=8;
+    i_fig=9;
     figure(i_fig)
 
     % bigger figure
@@ -1645,7 +1816,9 @@ for i=1:n_param
 end
 tEnd = toc(tStart);
 
-%%
+diary off
+%% 
+diary on
 % Additionnal graphs from previous get_DMQC_adjustment.m routine.
 % Thanks to the update of the index file with psal adjustment information
 % We can switch the making of the graphs to this routine. 
@@ -1654,8 +1827,8 @@ tEnd = toc(tStart);
 %  - a series of graphs by wmo (R/A/D, QC, PSAL_adj) (and by parameter).
 
 disp('Number of R/A/D profiles by parameter')
-i_fig=9;
-
+i_fig=10;
+close all
 figure(i_fig)
 
 % bigger figure
@@ -1663,15 +1836,26 @@ set(gcf, 'Position', [200, 200, 1000, 600])
 % figure name
 set(gcf,'Name','R/A/D profiles nb by parameter')
 
+set(gca, 'units', 'normalized'); %Just making sure it's normalized
+Tight = get(gca, 'TightInset');  %Gives you the bording spacing between plot box and any axis labels
+                                 %[Left Bottom Right Top] spacing
+NewPos = [Tight(1) Tight(2) 1-Tight(1)-Tight(3) 1-Tight(2)-Tight(4)-0.1]; %New plot position [X Y W H]
+set(gca, 'Position', NewPos);
 
 % To avoid the 3 same information for CTD:
 if list_of_parameters_to_treat(1)=="TEMP" && ...
    list_of_parameters_to_treat(2)=="PRES" && ...
    list_of_parameters_to_treat(3)=="PSAL"
-    
-    loc_list_of_parameters_to_treat=list_of_parameters_to_treat(3:end);
-    loc_n_param=size(loc_list_of_parameters_to_treat,1);
-    ctd_first=1;
+
+    if i_bgc == 1
+        loc_list_of_parameters_to_treat=list_of_parameters_to_treat(4:end);
+        loc_n_param=size(loc_list_of_parameters_to_treat,1);
+        ctd_first=0;
+    else
+        loc_list_of_parameters_to_treat=list_of_parameters_to_treat(3:end);
+        loc_n_param=size(loc_list_of_parameters_to_treat,1);
+        ctd_first=1;
+    end
 else
     loc_list_of_parameters_to_treat=list_of_parameters_to_treat;
     loc_n_param=n_param;
@@ -1706,7 +1890,7 @@ set(gca,'xtick',1:loc_n_param,'xticklabel', loc_list_of_parameters_to_treat_wo__
 
 
 % title with update date
-title(['Number of R/A/D - profiles by variable (updated ',update_date_str,')'])
+title(['Number of R/A/D - profiles by variable (updated ',update_date_str,')' newline project_name ], 'Interpreter', 'none')
 ylabel('Number of profiles')
 
 % legend with total number
@@ -1714,7 +1898,7 @@ legend([hndl(1), hndl(2), hndl(3), hp], ...
     {['R-profiles (Total: ',num2str(sum(stackData(:,1))),')'],...
      ['A-profiles (Total: ',num2str(sum(stackData(:,2))),')'],...
      ['D-profiles (Total: ',num2str(sum(stackData(:,3))),')'],...
-    prof_included})
+    prof_included},'Location','southoutside')
 
 % background color
 set(gcf,'color','w');
@@ -1731,11 +1915,13 @@ if print_svg == 1
     saveas(gcf,[out_name '.svg'])
 end
 
-%%
+diary off
+%% 
+diary on
 if output_graphs_per_float ==1
     
     disp('R/A/D status by float and by cycle number')
-    i_fig=10;
+    i_fig=11;
     for i=1:n_param
         close all
         i_param=list_of_parameters_to_treat(i);
@@ -1845,12 +2031,14 @@ if output_graphs_per_float ==1
     end  
     
 end
-%%
+diary off
+%% 
+diary on
 if output_graphs_per_float ==1
     
     disp('Profile QC status by float and by cycle number')
     list_QCs=["A";"B";"C";"D";"E";"F";"X"];
-    i_fig=11;
+    i_fig=12;
 
     for i=1:n_param
         close all
@@ -1955,12 +2143,14 @@ if output_graphs_per_float ==1
 end
 
 
-%%
+diary off
+%% 
+diary on
 if output_graphs_per_float ==1
     
     disp('PSAL adjustment by float and by cycle number')
     
-    i_fig=12;
+    i_fig=13;
     
     i_param = "PSAL";            
     subset_prof_WMO=IndexData.profile_WMO(IndexData.param.(i_param).presence==1);
@@ -2081,7 +2271,9 @@ if output_graphs_per_float ==1
     end 
 end
 
-%%
+diary off
+%% 
+diary on
 
 % Create output directory for text analyses:
 output_syntheses_dir = [output_dir '/Syntheses'];
@@ -2092,7 +2284,9 @@ if ~exist(output_syntheses_dir, 'dir')
 end
 disp(['  Synthetic analyses will be saved in '  output_syntheses_dir])
 
-%%
+diary off
+%% 
+diary on
 % Warnings
 % 
 for i=1:n_param
@@ -2164,7 +2358,7 @@ for i=1:n_param
         warning_greyl(contains(wmos_in_warning.(i_param), wmos_with_RA_profiles_in_grey_list.(i_param))) = 'X';
         
         header4=['PARAM,','WMO,','Country,','prof_QC=F_once,',...
-                'prof_QC_not_filled_once,','No_DMQC_older_1yr,',...
+                'prof_QC_not_filled_once,','No_DMQC_older_than_',sage_yr_str,'yr,',...
                 'grey_listed'];
         
         fprintf(fid, '%s \n', header4);
@@ -2185,7 +2379,9 @@ for i=1:n_param
 end
 
 
-%%
+diary off
+%% 
+diary on
 
 for i=1:n_param
 
@@ -2228,11 +2424,11 @@ for i=1:n_param
     Floats_list.(i_param).wmo_dm_done = zeros(n_floats_par,1);
     Floats_list.(i_param).grey_list = zeros(n_floats_par,1);
     Floats_list.(i_param).prof_number = zeros(n_floats_par,1);
-    Floats_list.(i_param).prof_older_1yr_number = zeros(n_floats_par,1);
+    Floats_list.(i_param).prof_older_than_sage_number = zeros(n_floats_par,1);
     Floats_list.(i_param).prof_last_date = strings(n_floats_par,1);
     Floats_list.(i_param).prof_DMQCed_number = zeros(n_floats_par,1);
     Floats_list.(i_param).prof_DMQCed_last_update_date = strings(n_floats_par,1);
-    Floats_list.(i_param).prof_noDM_older_1yr_number = zeros(n_floats_par,1);
+    Floats_list.(i_param).prof_noDM_older_than_sage_number = zeros(n_floats_par,1);
     Floats_list.(i_param).prof_last_DM_date = strings(n_floats_par,1);
     Floats_list.(i_param).prof_DMQCed_percent = zeros(n_floats_par,1);
     Floats_list.(i_param).prof_QC_A = zeros(n_floats_par,1);
@@ -2271,11 +2467,11 @@ for i=1:n_param
     [~,loc]=ismember(xx,string(Floats_list.(i_param).WMO));
     Floats_list.(i_param).prof_number(loc)=val;
 
-    %'prof_older_1yr,'
+    %'prof_older_than_sage_number,'
     [xx,~,ic]=unique(IndexData.profile_WMO(IndexData.profile_age > sage & IndexData.param.(i_param).presence == 1));
     val=accumarray(ic,1);
     [~,loc]=ismember(xx,string(Floats_list.(i_param).WMO));
-    Floats_list.(i_param).prof_older_1yr_number(loc)=val;
+    Floats_list.(i_param).prof_older_than_sage_number(loc)=val;
     
     %'date_last_prof,'
     loc_wmos  = IndexData.profile_WMO(IndexData.param.(i_param).presence == 1);
@@ -2302,7 +2498,7 @@ for i=1:n_param
                                            IndexData.profile_age > sage));
     val=accumarray(ic,1);
     [~,loc]=ismember(xx,string(Floats_list.(i_param).WMO));
-    Floats_list.(i_param).prof_noDM_older_1yr_number(loc)=val;
+    Floats_list.(i_param).prof_noDM_older_than_sage_number(loc)=val;
 
     %'date_last_DMprof,'
     loc_wmos  = IndexData.profile_WMO(IndexData.param.(i_param).mode == 'D');
@@ -2425,8 +2621,8 @@ for i=1:n_param
     % header
     header1 = ['PARAM,' 'WMO,' 'DAC,' 'COUNTRY,' 'PROGRAM,' 'launch_date,' ...
                'prof_last_date,' 'DM_done,'  ...
-               'float_age,' 'float_more1year,' 'greylist,' 'nb_prof,' ...
-               'nb_prof_more1year,' 'nb_prof_DM,' 'nb_prof_noDM_more1year,' ...
+               'float_age,' 'float_more_' sage_yr_str '_year,' 'greylist,' 'nb_prof,' ...
+               'nb_prof_more_' sage_yr_str '_year,' 'nb_prof_DM,' 'nb_prof_noDM_more_' sage_yr_str '_year,' ...
                'prof_last_DM_date,' 'prof_last_DM_update_date,' 'percentage_DM_prof,'...
                'nb_prof_QC_A,' 'nb_prof_DM_QC_A,' 'nb_prof_QC_B,' 'nb_prof_DM_QC_B,' ...
                'nb_prof_QC_C,' 'nb_prof_DM_QC_C,' 'nb_prof_QC_D,' 'nb_prof_DM_QC_D,' ...
@@ -2446,9 +2642,9 @@ for i=1:n_param
               num2cell(Floats_list.(i_param).more_1_yr),...
               num2cell(Floats_list.(i_param).grey_list),...
               num2cell(Floats_list.(i_param).prof_number),...
-              num2cell(Floats_list.(i_param).prof_older_1yr_number),...
+              num2cell(Floats_list.(i_param).prof_older_than_sage_number),...
               num2cell(Floats_list.(i_param).prof_DMQCed_number),...
-              num2cell(Floats_list.(i_param).prof_noDM_older_1yr_number),...
+              num2cell(Floats_list.(i_param).prof_noDM_older_than_sage_number),...
               cellstr(Floats_list.(i_param).prof_last_DM_date),...
               cellstr(Floats_list.(i_param).prof_DMQCed_last_update_date),...
               num2cell(Floats_list.(i_param).prof_DMQCed_percent),...
@@ -2474,7 +2670,9 @@ for i=1:n_param
  
 end
 
-%%
+diary off
+%% 
+diary on
 for i=1:n_param
     i_param=list_of_parameters_to_treat(i);
     
@@ -2500,10 +2698,10 @@ for i=1:n_param
 
     % header
     header2 = ['Param_name,' 'Country,' ...
-                'nb_floats,' 'nb_floats_more1year,' ...
-                'Nb_floats_DM_done,' 'nb_floats_more1year_DM_done,' ...
-                'nb_profiles,' 'nb_profiles_more1year,' ...
-                'nb_profiles_DM_done,' 'nb_profiles_more1year_DM_done,'];
+                'nb_floats,' 'nb_floats_more_' sage_yr_str '_year,' ...
+                'Nb_floats_DM_done,' 'nb_floats_more_' sage_yr_str '_year_DM_done,' ...
+                'nb_profiles,' 'nb_profiles_more_' sage_yr_str '_year,' ...
+                'nb_profiles_DM_done,' 'nb_profiles_more_' sage_yr_str '_year_DM_done,'];
     fprintf(fid, '%s \n', header2);
     % data
     table2 = [cellstr(Param_name),...
@@ -2537,7 +2735,67 @@ for i=1:n_param
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 end
 
-%%
+diary off
+%% 
+diary on
+for i=1:n_param
+    i_param=list_of_parameters_to_treat(i);
+    
+%     if (nb_per_year_x(1) == string(1980))
+%         nb_per_year_x_cr=nb_per_year_x(2:end);
+%         nb_profiles_DMQCed_per_year_cr=nb_profiles_DMQCed_per_year.(i_param)(2:end);
+%         nb_profiles_per_year_cr=nb_profiles_per_year.(i_param)(2:end);
+%         nb_profiles_QCF_per_year_cr=nb_profiles_QCF_per_year.(i_param)(2:end);
+%         nb_profiles_DMQCed_QCF_per_year_cr=nb_profiles_DMQCed_QCF_per_year.(i_param)(2:end);
+%     else
+        nb_per_year_x_cr=nb_per_year_x;
+        nb_profiles_DMQCed_per_year_cr=nb_profiles_DMQCed_per_year.(i_param);
+        nb_profiles_per_year_cr=nb_profiles_per_year.(i_param);
+        nb_profiles_QCF_per_year_cr=nb_profiles_QCF_per_year.(i_param);
+        nb_profiles_DMQCed_QCF_per_year_cr=nb_profiles_DMQCed_QCF_per_year.(i_param);
+%     end
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Statistics per profile year (data for figures 7 and 8)
+    fprintf('\nComputing and recording by profile year stats for %s \n',i_param)
+
+    outfile = [output_syntheses_dir '/' 'DMQC_status_per_profile_year_for_' char(i_param) '_' IndexData.index_update(1:8) '.txt'];
+    fprintf('\nSaving results in %s ...\n',outfile)
+
+    fid=fopen(outfile,'w');
+
+    % File header
+    fprintf(fid, '# DMQC status and Data quality control statistics\n');
+    fprintf(fid, '# Project : %s\n', project_name);
+    fprintf(fid, '# Update date : %s\n', IndexData.index_update);
+    fprintf(fid, ['# Statistics per profile year for parameter ' char(i_param) '\n']);
+    % 
+    
+    Param_name=repmat(i_param,n_years,1);
+
+    % header
+    header2 = ['Param_name,' 'Year,' ...
+                'nb_profiles,' 'nb_profiles_DMQCed,' ...
+                'nb_profiles_QCF,' 'nb_profiles_DMQCed_QCF'];
+    fprintf(fid, '%s \n', header2);
+    % data
+    table = [cellstr(Param_name),...
+              cellstr(nb_per_year_x_cr), ...
+              num2cell(nb_profiles_per_year_cr), ...
+              num2cell(nb_profiles_DMQCed_per_year_cr),...
+              num2cell(nb_profiles_QCF_per_year_cr),...
+              num2cell(nb_profiles_DMQCed_QCF_per_year_cr)]';
+    
+    fprintf(fid, '%s,%s,%d,%d,%d,%d\n',table{:});
+
+          
+    fclose(fid);
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+end
+
+diary off
+%% 
+diary on
 
 fprintf('\nAdditional information\n')
 
@@ -2600,7 +2858,9 @@ end
 
 fclose(fid);  
     
-%%
+diary off
+%% 
+diary on
 % Zipping the local index file:
 disp('- Zipping the local copy of the index file ...')
 
@@ -2619,3 +2879,4 @@ catch
 end
 
 disp('- Zipping ended ...')
+diary off

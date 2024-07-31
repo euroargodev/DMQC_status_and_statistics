@@ -111,6 +111,12 @@ This script computes DMQC statistics for a given list of floats <br />
    - change search for param name in index for a more robust means
    - add x grid and minor grid for psal adjustment display by wmo.
    - add an option to group prof QC A and B
+ - V3.4 (2024/02/23) :
+   - remove CTD from plot 09 when i_bgc=1.
+   - 1-yr static string was replaced by the config value
+   - add a new graph per profile year with DMQC and profile QC F + 
+     output values in a text file
+   - add a log (diary)
 
 ## B. Graphical outputs for **get_DMQC_stats.m** 
 Different outputs are produced: graphical and textual. Here after are examples of graphical outputs obtained for floats from the MOCCA project.
@@ -180,10 +186,10 @@ This limit is arbitrary and can be tuned.
 src="OUTPUT_examples/MOCCA_case/Plots/06_MOCCA_Fleet_PSAL_DMQC_status_and_grey_list_20230713.png" width="400" /> 
 </p>
 
-- __Plot 07 and 08__ DMQC status per profile year, and age histogram of non-DMQC profiles (one plot per parameter) <br />
+- __Plot 07 and 09__ DMQC status per profile year, and age histogram of non-DMQC profiles (one plot per parameter) <br />
 
 Plot 07 presents the time evolution of the percentage of profiles processed in delayed mode with respect to the profile date.
-Plot 08 presents the age histogram of profiles with no DMQC performed yet.
+Plot 09 presents the age histogram of profiles with no DMQC performed yet.
 
 <p float="center">
 <img 
@@ -192,16 +198,22 @@ src="OUTPUT_examples/MOCCA_case/Plots/07_MOCCA_Fleet_CTD_prof_DMQCstatus_byyear_
 src="OUTPUT_examples/MOCCA_case/Plots/08_MOCCA_Fleet_CTD_prof_DMQCstatus_agehist_20230713.png" width="400" /> 
 </p>
 
-- __Plot 09__ R-A-D status for all parameters <br />
-Plot 09 presents by parameter (x axis), the number of R-profiles, A-profiles and D-profiles.
+- __Plot 08 (new v3.4)__ DMQC and profile -F status per profile year<br />
+<p float="center">
+<img 
+src="OUTPUT_examples/MOCCA_case/Plots/08_MOCCA_Fleet_PSAL_prof_DMQC-and-F_status_byyear_20240731.png" width="400" /> 
+</p>
+
+- __Plot 10__ R-A-D status for all parameters <br />
+Plot 10 presents by parameter (x axis), the number of R-profiles, A-profiles and D-profiles.
 
 <p float="center">
 <img 
 src="OUTPUT_examples/MOCCA_case/Plots/09_MOCCA_Fleet_prof_RAD_mode_per_param_20230713.png" width="400" /> 
 </p>
 
-- __Plot 10 and 11__ DMQC and quality profile status by batch of WMOs per cycle (one plot per parameter) <br />
-These plots show the DMQC (plot 10) and quality profile status (plot 11) by batch of WMOs per cycle (one plot per parameter).
+- __Plot 11 and 12__ DMQC and quality profile status by batch of WMOs per cycle (one plot per parameter) <br />
+These plots show the DMQC (plot 11) and quality profile status (plot 12) by batch of WMOs per cycle (one plot per parameter).
 These plots are output only on demand. The number of WMOs shown by graph can be tuned.
 
 <p float="center">
@@ -211,7 +223,7 @@ src="OUTPUT_examples/MOCCA_case/Plots/10_MOCCA_Fleet_CTD_RAD_mode_per_wmo_per_cy
 src="OUTPUT_examples/MOCCA_case/Plots/11_MOCCA_Fleet_PSAL_profile_QC_per_wmo_per_cycle_001_20230713.png" width="400" /> 
 </p>
 
-- __Plot 12__ PSAL adjustment by batch of WMOs per cycle  <br />
+- __Plot 13__ PSAL adjustment by batch of WMOs per cycle  <br />
 This plot shows PSAL_adjustment by batch of WMOs per cycle.
 This plot is output only on demand. The number of WMOs shown by graph can be tuned.
 In grey color: the profiles that are not yet processed in delayed mode and that are not profile QC F.
@@ -226,7 +238,7 @@ src="OUTPUT_examples/ASD_case/Plots/12_ASD_Fleet_PSAL_PSAL_adj_per_wmo_per_cycle
 
 ## C. Syntheses outputs for **get_DMQC_stats.m** 
 
-There are 4 kinds of syntheses produced by the script:
+There are 5 kinds of syntheses produced by the script:
 
 -  Additional_Info_{yyyymmdd}.txt
  This file indicates which WMO, if any, were not found in the Argo detailed index, and in the Argo detailed synthetic index if i_bgc = 1.
@@ -239,6 +251,8 @@ If i_bgc=1, it also indicates which BGC parameters, if any, were not found in th
    - The nb_prof_QC_X and nb_prof_DM_QC_X refer to profiles with no value for profile QC (see Plot 03 comment above).
    - DM_done column refers to the fact that this WMO has been seen in delayed mode at least once. To get the delayed mode completeness, refer to percentage_DM_prof column.
    - greylist means that the float was put on greylist with QC3 or QC4 for the given parameter.
+ 
+- DMQC_status_per_profile_year_for_{param}_{yyyymmdd}.txt (NEW V3.4) is the numbered information for new plot 08.
 
 - The DMQC_status_warnings_per_wmo_for_{param}_{yyyymmdd}.txt is an output of what was thought should raise the attention such as:
   - there is at least one profile_QC set to F (prof_QC=F_once)
