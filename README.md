@@ -116,7 +116,7 @@ This script computes DMQC statistics for a given list of floats <br />
    - 1-yr static string was replaced by the config value
    - add a new graph per profile year with DMQC and profile QC F + 
      output values in a text file
-   - add a log (diary)
+   - add a log (diary) 
 
 ## B. Graphical outputs for **get_DMQC_stats.m** 
 Different outputs are produced: graphical and textual. Here after are examples of graphical outputs obtained for floats from the MOCCA project.
