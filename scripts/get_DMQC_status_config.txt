@@ -1,0 +1,72 @@
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+% DMQC status tool configuration
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+
+
+% ----------------------------------------------------------------------
+% paths and files
+% ----------------------------------------------------------------------
+
+script_dir = /home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/scripts/
+test_case_dir = /home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/02_EuropeanFleet_case/
+
+%sub repository under test_case_dir containing wmo_list and country_code files
+input_file_dir = input_files
+wmo_list_file = wmo_list_to_process.txt
+country_code_file = country_codes.csv
+
+%sub repository prefix under test_case_dir containing all the tool outputs. 
+%this will be appended with the date and time the tool was run.
+output_file_dir_prefix = output_files
+log_file=matlab.log
+
+% index file dir. It can be set as the same as input_file_dir if index files are fetched
+% on the https or ftp access.
+index_file_dir = /home/ref-argo/gdac/etc/argo-index/
+index_file_core = argo_profile_detailled_index.txt
+index_file_bgc_synthetic = argo_synthetic-profile_detailled_index.txt
+
+% exclusion_file_dir. It must be fetched on the dmqc ftp (ask coriolis team for the access credentials)
+exclusion_file_dir = /home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/common_input_files/
+exclusion_file = argo_sensor_exclusion_list.txt
+
+% ----------------------------------------------------------------------
+% comments on plots and syntheses 
+% ----------------------------------------------------------------------
+project_name = European_Fleet
+
+% -----------------------------------------------------------------------
+% computing and plotting features
+% -----------------------------------------------------------------------
+
+% list of core parameters to process (list separated by semicolon)
+input_list_of_parameters_to_treat=TEMP;PRES;PSAL
+
+% mention if BGC parameters should be processed and detail which parameters
+i_bgc=1
+input_list_of_BGC_parameters_to_treat=DOXY;CHLA;NITRATE;PH_IN_SITU_TOTAL;BBP700;DOWN_IRRADIANCE380
+% an example with the full list of possibilities:
+% input_list_of_BGC_parameters_to_treat=DOXY;DOXY2;CHLA;NITRATE;PH_IN_SITU_TOTAL;TURBIDITY;BISULFIDE;CDOM;BBP532;BBP700;DOWNWELLING_PAR;DOWN_IRRADIANCE380;DOWN_IRRADIANCE412;DOWN_IRRADIANCE443;DOWN_IRRADIANCE490;DOWN_IRRADIANCE555;DOWN_IRRADIANCE665;DOWN_IRRADIANCE670;CP660
+
+% include descending profiles ?
+i_descending_profile=1
+
+% to mention whether by-float information should be plotted and number of floats to be plotted on these by-float plots
+output_graphs_per_float=0
+n_max_float_per_graph=30
+
+% Select the method to consider old profiles: either with the profile_age_min_days (days) or with profile_age_max_date (date)
+profile_age_method=days
+% Number of days for "old" profiles
+profile_age_min_days=720
+% Date threshold for "old" profiles
+profile_age_max_date=2023/01/01
+
+%additional format for output plots
+print_svg=0
+
+% to group profile_qc A and B in computations and plots.
+i_group_AB_profQC=1
+
