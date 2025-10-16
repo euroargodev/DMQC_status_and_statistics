@@ -7,7 +7,7 @@ This script computes DMQC statistics for a given list of floats <br />
 **INPUTS**
  - **argo_profile_detailled_index.txt** and <br />
    **argo_synthetic-profile_detailled_index.txt** if i_BGC=1
- - **ar_greylist.txt**
+ - **argo_sensor_exclusion_list.txt**
  - **floats list**: csv file, separated by ";", with 4 fields:<br />
     WMO; COUNTRY; LAUNCH_DATE; PROGRAM<br />
         COUNTRY is the country in charge of the delayed mode processing (from OceanOPS)<br />
@@ -31,13 +31,18 @@ This script computes DMQC statistics for a given list of floats <br />
 <br />
 
  **CONFIGURATION PARAMETERS**
+ Since the V3.5 release, the configuration has been externalised within **get_DMQC_status_config.txt** file. Besides paths 
+ for the input files mentioned here-above, it allows to configure the following parameters:
  - **i_descending_profile**: 1 means descending profiles are considered, <br />
                          0 means descending profiles are not considered.
- - **sage**: threshold (in days) for floats and observations statistics.
+ - **profile_age_method** = 'date' or 'days': choose the method to filter "old" profiles
+ - **profile_age_min_days**: "old profiles" threshold (in days) for floats and observations statistics.
+ - **profile_age_max_date**: "old profiles" threshold (in date, format yyyy/mm/dd) for floats and observations statistics.
  - **i_bgc**: 1 means bgc profiles/parameters are considered (the detailed argo synthetic index will be <br />
             read for BGC parameters, the detailed argo index will be read for CTD)<br />
           0 means core information (CTD) is analysed from the detailed argo index.
- - **input_list_of_parameters_to_treat** is the list of parameters to analyse
+ - **input_list_of_parameters_to_treat** is the list of core parameters to analyse
+ - **input_list_of_BGC_parameters_to_treat** is the list of BGC parameters to analyse
  - **print_svg**: 1 means figures will be saved in .svg format as well<br />
  (interesting for high quality, but a little longer to save).
  - **output_graphs_per_float**: flag to indicate if graphs per float should be<br />
@@ -48,27 +53,26 @@ This script computes DMQC statistics for a given list of floats <br />
 <br />
 
 **OUTPUTS**
- - **Figures**   saved in folder outputs_yyyy-mm-dd_hhmmss/Plots 
- - **Analyses**  saved in folder outputs_yyyy-mm-dd_hhmmss/Syntheses 
- - **Copy of input files** saved in folder outputs_yyyy-mm-dd_hhmmss
+ - **Figures**   saved in folder output_files_yyyy-mm-dd_hhmmss/Plots 
+ - **Analyses**  saved in folder output_files_yyyy-mm-dd_hhmmss/Syntheses 
+ - **Copy of input files** saved in folder output_files_yyyy-mm-dd_hhmmss
 
  **Auxiliary functions needed**
   - read_csv
   - get_data_from_index 
   - plotBarStackGroups
   - grep (Matlab grep equivalent function)
+  - load_configuration.m
 
  **WARNING 1** : Profile_QC for PRES information is not yet available in the Argo detailed index. <br />
  It is filled with qc="X" in the script for the moment, and plots related to pres profile<br />
  qc are skipped.<br />
 
- **WARINING 2** : the detailed index has an issue with some psal adjustments 
- (not filled when it should). A correction was asked to the dev team. 
- In the meanwhile, plots with PSAL adjustment may not be complete.
+ **Nota Bene** : Profile_QC X means the profile contained no data.
 
  **Author**: Euro-Argo ERIC (contact@euro-argo.eu)<br />
 
- **Version**: 3.3 (2023/10/02)<br />
+ **Version**: 3.5 (2025/10/17)<br />
 
  **Historic**:<br />
  - V1.0 : This script was originally created by Andrea Garcia Juan and Romain<br />
@@ -116,7 +120,15 @@ This script computes DMQC statistics for a given list of floats <br />
    - 1-yr static string was replaced by the config value
    - add a new graph per profile year with DMQC and profile QC F + 
      output values in a text file
-   - add a log (diary) 
+   - add a log (diary)
+ - V3.5 (2025/10/17) :
+   - modify psal adj plot to separate RA mode not QC-F from RA mode QC-F profiles.
+   - correct cycles and descending profiles processing in get_data_from_index.m routine
+   - replace "grey list" by "exclusion list"
+   - correct issue with print('-dpng') for more recent Matlab versions, which do not support a space.
+   - externalise the configuration in a conf file
+   - choose the method to select old profiles/floats: either by profile age in days or by the profile date
+
 
 ## B. Graphical outputs for **get_DMQC_stats.m** 
 Different outputs are produced: graphical and textual. Here after are examples of graphical outputs obtained for floats from the MOCCA project.
@@ -266,3 +278,4 @@ Name & Description of the auxiliary functions:
 - get_data_from_index: gets chosen variables from index file for a given list of floats
 - plotBarStackGroups: Permit to make a bar plot with stacked bars for one graph tick.
 - grep : Matlab equivalent of the unix grep command (not as performant).
+- load_configuration: read the configuration file

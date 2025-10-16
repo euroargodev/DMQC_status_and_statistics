@@ -57,6 +57,8 @@ function [IndexData] = get_data_from_index(index_file, nb_header_lines,float_ref
 %        different lengths in WMO.
 % v3.3 (2023/09/01):
 %        - correct issue with parameter search: use of "(==)" instead of "contains" 
+% v3.5 (2025/10/15):
+%        - separate cycle from "D" in case of descending profiles.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -126,8 +128,17 @@ clearvars tmp
 
 disp('---- Finding ascending and descending profiles and indexing relevant lines from the input file')
 % categorize ascending/desceding cycles
-% i_descending_cycles=contains(index_cycles,"D");
+i_descending_cycles=contains(RT_OUT_cycles,"D");
 i_ascending_cycles=~contains(RT_OUT_cycles,"D");
+RT_OUT_direction=RT_OUT_cycles;
+RT_OUT_direction(i_ascending_cycles)="A";
+RT_OUT_direction(i_descending_cycles)="D";
+
+
+% index_cycles bis
+% remove direction from cycle
+tmp=erase(RT_OUT_cycles,"D");
+RT_OUT_cycles=tmp;
 
 % subsetting the index information for lines concerning wmos provided in input 
 % and accounting for ascending or descending profiles option.
@@ -142,6 +153,7 @@ disp('---- Recording wmo, cycle number, date, lat, lon of relevant profiles')
 IndexData.profile_WMO = RT_OUT_wmos(i_relevant_index_lines);
 IndexData.profile_dac = RT_OUT_dacs(i_relevant_index_lines);
 IndexData.cycle       = RT_OUT_cycles(i_relevant_index_lines);
+IndexData.direction   = RT_OUT_direction(i_relevant_index_lines);
 IndexData.date        = RT_OUT(i_relevant_index_lines,ic_profile_date);
 IndexData.latitude    = RT_OUT(i_relevant_index_lines,ic_latitude);
 IndexData.longitude   = RT_OUT(i_relevant_index_lines,ic_longitude);
