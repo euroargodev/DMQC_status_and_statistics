@@ -7,7 +7,7 @@
 % - argo_profile_detailled_index.txt and
 %   argo_synthetic-profile_detailled_index.txt if i_BGC=1
 %
-% - ar_greylist.txt
+% - ar_greylist.txt (to replace with the exclusion list/ask CC)
 %
 % - floats list: csv file, separated by ";", with 4 fields:
 %    WMO; COUNTRY; LAUNCH_DATE; PROGRAM
@@ -35,7 +35,9 @@
 % CONFIGURATION PARAMETERS:
 % - i_descending_profile: 1 means descending profiles are considered, 
 %                         0 means descending profiles are not considered.
-% - sage: threshold (in days) for floats and observations statistics.
+% - profile_age_method = 'date' or 'days': choose the method to filter "old" profiles
+% - profile_age_min_days: "old" threshold (in days) for floats and observations statistics.
+% - profile_age_max_date: "old" threshold (in date, format yyyy/mm/dd) for floats and observations statistics.
 % - i_bgc: 1 means bgc profiles/parameters are considered (the detailed argo synthetic index will be 
 %            read for BGC parameters, the detailed argo index will be read for CTD)
 %          0 means core information (CTD) is analysed from the detailed argo index.
@@ -49,9 +51,9 @@
 % default, set to 30.
 %
 % Outputs
-% - Figures   saved in folder outputs_yyyy-mm-dd_hhmmss/Plots 
-% - Analyses  saved in folder outputs_yyyy-mm-dd_hhmmss/Syntheses
-% - Copy of input files saved in folder outputs_yyyy-mm-dd_hhmmss.
+% - Figures   saved in folder output_files_yyyy-mm-dd_hhmmss/Plots 
+% - Analyses  saved in folder output_files_yyyy-mm-dd_hhmmss/Syntheses
+% - Copy of input files saved in folder output_files_yyyy-mm-dd_hhmmss.
 %
 % Auxiliary functions needed:
 %    read_csv
@@ -62,15 +64,12 @@
 % WARNING : Profile_QC for PRES information is not yet available. IndexData
 % is filled with qc="X" for the moment, and plots related to pres profile
 % qc are skipped.
-% WARINING 2 : the detailed index has an issue with some psal adjustments 
-% (not filled when it should). A correction was asked to the dev team. 
-% In the meanwhile, plots with PSAL adjustment may not be complete.
 %
 % Author: Euro-Argo ERIC (contact@euro-argo.eu)
 %
-% Version: 3.3 (2023/10/02)
+% Version: 3.5 (2025/10/17)
 %
-% Historic:
+% History:
 % V1.0 : This script was originally created by Andrea Garcia Juan and Romain
 %        Cancouët, and updated by Luca Arduini Plaisant.
 % V2.0 (2023/06/19): 
@@ -124,6 +123,17 @@
 %        - add a new graph per profile year with DMQC and profile QC F + 
 %          output values in a text file
 %        - add a log (diary)
+% V3.5 (2025/10/17) :
+%        - modify psal adj plot to separate RA mode not QC-F from RA mode QC-F
+%        profiles.
+%        - correct cycles and descending profiles processing in
+%        get_data_from_index.m routine
+%        - replace "grey list" by "exclusion list"
+%        - correct issue with print('-dpng') for more recent Matlab
+%        versions, which do not support a space.
+%        - externalise the configuration in a conf file
+%        - choose the method to select old profiles/floats: either by profile age
+%        in days or by the profile date
 
 %option explicit
 
@@ -133,106 +143,68 @@ close all
 % inputs and configuration
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 disp([newline '######################'])
-disp('Configuration')
+disp('Load configuration')
+
+cf=load_configuration('get_DMQC_status_config.txt');
+
+test_case_dir=cf.test_case_dir;
+
+wmo_list_file=[cf.test_case_dir '/' cf.input_file_dir '/' cf.wmo_list_file];
+country_code_file=[cf.test_case_dir '/' cf.input_file_dir '/' cf.country_code_file];
+index_file=[cf.index_file_dir '/' cf.index_file_core];
+index_file_synthetic=[cf.index_file_dir '/' cf.index_file_bgc_synthetic];
+exclusionlist_file=[cf.exclusion_file_dir '/' cf.exclusion_file];
+output_file_dir_prefix=cf.output_file_dir_prefix;
+script_path=cf.script_dir;
+log_file=cf.log_file;
 
 
-icase = 5;
+project_name=cf.project_name;
 
-switch icase
-    case 1
-        test_case_dir = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/01_EuropeanFleet_case/';
-        i_bgc = 1;
-        wmo_list_file = [test_case_dir 'input_files/wmo_list_all_european_floats.csv'];
-        country_code_file = [test_case_dir 'input_files/country_codes.csv'];
-        project_name = 'European_Fleet';
-        output_graphs_per_float = 0;
+input_list_of_parameters_to_treat = string(split(cf.input_list_of_parameters_to_treat,";"));
 
-    case 3
-        test_case_dir = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/03_RBR_case/';
-        i_bgc = 0;
-        wmo_list_file = [test_case_dir 'input_files/wmo_list_all_rbr_floats.txt'];
-        country_code_file = [test_case_dir 'input_files/country_codes.csv'];
-        project_name = 'RBR_Fleet';
-        output_graphs_per_float = 1;
-    case 4
-        test_case_dir = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/04_RC_AtlantOS/';
-        i_bgc = 1;
-        wmo_list_file = [test_case_dir 'input_files/AtlantOS_EuroSea.csv'];
-        country_code_file = [test_case_dir 'input_files/country_codes.csv'];
-        project_name = 'AtlantOS_BGC_Fleet';
-        output_graphs_per_float = 1;
-    case 5
-        test_case_dir = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/05_RC_Mocca/';
-        i_bgc = 0;
-        wmo_list_file = [test_case_dir 'input_files/MOCCA.csv'];
-        country_code_file = [test_case_dir 'input_files/country_codes.csv'];
-        project_name = 'MOCCA_Fleet';
-        output_graphs_per_float = 1;
-        
-    case 6
-        test_case_dir = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/06_AllArgoFleet_case/';
-        i_bgc = 1;
-        wmo_list_file = [test_case_dir 'input_files/wmo_list_all_Argo_floats.txt'];
-        country_code_file = [test_case_dir 'input_files/country_codes.csv'];
-        project_name = 'AllArgo_Fleet';
-        output_graphs_per_float = 0;
+i_bgc=str2double(cf.i_bgc);
+input_list_of_BGC_parameters_to_treat = string(split(cf.input_list_of_BGC_parameters_to_treat,";"));
 
-    case 7
-        test_case_dir = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/07_ASD_floats/';
-        i_bgc = 0;
-        wmo_list_file = [test_case_dir 'input_files/wmo_list_asd_floats.csv'];
-        country_code_file = [test_case_dir 'input_files/country_codes.csv'];
-        project_name = 'ASD_Fleet';
-        output_graphs_per_float = 1;
-        
-    case 8
-        test_case_dir = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/08_Atlantic_case/';
-        i_bgc = 1;
-        wmo_list_file = [test_case_dir 'input_files/wmo_list_atlantic_case.csv'];
-        country_code_file = [test_case_dir 'input_files/country_codes.csv'];
-        project_name = 'Atlantic_Fleet';
-        output_graphs_per_float = 0;
+output_graphs_per_float = str2double(cf.output_graphs_per_float);
+n_max_float_per_graph   = str2double(cf.n_max_float_per_graph);
 
+i_descending_profile = str2double(cf.i_descending_profile);
+profile_age_method   = cf.profile_age_method; % either 'days' or 'date'
+profile_age_min_days = str2double(cf.profile_age_min_days);
+profile_age_max_date = datenum(cf.profile_age_max_date,'yyyy/MM/dd');
+print_svg            = str2double(cf.print_svg);
+i_group_AB_profQC    = str2double(cf.i_group_AB_profQC);
+
+wmo_list_file_short = [cf.test_case_dir '/' cf.input_file_dir '/wmo_list.txt'];
+index_file_short=[cf.test_case_dir '/' cf.input_file_dir '/argo_profile_detailed_index_subset.txt'];
+index_file_synthetic_short = [cf.test_case_dir '/' cf.input_file_dir '/argo_profile_detailled_index_subset.txt'];
+if strcmp(profile_age_method,'days')
+    profile_old_a= sprintf('%.1f',profile_age_min_days/365);
+    profile_old_b=['older than ' profile_old_a ' yr'];
+    profile_old_c=['older_than_' profile_old_a '_yr'];
 end
-        
+if strcmp(profile_age_method,'date')
+    profile_old_a= sprintf('%s',datestr(profile_age_max_date,'yyyy-mm-dd'));
+    profile_old_b=['older than ' profile_old_a];
+    profile_old_c=['older_than_' profile_old_a];
+end
 
-index_file = '/home/ref-argo/gdac/etc/argo_profile_detailled_index.txt';
-%index_file = [test_case_dir 'input_files/argo_profile_detailled_index_2023-01-08.txt'];
 
-index_file_short = [test_case_dir 'input_files/argo_profile_detailed_index_subset.txt'];
-input_list_of_parameters_to_treat=["TEMP"; "PRES"; "PSAL"];
-disp([newline ' Treating CTD parameters for ' project_name ' case']);
-    
+test_date=char(datetime('now','TimeZone','local','Format','yyyy-MM-dd_HHmmSS'));
+output_dir=[ cf.test_case_dir cf.output_file_dir_prefix '_' test_date '/'];
+if ~exist(output_dir, 'dir')
+    disp('creating the output_directory')
+    mkdir(output_dir)
+end
+
+log_file=[output_dir '/' cf.log_file];
+   
 if i_bgc == 1
-    index_file_synthetic = '/home/ref-argo/gdac/etc/argo_synthetic-profile_detailled_index.txt';
-    %index_file_synthetic = [test_case_dir 'input_files/argo_synthetic-profile_detailled_index_2023-07-13.txt'];
-    
-    index_file_synthetic_short = [test_case_dir 'input_files/argo_profile_detailled_index_subset.txt'];
-    input_list_of_BGC_parameters_to_treat=["DOXY";"CHLA";"NITRATE";"PH_IN_SITU_TOTAL";"BBP700";"DOWN_IRRADIANCE380"];
-%     input_list_of_BGC_parameters_to_treat=["DOXY";"DOXY2";"CHLA";"NITRATE";"PH_IN_SITU_TOTAL";"TURBIDITY";"BISULFIDE";"CDOM";...
-%         "BBP532";"BBP700";"DOWNWELLING_PAR";"DOWN_IRRADIANCE380";"DOWN_IRRADIANCE412";"DOWN_IRRADIANCE443";"DOWN_IRRADIANCE490";...
-%         "DOWN_IRRADIANCE555";"DOWN_IRRADIANCE665";"DOWN_IRRADIANCE670";"CP660"];
-    disp([newline ' Treating BGC parameters for ' project_name ' case']);
+    disp([newline ' Treating CTD and BGC parameters for ' project_name ' case']);
+else
+    disp([newline ' Treating CTD parameters for ' project_name ' case']);
 end
-
-greylist_file = '/home/ref-argo/gdac/ar_greylist.txt';
-script_path = '/home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/scripts/';
-
-
-i_descending_profile = 0; % 0 means not including descending profiles, 1 means including descending profiles
-sage  = 720; % threshold [days]. More than 1 year (floats and profiles)
-sage_yr_str= sprintf('%.1f',sage/365); % for plots and logs
-
-print_svg=1; % (interesting for high quality, but a little longer to save).
-%output_graphs_per_float = 1; % Indicate if graphs per float should be
-%   recorded. For treatmant with a large
-%   number of floats, this may not be relevant)
-n_max_float_per_graph = 30;  % associated to output_graphs_per_float.
-i_group_AB_profQC  = 1;
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-wmo_list_file_short = [test_case_dir 'input_files/wmo_list.txt'];
 
 % add paths (packages and auxiliary functions)
 % aux_functions_path = [script_path '/aux_functions'];
@@ -253,17 +225,7 @@ tStart = tic;
 % This makes it available for later understanding of any bugs / or rerun 
 % with data from the same date. For the seek of space: to be zipped once
 % finished.
-test_date=char(datetime('now','TimeZone','local','Format','yyyy-MM-dd_HHmmSS'));
-%test_date='2023-01-08_000000';
 
-output_dir=[ test_case_dir '/outputs_' test_date '/'];
-
-if ~exist(output_dir, 'dir')
-    disp('creating the output_directory')
-    mkdir(output_dir)
-end
-
-log_file=[output_dir 'matlab_log.txt'];
 diary(log_file)
 diary on
 
@@ -277,12 +239,12 @@ if i_bgc == 1
 end
 
 
-local_greylist_file=[output_dir 'ar_greylist_' test_date '.txt'];
-disp('-- creating a local copy of the greylist file ...')
-copyfile(greylist_file,local_greylist_file)
+local_exclusionlist_file=[output_dir 'ar_exclusionlist_' test_date '.txt'];
+disp('-- creating a local copy of the exclusionlist file ...')
+copyfile(exclusionlist_file,local_exclusionlist_file)
 
 
-local_wmo_list_file=[output_dir 'wmo_list_treated_' test_date '.txt'];
+local_wmo_list_file=[output_dir 'wmo_list_processed_' test_date '.txt'];
 disp('-- creating a local copy of the wmo_list file ...')
 copyfile(wmo_list_file,local_wmo_list_file)
 
@@ -311,10 +273,10 @@ l_min=min(size(Floats_list.COUNTRY,2),size(Floats_list.COUNTRY,2));
 [~,loc]=ismember(string(Floats_list.COUNTRY(:,1:l_min)),string(Country_codes.COUNTRY(:,1:l_min)));
 Floats_list.COUNTRYCODE=string(Country_codes.COUNTRYCODE(loc,:));
 
-% read grey list
-disp('-- reading greylist ...')
-[grey_list] = read_csv(local_greylist_file,',');
-disp('-- end of greylist reading ...')
+% read exclusion list
+disp('-- reading exclusionlist ...')
+[exclusion_list] = read_csv(local_exclusionlist_file,',');
+disp('-- end of exclusionlist reading ...')
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -441,6 +403,9 @@ catch
     
 end
 
+% delete temporary file wmo_list_file_short
+delete(wmo_list_file_short);
+
 if optim == 0
     disp('--- too large number of floats requested for index file optimization')
     disp('--- the whole index will be read - approx 5 minutes')
@@ -502,6 +467,12 @@ if i_bgc ==1
                                           i_bgc,...
                                           input_list_of_BGC_parameters_to_treat);
     list_of_BGC_parameters_to_treat=IndexData_BGC.ParamList;
+    
+% delete temporary file short
+delete(index_file_short)
+if i_bgc ==1
+    delete(index_file_synthetic_short)
+end
     
     % DEBUG
     % save PSAL QC info.
@@ -634,8 +605,13 @@ prof_date = datenum(IndexData.date,'yyyymmddHHMMSS');
 prof_update_date = datenum(IndexData.prof_update_date,'yyyymmddHHMMSS');
 % Compute the delta time between index file date and each profile's date
 IndexData.profile_age=index_file_date-prof_date;
-% Index the profiles that were collected more than 1 year ago
-i_more_than_x_days = (IndexData.profile_age > sage);
+% Index the profiles that are considered as old enough
+if strcmp(profile_age_method,'days')
+    i_old_profiles = (IndexData.profile_age > profile_age_min_days);
+end
+if strcmp(profile_age_method,'date')
+    i_old_profiles = (prof_date < profile_age_max_date);
+end
 
 
 
@@ -643,7 +619,7 @@ for i=1:n_param
     i_param=list_of_parameters_to_treat(i);
     fprintf('Indexing %s profile, mode and operational wmos information\n',i_param);
     
-    % Index the wmos that are still operational (to compute greylist
+    % Index the wmos that are still operational (to compute exclusionlist
     % proportion)
     i_recent_profiles=(IndexData.profile_age < 30);
     wmos_operational.(i_param)=unique(IndexData.profile_WMO(i_recent_profiles & IndexData.param.(i_param).presence==1));
@@ -693,8 +669,8 @@ for i=1:n_param
     nb_floats_per_country.(i_param)(loc)=val;
     nb_float_tot.(i_param)=sum(val);
 
-    fprintf('-- compute nb of floats with at least 1 profile > %s yr for %s per country\n',sage_yr_str,i_param)
-    wmos_xage.param.(i_param)=unique(IndexData.profile_WMO(i_more_than_x_days & (IndexData.param.(i_param).presence==1)));
+    fprintf('-- compute nb of floats with at least 1 profile %s for %s per country\n',profile_old_b,i_param)
+    wmos_xage.param.(i_param)=unique(IndexData.profile_WMO(i_old_profiles & (IndexData.param.(i_param).presence==1)));
     [~,loc]=ismember(wmos_xage.param.(i_param),Floats_list.WMO);
     wmos_xage_country=string(Floats_list.COUNTRYCODE(loc,:));
     [xx,~,ic]=unique(wmos_xage_country);
@@ -714,8 +690,8 @@ for i=1:n_param
     nb_floats_DMQCed_per_country.(i_param)(loc)=val;
     nb_float_DMQCed_tot.(i_param)=sum(val);
 
-    fprintf('-- compute nb of floats with at least 1 profile DMQCed for %s and with at least 1 profile > %s yr per country\n',i_param,sage_yr_str)
-    wmos_xage_DMQCed=unique(IndexData.profile_WMO(i_DMQCed.(i_param) & i_more_than_x_days));
+    fprintf('-- compute nb of floats with at least 1 profile DMQCed for %s and with at least 1 profile %s per country\n',i_param,profile_old_b)
+    wmos_xage_DMQCed=unique(IndexData.profile_WMO(i_DMQCed.(i_param) & i_old_profiles));
     [~,loc]=ismember(wmos_xage_DMQCed,Floats_list.WMO);
     wmos_xage_dmqced_country=string(Floats_list.COUNTRYCODE(loc,:));
     [xx,~,ic]=unique(wmos_xage_dmqced_country);
@@ -746,8 +722,8 @@ for i=1:n_param
     [~,loc]=ismember(xx,nb_per_country_x);
     nb_profiles_per_country.(i_param)(loc)=val;
 
-    fprintf('-- compute nb of profiles > %s yr for %s per country\n',sage_yr_str,i_param)
-    [xx,~,ic]=unique(IndexData.country(i_more_than_x_days & IndexData.param.(i_param).presence==1));
+    fprintf('-- compute nb of profiles %s for %s per country\n',profile_old_b,i_param)
+    [xx,~,ic]=unique(IndexData.country(i_old_profiles & IndexData.param.(i_param).presence==1));
     val=accumarray(ic,1);
     [~,loc]=ismember(xx,nb_per_country_x);
     nb_profiles_xage_per_country.(i_param)(loc)=val;
@@ -758,8 +734,8 @@ for i=1:n_param
     [~,loc]=ismember(xx,nb_per_country_x);
     nb_profiles_DMQCed_per_country.(i_param)(loc)=val;
 
-    fprintf('-- compute nb of profiles DMQCed and > %s yr for %s per country\n',sage_yr_str, i_param)
-    [xx,~,ic]=unique(IndexData.country(i_DMQCed.(i_param) & i_more_than_x_days));
+    fprintf('-- compute nb of profiles DMQCed and %s for %s per country\n',profile_old_b, i_param)
+    [xx,~,ic]=unique(IndexData.country(i_DMQCed.(i_param) & i_old_profiles));
     val=accumarray(ic,1);
     [~,loc]=ismember(xx,nb_per_country_x);
     nb_profiles_xage_DMQCed_per_country.(i_param)(loc)=val;
@@ -860,31 +836,31 @@ for i=1:n_param
 end
 
 
-% Figure 5 : Operational floats in grey list for PSAL
+% Figure 5 : Operational floats in exclusion list for PSAL
 % ---------------------------------------------------
-disp('- compute grey list stats')
+disp('- compute exclusion list stats')
 for i=1:n_param
     i_param=list_of_parameters_to_treat(i);
     fprintf('-- for %s \n',i_param)
 
-    i_wmo_ope_in_greylist_with_qc_3_or_4.(i_param)  = contains(string(grey_list.PARAMETERNAME),i_param) & ...
-                                                 (grey_list.QUALITYCODE == '3' | grey_list.QUALITYCODE == '4') & ...
-                                                 ismember(string(grey_list.PLATFORMCODE),string(wmos_operational.(i_param)));
-    nb_wmo_ope_in_greylist_with_qc_3_or_4.(i_param) = sum(i_wmo_ope_in_greylist_with_qc_3_or_4.(i_param));
+    i_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param)  = contains(string(exclusion_list.PARAMETERNAME),i_param) & ...
+                                                 (exclusion_list.QUALITYCODE == '3' | exclusion_list.QUALITYCODE == '4') & ...
+                                                 ismember(string(exclusion_list.PLATFORMCODE),string(wmos_operational.(i_param)));
+    nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param) = sum(i_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param));
 
-    i_wmo_inactiveR_in_greylist_with_qc_3_or_4.(i_param)  = contains(string(grey_list.PARAMETERNAME),i_param) & ...
-                                                 (grey_list.QUALITYCODE == '3' | grey_list.QUALITYCODE == '4') & ...
-                                                 ismember(string(grey_list.PLATFORMCODE),string(wmos_with_R_or_A_profile.(i_param))) & ...
-                                                 ~ismember(string(grey_list.PLATFORMCODE),string(wmos_operational.(i_param)));
-    nb_wmo_inactiveR_in_greylist_with_qc_3_or_4.(i_param) = sum(i_wmo_inactiveR_in_greylist_with_qc_3_or_4.(i_param));
+    i_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param)  = contains(string(exclusion_list.PARAMETERNAME),i_param) & ...
+                                                 (exclusion_list.QUALITYCODE == '3' | exclusion_list.QUALITYCODE == '4') & ...
+                                                 ismember(string(exclusion_list.PLATFORMCODE),string(wmos_with_R_or_A_profile.(i_param))) & ...
+                                                 ~ismember(string(exclusion_list.PLATFORMCODE),string(wmos_operational.(i_param)));
+    nb_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param) = sum(i_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param));
 
 
-    i_wmo_inactiveD_in_greylist_with_qc_3_or_4.(i_param)  = contains(string(grey_list.PARAMETERNAME),i_param) & ...
-                                                 (grey_list.QUALITYCODE == '3' | grey_list.QUALITYCODE == '4') & ...
-                                                 ismember(string(grey_list.PLATFORMCODE),string(Floats_list.WMO)) & ...
-                                                 ~ismember(string(grey_list.PLATFORMCODE),string(wmos_with_R_or_A_profile.(i_param))) & ...
-                                                 ~ismember(string(grey_list.PLATFORMCODE),string(wmos_operational.(i_param)));
-    nb_wmo_inactiveD_in_greylist_with_qc_3_or_4.(i_param) = sum(i_wmo_inactiveD_in_greylist_with_qc_3_or_4.(i_param));
+    i_wmo_inactiveD_in_exclusionlist_with_qc_3_or_4.(i_param)  = contains(string(exclusion_list.PARAMETERNAME),i_param) & ...
+                                                 (exclusion_list.QUALITYCODE == '3' | exclusion_list.QUALITYCODE == '4') & ...
+                                                 ismember(string(exclusion_list.PLATFORMCODE),string(Floats_list.WMO)) & ...
+                                                 ~ismember(string(exclusion_list.PLATFORMCODE),string(wmos_with_R_or_A_profile.(i_param))) & ...
+                                                 ~ismember(string(exclusion_list.PLATFORMCODE),string(wmos_operational.(i_param)));
+    nb_wmo_inactiveD_in_exclusionlist_with_qc_3_or_4.(i_param) = sum(i_wmo_inactiveD_in_exclusionlist_with_qc_3_or_4.(i_param));
 
 end
 
@@ -994,9 +970,9 @@ bars_colors = [0.5273    0.8047    0.9180; ... % 1  - total obs/floats (dark blu
                0.8516    0.6445    0.1250; ... % 8  - qc D "verge d'or"
                0.1250    0.6953    0.6641; ... % 9  - qc E "vert clair"
                0.5273    0.8047    0.9180; ... % 10 - qc F "bleu ciel"
-               0.4102    0.4102    0.4102; ... % 11 - grey list for operational floats AND qc X (no profile qc in index file)
-               0.3000    0.3000    0.3000; ... % 12 - grey list for inactive floats with R or A profiles
-               0.2000    0.2000    0.2000; ... % 13 - grey list for inactive floats with only D profiles
+               0.4102    0.4102    0.4102; ... % 11 - exclusion list for operational floats AND qc X (no profile qc in index file)
+               0.3000    0.3000    0.3000; ... % 12 - exclusion list for inactive floats with R or A profiles
+               0.2000    0.2000    0.2000; ... % 13 - exclusion list for inactive floats with only D profiles
                0.2940    0         0.5090; ... % 14 - qc A for D profiles "indigo"
                0.8039    0.3608    0.3608; ... % 15 - qc B for D profiles "indianred"
                1.0000    0.5469         0; ... % 16 - qc C for D profiles "orange sombre"
@@ -1071,19 +1047,19 @@ for i=1:n_param
     title(['Float DMQC status for ' char(i_param_str) ' by country (updated ',update_date_str,')'], 'Interpreter', 'none')
     ylabel('Number of floats')
     % legend with total number
-    if icase > 2
+    if strcmp(project_name,'European_Fleet')
         legend([hndl(1,2), hndl(1,1), hndl(2,2), hndl(2,1), hp], ...
             {['Number of floats (Total: ',                       num2str(sum(nb_floats_per_country.(i_param),'omitnan')),')'],...
              ['Number of floats with D-profiles (Total: ',       num2str(sum(nb_floats_DMQCed_per_country.(i_param),'omitnan')),')'], ...
-             ['Number of floats with profiles > ' sage_yr_str '-yr (Total: ',  num2str(sum(nb_floats_xage_per_country.(i_param),'omitnan')),')'],...
-             ['Number of floats with D-profiles > ' sage_yr_str '-yr (Total: ',num2str(sum(nb_floats_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
+             ['Number of floats with profiles ' profile_old_b ' (Total: ',  num2str(sum(nb_floats_xage_per_country.(i_param),'omitnan')),')'],...
+             ['Number of floats with D-profiles ' profile_old_b ' (Total: ',num2str(sum(nb_floats_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
             prof_included})
     else
         legend([hndl(1,2), hndl(1,1), hndl(2,2), hndl(2,1), hp], ...
             {['Nb of floats to be managed at Euro-Argo (Total: ',                       num2str(sum(nb_floats_per_country.(i_param),'omitnan')),')'],...
              ['Nb of floats already addressed once in DMQC (Total: ',       num2str(sum(nb_floats_DMQCed_per_country.(i_param),'omitnan')),')'], ...
-             ['Nb of floats for which DMQC can now be performed (older than ' sage_yr_str '-yr) (Total: ',  num2str(sum(nb_floats_xage_per_country.(i_param),'omitnan')),')'],...
-             ['Nb of floats already addressed once in DMQC (and older than ' sage_yr_str '-yr) (Total: ',num2str(sum(nb_floats_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
+             ['Nb of floats for which DMQC can now be performed (' profile_old_b ') (Total: ',  num2str(sum(nb_floats_xage_per_country.(i_param),'omitnan')),')'],...
+             ['Nb of floats already addressed once in DMQC (' profile_old_b ') (Total: ',num2str(sum(nb_floats_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
             })
     end
     
@@ -1116,7 +1092,7 @@ for i=1:n_param
     floats_tobedone_str = num2str(round(floats_tobedone));
     H = figure(1);
     set(H,'units','pix')
-    annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Floats older than ' sage_yr_str '-yr to be DMQCed: ',floats_tobedone_str,'%'],...
+    annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Floats ' profile_old_b ' to be DMQCed: ',floats_tobedone_str,'%'],...
         'FitBoxToText','on','verticalalignment', 'bottom','HorizontalAlignment', 'right','FontWeight','bold')
 
     % save figure
@@ -1173,8 +1149,8 @@ for i=1:n_param
     legend([hndl(1,2), hndl(1,1), hndl(2,2), hndl(2,1), hp], ...
         {['Number of profiles (Total: ',num2str(sum(nb_profiles_per_country.(i_param),'omitnan')),')'],...
          ['Number of D-profiles (Total: ',num2str(sum(nb_profiles_DMQCed_per_country.(i_param),'omitnan')),')'], ...
-         ['Number of profiles older than ' sage_yr_str '-yr (Total: ',num2str(sum(nb_profiles_xage_per_country.(i_param),'omitnan')),')'],...
-         ['Number of D-profiles older than ' sage_yr_str '-yr (Total: ',num2str(sum(nb_profiles_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
+         ['Number of profiles ' profile_old_b ' (Total: ',num2str(sum(nb_profiles_xage_per_country.(i_param),'omitnan')),')'],...
+         ['Number of D-profiles ' profile_old_b 'r (Total: ',num2str(sum(nb_profiles_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
         prof_included})
     % background color
     set(gcf,'color','w');
@@ -1189,7 +1165,7 @@ for i=1:n_param
     obs_tobedone = sum(nb_profiles_xage_per_country.(i_param)-nb_profiles_xage_DMQCed_per_country.(i_param),'omitnan')/sum(nb_profiles_xage_per_country.(i_param),'omitnan')*100;
     H = figure(i_fig);
     set(H,'units','pix')
-    annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Profiles older than ' sage_yr_str '-yr to be DMQCed: ',num2str(round(obs_tobedone)),'%'],...
+    annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Profiles ' profile_old_b ' to be DMQCed: ',num2str(round(obs_tobedone)),'%'],...
         'FitBoxToText','on','verticalalignment', 'bottom','HorizontalAlignment', 'right','FontWeight','bold')
 
     % save figure
@@ -1495,14 +1471,14 @@ for i=1:n_param
     
     close all
 
-     %%%%%%%%%%%%%% Grey list  %%%%%%%%%%%%%%
-    disp('Grey list status')
+     %%%%%%%%%%%%%% exclusion list  %%%%%%%%%%%%%%
+    disp('exclusion list status')
     i_fig=6;
     figure(i_fig)
     % bigger figure
     set(gcf, 'Position', [200, 200, 1000, 600])
     % figure name
-    set(gcf,'Name','Grey list')
+    set(gcf,'Name','exclusion list')
 
 
 
@@ -1511,26 +1487,26 @@ for i=1:n_param
     bar(2, nb_float_xage_tot.(i_param),         'FaceColor', bars_colors(2,:))
     bar(3, nb_float_DMQCed_tot.(i_param),       'FaceColor', bars_colors(3,:))
     bar(4, nb_floats_xage_DMQCed_tot.(i_param), 'FaceColor', bars_colors(4,:))
-    bar(5, nb_wmo_ope_in_greylist_with_qc_3_or_4.(i_param),       'FaceColor', bars_colors(11,:))
-    bar(6, nb_wmo_inactiveR_in_greylist_with_qc_3_or_4.(i_param), 'FaceColor', bars_colors(12,:))
-    bar(7, nb_wmo_inactiveD_in_greylist_with_qc_3_or_4.(i_param),  'FaceColor', bars_colors(13,:))
+    bar(5, nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param),       'FaceColor', bars_colors(11,:))
+    bar(6, nb_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param), 'FaceColor', bars_colors(12,:))
+    bar(7, nb_wmo_inactiveD_in_exclusionlist_with_qc_3_or_4.(i_param),  'FaceColor', bars_colors(13,:))
 
     % FIGURE FORMAT
     % xlabels
     set(gca,'XTick',[])
     % title with update date
-    title(['Floats status and grey list for ' char(i_param) ' (updated ',update_date_str,')'], 'Interpreter', 'none')
+    title(['Floats status and exclusion list for ' char(i_param) ' (updated ',update_date_str,')'], 'Interpreter', 'none')
     ylabel('Number of floats')
     % legend with total number
     legend(['All floats ('          num2str(nb_float_tot.(i_param)) ')'],...
-           ['Floats > ' sage_yr_str '-yr ('       num2str(nb_float_xage_tot.(i_param)) ')'],...
+           ['Floats ' profile_old_b ' ('       num2str(nb_float_xage_tot.(i_param)) ')'],...
            ['Floats DMQC at least once ('              num2str(nb_float_DMQCed_tot.(i_param)) ')'],...
-           ['Floats > ' sage_yr_str '-yr and DMQC at least once ('    num2str(nb_floats_xage_DMQCed_tot.(i_param)) ')'],...
-           ['Active Floats in grey list ('     num2str(nb_wmo_ope_in_greylist_with_qc_3_or_4.(i_param)) ...
+           ['Floats ' profile_old_b ' and DMQC at least once ('    num2str(nb_floats_xage_DMQCed_tot.(i_param)) ')'],...
+           ['Active Floats in exclusion list ('     num2str(nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param)) ...
               '/' num2str(nb_operational_floats.(i_param)) ' ->' ...
-              num2str(round(100*nb_wmo_ope_in_greylist_with_qc_3_or_4.(i_param)/nb_operational_floats.(i_param),1)) '% of active floats)'],...
-           ['Inactive Floats with R or A profiles in grey list (' num2str(nb_wmo_inactiveR_in_greylist_with_qc_3_or_4.(i_param)) ')'], ...
-           ['Inactive Floats only with D profiles in grey list (' num2str(nb_wmo_inactiveD_in_greylist_with_qc_3_or_4.(i_param)) ')'], ...
+              num2str(round(100*nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param)/nb_operational_floats.(i_param),1)) '% of active floats)'],...
+           ['Inactive Floats with R or A profiles in exclusion list (' num2str(nb_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param)) ')'], ...
+           ['Inactive Floats only with D profiles in exclusion list (' num2str(nb_wmo_inactiveD_in_exclusionlist_with_qc_3_or_4.(i_param)) ')'], ...
         'Location','southoutside')
 
     % background color
@@ -1550,16 +1526,16 @@ for i=1:n_param
         'HorizontalAlignment', 'center');
     text(4, nb_floats_xage_DMQCed_tot.(i_param) + ymax/20, num2str(nb_floats_xage_DMQCed_tot.(i_param)), ...
         'HorizontalAlignment', 'center');
-    text(5, nb_wmo_ope_in_greylist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_ope_in_greylist_with_qc_3_or_4.(i_param)), ...
+    text(5, nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param)), ...
         'HorizontalAlignment', 'center');
-    text(6, nb_wmo_inactiveR_in_greylist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_inactiveR_in_greylist_with_qc_3_or_4.(i_param)), ...
+    text(6, nb_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param)), ...
         'HorizontalAlignment', 'center');
-    text(7, nb_wmo_inactiveD_in_greylist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_inactiveD_in_greylist_with_qc_3_or_4.(i_param)), ...
+    text(7, nb_wmo_inactiveD_in_exclusionlist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_inactiveD_in_exclusionlist_with_qc_3_or_4.(i_param)), ...
         'HorizontalAlignment', 'center');
 
 
     % save figure
-    out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param) '_DMQC_status_and_grey_list_' working_date];
+    out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param) '_DMQC_status_and_exclusion_list_' working_date];
     disp(['saving ' out_name])
 %     export_fig([out_name '.png'])
     print('-dpng ', '-r100',[out_name '.png'])
@@ -2194,31 +2170,42 @@ if output_graphs_per_float ==1
         xlabel('Cycle Number')
         
         
-        % Plot R-profile in grey
+        % Plot R and A-profile in light grey
         % find profiles indices where QC = i_QC
-        ii_R=(zz_mode=="R");
+        ii_RA=( ((zz_mode=="R") | (zz_mode=="A")) & (zz_qc~="F") );
         % retrieve corresponding wmo and cycle
-        xx_iR=xx(ii_R);
-        [~,yy_iR]=ismember(yy(ii_R),list_wmo_for_i_graph);
+        xx_iRA=xx(ii_RA);
+        [~,yy_iRA]=ismember(yy(ii_RA),list_wmo_for_i_graph);
         % plot using scatter plot
-        scatter(xx_iR,yy_iR,10,'o','filled','MarkerFaceColor',[0.78 0.78 0.78])
+        scatter(xx_iRA,yy_iRA,10,'o','filled','MarkerFaceColor',[0.78 0.78 0.78])
         % output the legend
-        lgd1='R-profiles (not QC F)';
+        lgd1='R and A profiles (not QC F)';
 
-        
-        
-        % Plot profile QC F in black
+        % Plot R and A-profile QC F in medium grey
         % find profiles indices where QC = i_QC
-        ii_QC=(zz_qc=="F");
+        ii_RAF=( ((zz_mode=="R") | (zz_mode=="A")) & (zz_qc=="F"));
         % retrieve corresponding wmo and cycle
-        xx_iQC=xx(ii_QC);
-        [~,yy_iQC]=ismember(yy(ii_QC),list_wmo_for_i_graph);
+        xx_iRAF=xx(ii_RAF);
+        [~,yy_iRAF]=ismember(yy(ii_RAF),list_wmo_for_i_graph);
         % plot using scatter plot
-        scatter(xx_iQC,yy_iQC,10,'o','filled','MarkerFaceColor','black')
+        scatter(xx_iRAF,yy_iRAF,10,'o','filled','MarkerFaceColor',[0.4 0.4 0.4])
         % output the legend
-        lgd2='R, A or D profiles with QC F';
-        [lh,~] = legend(lgd1,lgd2,'Location','northeast');
+        lgd2='R and A profiles with QC F';
+  
+        
+        % Plot D-profile QC F in black
+        % find profiles indices where QC = i_QC
+        ii_DF=((zz_mode=="D") & (zz_qc=="F"));
+        % retrieve corresponding wmo and cycle
+        xx_iDF=xx(ii_DF);
+        [~,yy_iDF]=ismember(yy(ii_DF),list_wmo_for_i_graph);
+        % plot using scatter plot
+        scatter(xx_iDF,yy_iDF,10,'o','filled','MarkerFaceColor','black')
+        % output the legend
+        lgd3='D profiles with QC F';
+        [lh,~] = legend(lgd1,lgd2,lgd3,'Location','northeast');
         set(lh,'FontSize',10);
+        set(lh,'Position',[0.6 0.85 0.23 0.09]);
         
 
         [~,yy_plot]=ismember(yy,list_wmo_for_i_graph);
@@ -2230,8 +2217,9 @@ if output_graphs_per_float ==1
         
         % As information can be overlaid (both adj and R, both QC F and R):
         % rearrangement of the order of apparition
-        scatter(xx_iR,yy_iR,10,'o','filled','MarkerFaceColor',[0.78 0.78 0.78])
-        scatter(xx_iQC,yy_iQC,10,'o','filled','MarkerFaceColor','black')
+        scatter(xx_iRA,yy_iRA,10,'o','filled','MarkerFaceColor',[0.78 0.78 0.78])
+        scatter(xx_iRAF,yy_iRAF,10,'o','filled','MarkerFaceColor',[0.4 0.4 0.4])
+        scatter(xx_iDF,yy_iDF,10,'o','filled','MarkerFaceColor','black')
         
 
         set(gca,'ytick',1:n_wmo_for_i_graph,'yticklabel', list_wmo_for_i_graph')
@@ -2270,6 +2258,8 @@ if output_graphs_per_float ==1
 
     end 
 end
+
+close all
 
 diary off
 %% 
@@ -2322,24 +2312,24 @@ for i=1:n_param
     % => the list corresponds to the ones for which no profile are found
     % (see table 1 of the text output.
 
-    % floats > 1 year and never DMQC
+    % old profiles never processed in delayed mode
 
     wmos_with_D_profile.(i_param)=unique(IndexData.profile_WMO(IndexData.param.(i_param).mode == 'D'));
-    wmos_older_than_sage.(i_param)=unique(IndexData.profile_WMO(IndexData.profile_age > sage & IndexData.param.(i_param).presence==1));
+    wmos_older_than_sage.(i_param)=unique(IndexData.profile_WMO(i_old_profiles & IndexData.param.(i_param).presence==1));
     i_list=~ismember(wmos_older_than_sage.(i_param),wmos_with_D_profile.(i_param));
     tmp=wmos_older_than_sage.(i_param);
     wmos_older_than_sage_never_DMQCed.(i_param)=tmp(i_list);
 
 
-    % Active floats in grey list
-    wmos_with_RA_profiles_in_grey_list.(i_param) = string(grey_list.PLATFORMCODE(i_wmo_ope_in_greylist_with_qc_3_or_4.(i_param) | ...
-                                                          i_wmo_inactiveR_in_greylist_with_qc_3_or_4.(i_param),:));
+    % Active floats in exclusion list
+    wmos_with_RA_profiles_in_exclusion_list.(i_param) = string(exclusion_list.PLATFORMCODE(i_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param) | ...
+                                                          i_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param),:));
     
     % list all WMOs in warnings
     wmos_in_warning.(i_param) = unique([wmos_with_F_profiles.(i_param); ...
                                         wmos_with_X_profiles.(i_param); ...
                                         wmos_older_than_sage_never_DMQCed.(i_param); ...
-                                        wmos_with_RA_profiles_in_grey_list.(i_param)]);
+                                        wmos_with_RA_profiles_in_exclusion_list.(i_param)]);
     
     n_wmos_in_warning = length(wmos_in_warning.(i_param));
     
@@ -2351,26 +2341,26 @@ for i=1:n_param
         warning_Fprof   = strings(n_wmos_in_warning,1);
         warning_Xprof   = strings(n_wmos_in_warning,1);
         warning_notDM   = strings(n_wmos_in_warning,1);
-        warning_greyl   = strings(n_wmos_in_warning,1);
+        warning_excll   = strings(n_wmos_in_warning,1);
         warning_Fprof(contains(wmos_in_warning.(i_param), wmos_with_F_profiles.(i_param))) = 'X';
         warning_Xprof(contains(wmos_in_warning.(i_param), wmos_with_X_profiles.(i_param))) = 'X';
         warning_notDM(contains(wmos_in_warning.(i_param), wmos_older_than_sage_never_DMQCed.(i_param))) = 'X';
-        warning_greyl(contains(wmos_in_warning.(i_param), wmos_with_RA_profiles_in_grey_list.(i_param))) = 'X';
+        warning_excll(contains(wmos_in_warning.(i_param), wmos_with_RA_profiles_in_exclusion_list.(i_param))) = 'X';
         
         header4=['PARAM,','WMO,','Country,','prof_QC=F_once,',...
-                'prof_QC_not_filled_once,','No_DMQC_older_than_',sage_yr_str,'yr,',...
-                'grey_listed'];
+                'prof_QC_not_filled_once,','No_DMQC_',profile_old_c,',',...
+                'exclusion_listed'];
         
         fprintf(fid, '%s \n', header4);
             
-        %table4 = [Param_name wmos_in_warning.(i_param)  warning_country  warning_Fprof  warning_Xprof  warning_notDM  warning_greyl]';
+        %table4 = [Param_name wmos_in_warning.(i_param)  warning_country  warning_Fprof  warning_Xprof  warning_notDM  warning_excll]';
         table4 = [cellstr(Param_name), ...
                   cellstr(wmos_in_warning.(i_param)), ...
                   cellstr(warning_country), ...
                   cellstr(warning_Fprof),...
                   cellstr(warning_Xprof),...
                   cellstr(warning_notDM),...
-                  cellstr(warning_greyl)]';
+                  cellstr(warning_excll)]';
 
 
         fprintf(fid,'%s,%s,%s,%s,%s,%s,%s\n',table4{:});
@@ -2422,7 +2412,7 @@ for i=1:n_param
     % Initialisations:
     Floats_list.(i_param).more_1_yr = zeros(n_floats_par,1);
     Floats_list.(i_param).wmo_dm_done = zeros(n_floats_par,1);
-    Floats_list.(i_param).grey_list = zeros(n_floats_par,1);
+    Floats_list.(i_param).exclusion_list = zeros(n_floats_par,1);
     Floats_list.(i_param).prof_number = zeros(n_floats_par,1);
     Floats_list.(i_param).prof_older_than_sage_number = zeros(n_floats_par,1);
     Floats_list.(i_param).prof_last_date = strings(n_floats_par,1);
@@ -2457,9 +2447,9 @@ for i=1:n_param
     [~,loc]=ismember(wmos_with_D_profile.(i_param),string(Floats_list.(i_param).WMO));
     Floats_list.(i_param).wmo_dm_done(loc) = 1;
 
-    %'greylist,'
-    [~,loc]=ismember(wmos_with_RA_profiles_in_grey_list.(i_param),string(Floats_list.(i_param).WMO));
-    Floats_list.(i_param).grey_list(loc) = 1;
+    %'exclusionlist,'
+    [~,loc]=ismember(wmos_with_RA_profiles_in_exclusion_list.(i_param),string(Floats_list.(i_param).WMO));
+    Floats_list.(i_param).exclusion_list(loc) = 1;
 
     %'profile_number,'
     [xx,~,ic]=unique(IndexData.profile_WMO(IndexData.param.(i_param).presence == 1));
@@ -2468,7 +2458,7 @@ for i=1:n_param
     Floats_list.(i_param).prof_number(loc)=val;
 
     %'prof_older_than_sage_number,'
-    [xx,~,ic]=unique(IndexData.profile_WMO(IndexData.profile_age > sage & IndexData.param.(i_param).presence == 1));
+    [xx,~,ic]=unique(IndexData.profile_WMO(i_old_profiles & IndexData.param.(i_param).presence == 1));
     val=accumarray(ic,1);
     [~,loc]=ismember(xx,string(Floats_list.(i_param).WMO));
     Floats_list.(i_param).prof_older_than_sage_number(loc)=val;
@@ -2495,7 +2485,7 @@ for i=1:n_param
     %'obs_more1year_noDM,'
     [xx,~,ic]=unique(IndexData.profile_WMO(IndexData.param.(i_param).mode ~= 'D' & ...
                                            IndexData.param.(i_param).presence == 1 & ...
-                                           IndexData.profile_age > sage));
+                                           i_old_profiles));
     val=accumarray(ic,1);
     [~,loc]=ismember(xx,string(Floats_list.(i_param).WMO));
     Floats_list.(i_param).prof_noDM_older_than_sage_number(loc)=val;
@@ -2621,8 +2611,8 @@ for i=1:n_param
     % header
     header1 = ['PARAM,' 'WMO,' 'DAC,' 'COUNTRY,' 'PROGRAM,' 'launch_date,' ...
                'prof_last_date,' 'DM_done,'  ...
-               'float_age,' 'float_more_' sage_yr_str '_year,' 'greylist,' 'nb_prof,' ...
-               'nb_prof_more_' sage_yr_str '_year,' 'nb_prof_DM,' 'nb_prof_noDM_more_' sage_yr_str '_year,' ...
+               'float_age,' 'float_' profile_old_c ',' 'exclusionlist,' 'nb_prof,' ...
+               'nb_prof_' profile_old_c ',' 'nb_prof_DM,' 'nb_prof_noDM_' profile_old_c ',' ...
                'prof_last_DM_date,' 'prof_last_DM_update_date,' 'percentage_DM_prof,'...
                'nb_prof_QC_A,' 'nb_prof_DM_QC_A,' 'nb_prof_QC_B,' 'nb_prof_DM_QC_B,' ...
                'nb_prof_QC_C,' 'nb_prof_DM_QC_C,' 'nb_prof_QC_D,' 'nb_prof_DM_QC_D,' ...
@@ -2640,7 +2630,7 @@ for i=1:n_param
               num2cell(Floats_list.(i_param).wmo_dm_done),...
               num2cell(Floats_list.(i_param).wmo_age),...
               num2cell(Floats_list.(i_param).more_1_yr),...
-              num2cell(Floats_list.(i_param).grey_list),...
+              num2cell(Floats_list.(i_param).exclusion_list),...
               num2cell(Floats_list.(i_param).prof_number),...
               num2cell(Floats_list.(i_param).prof_older_than_sage_number),...
               num2cell(Floats_list.(i_param).prof_DMQCed_number),...
@@ -2698,10 +2688,10 @@ for i=1:n_param
 
     % header
     header2 = ['Param_name,' 'Country,' ...
-                'nb_floats,' 'nb_floats_more_' sage_yr_str '_year,' ...
-                'Nb_floats_DM_done,' 'nb_floats_more_' sage_yr_str '_year_DM_done,' ...
-                'nb_profiles,' 'nb_profiles_more_' sage_yr_str '_year,' ...
-                'nb_profiles_DM_done,' 'nb_profiles_more_' sage_yr_str '_year_DM_done,'];
+                'nb_floats,' 'nb_floats_' profile_old_c ',' ...
+                'Nb_floats_DM_done,' 'nb_floats_' profile_old_c '_DM_done,' ...
+                'nb_profiles,' 'nb_profiles_' profile_old_c ',' ...
+                'nb_profiles_DM_done,' 'nb_profiles_' profile_old_c '_DM_done,'];
     fprintf(fid, '%s \n', header2);
     % data
     table2 = [cellstr(Param_name),...
