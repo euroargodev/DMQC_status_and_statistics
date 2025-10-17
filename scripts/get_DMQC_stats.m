@@ -2,14 +2,14 @@
 % This script computes DMQC statistics for a given list of floats
 %
 %
-% INPUTS (paths to update below)
+% INPUTS (paths to update in the configuration file)
 %
 % - argo_profile_detailled_index.txt and
 %   argo_synthetic-profile_detailled_index.txt if i_BGC=1
 %
-% - ar_greylist.txt (to replace with the exclusion list/ask CC)
+% - argo_sensor_exclusion_list.txt (to download from dmqc ifremer ftp)
 %
-% - floats list: csv file, separated by ";", with 4 fields:
+% - floats list: a text file, separated by ";", with 4 fields:
 %    WMO; COUNTRY; LAUNCH_DATE; PROGRAM
 %        COUNTRY is the country in charge of the delayed mode processing (from OceanOPS)
 %        LAUNCH_DATE must be in the format "YYYY/MM/DD".
@@ -22,7 +22,7 @@
 %   In the argo_all.csv from OceanOPS, the corresponding columns to account for are :
 %         REF (-> WMO), COUNTRY , DEPL_DATE (-> LAUNCH_DATE) and PROGRAM 
 %
-% - country_code.csv: csv file, separated by ";", with 2 fields:
+% - country_code: a text file, separated by ";", with 2 fields:
 %    COUNTRY; COUNTRY_CODE
 %       COUNTRY should follow the OceanOPS conventions
 %       COUNTRY_CODE is a 3-digit CODE that will be used on graphs and outputs.
@@ -41,7 +41,8 @@
 % - i_bgc: 1 means bgc profiles/parameters are considered (the detailed argo synthetic index will be 
 %            read for BGC parameters, the detailed argo index will be read for CTD)
 %          0 means core information (CTD) is analysed from the detailed argo index.
-% - input_list_of_parameters_to_treat is the list of parameters to analyse
+% - input_list_of_parameters_to_treat is the list of core parameters to analyse
+% - input_list_of_BGC_parameters_to_treat is the list of BGC parameters to analyse
 % - print_svg: 1 means figures will be saved in .svg format as well
 % (interesting for high quality, but a little longer to save).
 % - output_graphs_per_float: flag to indicate if graphs per float should be
@@ -49,6 +50,7 @@
 %   number of floats, this may not be relevant)
 % - n_max_float_per_graph: associated to output_graphs_per_float. By
 % default, set to 30.
+% - i_group_AB_profQC: 1 means that on QC-related plots profile QC A and profile QC B will be grouped
 %
 % Outputs
 % - Figures   saved in folder output_files_yyyy-mm-dd_hhmmss/Plots 
@@ -60,6 +62,7 @@
 %    get_data_from_index
 %    plotBarStackGroups
 %    grep (Matlab grep equivalent function)
+%    load_configuration
 %
 % WARNING : Profile_QC for PRES information is not yet available. IndexData
 % is filled with qc="X" for the moment, and plots related to pres profile
@@ -67,7 +70,7 @@
 %
 % Author: Euro-Argo ERIC (contact@euro-argo.eu)
 %
-% Version: 3.5 (2025/10/17)
+% Version: 3.5.1 (2025/10/17)
 %
 % History:
 % V1.0 : This script was originally created by Andrea Garcia Juan and Romain
@@ -134,6 +137,8 @@
 %        - externalise the configuration in a conf file
 %        - choose the method to select old profiles/floats: either by profile age
 %        in days or by the profile date
+% V3.5.1 (2025/10/17):
+%        - correct bug for plot 09 (file name was overwritten while saving plots).
 
 %option explicit
 
@@ -1749,10 +1754,28 @@ diary off
 %% 
 diary on
 for i=1:n_param
-    i_param=list_of_parameters_to_treat(i);
-    fprintf('Making Plots for %s \n',i_param)
-    
+
     close all
+    
+    i_param=list_of_parameters_to_treat(i);
+    
+    if ismember("PSAL",list_of_parameters_to_treat)
+        if (i_param == "TEMP" || i_param == "PRES") 
+            % no need to output plot as mode is the same for TEMP, PRES,
+            % PSAL
+            continue
+        else
+            if i_param == "PSAL"
+                i_param_str="CTD";
+            else
+                i_param_str=i_param;
+            end
+        end
+    else
+        i_param_str=i_param;
+    end
+    
+    fprintf('Making Plots for %s \n',i_param_str)
 
      %%%%%%%%%%%%%% DMQC status by profile age histogram %%%%%%%%%%%%%%
     disp('DMQC status by profile age histogram')
