@@ -2,8 +2,11 @@
 
 ## A. Script **get_DMQC_stats.m** <br />
 
-This script computes DMQC statistics for a given list of floats <br />
-<br />
+This script computes DMQC statistics for a given list of floats. <br />
+The computations are totally based on detailed Argo Index files:
+- https://data-argo.ifremer.fr/etc/argo-index/argo_profile_detailled_index.txt for Core 
+- https://data-argo.ifremer.fr/etc/argo-index/argo_synthetic-profile_detailled_index.txt	for BGC <br />
+
 **INPUTS**
  - **argo_profile_detailled_index.txt** and <br />
    **argo_synthetic-profile_detailled_index.txt** if i_BGC=1
