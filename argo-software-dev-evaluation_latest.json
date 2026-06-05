@@ -1,0 +1,441 @@
+{
+  "targetLevel": "Beginner",
+  "metadata": {
+    "version": "1.0",
+    "tool": "EuroArgo Software Evaluator"
+  },
+  "repository": {
+    "owner": "euroargodev",
+    "repo": "DMQC_status_and_statistics",
+    "url": "https://github.com/euroargodev/DMQC_status_and_statistics"
+  },
+  "evaluation": {
+    "level": "Beginner",
+    "targetLevel": "Beginner",
+    "achievedLevel": "Novice",
+    "score": 0.8775510204081634,
+    "stats": {
+      "totalCriteria": 26,
+      "metCriteria": 23,
+      "unmetCriteria": 3,
+      "weightedScore": 25.799999999999997,
+      "totalWeight": 29.399999999999995,
+      "autoCriteria": 10,
+      "manualCriteria": 16,
+      "targetLevel": "Beginner"
+    }
+  },
+  "details": {
+    "1": {
+      "title": "A version control tool is used to manage the codebase",
+      "level": "Beginner",
+      "category": "Versioning",
+      "group": "General",
+      "status": "met",
+      "weight": 1.2,
+      "type": "auto",
+      "evidence": [
+        "GitHub repository"
+      ],
+      "url": "https://github.com/euroargodev/software_guidelines/issues/1"
+    },
+    "2": {
+      "title": "Argo Data accessed locally by the software are assumed to be organised following the GDAC folder structure",
+      "level": "Beginner",
+      "category": "Argo Compliance",
+      "group": "Argo specific",
+      "status": "met",
+      "weight": 1.2,
+      "type": "manual",
+      "evidence": "Not Applicable, based on the indexes",
+      "url": "https://github.com/euroargodev/software_guidelines/issues/2"
+    },
+    "3": {
+      "title": "Argo Data accessed remotely by the software are retrieved from an official GDAC server (http, ftp, s3 servers)",
+      "level": "Beginner",
+      "category": "Continuous Integration",
+      "group": "Argo specific",
+      "status": "met",
+      "weight": 1.2,
+      "type": "manual",
+      "evidence": "the user has to input the index files, the https access is mentioned",
+      "url": "https://github.com/euroargodev/software_guidelines/issues/3"
+    },
+    "4": {
+      "title": "Argo Data used by the software are traceable with a persistent identifier (Argo GDAC DOI or snapshot DOIs)",
+      "level": "Beginner",
+      "category": "FAIR Data",
+      "group": "Argo specific",
+      "status": "met",
+      "weight": 1.2,
+      "type": "manual",
+      "evidence": "circumvent: the input files are copied to the output folder and indexes includes the date",
+      "url": "https://github.com/euroargodev/software_guidelines/issues/4"
+    },
+    "5": {
+      "title": "Argo Meta-Data accessed remotely by the software are retrieved from an official Argo sources (GDAC ftp, GDAC https, NVS, SparQL, STAC)",
+      "level": "Beginner",
+      "category": "Continuous Integration",
+      "group": "Argo specific",
+      "status": "met",
+      "weight": 1.2,
+      "type": "manual",
+      "evidence": "Not applicable",
+      "url": "https://github.com/euroargodev/software_guidelines/issues/5"
+    },
+    "6": {
+      "title": "Argo papers and DOIs are referenced in the software metadata",
+      "level": "Beginner",
+      "category": "FAIR Data",
+      "group": "Argo specific",
+      "status": "unmet",
+      "weight": 1.2,
+      "type": "manual",
+      "evidence": null,
+      "url": "https://github.com/euroargodev/software_guidelines/issues/6"
+    },
+    "9": {
+      "title": "Data produced by the software respect Argo file formats and conventions wherever relevant (e.g. NetCDF CF-1.7)",
+      "level": "Beginner",
+      "category": "Argo Compliance",
+      "group": "Argo specific",
+      "status": "met",
+      "weight": 1.2,
+      "type": "manual",
+      "evidence": "Not Applicable",
+      "url": "https://github.com/euroargodev/software_guidelines/issues/9"
+    },
+    "16": {
+      "title": "Metadata produced by the software follow Argo conventions (as in reference tables provided by the NVS server)",
+      "level": "Beginner",
+      "category": "Argo Compliance",
+      "group": "Argo specific",
+      "status": "met",
+      "weight": 1.2,
+      "type": "manual",
+      "evidence": "Not applicable",
+      "url": "https://github.com/euroargodev/software_guidelines/issues/16"
+    },
+    "17": {
+      "title": "Non-Argo Data used by the software are explicitly identified and traceable with a persistent identifier (DOI) when available",
+      "level": "Beginner",
+      "category": "FAIR Data",
+      "group": "General",
+      "status": "met",
+      "weight": 1.2,
+      "type": "manual",
+      "evidence": "Not Applicable",
+      "url": "https://github.com/euroargodev/software_guidelines/issues/17"
+    },
+    "18": {
+      "title": "Non-Argo Data used by the software should be accessible online",
+      "level": "Novice",
+      "category": "Argo Compliance",
+      "group": "General",
+      "status": "met",
+      "weight": 1,
+      "type": "manual",
+      "evidence": "no Non-Argo Data",
+      "url": "https://github.com/euroargodev/software_guidelines/issues/18"
+    },
+    "21": {
+      "title": "The codebase includes comments and is documented following referenced standards (e.g. numpy style docstrings in Python)",
+      "level": "Beginner",
+      "category": "General",
+      "group": "General",
+      "status": "met",
+      "weight": 1.2,
+      "type": "manual",
+      "evidence": "https://github.com/euroargodev/DMQC_status_and_statistics/blob/main/scripts/get_DMQC_stats.m",
+      "url": "https://github.com/euroargodev/software_guidelines/issues/21"
+    },
+    "22": {
+      "title": "The codebase includes comments and is documented to explain the purpose and functionality of each module, class, and function",
+      "level": "Novice",
+      "category": "General",
+      "group": "General",
+      "status": "met",
+      "weight": 1,
+      "type": "manual",
+      "evidence": "https://github.com/euroargodev/DMQC_status_and_statistics/blob/main/scripts/get_DMQC_stats.m",
+      "url": "https://github.com/euroargodev/software_guidelines/issues/22"
+    },
+    "23": {
+      "title": "The codebase is \"consistent\", i.e. it follows consistent naming conventions, coding styles, and design patterns throughout the software",
+      "level": "Beginner",
+      "category": "General",
+      "group": "General",
+      "status": "unmet",
+      "weight": 1.2,
+      "type": "manual",
+      "evidence": null,
+      "url": "https://github.com/euroargodev/software_guidelines/issues/23"
+    },
+    "34": {
+      "title": "The project includes a LICENSE file",
+      "level": "Novice",
+      "category": "Licensing",
+      "group": "General",
+      "status": "met",
+      "weight": 1,
+      "type": "auto",
+      "evidence": [
+        "LICENSE.txt"
+      ],
+      "url": "https://github.com/euroargodev/software_guidelines/issues/34"
+    },
+    "35": {
+      "title": "The project includes a README file",
+      "level": "Novice",
+      "category": "Documentation",
+      "group": "General",
+      "status": "met",
+      "weight": 1,
+      "type": "auto",
+      "evidence": [
+        "README detected via API"
+      ],
+      "url": "https://github.com/euroargodev/software_guidelines/issues/35"
+    },
+    "36": {
+      "title": "The project includes a basic documentation",
+      "level": "Novice",
+      "category": "Documentation",
+      "group": "General",
+      "status": "met",
+      "weight": 1,
+      "type": "manual",
+      "evidence": "https://github.com/euroargodev/DMQC_status_and_statistics/blob/main/README.md",
+      "url": "https://github.com/euroargodev/software_guidelines/issues/36"
+    },
+    "39": {
+      "title": "The project is hosted on a web-based development platform (e.g., GitHub or GitLab).",
+      "level": "Beginner",
+      "category": "General",
+      "group": "General",
+      "status": "met",
+      "weight": 1.2,
+      "type": "auto",
+      "evidence": [
+        "GitHub repository"
+      ],
+      "url": "https://github.com/euroargodev/software_guidelines/issues/39"
+    },
+    "40": {
+      "title": "The project is hosted on an Argo-recognised web-based development platform",
+      "level": "Beginner",
+      "category": "Argo Compliance",
+      "group": "Argo specific",
+      "status": "met",
+      "weight": 1.2,
+      "type": "auto",
+      "evidence": [
+        "euroargodev"
+      ],
+      "url": "https://github.com/euroargodev/software_guidelines/issues/40"
+    },
+    "41": {
+      "title": "The software documentation and codebase are written in English",
+      "level": "Beginner",
+      "category": "Documentation",
+      "group": "General",
+      "status": "met",
+      "weight": 1.2,
+      "type": "auto",
+      "evidence": [
+        "7/7 common English words found"
+      ],
+      "url": "https://github.com/euroargodev/software_guidelines/issues/41"
+    },
+    "47": {
+      "title": "The software documentation includes usage guidelines and examples",
+      "level": "Beginner",
+      "category": "Documentation",
+      "group": "General",
+      "status": "met",
+      "weight": 1.2,
+      "type": "manual",
+      "evidence": "https://github.com/euroargodev/DMQC_status_and_statistics/blob/main/README.md, https://github.com/euroargodev/DMQC_status_and_statistics/tree/main/INPUT_examples, https://github.com/euroargodev/DMQC_status_and_statistics/tree/main/OUTPUT_examples",
+      "url": "https://github.com/euroargodev/software_guidelines/issues/47"
+    },
+    "50": {
+      "title": "The software has been presented to the Argo community (e.g. Data Management Team meeting)",
+      "level": "Beginner",
+      "category": "Community",
+      "group": "Argo specific",
+      "status": "met",
+      "weight": 1.2,
+      "type": "manual",
+      "evidence": "At several times, at the ADMT",
+      "url": "https://github.com/euroargodev/software_guidelines/issues/50"
+    },
+    "56": {
+      "title": "The software is released under an open-source license",
+      "level": "Novice",
+      "category": "Licensing",
+      "group": "General",
+      "status": "met",
+      "weight": 1,
+      "type": "auto",
+      "evidence": [
+        "LICENSE.txt"
+      ],
+      "url": "https://github.com/euroargodev/software_guidelines/issues/56"
+    },
+    "57": {
+      "title": "The software provides a clear description of its dependencies",
+      "level": "Beginner",
+      "category": "Continuous Integration",
+      "group": "General",
+      "status": "unmet",
+      "weight": 1.2,
+      "type": "auto",
+      "evidence": [],
+      "url": "https://github.com/euroargodev/software_guidelines/issues/57"
+    },
+    "58": {
+      "title": "The software uses a programming language adopted within the Argo community (e.g. Matlab, Python, R, Java, Julia)",
+      "level": "Novice",
+      "category": "Community",
+      "group": "Argo specific",
+      "status": "met",
+      "weight": 1,
+      "type": "auto",
+      "evidence": [
+        "MATLAB"
+      ],
+      "url": "https://github.com/euroargodev/software_guidelines/issues/58"
+    },
+    "59": {
+      "title": "The software uses an open-source programming language (https://en.wikipedia.org/wiki/List_of_open-source_programming_languages)",
+      "level": "Novice",
+      "category": "General",
+      "group": "General",
+      "status": "met",
+      "weight": 1,
+      "type": "auto",
+      "evidence": [
+        "MATLAB (.m) treated as GNU Octave"
+      ],
+      "url": "https://github.com/euroargodev/software_guidelines/issues/59"
+    },
+    "66": {
+      "title": "The project includes a basic description of what it does with or to the Argo dataset (e.g. read index file, calibrate salinity, plot trajectory, assess BGC variables,...)",
+      "level": "Novice",
+      "category": "Argo Compliance",
+      "group": "Argo specific",
+      "status": "met",
+      "weight": 1,
+      "type": "manual",
+      "evidence": "https://github.com/euroargodev/DMQC_status_and_statistics/blob/main/README.md",
+      "url": "https://github.com/euroargodev/software_guidelines/issues/66"
+    }
+  },
+  "userAnswers": {
+    "2": {
+      "status": "met",
+      "evidence": "Not Applicable, based on the indexes"
+    },
+    "3": {
+      "status": "met",
+      "evidence": "the user has to input the index files, the https access is mentioned"
+    },
+    "4": {
+      "status": "met",
+      "evidence": "circumvent: the input files are copied to the output folder and indexes includes the date"
+    },
+    "5": {
+      "status": "met",
+      "evidence": "Not applicable"
+    },
+    "6": {
+      "status": "unmet",
+      "evidence": ""
+    },
+    "9": {
+      "status": "met",
+      "evidence": "Not Applicable"
+    },
+    "16": {
+      "status": "met",
+      "evidence": "Not applicable"
+    },
+    "17": {
+      "status": "met",
+      "evidence": "Not Applicable"
+    },
+    "18": {
+      "status": "met",
+      "evidence": "no Non-Argo Data"
+    },
+    "21": {
+      "status": "met",
+      "evidence": "https://github.com/euroargodev/DMQC_status_and_statistics/blob/main/scripts/get_DMQC_stats.m"
+    },
+    "22": {
+      "status": "met",
+      "evidence": "https://github.com/euroargodev/DMQC_status_and_statistics/blob/main/scripts/get_DMQC_stats.m"
+    },
+    "23": {
+      "status": "unmet",
+      "evidence": ""
+    },
+    "36": {
+      "status": "met",
+      "evidence": "https://github.com/euroargodev/DMQC_status_and_statistics/blob/main/README.md"
+    },
+    "47": {
+      "status": "met",
+      "evidence": "https://github.com/euroargodev/DMQC_status_and_statistics/blob/main/README.md, https://github.com/euroargodev/DMQC_status_and_statistics/tree/main/INPUT_examples, https://github.com/euroargodev/DMQC_status_and_statistics/tree/main/OUTPUT_examples"
+    },
+    "50": {
+      "status": "met",
+      "evidence": "At several times, at the ADMT"
+    },
+    "66": {
+      "status": "met",
+      "evidence": "https://github.com/euroargodev/DMQC_status_and_statistics/blob/main/README.md"
+    }
+  },
+  "feedback": [
+    {
+      "category": "FAIR Data",
+      "priority": "high",
+      "message": "Critical: Improve your FAIR Data practices to reach the next level",
+      "missing": [
+        {
+          "id": 6,
+          "level": "Beginner",
+          "title": "Argo papers and DOIs are referenced in the software metadata",
+          "isBlocker": true
+        }
+      ]
+    },
+    {
+      "category": "General",
+      "priority": "high",
+      "message": "Critical: Improve your General practices to reach the next level",
+      "missing": [
+        {
+          "id": 23,
+          "level": "Beginner",
+          "title": "The codebase is \"consistent\", i.e. it follows consistent naming conventions, coding styles, and design patterns throughout the software",
+          "isBlocker": true
+        }
+      ]
+    },
+    {
+      "category": "Continuous Integration",
+      "priority": "high",
+      "message": "Critical: Improve your Continuous Integration practices to reach the next level",
+      "missing": [
+        {
+          "id": 57,
+          "level": "Beginner",
+          "title": "The software provides a clear description of its dependencies",
+          "isBlocker": true
+        }
+      ]
+    }
+  ]
+}
