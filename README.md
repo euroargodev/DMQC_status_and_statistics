@@ -49,6 +49,7 @@ The computations are totally based on detailed Argo Index files:
           0 means core information (CTD) is analysed from the detailed argo index.
  - **input_list_of_parameters_to_treat** is the list of core parameters to analyse
  - **input_list_of_BGC_parameters_to_treat** is the list of BGC parameters to analyse
+ - **make_graphics**: 1 means graphics will be saved, 0 means they will not
  - **print_svg**: 1 means figures will be saved in .svg format as well<br />
  (interesting for high quality, but a little longer to save).
  - **output_graphs_per_float**: flag to indicate if graphs per float should be<br />
