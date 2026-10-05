@@ -18,7 +18,7 @@ function [IndexData] = get_data_from_index(index_file, nb_header_lines,float_ref
 % qc are skipped.
 %
 % NOTE
-% the archistructure has been reviewed in release 2.0: the
+% the architecture has been reviewed in release 2.0: the
 % information is now recorded by profile/parameter. When needed, the 
 % reconstruction by wmo is done in get_DMQC_stats.m through "sql-like" 
 % Matlab functions.
@@ -59,10 +59,15 @@ function [IndexData] = get_data_from_index(index_file, nb_header_lines,float_ref
 %        - correct issue with parameter search: use of "(==)" instead of "contains" 
 % v3.5 (2025/10/15):
 %        - separate cycle from "D" in case of descending profiles.
+% v3.6 (2026/10/05):
+%        - adapt for recent Matlab versions: it also necessitated to change
+%        the handling of missing data. For profile date, if missing, a date of
+%        1980/01/01 is applied. This also means that the corresponding profile
+%        now counts in 'older than' statistics.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
-% no descending profiles defaut value
+% no descending profiles default value
 if nargin == 3
     i_descending_profile = 0;
     i_bgc=0;
@@ -71,22 +76,27 @@ end
 
 %% extracting the number of floats from the list of wmos provided in the input file.
 
-%float_ref_char = char(float_ref);
-
-% Lets try a different approach, maybe more efficient way of reading a structured
-% file :). importdata is interesting however the separation into text and
-% double type data is not customizable which is annoying. readtable seems
-% to be more what is wanted.
-% there seems to be a size limit. 2,8m of lines seems too many for
-% importdata, the same for 606160 (European subset)
-% the readtable routine seems more robust, and was able to tackle the
-% 606160 lines of the European subset in 1,7 s.
-
-
 disp('---- Loading the index file in a Matlab table and convert to string format')
-RT_OUT = readtable(index_file,'Headerlines',nb_header_lines);
-RT_OUT_column_name= RT_OUT.Properties.VariableNames;
-RT_OUT = string(table2cell(RT_OUT));
+% isMATLABReleaseOlderThan was introduced after 2020, thus an ever working
+% group of code lines is chosen instead:
+mat_v_threshold=datetime("2019 March 20",'InputFormat','yyyy MMMM dd'); %R2019a
+[~,d] = version;
+mat_v_current=datetime(string(d),'InputFormat',"MMMM dd, yyyy");
+if mat_v_current < mat_v_threshold
+    RT_OUT = readtable(index_file,'Headerlines',nb_header_lines);
+    RT_OUT_column_name= RT_OUT.Properties.VariableNames;
+    RT_OUT = string(table2cell(RT_OUT));
+else
+    RT_OUT = readcell(index_file,'Headerlines',nb_header_lines);
+    RT_OUT_column_name=RT_OUT(1,1:end);
+    RT_OUT = string(RT_OUT(2:end,1:end));
+end
+
+mask=ismissing(RT_OUT);
+RT_OUT(mask)="";
+% for the profile date, mention the 1980/01/01 00:00:00 if unknown
+RT_OUT(RT_OUT(1:end,2)=="",2)="19800101000000";
+
 
 
 disp('---- Let find the column index for relevant piece of information')
@@ -127,7 +137,7 @@ RT_OUT_cycles=tmp(:,1);
 clearvars tmp
 
 disp('---- Finding ascending and descending profiles and indexing relevant lines from the input file')
-% categorize ascending/desceding cycles
+% categorize ascending/descending cycles
 i_descending_cycles=contains(RT_OUT_cycles,"D");
 i_ascending_cycles=~contains(RT_OUT_cycles,"D");
 RT_OUT_direction=RT_OUT_cycles;
@@ -191,7 +201,7 @@ if i_bgc==0
     IndexData.param.TEMP.presence = ones(sum(i_relevant_index_lines),1);
     IndexData.param.PRES.presence = ones(sum(i_relevant_index_lines),1);
     
-    
+   
     
     % Those 3 are not necessary for core case but need to be initiated for 
     % later common processing
@@ -217,8 +227,8 @@ else
     RT_OUT_param_nb_whitespaces=count(RT_OUT_param," ");
     uniq_nb_whitespaces=unique(RT_OUT_param_nb_whitespaces);
     max_nb_of_ws=max(uniq_nb_whitespaces);
-    %then for each case of number of parameters: fill in with whitespaces to complete.
-    for i = 1:size(uniq_nb_whitespaces)
+    % then for each case of number of parameters: fill in with whitespaces to complete.
+    for i = 1:length(uniq_nb_whitespaces)
         l_nbws=uniq_nb_whitespaces(i);
         % compute the number of whitespaces to add
         nb_ws_to_add=max_nb_of_ws-l_nbws;
