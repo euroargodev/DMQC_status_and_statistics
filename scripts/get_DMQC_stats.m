@@ -2,7 +2,7 @@
 % This script computes DMQC statistics for a given list of floats
 %
 %
-% INPUTS (paths to update in the configuration file)
+% INPUTS (paths to update below)
 %
 % - argo_profile_detailled_index.txt and
 %   argo_synthetic-profile_detailled_index.txt if i_BGC=1
@@ -137,8 +137,13 @@
 %        - externalise the configuration in a conf file
 %        - choose the method to select old profiles/floats: either by profile age
 %        in days or by the profile date
-% V3.5.1 (2025/10/17):
-%        - correct bug for plot 09 (file name was overwritten while saving plots).
+% V3.5.1 (2025/10/17): correct bug for plot 09 (file name was overwritten while saving plots).
+% V3.5.2 (2026/01/27): add an option not to output any plots.
+% V3.5.3 (2026/03/17): copy the configuration in the output directory
+% V3.6 (2026/10/05): 
+%        - make it compatible with more recent Matlab releases (R2026a tested)
+%        - correct a limit case: old floats with no salinity sensor are now 
+%        listed in a separate input file as this can not be infered from the index.
 
 %option explicit
 
@@ -150,7 +155,9 @@ close all
 disp([newline '######################'])
 disp('Load configuration')
 
-cf=load_configuration('get_DMQC_status_config.txt');
+config_file='get_DMQC_status_config.txt';
+
+cf=load_configuration(config_file);
 
 test_case_dir=cf.test_case_dir;
 
@@ -159,10 +166,11 @@ country_code_file=[cf.test_case_dir '/' cf.input_file_dir '/' cf.country_code_fi
 index_file=[cf.index_file_dir '/' cf.index_file_core];
 index_file_synthetic=[cf.index_file_dir '/' cf.index_file_bgc_synthetic];
 exclusionlist_file=[cf.exclusion_file_dir '/' cf.exclusion_file];
+tempOnlyWmos_file = [cf.temp_only_wmos_dir '/' cf.temp_only_wmos_file];
 output_file_dir_prefix=cf.output_file_dir_prefix;
 script_path=cf.script_dir;
 log_file=cf.log_file;
-
+make_graphics=str2double(cf.make_graphics);
 
 project_name=cf.project_name;
 
@@ -234,6 +242,11 @@ tStart = tic;
 diary(log_file)
 diary on
 
+disp('-- creating a local copy of the configuration file ...')
+local_cfg_file=[output_dir config_file '_' test_date '.txt'];
+copyfile(config_file,local_cfg_file);
+
+
 disp('-- creating a local copy of the index file ...')
 local_index_file=[output_dir 'argo_profile_detailled_index_' test_date '.txt'];
 copyfile(index_file,local_index_file)
@@ -283,6 +296,19 @@ disp('-- reading exclusionlist ...')
 [exclusion_list] = read_csv(local_exclusionlist_file,',');
 disp('-- end of exclusionlist reading ...')
 
+disp('-- reading temp only wmo list ...')
+mat_v_threshold=datetime("2019 March 20",'InputFormat','yyyy MMMM dd'); %R2019a
+[~,d] = version;
+mat_v_current=datetime(string(d),'InputFormat',"MMMM dd, yyyy");
+if mat_v_current < mat_v_threshold
+    temp_only_wmo_list = readtable(tempOnlyWmos_file);
+    temp_only_wmo_list = string(table2cell(temp_only_wmo_list));
+else
+    temp_only_wmo_list = readcell(tempOnlyWmos_file);
+    temp_only_wmo_list = string(temp_only_wmo_list(2:end,1:end));
+end
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % optimizing sequence
@@ -310,9 +336,9 @@ try
         disp('--- (approx 86 seconds for 4500 floats)')
         disp(['--- ' char(datetime('now','TimeZone','local'))])
         tStart = tic;
-        cmd = ['grep ^file ' local_index_file ' > ' index_file_short];
+        cmd = ['grep ^file ' local_index_file ' > ' index_file_short]
         system(cmd);
-        cmd = ['grep -f ' wmo_list_file_short ' ' local_index_file ' >> ' index_file_short];
+        cmd = ['grep -f ' wmo_list_file_short ' ' local_index_file ' >> ' index_file_short]
         system(cmd);
 
         if i_bgc ==1
@@ -462,6 +488,15 @@ disp(['-- ' char(datetime('now','TimeZone','local'))])
                                       input_list_of_parameters_to_treat);
 list_of_CTD_parameters_to_treat=IndexData_CTD.ParamList;
 
+% correction of IndexData_CTD.PSAL.presence for temp only WMOs
+% This correction is added in V3.6. There are 96 floats concerned.
+wmos_PSAL_presence_to_correct=intersect(float_list_str_wo_blank,cellstr(temp_only_wmo_list));
+for iwmo = 1:length(wmos_PSAL_presence_to_correct)
+    wmo = string(wmos_PSAL_presence_to_correct(iwmo));
+    IndexData_CTD.param.PSAL.presence(IndexData_CTD.profile_WMO==wmo)=0;
+    IndexData_CTD.param.PSAL.mode(IndexData_CTD.profile_WMO==wmo)='U';
+end
+
 if i_bgc ==1
     disp('-- Entering get_data_from_index for BGC parameters')
     disp(['-- ' char(datetime('now','TimeZone','local'))])
@@ -569,18 +604,18 @@ disp('-- End of get_data_from_index')
 n_param=size(list_of_parameters_to_treat,1);
 
 % Get the update date of the index file
-try
-    cmd = ['grep "Date of update" ' local_index_file ' | awk ' char(39) '{print $NF}' char(39)];
-    [status,IndexData.index_update]=system(cmd);
-catch
+% try
+%     cmd = ['grep "Date of update" ' local_index_file ' | awk ' char(39) '{print $NF}' char(39)];
+%     [status,IndexData.index_update]=system(cmd);
+% catch
     [~,P]=grep('-s',' Date of update', local_index_file);
     tmp=split(P.match," ");
     IndexData.index_update=char(tmp(end));
-end
+% end
 update_date_str=datestr(datenum(IndexData.index_update,'yyyymmddHHMMSS'),'yyyy-mm-dd');
 
 % Creating output directory:
-working_date = IndexData.index_update(1:8);
+working_date = IndexData.index_update(1:8)
 
 
 tEnd = toc(tStart);
@@ -760,6 +795,9 @@ for i=1:n_param
                                  IndexData.param.(i_param).presence==1)='X';
     IndexData.param.(i_param).qc(IndexData.param.(i_param).qc==""  & ...
                                  IndexData.param.(i_param).presence==1)='X';
+    % % add this action for more recent Matlab versions (R2026a at least)
+    % IndexData.param.(i_param).qc(ismissing(IndexData.param.(i_param).qc,string(missing))  & ...
+    %      IndexData.param.(i_param).presence==1)='X';
     
     % workaround for float 4900566 that filled profile QC with "1" instead
     % of "A" (DM file were last updated in 2013/2014).
@@ -942,990 +980,64 @@ disp('######################')
 
 diary off
 %% Make graphics
-diary on
 
-close all
-
-disp(' ')
-disp('Making graphics...')
-
-if i_descending_profile== 0
-    prof_included = '  [only ascending profiles]';
-else
-    prof_included = '  [including descending profiles]';
-end
-
-% create output folder
-output_plots_dir = [output_dir '/Plots' ];
-
-if ~exist(output_plots_dir, 'dir')
-    disp('creating the output_directory')
-    mkdir(output_plots_dir)
-end
-disp(['  plots will be saved in '  output_plots_dir])
-
-% colors (https://www.rapidtables.org/fr/web/color/html-color-codes.html)
-bars_colors = [0.5273    0.8047    0.9180; ... % 1  - total obs/floats (dark blue) old color: 0.2422    0.1504    0.6603
-               0.9769    0.9839    0.0805; ... % 2  - >1year obs/floats (yellow)
-               0.1953    0.8008    0.1953; ... % 3  - DMQC done (green)
-               0.5938    0.9833    0.5938; ... % 4  - >1year obs/floats + DMQC done (pale green)
-               0.5430    0         0.5430; ... % 5  - qc A "violet"
-               0.9375    0.5000    0.5000; ... % 6  - qc B "saumon"
-               1.0000    0.6470         0; ... % 7  - qc C "orange"
-               0.8516    0.6445    0.1250; ... % 8  - qc D "verge d'or"
-               0.1250    0.6953    0.6641; ... % 9  - qc E "vert clair"
-               0.5273    0.8047    0.9180; ... % 10 - qc F "bleu ciel"
-               0.4102    0.4102    0.4102; ... % 11 - exclusion list for operational floats AND qc X (no profile qc in index file)
-               0.3000    0.3000    0.3000; ... % 12 - exclusion list for inactive floats with R or A profiles
-               0.2000    0.2000    0.2000; ... % 13 - exclusion list for inactive floats with only D profiles
-               0.2940    0         0.5090; ... % 14 - qc A for D profiles "indigo"
-               0.8039    0.3608    0.3608; ... % 15 - qc B for D profiles "indianred"
-               1.0000    0.5469         0; ... % 16 - qc C for D profiles "orange sombre"
-               0.6863    0.5059    0.0157; ... % 17 - qc D for D profiles "verge d'or" with darker coefficients (not standard)
-                    0    0.5020    0.5020; ... % 18 - qc E for D profiles "sarcelle"
-               0.1176    0.5647    1.0000; ... % 19 - qc F for D profiles "dodgerblue"
-               0.2000    0.2000    0.2000; ... % 20 - qc X for D profiles 
-               255/255   69/255     0/255; ... % 21 - qc F (perprofyear)                "Orange Red"
-               174/255   12/255     0/255];    % 22 - qc F (perprofyear) for D profiles "Mordant Red 19"
-
-
-diary off
-%% 
-diary on
-tStart = tic;
-for i=1:n_param
-    close all
- 
-    i_param=list_of_parameters_to_treat(i);
-    
-    if ismember("PSAL",list_of_parameters_to_treat)
-        if (i_param == "TEMP" || i_param == "PRES") 
-            % no need to output plot as mode is the same for TEMP, PRES,
-            % PSAL
-            continue
-        else
-            if i_param == "PSAL"
-                i_param_str="CTD";
-            else
-                i_param_str=i_param;
-            end
-        end
-    else
-        i_param_str=i_param;
-    end
-    
-    
-    fprintf('Making Plots for %s \n',i_param_str)
-    
-    close all
-           
-    %%%%%%%%%%%%%%  Nb of float w.r.t DMQC status %%%%%%%%%%%%%% 
-    disp('Nb of float w.r.t DMQC status')
-    i_fig=1;
-    figure(i_fig)
-    % bigger figure
-    set(gcf, 'Position', [200, 200, 1000, 600])
-    % figure name
-    set(gcf,'Name','Float DMQC status by country')
-
-    
-    stackData = cat(3,[nb_floats_DMQCed_per_country.(i_param) nb_floats_xage_DMQCed_per_country.(i_param)], ...
-                      [(nb_floats_per_country.(i_param)-nb_floats_DMQCed_per_country.(i_param)) ...
-                       (nb_floats_xage_per_country.(i_param)-nb_floats_xage_DMQCed_per_country.(i_param))]);
-    hndl = plotBarStackGroups(stackData, nb_per_country_x);
-
-
-    % FIGURE FORMAT
-    hold on
-    hp = plot(1,0,'w'); % for comment in legend
-    % bar colors 
-    set(hndl(1,1),'facecolor',bars_colors(3,:))
-    set(hndl(1,2),'facecolor',bars_colors(1,:))
-    set(hndl(2,1),'facecolor',bars_colors(4,:))
-    set(hndl(2,2),'facecolor',bars_colors(2,:))
-    % xlabels
-    set(gca,'xtick',1:n_countries,'xticklabel', nb_per_country_x)
-    if n_countries > 15
-        set(gca,'XTickLabelRotation',90)
-    end
-    % title with update date
-    title(['Float DMQC status for ' char(i_param_str) ' by country (updated ',update_date_str,')'], 'Interpreter', 'none')
-    ylabel('Number of floats')
-    % legend with total number
-    if strcmp(project_name,'European_Fleet')
-        legend([hndl(1,2), hndl(1,1), hndl(2,2), hndl(2,1), hp], ...
-            {['Number of floats (Total: ',                       num2str(sum(nb_floats_per_country.(i_param),'omitnan')),')'],...
-             ['Number of floats with D-profiles (Total: ',       num2str(sum(nb_floats_DMQCed_per_country.(i_param),'omitnan')),')'], ...
-             ['Number of floats with profiles ' profile_old_b ' (Total: ',  num2str(sum(nb_floats_xage_per_country.(i_param),'omitnan')),')'],...
-             ['Number of floats with D-profiles ' profile_old_b ' (Total: ',num2str(sum(nb_floats_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
-            prof_included})
-    else
-        legend([hndl(1,2), hndl(1,1), hndl(2,2), hndl(2,1), hp], ...
-            {['Nb of floats to be managed at Euro-Argo (Total: ',                       num2str(sum(nb_floats_per_country.(i_param),'omitnan')),')'],...
-             ['Nb of floats already addressed once in DMQC (Total: ',       num2str(sum(nb_floats_DMQCed_per_country.(i_param),'omitnan')),')'], ...
-             ['Nb of floats for which DMQC can now be performed (' profile_old_b ') (Total: ',  num2str(sum(nb_floats_xage_per_country.(i_param),'omitnan')),')'],...
-             ['Nb of floats already addressed once in DMQC (' profile_old_b ') (Total: ',num2str(sum(nb_floats_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
-            })
-    end
-    
-        
-        
-    % background color
-    set(gcf,'color','w');
-    % grid in y axis
-    ax = gca;
-    ax.YGrid = 'on';
-    
-    ymax=max(nb_floats_per_country.(i_param));
-    set(gca,'YLim',[0 ymax+ymax/4]);
-    if n_countries <=15
-        eps=0.02;
-        for i_country =1:n_countries
-            text(i_country-eps , nb_floats_per_country.(i_param)(i_country) + ymax/30, ...
-                num2str(nb_floats_per_country.(i_param)(i_country)) , ...
-                'HorizontalAlignment', 'right');
-            text(i_country+eps, nb_floats_xage_per_country.(i_param)(i_country) + ymax/30, ...
-                num2str(nb_floats_xage_per_country.(i_param)(i_country)), ...
-                'HorizontalAlignment', 'left');
-        end
-    end
-
-    % annotation: percentage of floats with R-profiles > 1 year
-    floats_tobedone = (sum(nb_floats_xage_per_country.(i_param),'omitnan') - ... 
-                       sum(nb_floats_xage_DMQCed_per_country.(i_param),'omitnan')) / ...
-                           sum(nb_floats_xage_per_country.(i_param),'omitnan')*100;
-    floats_tobedone_str = num2str(round(floats_tobedone));
-    H = figure(1);
-    set(H,'units','pix')
-    annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Floats ' profile_old_b ' to be DMQCed: ',floats_tobedone_str,'%'],...
-        'FitBoxToText','on','verticalalignment', 'bottom','HorizontalAlignment', 'right','FontWeight','bold')
-
-    % save figure
-    out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param_str) '_DMQC_status_nb_floats_by_country_' working_date];
-    disp(['saving ' out_name])
-
-%     export_fig([out_name '.png'])
-    print('-dpng ', '-r100',[out_name '.png'])
-    if print_svg == 1
-        saveas(gcf,[out_name '.svg'])
-    end
-
-% end
-% %%
-% %for i=1:n_param
-% for i=1:1
-%     i_param=list_of_parameters_to_treat(i);
-%     fprintf('Making Plots for %s \n',i_param)
-%     
-%     close all
-
-    %%%%%%%%%%%%%% Profile DMQC status by country %%%%%%%%%%%%%%
-    disp('Profile DMQC status by country')
-    i_fig=2;
-    figure(i_fig)
-    % bigger figure
-    set(gcf, 'Position', [200, 200, 1000, 600])
-    % figure name
-    set(gcf,'Name','Profile DMQC status by country')
-
-    stackData = cat(3,[nb_profiles_DMQCed_per_country.(i_param) nb_profiles_xage_DMQCed_per_country.(i_param)], ...
-                      [(nb_profiles_per_country.(i_param)-nb_profiles_DMQCed_per_country.(i_param)) ...
-                       (nb_profiles_xage_per_country.(i_param)-nb_profiles_xage_DMQCed_per_country.(i_param))]);
-    hndl = plotBarStackGroups(stackData, nb_per_country_x);
-
-
-    % FIGURE FORMAT
-    hold on
-    hp = plot(1,0,'w'); % for comment in legend
-    % bar colors 
-    set(hndl(1,1),'facecolor',bars_colors(3,:))
-    set(hndl(1,2),'facecolor',bars_colors(1,:))
-    set(hndl(2,1),'facecolor',bars_colors(4,:))
-    set(hndl(2,2),'facecolor',bars_colors(2,:))
-    % xlabels
-    set(gca,'xtick',1:n_countries,'xticklabel', nb_per_country_x)
-    if n_countries > 15
-        set(gca,'XTickLabelRotation',90)
-    end
-    % title with update date
-    title(['Profile DMQC status for ' char(i_param_str) ' by country (updated ',update_date_str,')'], 'Interpreter', 'none')
-    ylabel('Number of profiles')
-    % legend with total number
-    legend([hndl(1,2), hndl(1,1), hndl(2,2), hndl(2,1), hp], ...
-        {['Number of profiles (Total: ',num2str(sum(nb_profiles_per_country.(i_param),'omitnan')),')'],...
-         ['Number of D-profiles (Total: ',num2str(sum(nb_profiles_DMQCed_per_country.(i_param),'omitnan')),')'], ...
-         ['Number of profiles ' profile_old_b ' (Total: ',num2str(sum(nb_profiles_xage_per_country.(i_param),'omitnan')),')'],...
-         ['Number of D-profiles ' profile_old_b 'r (Total: ',num2str(sum(nb_profiles_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
-        prof_included})
-    % background color
-    set(gcf,'color','w');
-    % grid in y axis
-    ax = gca;
-    ax.YGrid = 'on';
-    
-    ymax=max(nb_profiles_per_country.(i_param));
-    set(gca,'YLim',[0 ymax+ymax/3]);
-
-    % annotation: percentage of observations > 1 year with no DMQC done
-    obs_tobedone = sum(nb_profiles_xage_per_country.(i_param)-nb_profiles_xage_DMQCed_per_country.(i_param),'omitnan')/sum(nb_profiles_xage_per_country.(i_param),'omitnan')*100;
-    H = figure(i_fig);
-    set(H,'units','pix')
-    annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Profiles ' profile_old_b ' to be DMQCed: ',num2str(round(obs_tobedone)),'%'],...
-        'FitBoxToText','on','verticalalignment', 'bottom','HorizontalAlignment', 'right','FontWeight','bold')
-
-    % save figure
-    out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param_str) '_DMQC_status_nb_profiles_by_country_' working_date];
-    disp(['saving ' out_name])
-%     export_fig([out_name '.png'])
-    print('-dpng ', '-r100',[out_name '.png'])
-    if print_svg == 1
-        saveas(gcf,[out_name '.svg'])
-    end
-    
-end
-diary off
-%% 
-diary on
-for i=1:n_param
-    close all
- 
-    i_param=list_of_parameters_to_treat(i);
-    
-    if i_param == "PRES"
-        % profile QC for PRES no yet available in index file
-        continue
-    end
-    
-    fprintf('Making Plots for %s \n',i_param)
-    
-    close all
-     %%%%%%%%%%%%%% Data Quality %%%%%%%%%%%%%%
-    disp('Data Quality')
-    i_fig=3;
-    figure(i_fig)
-    % bigger figure
-    set(gcf, 'Position', [200, 200, 1000, 600])
-    % figure name
-    set(gcf,'Name','Data Quality')
-
-    colormap(parula)
-    hold on
-
-    for ix=1:7
-        if i_group_AB_profQC == 1 && ix==1
-            nb_prof_AB=nb_profiles_per_qc.(i_param)(1)+nb_profiles_per_qc.(i_param)(2);
-            nb_prof_DMQCed_AB=nb_profiles_DMQCed_per_qc.(i_param)(1)+nb_profiles_DMQCed_per_qc.(i_param)(2);
-            
-            bT=bar(2,nb_prof_AB,0.3,'FaceColor',bars_colors(4+ix,:));
-            bD=bar(2+0.3,nb_prof_DMQCed_AB,0.3,'FaceColor',bars_colors(13+ix,:));  
-        else
-            if i_group_AB_profQC == 0 || ix > 2
-                bT=bar(ix,nb_profiles_per_qc.(i_param)(ix),0.3,'FaceColor',bars_colors(4+ix,:));
-                bD=bar(ix+0.3,nb_profiles_DMQCed_per_qc.(i_param)(ix),0.3,'FaceColor',bars_colors(13+ix,:));
-            end
-        end
-            
-    end
-    
-
-    % FIGURE FORMAT
-    hold on
-    plot(1,0,'w'); % for comment in legend
-    % xlabels
-    if i_group_AB_profQC == 1
-        set(gca,'xtick',1:7,'xticklabel', [''; 'A+B'; nb_per_qc_x(3:end-1); 'No QC'])
-    else
-        set(gca,'xtick',1:7,'xticklabel', [nb_per_qc_x(1:end-1); 'No QC'])
-    end
-    
-    % title with update date
-    title([ char(i_param) ' profile QC (updated ',update_date_str,')'], 'Interpreter', 'none')
-    ylabel('Number of profiles')
-
-    % figure labels
-    if i_group_AB_profQC == 1
-        ymax=max(max(nb_profiles_per_qc.(i_param)(1)+nb_profiles_per_qc.(i_param)(2),nb_profiles_per_qc.(i_param)(3:end)));
-    else
-        ymax=max(nb_profiles_per_qc.(i_param));
-    end
-    set(gca,'YLim',[0 ymax+ymax/4]);
-    for ix =1:7
-        
-        if i_group_AB_profQC == 1 && ix==1
-            text(2 +0.17 , nb_prof_AB + ymax/20, ...
-                [num2str(nb_prof_AB) newline ...
-                 num2str(round(100*nb_prof_AB/ ...
-                           sum(nb_profiles_per_qc.(i_param)),1)) '%'], ...
-                'HorizontalAlignment', 'right');
-
-            text(2 +0.17, nb_prof_DMQCed_AB + ymax/20, ...
-                ['D-' num2str(nb_prof_DMQCed_AB) newline ...
-                      num2str(round(100*nb_prof_DMQCed_AB/ ...
-                                sum(nb_profiles_DMQCed_per_qc.(i_param)),1)) '%'], ...
-                'HorizontalAlignment', 'left');
-        else
-            if i_group_AB_profQC == 0 || ix > 2
-                text(ix+0.17 , nb_profiles_per_qc.(i_param)(ix) + ymax/20, ...
-                    [num2str(nb_profiles_per_qc.(i_param)(ix)) newline ...
-                     num2str(round(100*nb_profiles_per_qc.(i_param)(ix)/ ...
-                               sum(nb_profiles_per_qc.(i_param)),1)) '%'], ...
-                    'HorizontalAlignment', 'right');
-
-                text(ix+0.17, nb_profiles_DMQCed_per_qc.(i_param)(ix) + ymax/20, ...
-                    ['D-' num2str(nb_profiles_DMQCed_per_qc.(i_param)(ix)) newline ...
-                          num2str(round(100*nb_profiles_DMQCed_per_qc.(i_param)(ix)/ ...
-                                    sum(nb_profiles_DMQCed_per_qc.(i_param)),1)) '%'], ...
-                    'HorizontalAlignment', 'left');
-            end
-        end
-        
-        
-    end
-    % background color
-    set(gcf,'color','w');
-    % grid in y axis
-    ax = gca;
-    ax.YGrid = 'on';
-    box on
-    
-    % annotation
-    H = figure(i_fig);
-    set(H,'units','pix')
-    annotation('textbox', [0.28, 0.83, .1, .1], 'string', ['lighter color bars / xxxx : nb of profiles (Raw, Adjusted or Delayed mode) per profile QC' newline ...
-        'darker color bars / D-xxxx : nb of D-profiles (Delayed mode only) per profile QC'],...
-        'FitBoxToText','on','verticalalignment', 'bottom','HorizontalAlignment', 'left')
-
-    % save figure
-    out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param) '_profile_QC_' working_date];
-    disp(['saving ' out_name])
-%     export_fig([out_name '.png'])
-    print('-dpng ', '-r100',[out_name '.png'])
-    if print_svg == 1
-        saveas(gcf,[out_name '.svg'])
-    end
-% 
-% end
-% 
-% 
-% %%
-% for i=1:n_param
-%     i_param=list_of_parameters_to_treat(i);
-%     fprintf('Making Plots for %s \n',i_param)
-%     
-%     close all
-     %%%%%%%%%%%%%% Data Quality %%%%%%%%%%%%%%
-    disp('Data Quality Evolution per Launch date')
-    i_fig=4;
-    figure(i_fig)
-    
-    % bigger figure
-    set(gcf, 'Position', [200, 200, 1000, 600])
-    % figure name
-    set(gcf,'Name','Data Quality evolution')
-    % background color
-    set(gcf,'color','w');
-    
-    % title with update date
-    title([ char(i_param) ' profile QC evolution (updated ',update_date_str,')'], 'Interpreter', 'none')
-    hold on
-    
-    %tiledlayout(2,1)
-    % Top plot
-    ax1 = subplot(211);
-    title(ax1,[ char(i_param) ' profile QC evolution (updated ',update_date_str,')'], 'Interpreter', 'none')
-    hold on
-    if i_group_AB_profQC == 1
-        plot(ax1,1:n_launch_years,percent_prof_QC_A_per_launch_year.(i_param)+percent_prof_QC_B_per_launch_year.(i_param),'color',bars_colors(5,:),'LineWidth',2)
-    else
-        plot(ax1,1:n_launch_years,percent_prof_QC_A_per_launch_year.(i_param),'color',bars_colors(5,:),'LineWidth',2)
-        plot(ax1,1:n_launch_years,percent_prof_QC_B_per_launch_year.(i_param),'color',bars_colors(6,:),'LineWidth',2)
-    end
-    plot(ax1,1:n_launch_years,percent_prof_QC_C_per_launch_year.(i_param),'color',bars_colors(7,:),'LineWidth',2)
-    plot(ax1,1:n_launch_years,percent_prof_QC_D_per_launch_year.(i_param),'color',bars_colors(8,:),'LineWidth',2)
-    plot(ax1,1:n_launch_years,percent_prof_QC_E_per_launch_year.(i_param),'color',bars_colors(9,:),'LineWidth',2)
-    plot(ax1,1:n_launch_years,percent_prof_QC_F_per_launch_year.(i_param),'color',bars_colors(10,:),'LineWidth',2)
-    
-    if i_group_AB_profQC == 1
-        lgnd=legend(ax1,'QC A+B','QC C' ,'QC D' ,'QC E' ,'QC F' ,...
-                    'location','east');
-    else
-        lgnd=legend(ax1,'QC A','QC B','QC C' ,'QC D' ,'QC E' ,'QC F' ,...
-                    'location','east');
-    end
-    set(lgnd,'color','none');
-    
-    ylabel(ax1,'Percent of profiles [%]')
-    %xlabel(ax1,'Launch year')
-    set(ax1,'xtick',1:n_launch_years,'xticklabel', nb_per_launch_year_x)
-    ax1.YGrid = 'on';
-    ax1.XTickLabelRotation = 45;
-    set(ax1, 'xlim',[1,n_launch_years+3])
-    box on
-    
-    % Bottom plot
-    ax2 = subplot(212);
-    hold on
-    plot(ax2,1:n_launch_years,nb_prof_per_launch_year.(i_param),'color','black','LineWidth',2)
-    ylabel(ax2,'Number of profiles')
-    xlabel(ax2,'Launch year')
-    set(ax2,'xtick',1:n_launch_years,'xticklabel', nb_per_launch_year_x)
-    ax2.YGrid = 'on';
-    ax2.XTickLabelRotation = 45;
-    set(ax2, 'xlim',[1,n_launch_years+3])
-    box on
-    
-    % save figure
-    out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param) '_profile_QC_evolution_' working_date];
-    disp(['saving ' out_name])
-%     export_fig([out_name '.png'])
-
-    print('-dpng ', '-r100',[out_name '.png'])
-    if print_svg == 1
-        saveas(gcf,[out_name '.svg'])
-    end
-    
-    
-% end
-% 
-% %%
-% for i=1:n_param
-%     i_param=list_of_parameters_to_treat(i);
-%     fprintf('Making Plots for %s \n',i_param)
-%     
-%     close all
-     %%%%%%%%%%%%%% Data Quality %%%%%%%%%%%%%%
-    disp('Data Quality Evolution for D-profiles per Launch date')
-    i_fig=5;
-    figure(i_fig)
-    
-    % bigger figure
-    set(gcf, 'Position', [200, 200, 1000, 600])
-    % figure name
-    set(gcf,'Name','Data Quality evolution')
-    % background color
-    set(gcf,'color','w');
-    
-    % title with update date
-    title([ char(i_param) ' D-profile QC evolution (updated ',update_date_str,')'], 'Interpreter', 'none')
-    hold on
-    
-    %tiledlayout(2,1)
-    % Top plot
-    ax1 = subplot(211);
-    title(ax1,[ char(i_param) ' D-profile QC evolution (updated ',update_date_str,')'], 'Interpreter', 'none')
-    hold on
-    if i_group_AB_profQC == 1
-        plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_A_per_launch_year.(i_param)+percent_prof_DMQCed_QC_B_per_launch_year.(i_param),'color',bars_colors(5,:),'LineWidth',2)
-    else
-        plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_A_per_launch_year.(i_param),'color',bars_colors(5,:),'LineWidth',2)
-        plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_B_per_launch_year.(i_param),'color',bars_colors(6,:),'LineWidth',2)
-    end
-    plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_C_per_launch_year.(i_param),'color',bars_colors(7,:),'LineWidth',2)
-    plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_D_per_launch_year.(i_param),'color',bars_colors(8,:),'LineWidth',2)
-    plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_E_per_launch_year.(i_param),'color',bars_colors(9,:),'LineWidth',2)
-    plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_F_per_launch_year.(i_param),'color',bars_colors(10,:),'LineWidth',2)
-    
-    if i_group_AB_profQC == 1
-        lgnd=legend(ax1,'QC A+B','QC C' ,'QC D' ,'QC E' ,'QC F' ,...
-                    'location','east');
-    else
-        lgnd=legend(ax1,'QC A','QC B','QC C' ,'QC D' ,'QC E' ,'QC F' ,...
-                    'location','east');
-    end  
-    set(lgnd,'color','none');
-    
-    ylabel(ax1,'Percent of profiles [%]')
-    %xlabel(ax1,'Launch year')
-    set(ax1,'xtick',1:n_launch_years,'xticklabel', nb_per_launch_year_x)
-    ax1.XTickLabelRotation = 45;
-    set(ax1, 'xlim',[1,n_launch_years+3])
-    ax1.YGrid = 'on';
-    box on
-    
-    % Bottom plot
-    ax2 = subplot(212);
-    hold on
-    plot(ax2,1:n_launch_years,nb_prof_DMQCed_per_launch_year.(i_param),'color','black','LineWidth',2)
-    ylabel(ax2,'Number of profiles')
-    xlabel(ax2,'Launch year')
-    set(ax2,'xtick',1:n_launch_years,'xticklabel', nb_per_launch_year_x)
-    ax2.XTickLabelRotation = 45;
-    set(ax2, 'xlim',[1,n_launch_years+3])
-    ax2.YGrid = 'on';
-    box on
-    
-    % save figure
-    out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param) '_Dprofile_QC_evolution_' working_date];
-    disp(['saving ' out_name])
-%     export_fig([out_name '.png'])
-    print('-dpng ', '-r100',[out_name '.png'])
-    if print_svg == 1
-        saveas(gcf,[out_name '.svg'])
-    end
-    
-    
-end
-diary off
-%% 
-diary on
-for i=1:n_param
-    close all
-    
-    i_param=list_of_parameters_to_treat(i);
-    fprintf('Making Plots for %s \n',i_param)
-    
-    close all
-
-     %%%%%%%%%%%%%% exclusion list  %%%%%%%%%%%%%%
-    disp('exclusion list status')
-    i_fig=6;
-    figure(i_fig)
-    % bigger figure
-    set(gcf, 'Position', [200, 200, 1000, 600])
-    % figure name
-    set(gcf,'Name','exclusion list')
-
-
-
-    bar(1, nb_float_tot.(i_param),              'FaceColor', bars_colors(1,:))
-    hold on
-    bar(2, nb_float_xage_tot.(i_param),         'FaceColor', bars_colors(2,:))
-    bar(3, nb_float_DMQCed_tot.(i_param),       'FaceColor', bars_colors(3,:))
-    bar(4, nb_floats_xage_DMQCed_tot.(i_param), 'FaceColor', bars_colors(4,:))
-    bar(5, nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param),       'FaceColor', bars_colors(11,:))
-    bar(6, nb_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param), 'FaceColor', bars_colors(12,:))
-    bar(7, nb_wmo_inactiveD_in_exclusionlist_with_qc_3_or_4.(i_param),  'FaceColor', bars_colors(13,:))
-
-    % FIGURE FORMAT
-    % xlabels
-    set(gca,'XTick',[])
-    % title with update date
-    title(['Floats status and exclusion list for ' char(i_param) ' (updated ',update_date_str,')'], 'Interpreter', 'none')
-    ylabel('Number of floats')
-    % legend with total number
-    legend(['All floats ('          num2str(nb_float_tot.(i_param)) ')'],...
-           ['Floats ' profile_old_b ' ('       num2str(nb_float_xage_tot.(i_param)) ')'],...
-           ['Floats DMQC at least once ('              num2str(nb_float_DMQCed_tot.(i_param)) ')'],...
-           ['Floats ' profile_old_b ' and DMQC at least once ('    num2str(nb_floats_xage_DMQCed_tot.(i_param)) ')'],...
-           ['Active Floats in exclusion list ('     num2str(nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param)) ...
-              '/' num2str(nb_operational_floats.(i_param)) ' ->' ...
-              num2str(round(100*nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param)/nb_operational_floats.(i_param),1)) '% of active floats)'],...
-           ['Inactive Floats with R or A profiles in exclusion list (' num2str(nb_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param)) ')'], ...
-           ['Inactive Floats only with D profiles in exclusion list (' num2str(nb_wmo_inactiveD_in_exclusionlist_with_qc_3_or_4.(i_param)) ')'], ...
-        'Location','southoutside')
-
-    % background color
-    set(gcf,'color','w');
-    % grid in y axis
-    ax = gca;
-    ax.YGrid = 'on';
-    
-    % figure labels
-    ymax=max(nb_float_tot.(i_param));
-    set(gca,'YLim',[0 ymax+ymax/5]);
-    text(1, nb_float_tot.(i_param) + ymax/20, num2str(nb_float_tot.(i_param)), ...
-        'HorizontalAlignment', 'center');
-    text(2, nb_float_xage_tot.(i_param) + ymax/20, num2str(nb_float_xage_tot.(i_param)), ...
-        'HorizontalAlignment', 'center');
-    text(3, nb_float_DMQCed_tot.(i_param) + ymax/20, num2str(nb_float_DMQCed_tot.(i_param)), ...
-        'HorizontalAlignment', 'center');
-    text(4, nb_floats_xage_DMQCed_tot.(i_param) + ymax/20, num2str(nb_floats_xage_DMQCed_tot.(i_param)), ...
-        'HorizontalAlignment', 'center');
-    text(5, nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param)), ...
-        'HorizontalAlignment', 'center');
-    text(6, nb_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param)), ...
-        'HorizontalAlignment', 'center');
-    text(7, nb_wmo_inactiveD_in_exclusionlist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_inactiveD_in_exclusionlist_with_qc_3_or_4.(i_param)), ...
-        'HorizontalAlignment', 'center');
-
-
-    % save figure
-    out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param) '_DMQC_status_and_exclusion_list_' working_date];
-    disp(['saving ' out_name])
-%     export_fig([out_name '.png'])
-    print('-dpng ', '-r100',[out_name '.png'])
-    if print_svg == 1
-        saveas(gcf,[out_name '.svg'])
-    end
-
-end
-diary off
-%% 
-diary on
-for i=1:n_param
-    close all
-    
-    i_param=list_of_parameters_to_treat(i);
-    
-    if ismember("PSAL",list_of_parameters_to_treat)
-        if (i_param == "TEMP" || i_param == "PRES") 
-            % no need to output plot as mode is the same for TEMP, PRES,
-            % PSAL
-            continue
-        else
-            if i_param == "PSAL"
-                i_param_str="CTD";
-            else
-                i_param_str=i_param;
-            end
-        end
-    else
-        i_param_str=i_param;
-    end
-    
-    fprintf('Making Plots for %s \n',i_param_str)
-    
-    close all
-    %%%%%%%%%%%%%% DMQC CTD status per profile year %%%%%%%%%%%%%%
-    disp('DMQC status per profile year')
-    i_fig=7;
-    figure(i_fig)
-
-    % bigger figure
-    set(gcf, 'Position', [200, 200, 1000, 600])
-    % figure name
-    set(gcf,'Name','DMQC status per profile year')
-
-    if (nb_per_year_x(1) == string(1980))
-        nb_per_year_x_cr=nb_per_year_x(2:end);
-        nb_profiles_DMQCed_per_year_cr=nb_profiles_DMQCed_per_year.(i_param)(2:end);
-        nb_profiles_per_year_cr=nb_profiles_per_year.(i_param)(2:end);
-    else
-        nb_per_year_x_cr=nb_per_year_x;
-        nb_profiles_DMQCed_per_year_cr=nb_profiles_DMQCed_per_year.(i_param);
-        nb_profiles_per_year_cr=nb_profiles_per_year.(i_param);
-    end
-    
-    hndl = bar(1:length(nb_per_year_x_cr), ...
-           [nb_profiles_per_year_cr nb_profiles_DMQCed_per_year_cr], 1);
-
-    % FIGURE FORMAT
-    hold on
-    %plot(1,0,'w'); % for comment in legend
-    % bars colors
-    set(hndl(1),'facecolor',bars_colors(1,:))
-    set(hndl(2),'facecolor',bars_colors(3,:))
-    % xlabels
-    %set(gca,'xtick',str2double(nb_per_year_x))
-    set(gca,'xtick',1:length(nb_per_year_x_cr),'xticklabel', nb_per_year_x_cr)
-    xtickangle(90)
-    % title with update date
-    title(['DMQC status for ' char(i_param_str) ' per profile year (updated ',update_date_str,')'], 'Interpreter', 'none')
-    ylabel('Number of profiles')
-    % legend with total number
-    legend(['Number of profiles (Total: ',num2str(sum(nb_profiles_per_year_cr,'omitnan')),')'],...
-           ['Number of D-profiles (Total: ',num2str(sum(nb_profiles_DMQCed_per_year_cr,'omitnan')),')'], ...
-        prof_included,'Location','southoutside')
-    % background color
-    set(gcf,'color','w');
-    % grid in y axis
-    ax = gca;
-    ax.YGrid = 'on';
-
-    % figure labels
-    ymax=max(nb_profiles_per_year_cr);
-    set(gca,'YLim',[0 ymax+ymax/10]);
-    for iyear = 1: length(nb_per_year_x_cr)
-        if nb_profiles_per_year_cr(iyear) > 0
-            percent_str = [num2str(round(nb_profiles_DMQCed_per_year_cr(iyear)/nb_profiles_per_year_cr(iyear)*100,1)) ' %'];
-            h=text(iyear + 0.15, nb_profiles_DMQCed_per_year_cr(iyear) + ymax/30 ,percent_str);
-            set(h,'Rotation',90);
-        end
-    end
-
-    % save figure
-    out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param_str) '_prof_DMQCstatus_byyear_' working_date];
-    disp(['saving ' out_name])
-%     export_fig([out_name '.png'])
-    print('-dpng ', '-r100',[out_name '.png'])
-    if print_svg == 1
-        saveas(gcf,[out_name '.svg'])
-    end
-
-    
-    
-end
-diary off
-%% 
-diary on
-%for i=1:3
-for i=1:n_param
-    close all
-    
-    i_param=list_of_parameters_to_treat(i);
-    
-    if ismember("PSAL",list_of_parameters_to_treat)
-        if (i_param == "PRES") 
-            % no need to output plot as mode fro PRES is the same as mode 
-            % for PSAL eand TEMP and profile_qc unavailable in index.
-            continue
-        else
-            i_param_str=i_param;
-        end
-    else
-        i_param_str=i_param;
-    end
-    
-    fprintf('Making Plots for %s \n',i_param_str)
-    
-    close all
-    %%%%%%%%%%%%%% DMQC status per profile year %%%%%%%%%%%%%%
-    disp('DMQC and QC-F status per profile year')
-    i_fig=8;
-    figure(i_fig)
-
-    % bigger figure
-    set(gcf, 'Position', [200, 200, 1000, 600])
-    % figure name
-    set(gcf,'Name','DMQC and F status per profile year')
-
-    if (nb_per_year_x(1) == string(1980))
-        nb_per_year_x_cr=nb_per_year_x(2:end);
-        nb_profiles_DMQCed_per_year_cr=nb_profiles_DMQCed_per_year.(i_param)(2:end);
-        nb_profiles_per_year_cr=nb_profiles_per_year.(i_param)(2:end);
-        nb_profiles_QCF_per_year_cr=nb_profiles_QCF_per_year.(i_param)(2:end);
-        nb_profiles_DMQCed_QCF_per_year_cr=nb_profiles_DMQCed_QCF_per_year.(i_param)(2:end);
-    else
-        nb_per_year_x_cr=nb_per_year_x;
-        nb_profiles_DMQCed_per_year_cr=nb_profiles_DMQCed_per_year.(i_param);
-        nb_profiles_per_year_cr=nb_profiles_per_year.(i_param);
-        nb_profiles_QCF_per_year_cr=nb_profiles_QCF_per_year.(i_param);
-        nb_profiles_DMQCed_QCF_per_year_cr=nb_profiles_DMQCed_QCF_per_year.(i_param);
-    end
-    
-    stackData = cat(3,[(nb_profiles_per_year_cr-nb_profiles_QCF_per_year_cr) ...
-                       (nb_profiles_DMQCed_per_year_cr-nb_profiles_DMQCed_QCF_per_year_cr)], ...
-                      [ nb_profiles_QCF_per_year_cr ...
-                        nb_profiles_DMQCed_QCF_per_year_cr]);
-                   
-    hndl = plotBarStackGroups(stackData, 1:length(nb_per_year_x_cr));
-    
-
-    % FIGURE FORMAT
-    hold on
-    %plot(1,0,'w'); % for comment in legend
-    % bars colors
-    set(hndl(1,1),'facecolor',bars_colors(4,:))
-    set(hndl(1,2),'facecolor',bars_colors(21,:))
-    set(hndl(2,1),'facecolor',bars_colors(3,:))
-    set(hndl(2,2),'facecolor',bars_colors(22,:))
-    % xlabels
-    set(gca,'xtick',1:length(nb_per_year_x_cr),'xticklabel', nb_per_year_x_cr)
-    xtickangle(90)
-    % title with update date
-    title(['DMQC and profile-F status for ' char(i_param_str) ' per profile year (updated ',update_date_str,')'], 'Interpreter', 'none')
-    ylabel('Number of profiles')
-    % legend with total number
-    legend(['Number of profiles with prof_QC<>F(Total: ',num2str(sum(nb_profiles_per_year_cr,'omitnan')),')'],...
-           ['Number of profiles with prof_QC=F (Total: ',num2str(sum(nb_profiles_QCF_per_year_cr,'omitnan')),')'],...
-           ['Number of D-profiles with prof_QC<>F (Total: ',num2str(sum(nb_profiles_DMQCed_per_year_cr,'omitnan')),')'], ...
-           ['Number of D-profiles with prof_QC=F (Total: ',num2str(sum(nb_profiles_DMQCed_QCF_per_year_cr,'omitnan')),')'], ...
-        prof_included,'Location','southoutside', 'Interpreter', 'none')
-    % background color
-    set(gcf,'color','w');
-    % grid in y axis
-    ax = gca;
-    ax.YGrid = 'on';
-
-    % figure labels
-    ymax=max(nb_profiles_per_year_cr);
-    set(gca,'YLim',[0 ymax+ymax/10]);
-%     for iyear = 1: length(nb_per_year_x_cr)
-%         if nb_profiles_per_year_cr(iyear) > 0
-%             percent_str = [num2str(round(nb_profiles_DMQCed_per_year_cr(iyear)/nb_profiles_per_year_cr(iyear)*100,1)) ' %'];
-%             h=text(iyear + 0.15, nb_profiles_DMQCed_per_year_cr(iyear) + ymax/30 ,percent_str);
-%             set(h,'Rotation',90);
-%         end
-%     end
-
-    % save figure
-    out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param_str) '_prof_DMQC-and-F_status_byyear_' working_date];
-    disp(['saving ' out_name])
-%     export_fig([out_name '.png'])
-    print('-dpng ', '-r100',[out_name '.png'])
-    if print_svg == 1
-        saveas(gcf,[out_name '.svg'])
-    end
-
-    
-    
-end
-diary off
-%% 
-diary on
-for i=1:n_param
+if make_graphics == 1
+    diary on
 
     close all
-    
-    i_param=list_of_parameters_to_treat(i);
-    
-    if ismember("PSAL",list_of_parameters_to_treat)
-        if (i_param == "TEMP" || i_param == "PRES") 
-            % no need to output plot as mode is the same for TEMP, PRES,
-            % PSAL
-            continue
-        else
-            if i_param == "PSAL"
-                i_param_str="CTD";
-            else
-                i_param_str=i_param;
-            end
-        end
+
+    disp(' ')
+    disp('Making graphics...')
+
+    if i_descending_profile== 0
+        prof_included = '  [only ascending profiles]';
     else
-        i_param_str=i_param;
+        prof_included = '  [including descending profiles]';
     end
-    
-    fprintf('Making Plots for %s \n',i_param_str)
 
-     %%%%%%%%%%%%%% DMQC status by profile age histogram %%%%%%%%%%%%%%
-    disp('DMQC status by profile age histogram')
-    i_fig=9;
-    figure(i_fig)
+    % create output folder
+    output_plots_dir = [output_dir '/Plots' ];
 
-    % bigger figure
-    set(gcf, 'Position', [200, 200, 1000, 600])
-    % figure name
-    set(gcf,'Name','R/A-Profiles age')
-
-    hndl = histogram(IndexData.profile_age(i_R_or_A_profile.(i_param))/365);
-
-    % FIGURE FORMAT
-    hold on
-    plot(ones(1,hndl.NumBins),hndl.Values,'--k','LineWidth',2.5); % for comment in legend
-    % xlabels
-    xlabel('Age of profiles [years]')
-    % title with update date
-    title(['Age of ' char(i_param_str) ' profiles with no DMQC (updated ',update_date_str,')'], 'Interpreter', 'none')
-    ylabel('Number of profiles')
-    % background color
-    set(gcf,'color','w');
-    % grid in y axis
-    ax = gca;
-    ax.YGrid = 'on';
-
-    % save figure
-    out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param_str) '_prof_DMQCstatus_agehist_' working_date];
-    disp(['saving ' out_name])
-    %     export_fig([out_name '.png'])
-    print('-dpng ', '-r100',[out_name '.png'])
-    if print_svg == 1
-        saveas(gcf,[out_name '.svg'])
+    if ~exist(output_plots_dir, 'dir')
+        disp('creating the output_directory')
+        mkdir(output_plots_dir)
     end
-    
-end
-tEnd = toc(tStart);
+    disp(['  plots will be saved in '  output_plots_dir])
 
-diary off
-%% 
-diary on
-% Additionnal graphs from previous get_DMQC_adjustment.m routine.
-% Thanks to the update of the index file with psal adjustment information
-% We can switch the making of the graphs to this routine. 
-% There are 2 new kinds of graphs:
-%  - R/A/D profiles per parameter
-%  - a series of graphs by wmo (R/A/D, QC, PSAL_adj) (and by parameter).
-
-disp('Number of R/A/D profiles by parameter')
-i_fig=10;
-close all
-figure(i_fig)
-
-% bigger figure
-set(gcf, 'Position', [200, 200, 1000, 600])
-% figure name
-set(gcf,'Name','R/A/D profiles nb by parameter')
-
-set(gca, 'units', 'normalized'); %Just making sure it's normalized
-Tight = get(gca, 'TightInset');  %Gives you the bording spacing between plot box and any axis labels
-                                 %[Left Bottom Right Top] spacing
-NewPos = [Tight(1) Tight(2) 1-Tight(1)-Tight(3) 1-Tight(2)-Tight(4)-0.1]; %New plot position [X Y W H]
-set(gca, 'Position', NewPos);
-
-% To avoid the 3 same information for CTD:
-if list_of_parameters_to_treat(1)=="TEMP" && ...
-   list_of_parameters_to_treat(2)=="PRES" && ...
-   list_of_parameters_to_treat(3)=="PSAL"
-
-    if i_bgc == 1
-        loc_list_of_parameters_to_treat=list_of_parameters_to_treat(4:end);
-        loc_n_param=size(loc_list_of_parameters_to_treat,1);
-        ctd_first=0;
-    else
-        loc_list_of_parameters_to_treat=list_of_parameters_to_treat(3:end);
-        loc_n_param=size(loc_list_of_parameters_to_treat,1);
-        ctd_first=1;
-    end
-else
-    loc_list_of_parameters_to_treat=list_of_parameters_to_treat;
-    loc_n_param=n_param;
-    ctd_first=0;
-end
-
-stackData = NaN(loc_n_param,3);
-
-for i=1:loc_n_param
-    i_param=loc_list_of_parameters_to_treat(i);
-
-    stackData(i,:) = cat(3,[sum(string(IndexData.param.(i_param).mode) == "R")'...
-                            sum(string(IndexData.param.(i_param).mode) == "A")'...
-                            sum(string(IndexData.param.(i_param).mode) == "D")']);
-end
-
-hndl = plotBarStackGroups(stackData, loc_list_of_parameters_to_treat');
-
-% FIGURE FORMAT
-hold on
-hp = plot(1,0,'w'); % for comment in legend
-% bar colors 
-set(hndl(1),'facecolor',bars_colors(15,:))
-set(hndl(2),'facecolor',bars_colors(2,:))
-set(hndl(3),'facecolor',bars_colors(3,:))
-% xlabels
-if ctd_first == 1
-    loc_list_of_parameters_to_treat(1)="CTD";
-end
-loc_list_of_parameters_to_treat_wo__=strrep(loc_list_of_parameters_to_treat,"_"," ");
-set(gca,'xtick',1:loc_n_param,'xticklabel', loc_list_of_parameters_to_treat_wo__','XTickLabelRotation',45)
+    % colors (https://www.rapidtables.org/fr/web/color/html-color-codes.html)
+    bars_colors = [0.5273    0.8047    0.9180; ... % 1  - total obs/floats (dark blue) old color: 0.2422    0.1504    0.6603
+                   0.9769    0.9839    0.0805; ... % 2  - >1year obs/floats (yellow)
+                   0.1953    0.8008    0.1953; ... % 3  - DMQC done (green)
+                   0.5938    0.9833    0.5938; ... % 4  - >1year obs/floats + DMQC done (pale green)
+                   0.5430    0         0.5430; ... % 5  - qc A "violet"
+                   0.9375    0.5000    0.5000; ... % 6  - qc B "saumon"
+                   1.0000    0.6470         0; ... % 7  - qc C "orange"
+                   0.8516    0.6445    0.1250; ... % 8  - qc D "verge d'or"
+                   0.1250    0.6953    0.6641; ... % 9  - qc E "vert clair"
+                   0.5273    0.8047    0.9180; ... % 10 - qc F "bleu ciel"
+                   0.4102    0.4102    0.4102; ... % 11 - exclusion list for operational floats AND qc X (no profile qc in index file)
+                   0.3000    0.3000    0.3000; ... % 12 - exclusion list for inactive floats with R or A profiles
+                   0.2000    0.2000    0.2000; ... % 13 - exclusion list for inactive floats with only D profiles
+                   0.2940    0         0.5090; ... % 14 - qc A for D profiles "indigo"
+                   0.8039    0.3608    0.3608; ... % 15 - qc B for D profiles "indianred"
+                   1.0000    0.5469         0; ... % 16 - qc C for D profiles "orange sombre"
+                   0.6863    0.5059    0.0157; ... % 17 - qc D for D profiles "verge d'or" with darker coefficients (not standard)
+                        0    0.5020    0.5020; ... % 18 - qc E for D profiles "sarcelle"
+                   0.1176    0.5647    1.0000; ... % 19 - qc F for D profiles "dodgerblue"
+                   0.2000    0.2000    0.2000; ... % 20 - qc X for D profiles 
+                   255/255   69/255     0/255; ... % 21 - qc F (perprofyear)                "Orange Red"
+                   174/255   12/255     0/255];    % 22 - qc F (perprofyear) for D profiles "Mordant Red 19"
 
 
-% title with update date
-title(['Number of R/A/D - profiles by variable (updated ',update_date_str,')' newline project_name ], 'Interpreter', 'none')
-ylabel('Number of profiles')
-
-% legend with total number
-legend([hndl(1), hndl(2), hndl(3), hp], ...
-    {['R-profiles (Total: ',num2str(sum(stackData(:,1))),')'],...
-     ['A-profiles (Total: ',num2str(sum(stackData(:,2))),')'],...
-     ['D-profiles (Total: ',num2str(sum(stackData(:,3))),')'],...
-    prof_included},'Location','southoutside')
-
-% background color
-set(gcf,'color','w');
-% grid in y axis
-ax = gca;
-ax.YGrid = 'on';
-
- % save figure
-out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_prof_RAD_mode_per_param_' working_date];
-disp(['saving ' out_name])
-%     export_fig([out_name '.png'])
-print('-dpng ', '-r100',[out_name '.png'])
-if print_svg == 1
-    saveas(gcf,[out_name '.svg'])
-end
-
-diary off
-%% 
-diary on
-if output_graphs_per_float ==1
-    
-    disp('R/A/D status by float and by cycle number')
-    i_fig=11;
+    diary off
+    %% 
+    diary on
+    tStart = tic;
     for i=1:n_param
         close all
+
         i_param=list_of_parameters_to_treat(i);
-        
-        
+
         if ismember("PSAL",list_of_parameters_to_treat)
             if (i_param == "TEMP" || i_param == "PRES") 
                 % no need to output plot as mode is the same for TEMP, PRES,
@@ -1941,350 +1053,1280 @@ if output_graphs_per_float ==1
         else
             i_param_str=i_param;
         end
-        
+
+
         fprintf('Making Plots for %s \n',i_param_str)
-                
-        subset_prof_WMO=IndexData.profile_WMO(IndexData.param.(i_param).presence==1);
-        subset_prof_cycle=IndexData.cycle(IndexData.param.(i_param).presence==1);
-        subset_prof_mode=IndexData.param.(i_param).mode(IndexData.param.(i_param).presence==1);
-        
-        list_wmo_for_graph=unique(subset_prof_WMO);
-        n_wmo_param=size(list_wmo_for_graph,1);
-        n_graph=ceil(n_wmo_param/n_max_float_per_graph);
-        
-        
-        for i_graph=1:n_graph
-            
-            i_wmo_min=1+(i_graph-1)*n_max_float_per_graph;
-            i_wmo_max=min(n_wmo_param,i_graph*n_max_float_per_graph);
-            list_wmo_for_i_graph=list_wmo_for_graph(i_wmo_min:i_wmo_max);
-            n_wmo_for_i_graph=size(list_wmo_for_i_graph,1);
-            
-            prof_subset=ismember(subset_prof_WMO,list_wmo_for_i_graph);
-            
-            xx=double(subset_prof_cycle((prof_subset==1)));
-            yy=subset_prof_WMO((prof_subset==1));
-            zz=string(subset_prof_mode((prof_subset==1)));
-            
-            i_R=(zz=="R");
-            i_A=(zz=="A");
-            i_D=(zz=="D");
-            
-            close all
-            figure(i_fig)
-            
 
-            % bigger figure
-            set(gcf, 'Position', [200, 200, 1200, 600])
-            % figure name
-            set(gcf,'Name','R/A/D status by float and by cycle number')
-            hold on
-            
-            % title with update date
-            title(['R/A/D status by float and by cycle for ' char(i_param_str) ' (updated ',update_date_str,')' ...
-                  newline project_name ' - batch ' num2str(i_graph) '/' num2str(n_graph)], 'Interpreter', 'none')
-            xlabel('Cycle Number')
-            
-            xx_iR=xx(i_R);
-            [~,yy_iR]=ismember(yy(i_R),list_wmo_for_i_graph);
-            
-            xx_iA=xx(i_A);
-            [~,yy_iA]=ismember(yy(i_A),list_wmo_for_i_graph);
-            
-            xx_iD=xx(i_D);
-            [~,yy_iD]=ismember(yy(i_D),list_wmo_for_i_graph);
-            
-            scatter(xx_iR,yy_iR,10,'o','filled','MarkerFaceColor',bars_colors(15,:))
-            scatter(xx_iA,yy_iA,10,'o','filled','MarkerFaceColor',bars_colors(2,:))
-            scatter(xx_iD,yy_iD,10,'o','filled','MarkerFaceColor',bars_colors(3,:))
-            
-            
-            set(gca,'ytick',1:n_wmo_for_i_graph,'yticklabel', list_wmo_for_i_graph')
-            % legend
-            lh = legend(['R-profiles (',num2str(size(yy_iR,1)),' profiles)'],...
-                        ['A-profiles (',num2str(size(yy_iA,1)),' profiles)'],...
-                        ['D-profiles (',num2str(size(yy_iD,1)),' profiles)'],...
-                      'Location','northeastoutside');
-            set(lh,'FontSize',10);
-            
-%             xlimits=xlim();
-%             xlim([xlimits(1) xlimits(2)*1.3]);
-
-            % background color
-            set(gcf,'color','w');
-            % grid in y axis
-            ax = gca;
-            ax.YGrid = 'on';
-
-             % save figure
-            out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param_str) '_RAD_mode_per_wmo_per_cycle_' sprintf('%03d',i_graph) '_' working_date];
-            disp(['saving ' out_name])
-            %     export_fig([out_name '.png'])
-            print('-dpng ', '-r100',[out_name '.png'])
-            if print_svg == 1
-                saveas(gcf,[out_name '.svg'])
-            end
-            
-        end        
-
-    end  
-    
-end
-diary off
-%% 
-diary on
-if output_graphs_per_float ==1
-    
-    disp('Profile QC status by float and by cycle number')
-    list_QCs=["A";"B";"C";"D";"E";"F";"X"];
-    i_fig=12;
-
-    for i=1:n_param
         close all
-        i_param=list_of_parameters_to_treat(i);
-        
-        if i_param == "PRES" 
-            % PRES profie QC information is not yet available in the index
-            % file
-            continue
-        end
 
-        
-        
-        fprintf('Making Plots for %s \n',i_param)
-                
-        subset_prof_WMO=IndexData.profile_WMO(IndexData.param.(i_param).presence==1);
-        subset_prof_cycle=IndexData.cycle(IndexData.param.(i_param).presence==1);
-        subset_prof_qc=IndexData.param.(i_param).qc(IndexData.param.(i_param).presence==1);
-        
-        list_wmo_for_graph=unique(subset_prof_WMO);
-        n_wmo_param=size(list_wmo_for_graph,1);
-        n_graph=ceil(n_wmo_param/n_max_float_per_graph);
-        
-        
-        for i_graph=1:n_graph
-            
-            i_wmo_min=1+(i_graph-1)*n_max_float_per_graph;
-            i_wmo_max=min(n_wmo_param,i_graph*n_max_float_per_graph);
-            list_wmo_for_i_graph=list_wmo_for_graph(i_wmo_min:i_wmo_max);
-            n_wmo_for_i_graph=size(list_wmo_for_i_graph,1);
-            
-            prof_subset=ismember(subset_prof_WMO,list_wmo_for_i_graph);
-            
-            xx=double(subset_prof_cycle((prof_subset==1)));
-            yy=subset_prof_WMO((prof_subset==1));
-            zz=string(subset_prof_qc((prof_subset==1)));
-            
-            close all
-            figure(i_fig)
-            
-
-            % bigger figure
-            set(gcf, 'Position', [200, 200, 1200, 600])
-            % figure name
-            set(gcf,'Name','Profile QC status by float and by cycle number')
-            hold on
-            
-            % title with update date
-            title(['Profile QC status by float and by cycle for ' char(i_param) ' (updated ',update_date_str,')' ...
-                  newline project_name ' - batch ' num2str(i_graph) '/' num2str(n_graph)], 'Interpreter', 'none')
-            xlabel('Cycle Number')
-            
-            for iQC=1:size(list_QCs,1)
-                
-                i_QC=list_QCs(iQC);
-                % find profiles indices where QC = i_QC
-                ii_QC=(zz==i_QC);
-                
-                % retrieve corresponding wmo and cycle
-                xx_iQC=xx(ii_QC);
-                [~,yy_iQC]=ismember(yy(ii_QC),list_wmo_for_i_graph);
-                
-                % plot using scatter plot
-                scatter(xx_iQC,yy_iQC,10,'o','filled','MarkerFaceColor',bars_colors(iQC+4,:))
-                
-                % prepare the legend
-                if i_QC ~= "X"
-                    lgd.(i_QC)=['profile QC ' char(i_QC) ' (' sprintf('%d',size(yy_iQC,1)) ' profiles)'];
-                else
-                    lgd.(i_QC)=['no profile QC (' sprintf('%d',size(yy_iQC,1)) ' profiles)'];
-                end
-                
-            end
-            
-            set(gca,'ytick',1:n_wmo_for_i_graph,'yticklabel', list_wmo_for_i_graph')
-            % legend
-            lh = legend(lgd.A,lgd.B,lgd.C,lgd.D,lgd.E,lgd.F,lgd.X, ...
-                      'Location','northeastoutside');
-            set(lh,'FontSize',10);
-
-%             xlimits=xlim();
-%             xlim([xlimits(1) xlimits(2)*1.3]);
-            
-            % background color
-            set(gcf,'color','w');
-            % grid in y axis
-            ax = gca;
-            ax.YGrid = 'on';
-
-             % save figure
-            out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param) '_profile_QC_per_wmo_per_cycle_' sprintf('%03d',i_graph) '_' working_date];
-            disp(['saving ' out_name])
-            %     export_fig([out_name '.png'])
-            print('-dpng ', '-r100',[out_name '.png'])
-            if print_svg == 1
-                saveas(gcf,[out_name '.svg'])
-            end
-            
-        end        
-
-    end 
-end
-
-
-diary off
-%% 
-diary on
-if output_graphs_per_float ==1
-    
-    disp('PSAL adjustment by float and by cycle number')
-    
-    i_fig=13;
-    
-    i_param = "PSAL";            
-    subset_prof_WMO=IndexData.profile_WMO(IndexData.param.(i_param).presence==1);
-    subset_prof_cycle=IndexData.cycle(IndexData.param.(i_param).presence==1);
-    subset_prof_adj=IndexData.param.(i_param).adj(IndexData.param.(i_param).presence==1);
-    subset_prof_qc=IndexData.param.(i_param).qc(IndexData.param.(i_param).presence==1);
-    subset_prof_mode=IndexData.param.(i_param).mode(IndexData.param.(i_param).presence==1);
-
-    list_wmo_for_graph=unique(subset_prof_WMO);
-    n_wmo_param=size(list_wmo_for_graph,1);
-    n_graph=ceil(n_wmo_param/n_max_float_per_graph);
-
-
-    for i_graph=1:n_graph
-
-        i_wmo_min=1+(i_graph-1)*n_max_float_per_graph;
-        i_wmo_max=min(n_wmo_param,i_graph*n_max_float_per_graph);
-        list_wmo_for_i_graph=list_wmo_for_graph(i_wmo_min:i_wmo_max);
-        n_wmo_for_i_graph=size(list_wmo_for_i_graph,1);
-
-        prof_subset=ismember(subset_prof_WMO,list_wmo_for_i_graph);
-
-        xx=double(subset_prof_cycle((prof_subset==1)));
-        yy=subset_prof_WMO((prof_subset==1));
-        zz=double(subset_prof_adj((prof_subset==1)));
-        zz_qc=string(subset_prof_qc((prof_subset==1)));
-        zz_mode=string(subset_prof_mode((prof_subset==1)));
-        close all
+        %%%%%%%%%%%%%%  Nb of float w.r.t DMQC status %%%%%%%%%%%%%% 
+        disp('Nb of float w.r.t DMQC status')
+        i_fig=1;
         figure(i_fig)
-
-
         % bigger figure
         set(gcf, 'Position', [200, 200, 1000, 600])
         % figure name
-        set(gcf,'Name','Profile QC status by float and by cycle number')
+        set(gcf,'Name','Float DMQC status by country')
+
+
+        stackData = cat(3,[nb_floats_DMQCed_per_country.(i_param) nb_floats_xage_DMQCed_per_country.(i_param)], ...
+                          [(nb_floats_per_country.(i_param)-nb_floats_DMQCed_per_country.(i_param)) ...
+                           (nb_floats_xage_per_country.(i_param)-nb_floats_xage_DMQCed_per_country.(i_param))]);
+        hndl = plotBarStackGroups(stackData, nb_per_country_x);
+
+
+        % FIGURE FORMAT
         hold on
-
+        hp = plot(1,0,'w'); % for comment in legend
+        % bar colors 
+        set(hndl(1,1),'facecolor',bars_colors(3,:))
+        set(hndl(1,2),'facecolor',bars_colors(1,:))
+        set(hndl(2,1),'facecolor',bars_colors(4,:))
+        set(hndl(2,2),'facecolor',bars_colors(2,:))
+        % xlabels
+        set(gca,'xtick',1:n_countries,'xticklabel', nb_per_country_x)
+        if n_countries > 15
+            set(gca,'XTickLabelRotation',90)
+        end
         % title with update date
-        title(['PSAL adjustment by float and by cycle for ' char(i_param) ' (updated ',update_date_str,')' ...
-              newline project_name ' - batch ' num2str(i_graph) '/' num2str(n_graph)], 'Interpreter', 'none')
-        xlabel('Cycle Number')
-        
-        
-        % Plot R and A-profile in light grey
-        % find profiles indices where QC = i_QC
-        ii_RA=( ((zz_mode=="R") | (zz_mode=="A")) & (zz_qc~="F") );
-        % retrieve corresponding wmo and cycle
-        xx_iRA=xx(ii_RA);
-        [~,yy_iRA]=ismember(yy(ii_RA),list_wmo_for_i_graph);
-        % plot using scatter plot
-        scatter(xx_iRA,yy_iRA,10,'o','filled','MarkerFaceColor',[0.78 0.78 0.78])
-        % output the legend
-        lgd1='R and A profiles (not QC F)';
+        title(['Float DMQC status for ' char(i_param_str) ' by country (updated ',update_date_str,')'], 'Interpreter', 'none')
+        ylabel('Number of floats')
+        % legend with total number
+        if strcmp(project_name,'European_Fleet')
+            legend([hndl(1,2), hndl(1,1), hndl(2,2), hndl(2,1), hp], ...
+                {['Number of floats (Total: ',                       num2str(sum(nb_floats_per_country.(i_param),'omitnan')),')'],...
+                 ['Number of floats with D-profiles (Total: ',       num2str(sum(nb_floats_DMQCed_per_country.(i_param),'omitnan')),')'], ...
+                 ['Number of floats with profiles ' profile_old_b ' (Total: ',  num2str(sum(nb_floats_xage_per_country.(i_param),'omitnan')),')'],...
+                 ['Number of floats with D-profiles ' profile_old_b ' (Total: ',num2str(sum(nb_floats_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
+                prof_included})
+        else
+            legend([hndl(1,2), hndl(1,1), hndl(2,2), hndl(2,1), hp], ...
+                {['Nb of floats to be managed at Euro-Argo (Total: ',                       num2str(sum(nb_floats_per_country.(i_param),'omitnan')),')'],...
+                 ['Nb of floats already addressed once in DMQC (Total: ',       num2str(sum(nb_floats_DMQCed_per_country.(i_param),'omitnan')),')'], ...
+                 ['Nb of floats for which DMQC can now be performed (' profile_old_b ') (Total: ',  num2str(sum(nb_floats_xage_per_country.(i_param),'omitnan')),')'],...
+                 ['Nb of floats already addressed once in DMQC (' profile_old_b ') (Total: ',num2str(sum(nb_floats_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
+                })
+        end
 
-        % Plot R and A-profile QC F in medium grey
-        % find profiles indices where QC = i_QC
-        ii_RAF=( ((zz_mode=="R") | (zz_mode=="A")) & (zz_qc=="F"));
-        % retrieve corresponding wmo and cycle
-        xx_iRAF=xx(ii_RAF);
-        [~,yy_iRAF]=ismember(yy(ii_RAF),list_wmo_for_i_graph);
-        % plot using scatter plot
-        scatter(xx_iRAF,yy_iRAF,10,'o','filled','MarkerFaceColor',[0.4 0.4 0.4])
-        % output the legend
-        lgd2='R and A profiles with QC F';
-  
-        
-        % Plot D-profile QC F in black
-        % find profiles indices where QC = i_QC
-        ii_DF=((zz_mode=="D") & (zz_qc=="F"));
-        % retrieve corresponding wmo and cycle
-        xx_iDF=xx(ii_DF);
-        [~,yy_iDF]=ismember(yy(ii_DF),list_wmo_for_i_graph);
-        % plot using scatter plot
-        scatter(xx_iDF,yy_iDF,10,'o','filled','MarkerFaceColor','black')
-        % output the legend
-        lgd3='D profiles with QC F';
-        [lh,~] = legend(lgd1,lgd2,lgd3,'Location','northeast');
-        set(lh,'FontSize',10);
-        set(lh,'Position',[0.6 0.85 0.23 0.09]);
-        
 
-        [~,yy_plot]=ismember(yy,list_wmo_for_i_graph);
-        % plot using scatter plot
-        scatter(xx,yy_plot,10,zz,'o','filled')
-        colormap(gca,flipud(jet))
-        colorbar()
-        caxis([-0.07 0.07])
-        
-        % As information can be overlaid (both adj and R, both QC F and R):
-        % rearrangement of the order of apparition
-        scatter(xx_iRA,yy_iRA,10,'o','filled','MarkerFaceColor',[0.78 0.78 0.78])
-        scatter(xx_iRAF,yy_iRAF,10,'o','filled','MarkerFaceColor',[0.4 0.4 0.4])
-        scatter(xx_iDF,yy_iDF,10,'o','filled','MarkerFaceColor','black')
-        
 
-        set(gca,'ytick',1:n_wmo_for_i_graph,'yticklabel', list_wmo_for_i_graph')
-        
-        ylimits=ylim();
-        ylim([ylimits(1) ylimits(2)*1.15]);
-        
         % background color
         set(gcf,'color','w');
         % grid in y axis
         ax = gca;
         ax.YGrid = 'on';
-        ax.XGrid = 'on';
-        
-        % Add minor ticks/grid along the x axis.
-        xt=ax.XTick;                   % and the current tick values
-        nT=length(xt);                 % how many ticks are there???
-        nMinorT=5;                     % set how many minor tick divisions wanted
-        ax.XAxis.MinorTickValues=linspace(xt(1),xt(end),(nT-1)*nMinorT+1); % set those values
 
-        ax.XMinorTick = 'on';
-        ax.XMinorGrid = 'on';
-        
+        ymax=max(nb_floats_per_country.(i_param));
+        set(gca,'YLim',[0 ymax+ymax/4]);
+        if n_countries <=15
+            eps=0.02;
+            for i_country =1:n_countries
+                text(i_country-eps , nb_floats_per_country.(i_param)(i_country) + ymax/30, ...
+                    num2str(nb_floats_per_country.(i_param)(i_country)) , ...
+                    'HorizontalAlignment', 'right');
+                text(i_country+eps, nb_floats_xage_per_country.(i_param)(i_country) + ymax/30, ...
+                    num2str(nb_floats_xage_per_country.(i_param)(i_country)), ...
+                    'HorizontalAlignment', 'left');
+            end
+        end
 
-         % save figure
-        out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param) '_PSAL_adj_per_wmo_per_cycle_' sprintf('%03d',i_graph) '_' working_date];
+        % annotation: percentage of floats with R-profiles > 1 year
+        floats_tobedone = (sum(nb_floats_xage_per_country.(i_param),'omitnan') - ... 
+                           sum(nb_floats_xage_DMQCed_per_country.(i_param),'omitnan')) / ...
+                               sum(nb_floats_xage_per_country.(i_param),'omitnan')*100;
+        floats_tobedone_str = num2str(round(floats_tobedone));
+        H = figure(1);
+        set(H,'units','pix')
+        annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Floats ' profile_old_b ' to be DMQCed: ',floats_tobedone_str,'%'],...
+            'FitBoxToText','on','verticalalignment', 'bottom','HorizontalAlignment', 'right','FontWeight','bold')
+
+        % save figure
+        out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param_str) '_DMQC_status_nb_floats_by_country_' working_date];
         disp(['saving ' out_name])
-        %     export_fig([out_name '.png'])
-        print('-dpng ', '-r100',[out_name '.png'])
 
+    %     export_fig([out_name '.png'])
+        print('-dpng', '-r100',[out_name '.png'])
         if print_svg == 1
             saveas(gcf,[out_name '.svg'])
         end
-            
-        
 
-    end 
+    % end
+    % %%
+    % %for i=1:n_param
+    % for i=1:1
+    %     i_param=list_of_parameters_to_treat(i);
+    %     fprintf('Making Plots for %s \n',i_param)
+    %     
+    %     close all
+
+        %%%%%%%%%%%%%% Profile DMQC status by country %%%%%%%%%%%%%%
+        disp('Profile DMQC status by country')
+        i_fig=2;
+        figure(i_fig)
+        % bigger figure
+        set(gcf, 'Position', [200, 200, 1000, 600])
+        % figure name
+        set(gcf,'Name','Profile DMQC status by country')
+
+        stackData = cat(3,[nb_profiles_DMQCed_per_country.(i_param) nb_profiles_xage_DMQCed_per_country.(i_param)], ...
+                          [(nb_profiles_per_country.(i_param)-nb_profiles_DMQCed_per_country.(i_param)) ...
+                           (nb_profiles_xage_per_country.(i_param)-nb_profiles_xage_DMQCed_per_country.(i_param))]);
+        hndl = plotBarStackGroups(stackData, nb_per_country_x);
+
+
+        % FIGURE FORMAT
+        hold on
+        hp = plot(1,0,'w'); % for comment in legend
+        % bar colors 
+        set(hndl(1,1),'facecolor',bars_colors(3,:))
+        set(hndl(1,2),'facecolor',bars_colors(1,:))
+        set(hndl(2,1),'facecolor',bars_colors(4,:))
+        set(hndl(2,2),'facecolor',bars_colors(2,:))
+        % xlabels
+        set(gca,'xtick',1:n_countries,'xticklabel', nb_per_country_x)
+        if n_countries > 15
+            set(gca,'XTickLabelRotation',90)
+        end
+        % title with update date
+        title(['Profile DMQC status for ' char(i_param_str) ' by country (updated ',update_date_str,')'], 'Interpreter', 'none')
+        ylabel('Number of profiles')
+        % legend with total number
+        legend([hndl(1,2), hndl(1,1), hndl(2,2), hndl(2,1), hp], ...
+            {['Number of profiles (Total: ',num2str(sum(nb_profiles_per_country.(i_param),'omitnan')),')'],...
+             ['Number of D-profiles (Total: ',num2str(sum(nb_profiles_DMQCed_per_country.(i_param),'omitnan')),')'], ...
+             ['Number of profiles ' profile_old_b ' (Total: ',num2str(sum(nb_profiles_xage_per_country.(i_param),'omitnan')),')'],...
+             ['Number of D-profiles ' profile_old_b 'r (Total: ',num2str(sum(nb_profiles_xage_DMQCed_per_country.(i_param),'omitnan')),')'], ...
+            prof_included})
+        % background color
+        set(gcf,'color','w');
+        % grid in y axis
+        ax = gca;
+        ax.YGrid = 'on';
+
+        ymax=max(nb_profiles_per_country.(i_param));
+        set(gca,'YLim',[0 ymax+ymax/3]);
+
+        % annotation: percentage of observations > 1 year with no DMQC done
+        obs_tobedone = sum(nb_profiles_xage_per_country.(i_param)-nb_profiles_xage_DMQCed_per_country.(i_param),'omitnan')/sum(nb_profiles_xage_per_country.(i_param),'omitnan')*100;
+        H = figure(i_fig);
+        set(H,'units','pix')
+        annotation('textbox', [0.8, 0.01, .1, .1], 'string', ['Profiles ' profile_old_b ' to be DMQCed: ',num2str(round(obs_tobedone)),'%'],...
+            'FitBoxToText','on','verticalalignment', 'bottom','HorizontalAlignment', 'right','FontWeight','bold')
+
+        % save figure
+        out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param_str) '_DMQC_status_nb_profiles_by_country_' working_date];
+        disp(['saving ' out_name])
+    %     export_fig([out_name '.png'])
+        print('-dpng', '-r100',[out_name '.png'])
+        if print_svg == 1
+            saveas(gcf,[out_name '.svg'])
+        end
+
+    end
+    diary off
+    %% 
+    diary on
+    for i=1:n_param
+        close all
+
+        i_param=list_of_parameters_to_treat(i);
+
+        if i_param == "PRES"
+            % profile QC for PRES no yet available in index file
+            continue
+        end
+
+        fprintf('Making Plots for %s \n',i_param)
+
+        close all
+         %%%%%%%%%%%%%% Data Quality %%%%%%%%%%%%%%
+        disp('Data Quality')
+        i_fig=3;
+        figure(i_fig)
+        % bigger figure
+        set(gcf, 'Position', [200, 200, 1000, 600])
+        % figure name
+        set(gcf,'Name','Data Quality')
+
+        colormap(parula)
+        hold on
+
+        for ix=1:7
+            if i_group_AB_profQC == 1 && ix==1
+                nb_prof_AB=nb_profiles_per_qc.(i_param)(1)+nb_profiles_per_qc.(i_param)(2);
+                nb_prof_DMQCed_AB=nb_profiles_DMQCed_per_qc.(i_param)(1)+nb_profiles_DMQCed_per_qc.(i_param)(2);
+
+                bT=bar(2,nb_prof_AB,0.3,'FaceColor',bars_colors(4+ix,:));
+                bD=bar(2+0.3,nb_prof_DMQCed_AB,0.3,'FaceColor',bars_colors(13+ix,:));  
+            else
+                if i_group_AB_profQC == 0 || ix > 2
+                    bT=bar(ix,nb_profiles_per_qc.(i_param)(ix),0.3,'FaceColor',bars_colors(4+ix,:));
+                    bD=bar(ix+0.3,nb_profiles_DMQCed_per_qc.(i_param)(ix),0.3,'FaceColor',bars_colors(13+ix,:));
+                end
+            end
+
+        end
+
+
+        % FIGURE FORMAT
+        hold on
+        plot(1,0,'w'); % for comment in legend
+        % xlabels
+        if i_group_AB_profQC == 1
+            set(gca,'xtick',1:7,'xticklabel', [''; 'A+B'; nb_per_qc_x(3:end-1); 'No QC'])
+        else
+            set(gca,'xtick',1:7,'xticklabel', [nb_per_qc_x(1:end-1); 'No QC'])
+        end
+
+        % title with update date
+        title([ char(i_param) ' profile QC (updated ',update_date_str,')'], 'Interpreter', 'none')
+        ylabel('Number of profiles')
+
+        % figure labels
+        if i_group_AB_profQC == 1
+            ymax=max(max(nb_profiles_per_qc.(i_param)(1)+nb_profiles_per_qc.(i_param)(2),nb_profiles_per_qc.(i_param)(3:end)));
+        else
+            ymax=max(nb_profiles_per_qc.(i_param));
+        end
+        set(gca,'YLim',[0 ymax+ymax/4]);
+        for ix =1:7
+
+            if i_group_AB_profQC == 1 && ix==1
+                text(2 +0.17 , nb_prof_AB + ymax/20, ...
+                    [num2str(nb_prof_AB) newline ...
+                     num2str(round(100*nb_prof_AB/ ...
+                               sum(nb_profiles_per_qc.(i_param)),1)) '%'], ...
+                    'HorizontalAlignment', 'right');
+
+                text(2 +0.17, nb_prof_DMQCed_AB + ymax/20, ...
+                    ['D-' num2str(nb_prof_DMQCed_AB) newline ...
+                          num2str(round(100*nb_prof_DMQCed_AB/ ...
+                                    sum(nb_profiles_DMQCed_per_qc.(i_param)),1)) '%'], ...
+                    'HorizontalAlignment', 'left');
+            else
+                if i_group_AB_profQC == 0 || ix > 2
+                    text(ix+0.17 , nb_profiles_per_qc.(i_param)(ix) + ymax/20, ...
+                        [num2str(nb_profiles_per_qc.(i_param)(ix)) newline ...
+                         num2str(round(100*nb_profiles_per_qc.(i_param)(ix)/ ...
+                                   sum(nb_profiles_per_qc.(i_param)),1)) '%'], ...
+                        'HorizontalAlignment', 'right');
+
+                    text(ix+0.17, nb_profiles_DMQCed_per_qc.(i_param)(ix) + ymax/20, ...
+                        ['D-' num2str(nb_profiles_DMQCed_per_qc.(i_param)(ix)) newline ...
+                              num2str(round(100*nb_profiles_DMQCed_per_qc.(i_param)(ix)/ ...
+                                        sum(nb_profiles_DMQCed_per_qc.(i_param)),1)) '%'], ...
+                        'HorizontalAlignment', 'left');
+                end
+            end
+
+
+        end
+        % background color
+        set(gcf,'color','w');
+        % grid in y axis
+        ax = gca;
+        ax.YGrid = 'on';
+        box on
+
+        % annotation
+        H = figure(i_fig);
+        set(H,'units','pix')
+        annotation('textbox', [0.28, 0.83, .1, .1], 'string', ['lighter color bars / xxxx : nb of profiles (Raw, Adjusted or Delayed mode) per profile QC' newline ...
+            'darker color bars / D-xxxx : nb of D-profiles (Delayed mode only) per profile QC'],...
+            'FitBoxToText','on','verticalalignment', 'bottom','HorizontalAlignment', 'left')
+
+        % save figure
+        out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param) '_profile_QC_' working_date];
+        disp(['saving ' out_name])
+    %     export_fig([out_name '.png'])
+        print('-dpng', '-r100',[out_name '.png'])
+        if print_svg == 1
+            saveas(gcf,[out_name '.svg'])
+        end
+    % 
+    % end
+    % 
+    % 
+    % %%
+    % for i=1:n_param
+    %     i_param=list_of_parameters_to_treat(i);
+    %     fprintf('Making Plots for %s \n',i_param)
+    %     
+    %     close all
+         %%%%%%%%%%%%%% Data Quality %%%%%%%%%%%%%%
+        disp('Data Quality Evolution per Launch date')
+        i_fig=4;
+        figure(i_fig)
+
+        % bigger figure
+        set(gcf, 'Position', [200, 200, 1000, 600])
+        % figure name
+        set(gcf,'Name','Data Quality evolution')
+        % background color
+        set(gcf,'color','w');
+
+        % title with update date
+        title([ char(i_param) ' profile QC evolution (updated ',update_date_str,')'], 'Interpreter', 'none')
+        hold on
+
+        %tiledlayout(2,1)
+        % Top plot
+        ax1 = subplot(211);
+        title(ax1,[ char(i_param) ' profile QC evolution (updated ',update_date_str,')'], 'Interpreter', 'none')
+        hold on
+        if i_group_AB_profQC == 1
+            plot(ax1,1:n_launch_years,percent_prof_QC_A_per_launch_year.(i_param)+percent_prof_QC_B_per_launch_year.(i_param),'color',bars_colors(5,:),'LineWidth',2)
+        else
+            plot(ax1,1:n_launch_years,percent_prof_QC_A_per_launch_year.(i_param),'color',bars_colors(5,:),'LineWidth',2)
+            plot(ax1,1:n_launch_years,percent_prof_QC_B_per_launch_year.(i_param),'color',bars_colors(6,:),'LineWidth',2)
+        end
+        plot(ax1,1:n_launch_years,percent_prof_QC_C_per_launch_year.(i_param),'color',bars_colors(7,:),'LineWidth',2)
+        plot(ax1,1:n_launch_years,percent_prof_QC_D_per_launch_year.(i_param),'color',bars_colors(8,:),'LineWidth',2)
+        plot(ax1,1:n_launch_years,percent_prof_QC_E_per_launch_year.(i_param),'color',bars_colors(9,:),'LineWidth',2)
+        plot(ax1,1:n_launch_years,percent_prof_QC_F_per_launch_year.(i_param),'color',bars_colors(10,:),'LineWidth',2)
+
+        if i_group_AB_profQC == 1
+            lgnd=legend(ax1,'QC A+B','QC C' ,'QC D' ,'QC E' ,'QC F' ,...
+                        'location','east');
+        else
+            lgnd=legend(ax1,'QC A','QC B','QC C' ,'QC D' ,'QC E' ,'QC F' ,...
+                        'location','east');
+        end
+        set(lgnd,'color','none');
+
+        ylabel(ax1,'Percent of profiles [%]')
+        %xlabel(ax1,'Launch year')
+        set(ax1,'xtick',1:n_launch_years,'xticklabel', nb_per_launch_year_x)
+        ax1.YGrid = 'on';
+        ax1.XTickLabelRotation = 45;
+        set(ax1, 'xlim',[1,n_launch_years+3])
+        box on
+
+        % Bottom plot
+        ax2 = subplot(212);
+        hold on
+        plot(ax2,1:n_launch_years,nb_prof_per_launch_year.(i_param),'color','black','LineWidth',2)
+        ylabel(ax2,'Number of profiles')
+        xlabel(ax2,'Launch year')
+        set(ax2,'xtick',1:n_launch_years,'xticklabel', nb_per_launch_year_x)
+        ax2.YGrid = 'on';
+        ax2.XTickLabelRotation = 45;
+        set(ax2, 'xlim',[1,n_launch_years+3])
+        box on
+
+        % save figure
+        out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param) '_profile_QC_evolution_' working_date];
+        disp(['saving ' out_name])
+    %     export_fig([out_name '.png'])
+
+        print('-dpng', '-r100',[out_name '.png'])
+        if print_svg == 1
+            saveas(gcf,[out_name '.svg'])
+        end
+
+
+    % end
+    % 
+    % %%
+    % for i=1:n_param
+    %     i_param=list_of_parameters_to_treat(i);
+    %     fprintf('Making Plots for %s \n',i_param)
+    %     
+    %     close all
+         %%%%%%%%%%%%%% Data Quality %%%%%%%%%%%%%%
+        disp('Data Quality Evolution for D-profiles per Launch date')
+        i_fig=5;
+        figure(i_fig)
+
+        % bigger figure
+        set(gcf, 'Position', [200, 200, 1000, 600])
+        % figure name
+        set(gcf,'Name','Data Quality evolution')
+        % background color
+        set(gcf,'color','w');
+
+        % title with update date
+        title([ char(i_param) ' D-profile QC evolution (updated ',update_date_str,')'], 'Interpreter', 'none')
+        hold on
+
+        %tiledlayout(2,1)
+        % Top plot
+        ax1 = subplot(211);
+        title(ax1,[ char(i_param) ' D-profile QC evolution (updated ',update_date_str,')'], 'Interpreter', 'none')
+        hold on
+        if i_group_AB_profQC == 1
+            plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_A_per_launch_year.(i_param)+percent_prof_DMQCed_QC_B_per_launch_year.(i_param),'color',bars_colors(5,:),'LineWidth',2)
+        else
+            plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_A_per_launch_year.(i_param),'color',bars_colors(5,:),'LineWidth',2)
+            plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_B_per_launch_year.(i_param),'color',bars_colors(6,:),'LineWidth',2)
+        end
+        plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_C_per_launch_year.(i_param),'color',bars_colors(7,:),'LineWidth',2)
+        plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_D_per_launch_year.(i_param),'color',bars_colors(8,:),'LineWidth',2)
+        plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_E_per_launch_year.(i_param),'color',bars_colors(9,:),'LineWidth',2)
+        plot(ax1,1:n_launch_years,percent_prof_DMQCed_QC_F_per_launch_year.(i_param),'color',bars_colors(10,:),'LineWidth',2)
+
+        if i_group_AB_profQC == 1
+            lgnd=legend(ax1,'QC A+B','QC C' ,'QC D' ,'QC E' ,'QC F' ,...
+                        'location','east');
+        else
+            lgnd=legend(ax1,'QC A','QC B','QC C' ,'QC D' ,'QC E' ,'QC F' ,...
+                        'location','east');
+        end  
+        set(lgnd,'color','none');
+
+        ylabel(ax1,'Percent of profiles [%]')
+        %xlabel(ax1,'Launch year')
+        set(ax1,'xtick',1:n_launch_years,'xticklabel', nb_per_launch_year_x)
+        ax1.XTickLabelRotation = 45;
+        set(ax1, 'xlim',[1,n_launch_years+3])
+        ax1.YGrid = 'on';
+        box on
+
+        % Bottom plot
+        ax2 = subplot(212);
+        hold on
+        plot(ax2,1:n_launch_years,nb_prof_DMQCed_per_launch_year.(i_param),'color','black','LineWidth',2)
+        ylabel(ax2,'Number of profiles')
+        xlabel(ax2,'Launch year')
+        set(ax2,'xtick',1:n_launch_years,'xticklabel', nb_per_launch_year_x)
+        ax2.XTickLabelRotation = 45;
+        set(ax2, 'xlim',[1,n_launch_years+3])
+        ax2.YGrid = 'on';
+        box on
+
+        % save figure
+        out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param) '_Dprofile_QC_evolution_' working_date];
+        disp(['saving ' out_name])
+    %     export_fig([out_name '.png'])
+        print('-dpng', '-r100',[out_name '.png'])
+        if print_svg == 1
+            saveas(gcf,[out_name '.svg'])
+        end
+
+
+    end
+    diary off
+    %% 
+    diary on
+    for i=1:n_param
+        close all
+
+        i_param=list_of_parameters_to_treat(i);
+        fprintf('Making Plots for %s \n',i_param)
+
+        close all
+
+         %%%%%%%%%%%%%% exclusion list  %%%%%%%%%%%%%%
+        disp('exclusion list status')
+        i_fig=6;
+        figure(i_fig)
+        % bigger figure
+        set(gcf, 'Position', [200, 200, 1000, 600])
+        % figure name
+        set(gcf,'Name','exclusion list')
+
+
+
+        bar(1, nb_float_tot.(i_param),              'FaceColor', bars_colors(1,:))
+        hold on
+        bar(2, nb_float_xage_tot.(i_param),         'FaceColor', bars_colors(2,:))
+        bar(3, nb_float_DMQCed_tot.(i_param),       'FaceColor', bars_colors(3,:))
+        bar(4, nb_floats_xage_DMQCed_tot.(i_param), 'FaceColor', bars_colors(4,:))
+        bar(5, nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param),       'FaceColor', bars_colors(11,:))
+        bar(6, nb_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param), 'FaceColor', bars_colors(12,:))
+        bar(7, nb_wmo_inactiveD_in_exclusionlist_with_qc_3_or_4.(i_param),  'FaceColor', bars_colors(13,:))
+
+        % FIGURE FORMAT
+        % xlabels
+        set(gca,'XTick',[])
+        % title with update date
+        title(['Floats status and exclusion list for ' char(i_param) ' (updated ',update_date_str,')'], 'Interpreter', 'none')
+        ylabel('Number of floats')
+        % legend with total number
+        legend(['All floats ('          num2str(nb_float_tot.(i_param)) ')'],...
+               ['Floats ' profile_old_b ' ('       num2str(nb_float_xage_tot.(i_param)) ')'],...
+               ['Floats DMQC at least once ('              num2str(nb_float_DMQCed_tot.(i_param)) ')'],...
+               ['Floats ' profile_old_b ' and DMQC at least once ('    num2str(nb_floats_xage_DMQCed_tot.(i_param)) ')'],...
+               ['Active Floats in exclusion list ('     num2str(nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param)) ...
+                  '/' num2str(nb_operational_floats.(i_param)) ' ->' ...
+                  num2str(round(100*nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param)/nb_operational_floats.(i_param),1)) '% of active floats)'],...
+               ['Inactive Floats with R or A profiles in exclusion list (' num2str(nb_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param)) ')'], ...
+               ['Inactive Floats only with D profiles in exclusion list (' num2str(nb_wmo_inactiveD_in_exclusionlist_with_qc_3_or_4.(i_param)) ')'], ...
+            'Location','southoutside')
+
+        % background color
+        set(gcf,'color','w');
+        % grid in y axis
+        ax = gca;
+        ax.YGrid = 'on';
+
+        % figure labels
+        ymax=max(nb_float_tot.(i_param));
+        set(gca,'YLim',[0 ymax+ymax/5]);
+        text(1, nb_float_tot.(i_param) + ymax/20, num2str(nb_float_tot.(i_param)), ...
+            'HorizontalAlignment', 'center');
+        text(2, nb_float_xage_tot.(i_param) + ymax/20, num2str(nb_float_xage_tot.(i_param)), ...
+            'HorizontalAlignment', 'center');
+        text(3, nb_float_DMQCed_tot.(i_param) + ymax/20, num2str(nb_float_DMQCed_tot.(i_param)), ...
+            'HorizontalAlignment', 'center');
+        text(4, nb_floats_xage_DMQCed_tot.(i_param) + ymax/20, num2str(nb_floats_xage_DMQCed_tot.(i_param)), ...
+            'HorizontalAlignment', 'center');
+        text(5, nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_ope_in_exclusionlist_with_qc_3_or_4.(i_param)), ...
+            'HorizontalAlignment', 'center');
+        text(6, nb_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_inactiveR_in_exclusionlist_with_qc_3_or_4.(i_param)), ...
+            'HorizontalAlignment', 'center');
+        text(7, nb_wmo_inactiveD_in_exclusionlist_with_qc_3_or_4.(i_param) + ymax/20, num2str(nb_wmo_inactiveD_in_exclusionlist_with_qc_3_or_4.(i_param)), ...
+            'HorizontalAlignment', 'center');
+
+
+        % save figure
+        out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param) '_DMQC_status_and_exclusion_list_' working_date];
+        disp(['saving ' out_name])
+    %     export_fig([out_name '.png'])
+        print('-dpng', '-r100',[out_name '.png'])
+        if print_svg == 1
+            saveas(gcf,[out_name '.svg'])
+        end
+
+    end
+    diary off
+    %% 
+    diary on
+    for i=1:n_param
+        close all
+
+        i_param=list_of_parameters_to_treat(i);
+
+        if ismember("PSAL",list_of_parameters_to_treat)
+            if (i_param == "TEMP" || i_param == "PRES") 
+                % no need to output plot as mode is the same for TEMP, PRES,
+                % PSAL
+                continue
+            else
+                if i_param == "PSAL"
+                    i_param_str="CTD";
+                else
+                    i_param_str=i_param;
+                end
+            end
+        else
+            i_param_str=i_param;
+        end
+
+        fprintf('Making Plots for %s \n',i_param_str)
+
+        close all
+        %%%%%%%%%%%%%% DMQC CTD status per profile year %%%%%%%%%%%%%%
+        disp('DMQC status per profile year')
+        i_fig=7;
+        figure(i_fig)
+
+        % bigger figure
+        set(gcf, 'Position', [200, 200, 1000, 600])
+        % figure name
+        set(gcf,'Name','DMQC status per profile year')
+
+        if (nb_per_year_x(1) == string(1980))
+            nb_per_year_x_cr=nb_per_year_x(2:end);
+            nb_profiles_DMQCed_per_year_cr=nb_profiles_DMQCed_per_year.(i_param)(2:end);
+            nb_profiles_per_year_cr=nb_profiles_per_year.(i_param)(2:end);
+        else
+            nb_per_year_x_cr=nb_per_year_x;
+            nb_profiles_DMQCed_per_year_cr=nb_profiles_DMQCed_per_year.(i_param);
+            nb_profiles_per_year_cr=nb_profiles_per_year.(i_param);
+        end
+
+        hndl = bar(1:length(nb_per_year_x_cr), ...
+               [nb_profiles_per_year_cr nb_profiles_DMQCed_per_year_cr], 1);
+
+        % FIGURE FORMAT
+        hold on
+        %plot(1,0,'w'); % for comment in legend
+        % bars colors
+        set(hndl(1),'facecolor',bars_colors(1,:))
+        set(hndl(2),'facecolor',bars_colors(3,:))
+        % xlabels
+        %set(gca,'xtick',str2double(nb_per_year_x))
+        set(gca,'xtick',1:length(nb_per_year_x_cr),'xticklabel', nb_per_year_x_cr)
+        xtickangle(90)
+        % title with update date
+        title(['DMQC status for ' char(i_param_str) ' per profile year (updated ',update_date_str,')'], 'Interpreter', 'none')
+        ylabel('Number of profiles')
+        % legend with total number
+        legend(['Number of profiles (Total: ',num2str(sum(nb_profiles_per_year_cr,'omitnan')),')'],...
+               ['Number of D-profiles (Total: ',num2str(sum(nb_profiles_DMQCed_per_year_cr,'omitnan')),')'], ...
+            prof_included,'Location','southoutside')
+        % background color
+        set(gcf,'color','w');
+        % grid in y axis
+        ax = gca;
+        ax.YGrid = 'on';
+
+        % figure labels
+        ymax=max(nb_profiles_per_year_cr);
+        set(gca,'YLim',[0 ymax+ymax/10]);
+        for iyear = 1: length(nb_per_year_x_cr)
+            if nb_profiles_per_year_cr(iyear) > 0
+                percent_str = [num2str(round(nb_profiles_DMQCed_per_year_cr(iyear)/nb_profiles_per_year_cr(iyear)*100,1)) ' %'];
+                h=text(iyear + 0.15, nb_profiles_DMQCed_per_year_cr(iyear) + ymax/30 ,percent_str);
+                set(h,'Rotation',90);
+            end
+        end
+
+        % save figure
+        out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param_str) '_prof_DMQCstatus_byyear_' working_date];
+        disp(['saving ' out_name])
+    %     export_fig([out_name '.png'])
+        print('-dpng', '-r100',[out_name '.png'])
+        if print_svg == 1
+            saveas(gcf,[out_name '.svg'])
+        end
+
+
+
+    end
+    diary off
+    %% 
+    diary on
+    %for i=1:3
+    for i=1:n_param
+        close all
+
+        i_param=list_of_parameters_to_treat(i);
+
+        if ismember("PSAL",list_of_parameters_to_treat)
+            if (i_param == "PRES") 
+                % no need to output plot as mode fro PRES is the same as mode 
+                % for PSAL eand TEMP and profile_qc unavailable in index.
+                continue
+            else
+                i_param_str=i_param;
+            end
+        else
+            i_param_str=i_param;
+        end
+
+        fprintf('Making Plots for %s \n',i_param_str)
+
+        close all
+        %%%%%%%%%%%%%% DMQC status per profile year %%%%%%%%%%%%%%
+        disp('DMQC and QC-F status per profile year')
+        i_fig=8;
+        figure(i_fig)
+
+        % bigger figure
+        set(gcf, 'Position', [200, 200, 1000, 600])
+        % figure name
+        set(gcf,'Name','DMQC and F status per profile year')
+
+        if (nb_per_year_x(1) == string(1980))
+            nb_per_year_x_cr=nb_per_year_x(2:end);
+            nb_profiles_DMQCed_per_year_cr=nb_profiles_DMQCed_per_year.(i_param)(2:end);
+            nb_profiles_per_year_cr=nb_profiles_per_year.(i_param)(2:end);
+            nb_profiles_QCF_per_year_cr=nb_profiles_QCF_per_year.(i_param)(2:end);
+            nb_profiles_DMQCed_QCF_per_year_cr=nb_profiles_DMQCed_QCF_per_year.(i_param)(2:end);
+        else
+            nb_per_year_x_cr=nb_per_year_x;
+            nb_profiles_DMQCed_per_year_cr=nb_profiles_DMQCed_per_year.(i_param);
+            nb_profiles_per_year_cr=nb_profiles_per_year.(i_param);
+            nb_profiles_QCF_per_year_cr=nb_profiles_QCF_per_year.(i_param);
+            nb_profiles_DMQCed_QCF_per_year_cr=nb_profiles_DMQCed_QCF_per_year.(i_param);
+        end
+
+        stackData = cat(3,[(nb_profiles_per_year_cr-nb_profiles_QCF_per_year_cr) ...
+                           (nb_profiles_DMQCed_per_year_cr-nb_profiles_DMQCed_QCF_per_year_cr)], ...
+                          [ nb_profiles_QCF_per_year_cr ...
+                            nb_profiles_DMQCed_QCF_per_year_cr]);
+
+        hndl = plotBarStackGroups(stackData, 1:length(nb_per_year_x_cr));
+
+
+        % FIGURE FORMAT
+        hold on
+        %plot(1,0,'w'); % for comment in legend
+        % bars colors
+        set(hndl(1,1),'facecolor',bars_colors(4,:))
+        set(hndl(1,2),'facecolor',bars_colors(21,:))
+        set(hndl(2,1),'facecolor',bars_colors(3,:))
+        set(hndl(2,2),'facecolor',bars_colors(22,:))
+        % xlabels
+        set(gca,'xtick',1:length(nb_per_year_x_cr),'xticklabel', nb_per_year_x_cr)
+        xtickangle(90)
+        % title with update date
+        title(['DMQC and profile-F status for ' char(i_param_str) ' per profile year (updated ',update_date_str,')'], 'Interpreter', 'none')
+        ylabel('Number of profiles')
+        % legend with total number
+        legend(['Number of profiles with prof_QC<>F(Total: ',num2str(sum(nb_profiles_per_year_cr,'omitnan')),')'],...
+               ['Number of profiles with prof_QC=F (Total: ',num2str(sum(nb_profiles_QCF_per_year_cr,'omitnan')),')'],...
+               ['Number of D-profiles with prof_QC<>F (Total: ',num2str(sum(nb_profiles_DMQCed_per_year_cr,'omitnan')),')'], ...
+               ['Number of D-profiles with prof_QC=F (Total: ',num2str(sum(nb_profiles_DMQCed_QCF_per_year_cr,'omitnan')),')'], ...
+            prof_included,'Location','southoutside', 'Interpreter', 'none')
+        % background color
+        set(gcf,'color','w');
+        % grid in y axis
+        ax = gca;
+        ax.YGrid = 'on';
+
+        % figure labels
+        ymax=max(nb_profiles_per_year_cr);
+        set(gca,'YLim',[0 ymax+ymax/10]);
+    %     for iyear = 1: length(nb_per_year_x_cr)
+    %         if nb_profiles_per_year_cr(iyear) > 0
+    %             percent_str = [num2str(round(nb_profiles_DMQCed_per_year_cr(iyear)/nb_profiles_per_year_cr(iyear)*100,1)) ' %'];
+    %             h=text(iyear + 0.15, nb_profiles_DMQCed_per_year_cr(iyear) + ymax/30 ,percent_str);
+    %             set(h,'Rotation',90);
+    %         end
+    %     end
+
+        % save figure
+        out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param_str) '_prof_DMQC-and-F_status_byyear_' working_date];
+        disp(['saving ' out_name])
+    %     export_fig([out_name '.png'])
+        print('-dpng', '-r100',[out_name '.png'])
+        if print_svg == 1
+            saveas(gcf,[out_name '.svg'])
+        end
+
+
+
+    end
+    diary off
+    %% 
+    diary on
+    for i=1:n_param
+
+        close all
+
+        i_param=list_of_parameters_to_treat(i);
+
+        if ismember("PSAL",list_of_parameters_to_treat)
+            if (i_param == "TEMP" || i_param == "PRES") 
+                % no need to output plot as mode is the same for TEMP, PRES,
+                % PSAL
+                continue
+            else
+                if i_param == "PSAL"
+                    i_param_str="CTD";
+                else
+                    i_param_str=i_param;
+                end
+            end
+        else
+            i_param_str=i_param;
+        end
+
+        fprintf('Making Plots for %s \n',i_param_str)
+
+         %%%%%%%%%%%%%% DMQC status by profile age histogram %%%%%%%%%%%%%%
+        disp('DMQC status by profile age histogram')
+        i_fig=9;
+        figure(i_fig)
+
+        % bigger figure
+        set(gcf, 'Position', [200, 200, 1000, 600])
+        % figure name
+        set(gcf,'Name','R/A-Profiles age')
+
+        hndl = histogram(IndexData.profile_age(i_R_or_A_profile.(i_param))/365);
+
+        % FIGURE FORMAT
+        hold on
+        plot(ones(1,hndl.NumBins),hndl.Values,'--k','LineWidth',2.5); % for comment in legend
+        % xlabels
+        xlabel('Age of profiles [years]')
+        % title with update date
+        title(['Age of ' char(i_param_str) ' profiles with no DMQC (updated ',update_date_str,')'], 'Interpreter', 'none')
+        ylabel('Number of profiles')
+        % background color
+        set(gcf,'color','w');
+        % grid in y axis
+        ax = gca;
+        ax.YGrid = 'on';
+
+        % save figure
+        out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param_str) '_prof_DMQCstatus_agehist_' working_date];
+        disp(['saving ' out_name])
+        %     export_fig([out_name '.png'])
+        print('-dpng', '-r100',[out_name '.png'])
+        if print_svg == 1
+            saveas(gcf,[out_name '.svg'])
+        end
+
+    end
+    tEnd = toc(tStart);
+
+    diary off
+    %% 
+    diary on
+    % Additionnal graphs from previous get_DMQC_adjustment.m routine.
+    % Thanks to the update of the index file with psal adjustment information
+    % We can switch the making of the graphs to this routine. 
+    % There are 2 new kinds of graphs:
+    %  - R/A/D profiles per parameter
+    %  - a series of graphs by wmo (R/A/D, QC, PSAL_adj) (and by parameter).
+
+    disp('Number of R/A/D profiles by parameter')
+    i_fig=10;
+    close all
+    figure(i_fig)
+
+    % bigger figure
+    set(gcf, 'Position', [200, 200, 1000, 600])
+    % figure name
+    set(gcf,'Name','R/A/D profiles nb by parameter')
+
+    set(gca, 'units', 'normalized'); %Just making sure it's normalized
+    Tight = get(gca, 'TightInset');  %Gives you the bording spacing between plot box and any axis labels
+                                     %[Left Bottom Right Top] spacing
+    NewPos = [Tight(1) Tight(2) 1-Tight(1)-Tight(3) 1-Tight(2)-Tight(4)-0.1]; %New plot position [X Y W H]
+    set(gca, 'Position', NewPos);
+
+    % To avoid the 3 same information for CTD:
+    if list_of_parameters_to_treat(1)=="TEMP" && ...
+       list_of_parameters_to_treat(2)=="PRES" && ...
+       list_of_parameters_to_treat(3)=="PSAL"
+
+        if i_bgc == 1
+            loc_list_of_parameters_to_treat=list_of_parameters_to_treat(4:end);
+            loc_n_param=size(loc_list_of_parameters_to_treat,1);
+            ctd_first=0;
+        else
+            loc_list_of_parameters_to_treat=list_of_parameters_to_treat(3:end);
+            loc_n_param=size(loc_list_of_parameters_to_treat,1);
+            ctd_first=1;
+        end
+    else
+        loc_list_of_parameters_to_treat=list_of_parameters_to_treat;
+        loc_n_param=n_param;
+        ctd_first=0;
+    end
+
+    stackData = NaN(loc_n_param,3);
+
+    for i=1:loc_n_param
+        i_param=loc_list_of_parameters_to_treat(i);
+
+        stackData(i,:) = cat(3,[sum(string(IndexData.param.(i_param).mode) == "R")'...
+                                sum(string(IndexData.param.(i_param).mode) == "A")'...
+                                sum(string(IndexData.param.(i_param).mode) == "D")']);
+    end
+
+    hndl = plotBarStackGroups(stackData, loc_list_of_parameters_to_treat');
+
+    % FIGURE FORMAT
+    hold on
+    hp = plot(1,0,'w'); % for comment in legend
+    % bar colors 
+    set(hndl(1),'facecolor',bars_colors(15,:))
+    set(hndl(2),'facecolor',bars_colors(2,:))
+    set(hndl(3),'facecolor',bars_colors(3,:))
+    % xlabels
+    if ctd_first == 1
+        loc_list_of_parameters_to_treat(1)="CTD";
+    end
+    loc_list_of_parameters_to_treat_wo__=strrep(loc_list_of_parameters_to_treat,"_"," ");
+    set(gca,'xtick',1:loc_n_param,'xticklabel', loc_list_of_parameters_to_treat_wo__','XTickLabelRotation',45)
+
+
+    % title with update date
+    title(['Number of R/A/D - profiles by variable (updated ',update_date_str,')' newline project_name ], 'Interpreter', 'none')
+    ylabel('Number of profiles')
+
+    % legend with total number
+    legend([hndl(1), hndl(2), hndl(3), hp], ...
+        {['R-profiles (Total: ',num2str(sum(stackData(:,1))),')'],...
+         ['A-profiles (Total: ',num2str(sum(stackData(:,2))),')'],...
+         ['D-profiles (Total: ',num2str(sum(stackData(:,3))),')'],...
+        prof_included},'Location','southoutside')
+
+    % background color
+    set(gcf,'color','w');
+    % grid in y axis
+    ax = gca;
+    ax.YGrid = 'on';
+
+     % save figure
+    out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_prof_RAD_mode_per_param_' working_date];
+    disp(['saving ' out_name])
+    %     export_fig([out_name '.png'])
+    print('-dpng', '-r100',[out_name '.png'])
+    if print_svg == 1
+        saveas(gcf,[out_name '.svg'])
+    end
+
+    diary off
+
+    %% 
+    diary on
+    if output_graphs_per_float ==1
+
+        disp('R/A/D status by float and by cycle number')
+        i_fig=11;
+        for i=1:n_param
+            close all
+            i_param=list_of_parameters_to_treat(i);
+
+
+            if ismember("PSAL",list_of_parameters_to_treat)
+                if (i_param == "TEMP" || i_param == "PRES") 
+                    % no need to output plot as mode is the same for TEMP, PRES,
+                    % PSAL
+                    continue
+                else
+                    if i_param == "PSAL"
+                        i_param_str="CTD";
+                    else
+                        i_param_str=i_param;
+                    end
+                end
+            else
+                i_param_str=i_param;
+            end
+
+            fprintf('Making Plots for %s \n',i_param_str)
+
+            subset_prof_WMO=IndexData.profile_WMO(IndexData.param.(i_param).presence==1);
+            subset_prof_cycle=IndexData.cycle(IndexData.param.(i_param).presence==1);
+            subset_prof_mode=IndexData.param.(i_param).mode(IndexData.param.(i_param).presence==1);
+
+            list_wmo_for_graph=unique(subset_prof_WMO);
+            n_wmo_param=size(list_wmo_for_graph,1);
+            n_graph=ceil(n_wmo_param/n_max_float_per_graph);
+
+
+            for i_graph=1:n_graph
+
+                i_wmo_min=1+(i_graph-1)*n_max_float_per_graph;
+                i_wmo_max=min(n_wmo_param,i_graph*n_max_float_per_graph);
+                list_wmo_for_i_graph=list_wmo_for_graph(i_wmo_min:i_wmo_max);
+                n_wmo_for_i_graph=size(list_wmo_for_i_graph,1);
+
+                prof_subset=ismember(subset_prof_WMO,list_wmo_for_i_graph);
+
+                xx=double(subset_prof_cycle((prof_subset==1)));
+                yy=subset_prof_WMO((prof_subset==1));
+                zz=string(subset_prof_mode((prof_subset==1)));
+
+                i_R=(zz=="R");
+                i_A=(zz=="A");
+                i_D=(zz=="D");
+
+                close all
+                figure(i_fig)
+
+
+                % bigger figure
+                set(gcf, 'Position', [200, 200, 1200, 600])
+                % figure name
+                set(gcf,'Name','R/A/D status by float and by cycle number')
+                hold on
+
+                % title with update date
+                title(['R/A/D status by float and by cycle for ' char(i_param_str) ' (updated ',update_date_str,')' ...
+                      newline project_name ' - batch ' num2str(i_graph) '/' num2str(n_graph)], 'Interpreter', 'none')
+                xlabel('Cycle Number')
+
+                xx_iR=xx(i_R);
+                [~,yy_iR]=ismember(yy(i_R),list_wmo_for_i_graph);
+
+                xx_iA=xx(i_A);
+                [~,yy_iA]=ismember(yy(i_A),list_wmo_for_i_graph);
+
+                xx_iD=xx(i_D);
+                [~,yy_iD]=ismember(yy(i_D),list_wmo_for_i_graph);
+
+                scatter(xx_iR,yy_iR,10,'o','filled','MarkerFaceColor',bars_colors(15,:))
+                scatter(xx_iA,yy_iA,10,'o','filled','MarkerFaceColor',bars_colors(2,:))
+                scatter(xx_iD,yy_iD,10,'o','filled','MarkerFaceColor',bars_colors(3,:))
+
+
+                set(gca,'ytick',1:n_wmo_for_i_graph,'yticklabel', list_wmo_for_i_graph')
+                % legend
+                lh = legend(['R-profiles (',num2str(size(yy_iR,1)),' profiles)'],...
+                            ['A-profiles (',num2str(size(yy_iA,1)),' profiles)'],...
+                            ['D-profiles (',num2str(size(yy_iD,1)),' profiles)'],...
+                          'Location','northeastoutside');
+                set(lh,'FontSize',10);
+
+    %             xlimits=xlim();
+    %             xlim([xlimits(1) xlimits(2)*1.3]);
+
+                % background color
+                set(gcf,'color','w');
+                % grid in y axis
+                ax = gca;
+                ax.YGrid = 'on';
+
+                 % save figure
+                out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param_str) '_RAD_mode_per_wmo_per_cycle_' sprintf('%03d',i_graph) '_' working_date];
+                disp(['saving ' out_name])
+                %     export_fig([out_name '.png'])
+                print('-dpng', '-r100',[out_name '.png'])
+                if print_svg == 1
+                    saveas(gcf,[out_name '.svg'])
+                end
+
+            end        
+
+        end  
+
+    end
+    diary off
+    %% 
+    diary on
+    if output_graphs_per_float ==1
+
+        disp('Profile QC status by float and by cycle number')
+        list_QCs=["A";"B";"C";"D";"E";"F";"X"];
+        i_fig=12;
+
+        for i=1:n_param
+            close all
+            i_param=list_of_parameters_to_treat(i);
+
+            if i_param == "PRES" 
+                % PRES profie QC information is not yet available in the index
+                % file
+                continue
+            end
+
+
+
+            fprintf('Making Plots for %s \n',i_param)
+
+            subset_prof_WMO=IndexData.profile_WMO(IndexData.param.(i_param).presence==1);
+            subset_prof_cycle=IndexData.cycle(IndexData.param.(i_param).presence==1);
+            subset_prof_qc=IndexData.param.(i_param).qc(IndexData.param.(i_param).presence==1);
+
+            list_wmo_for_graph=unique(subset_prof_WMO);
+            n_wmo_param=size(list_wmo_for_graph,1);
+            n_graph=ceil(n_wmo_param/n_max_float_per_graph);
+
+
+            for i_graph=1:n_graph
+
+                i_wmo_min=1+(i_graph-1)*n_max_float_per_graph;
+                i_wmo_max=min(n_wmo_param,i_graph*n_max_float_per_graph);
+                list_wmo_for_i_graph=list_wmo_for_graph(i_wmo_min:i_wmo_max);
+                n_wmo_for_i_graph=size(list_wmo_for_i_graph,1);
+
+                prof_subset=ismember(subset_prof_WMO,list_wmo_for_i_graph);
+
+                xx=double(subset_prof_cycle((prof_subset==1)));
+                yy=subset_prof_WMO((prof_subset==1));
+                zz=string(subset_prof_qc((prof_subset==1)));
+
+                close all
+                figure(i_fig)
+
+
+                % bigger figure
+                set(gcf, 'Position', [200, 200, 1200, 600])
+                % figure name
+                set(gcf,'Name','Profile QC status by float and by cycle number')
+                hold on
+
+                % title with update date
+                title(['Profile QC status by float and by cycle for ' char(i_param) ' (updated ',update_date_str,')' ...
+                      newline project_name ' - batch ' num2str(i_graph) '/' num2str(n_graph)], 'Interpreter', 'none')
+                xlabel('Cycle Number')
+
+                for iQC=1:size(list_QCs,1)
+
+                    i_QC=list_QCs(iQC);
+                    % find profiles indices where QC = i_QC
+                    ii_QC=(zz==i_QC);
+
+                    % retrieve corresponding wmo and cycle
+                    xx_iQC=xx(ii_QC);
+                    [~,yy_iQC]=ismember(yy(ii_QC),list_wmo_for_i_graph);
+
+                    % plot using scatter plot
+                    scatter(xx_iQC,yy_iQC,10,'o','filled','MarkerFaceColor',bars_colors(iQC+4,:))
+
+                    % prepare the legend
+                    if i_QC ~= "X"
+                        lgd.(i_QC)=['profile QC ' char(i_QC) ' (' sprintf('%d',size(yy_iQC,1)) ' profiles)'];
+                    else
+                        lgd.(i_QC)=['no profile QC (' sprintf('%d',size(yy_iQC,1)) ' profiles)'];
+                    end
+
+                end
+
+                set(gca,'ytick',1:n_wmo_for_i_graph,'yticklabel', list_wmo_for_i_graph')
+                % legend
+                lh = legend(lgd.A,lgd.B,lgd.C,lgd.D,lgd.E,lgd.F,lgd.X, ...
+                          'Location','northeastoutside');
+                set(lh,'FontSize',10);
+
+    %             xlimits=xlim();
+    %             xlim([xlimits(1) xlimits(2)*1.3]);
+
+                % background color
+                set(gcf,'color','w');
+                % grid in y axis
+                ax = gca;
+                ax.YGrid = 'on';
+
+                 % save figure
+                out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param) '_profile_QC_per_wmo_per_cycle_' sprintf('%03d',i_graph) '_' working_date];
+                disp(['saving ' out_name])
+                %     export_fig([out_name '.png'])
+                print('-dpng', '-r100',[out_name '.png'])
+                if print_svg == 1
+                    saveas(gcf,[out_name '.svg'])
+                end
+
+            end        
+
+        end 
+    end
+
+
+    diary off
+    %% 
+    diary on
+    if output_graphs_per_float ==1
+
+        disp('PSAL adjustment by float and by cycle number')
+
+        i_fig=13;
+
+        i_param = "PSAL";            
+        subset_prof_WMO=IndexData.profile_WMO(IndexData.param.(i_param).presence==1);
+        subset_prof_cycle=IndexData.cycle(IndexData.param.(i_param).presence==1);
+        subset_prof_adj=IndexData.param.(i_param).adj(IndexData.param.(i_param).presence==1);
+        subset_prof_qc=IndexData.param.(i_param).qc(IndexData.param.(i_param).presence==1);
+        subset_prof_mode=IndexData.param.(i_param).mode(IndexData.param.(i_param).presence==1);
+
+        list_wmo_for_graph=unique(subset_prof_WMO);
+        n_wmo_param=size(list_wmo_for_graph,1);
+        n_graph=ceil(n_wmo_param/n_max_float_per_graph);
+
+
+        for i_graph=1:n_graph
+
+            i_wmo_min=1+(i_graph-1)*n_max_float_per_graph;
+            i_wmo_max=min(n_wmo_param,i_graph*n_max_float_per_graph);
+            list_wmo_for_i_graph=list_wmo_for_graph(i_wmo_min:i_wmo_max);
+            n_wmo_for_i_graph=size(list_wmo_for_i_graph,1);
+
+            prof_subset=ismember(subset_prof_WMO,list_wmo_for_i_graph);
+
+            xx=double(subset_prof_cycle((prof_subset==1)));
+            yy=subset_prof_WMO((prof_subset==1));
+            zz=double(subset_prof_adj((prof_subset==1)));
+            zz_qc=string(subset_prof_qc((prof_subset==1)));
+            zz_mode=string(subset_prof_mode((prof_subset==1)));
+            close all
+            figure(i_fig)
+
+
+            % bigger figure
+            set(gcf, 'Position', [200, 200, 1000, 600])
+            % figure name
+            set(gcf,'Name','Profile QC status by float and by cycle number')
+            hold on
+
+            % title with update date
+            title(['PSAL adjustment by float and by cycle for ' char(i_param) ' (updated ',update_date_str,')' ...
+                  newline project_name ' - batch ' num2str(i_graph) '/' num2str(n_graph)], 'Interpreter', 'none')
+            xlabel('Cycle Number')
+
+
+            % Plot R and A-profile in light grey
+            % find profiles indices where QC = i_QC
+            ii_RA=( ((zz_mode=="R") | (zz_mode=="A")) & (zz_qc~="F") );
+            % retrieve corresponding wmo and cycle
+            xx_iRA=xx(ii_RA);
+            [~,yy_iRA]=ismember(yy(ii_RA),list_wmo_for_i_graph);
+            % plot using scatter plot
+            scatter(xx_iRA,yy_iRA,10,'o','filled','MarkerFaceColor',[0.78 0.78 0.78])
+            % output the legend
+            lgd1='R and A profiles (not QC F)';
+
+            % Plot R and A-profile QC F in medium grey
+            % find profiles indices where QC = i_QC
+            ii_RAF=( ((zz_mode=="R") | (zz_mode=="A")) & (zz_qc=="F"));
+            % retrieve corresponding wmo and cycle
+            xx_iRAF=xx(ii_RAF);
+            [~,yy_iRAF]=ismember(yy(ii_RAF),list_wmo_for_i_graph);
+            % plot using scatter plot
+            scatter(xx_iRAF,yy_iRAF,10,'o','filled','MarkerFaceColor',[0.4 0.4 0.4])
+            % output the legend
+            lgd2='R and A profiles with QC F';
+
+
+            % Plot D-profile QC F in black
+            % find profiles indices where QC = i_QC
+            ii_DF=((zz_mode=="D") & (zz_qc=="F"));
+            % retrieve corresponding wmo and cycle
+            xx_iDF=xx(ii_DF);
+            [~,yy_iDF]=ismember(yy(ii_DF),list_wmo_for_i_graph);
+            % plot using scatter plot
+            scatter(xx_iDF,yy_iDF,10,'o','filled','MarkerFaceColor','black')
+            % output the legend
+            lgd3='D profiles with QC F';
+            [lh,~] = legend(lgd1,lgd2,lgd3,'Location','northeast');
+            set(lh,'FontSize',10);
+            set(lh,'Position',[0.6 0.85 0.23 0.09]);
+
+
+            [~,yy_plot]=ismember(yy,list_wmo_for_i_graph);
+            % plot using scatter plot
+            scatter(xx,yy_plot,10,zz,'o','filled')
+            colormap(gca,flipud(jet))
+            colorbar()
+            caxis([-0.07 0.07])
+
+            % As information can be overlaid (both adj and R, both QC F and R):
+            % rearrangement of the order of apparition
+            scatter(xx_iRA,yy_iRA,10,'o','filled','MarkerFaceColor',[0.78 0.78 0.78])
+            scatter(xx_iRAF,yy_iRAF,10,'o','filled','MarkerFaceColor',[0.4 0.4 0.4])
+            scatter(xx_iDF,yy_iDF,10,'o','filled','MarkerFaceColor','black')
+
+
+            set(gca,'ytick',1:n_wmo_for_i_graph,'yticklabel', list_wmo_for_i_graph')
+
+            ylimits=ylim();
+            ylim([ylimits(1) ylimits(2)*1.15]);
+
+            % background color
+            set(gcf,'color','w');
+            % grid in y axis
+            ax = gca;
+            ax.YGrid = 'on';
+            ax.XGrid = 'on';
+
+            % Add minor ticks/grid along the x axis.
+            xt=ax.XTick;                   % and the current tick values
+            nT=length(xt);                 % how many ticks are there???
+            nMinorT=5;                     % set how many minor tick divisions wanted
+            ax.XAxis.MinorTickValues=linspace(xt(1),xt(end),(nT-1)*nMinorT+1); % set those values
+
+            ax.XMinorTick = 'on';
+            ax.XMinorGrid = 'on';
+
+
+             % save figure
+            out_name = [output_plots_dir '/' sprintf('%02d',i_fig) '_' project_name '_' char(i_param) '_PSAL_adj_per_wmo_per_cycle_' sprintf('%03d',i_graph) '_' working_date];
+            disp(['saving ' out_name])
+            %     export_fig([out_name '.png'])
+            print('-dpng', '-r100',[out_name '.png'])
+
+            if print_svg == 1
+                saveas(gcf,[out_name '.svg'])
+            end
+
+
+
+        end 
+    end
+
+    close all
+
+    diary off
 end
-
-close all
-
-diary off
 %% 
 diary on
 
@@ -2470,7 +2512,7 @@ for i=1:n_param
     [~,loc]=ismember(wmos_with_D_profile.(i_param),string(Floats_list.(i_param).WMO));
     Floats_list.(i_param).wmo_dm_done(loc) = 1;
 
-    %'exclusionlist,'
+    %'exclusion list,'
     [~,loc]=ismember(wmos_with_RA_profiles_in_exclusion_list.(i_param),string(Floats_list.(i_param).WMO));
     Floats_list.(i_param).exclusion_list(loc) = 1;
 
@@ -2496,8 +2538,7 @@ for i=1:n_param
     val=datestr(accumarray(ic,loc_date,[],@max),'yyyy/mm/dd HH:MM:SS'); 
     [~,loc]=ismember(xx,string(Floats_list.(i_param).WMO));
     Floats_list.(i_param).prof_last_date(loc)=string(val);
-    
-    
+
 
     %'number_DMprof,'
     [xx,~,ic]=unique(IndexData.profile_WMO(IndexData.param.(i_param).mode == 'D'));
