@@ -10,7 +10,7 @@
 % ----------------------------------------------------------------------
 
 script_dir = /home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/scripts/
-test_case_dir = /home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/02_EuropeanFleet_case/
+test_case_dir = /home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/10_CoreBacklog_floats/
 
 %sub repository under test_case_dir containing wmo_list and country_code files
 input_file_dir = input_files
@@ -26,16 +26,22 @@ log_file=matlab.log
 % on the https or ftp access.
 index_file_dir = /home/ref-argo/gdac/etc/argo-index/
 index_file_core = argo_profile_detailled_index.txt
+% index_file_dir = /home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/01_AllArgoFleet_case/output_files_2025-01-15_064218/
+% index_file_core = argo_profile_detailled_index_2025-01-15_064218.txt
 index_file_bgc_synthetic = argo_synthetic-profile_detailled_index.txt
 
 % exclusion_file_dir. It must be fetched on the dmqc ftp (ask coriolis team for the access credentials)
 exclusion_file_dir = /home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/common_input_files/
 exclusion_file = argo_sensor_exclusion_list.txt
 
+% temp only floats. This is a workaround for early floats with only temp sensor. The current does not allow to catch them.
+temp_only_wmos_dir = /home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/common_input_files/
+temp_only_wmos_file = wmo_tempOnly.txt
+
 % ----------------------------------------------------------------------
 % comments on plots and syntheses 
 % ----------------------------------------------------------------------
-project_name = European_Fleet
+project_name = Argo_coreBacklog_Fleet
 
 % -----------------------------------------------------------------------
 % computing and plotting features
@@ -54,7 +60,7 @@ input_list_of_BGC_parameters_to_treat=DOXY;CHLA;NITRATE;PH_IN_SITU_TOTAL;BBP700;
 i_descending_profile=1
 
 % to mention whether by-float information should be plotted and number of floats to be plotted on these by-float plots
-output_graphs_per_float=0
+output_graphs_per_float=1
 n_max_float_per_graph=30
 
 % Select the method to consider old profiles: either with the profile_age_min_days (days) or with profile_age_max_date (date)
@@ -63,6 +69,9 @@ profile_age_method=days
 profile_age_min_days=720
 % Date threshold for "old" profiles
 profile_age_max_date=2023/01/01
+
+%choose whether you want plots or not
+make_graphics=1
 
 %additional format for output plots
 print_svg=0
