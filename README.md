@@ -10,7 +10,7 @@ The computations are totally based on detailed Argo Index files:
 **INPUTS**
  - **argo_profile_detailled_index.txt** and <br />
    **argo_synthetic-profile_detailled_index.txt** if i_BGC=1
- - **argo_sensor_exclusion_list.txt**
+ - **argo_sensor_exclusion_list.txt** This file can be put in a common_input_files directory.
  - **floats list**: csv file, separated by ";", with 4 fields:<br />
     WMO; COUNTRY; LAUNCH_DATE; PROGRAM<br />
         COUNTRY is the country in charge of the delayed mode processing (from OceanOPS)<br />
@@ -31,6 +31,9 @@ The computations are totally based on detailed Argo Index files:
     This default contains all the countries associated to Argo in OceanOPS with the<br />
     corresponding NATO (https://en.wikipedia.org/wiki/List_of_NATO_country_codes) official <br />
     3-digits codes (list of relevant countries extracted the 2023/07/07 from OceanOPS database)<br />
+  - **wmo_tempOnly.txt**: ascii file with 1 field: wmo <br/>
+    This file lists the WMO id that only measured temperature and not salinity (early Argo floats) as this information
+    can not be infered from the index. This file can be put in a common_input_files directory.
 <br />
 
  **CONFIGURATION PARAMETERS**
@@ -71,11 +74,14 @@ The computations are totally based on detailed Argo Index files:
  It is filled with qc="X" in the script for the moment, and plots related to pres profile<br />
  qc are skipped.<br />
 
+  **WARNING 2** : Since V3.6, when no profile date is available, a static 1980/01/01 00:00:00 date is applied <br />
+ This means that these profiles will be counted as old profiles in the statistics. <br />
+
  **Nota Bene** : Profile_QC X means the profile contained no data.
 
  **Author**: Euro-Argo ERIC (contact@euro-argo.eu)<br />
 
- **Version**: 3.5 (2025/10/17)<br />
+ **Version**: 3.6 (2026/10/05)<br />
 
  **Historic**:<br />
  - V1.0 : This script was originally created by Andrea Garcia Juan and Romain<br />
@@ -131,6 +137,10 @@ The computations are totally based on detailed Argo Index files:
    - correct issue with print('-dpng') for more recent Matlab versions, which do not support a space.
    - externalise the configuration in a conf file
    - choose the method to select old profiles/floats: either by profile age in days or by the profile date
+  - V3.6 (2026/10/05):
+    - Ensure compatibility with Matlab R2026a
+    - Improve missing values management
+    - account for legacy floats that only measured temperature
 
 
 ## B. Graphical outputs for **get_DMQC_stats.m** 
@@ -245,9 +255,7 @@ In grey color: the profiles that are not yet processed in delayed mode and that 
 In black: the profiles (either real-time or delayed mode) that are QC-F.
 In jet colorscale, the value of the PSAL adjustment for D-profiles bounded by [-0.07 0.07]. The same bounds are used for all plots for better intercomparison and to ensure that "no adjustment" case will always appear in green.
 
-/!\ WARNING 2: There is an issue with Argo detailed index: for a few {floats,cycles}, PSAL_adjustment is not computed in the detailed index (https://gitlab.ifremer.fr/coriolis/actions/actions-argo/-/issues/63).
-
- <img 
+<img 
 src="OUTPUT_examples/ASD_case/Plots/12_ASD_Fleet_PSAL_PSAL_adj_per_wmo_per_cycle_001_20231002.svg" width="500" /> 
 </p>
 
