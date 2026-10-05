@@ -32,6 +32,10 @@ index_file_bgc_synthetic = argo_synthetic-profile_detailled_index.txt
 exclusion_file_dir = /home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/common_input_files/
 exclusion_file = argo_sensor_exclusion_list.txt
 
+% temp only floats. This is a workaround for early floats with only temp sensor. The current does not allow to catch them.
+temp_only_wmos_dir = /home1/datahome/co_arg/ddobler/04_DMQC/01_DMQC_Status/common_input_files/
+temp_only_wmos_file = wmo_tempOnly.txt
+
 % ----------------------------------------------------------------------
 % comments on plots and syntheses 
 % ----------------------------------------------------------------------
