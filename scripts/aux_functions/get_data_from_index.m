@@ -25,7 +25,7 @@ function [IndexData] = get_data_from_index(index_file, nb_header_lines,float_ref
 %
 % Author: Euro-Argo ERIC (contact@euro-argo.eu)
 %
-% Version: 3.2 (2023/07/21)
+% Version: 3.6.1 (2026/10/19)
 %
 %
 % Historic:
@@ -64,6 +64,9 @@ function [IndexData] = get_data_from_index(index_file, nb_header_lines,float_ref
 %        the handling of missing data. For profile date, if missing, a date of
 %        1980/01/01 is applied. This also means that the corresponding profile
 %        now counts in 'older than' statistics.
+% V3.6.1 (2026/10/19):
+%        - correct a final bug in R2026a (white-spaces handling in
+%        read_cell function)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -87,7 +90,13 @@ if mat_v_current < mat_v_threshold
     RT_OUT_column_name= RT_OUT.Properties.VariableNames;
     RT_OUT = string(table2cell(RT_OUT));
 else
-    RT_OUT = readcell(index_file,'Headerlines',nb_header_lines);
+    % The readcell functions shrinks the trailing white-spaces in a field, 
+    % although no indication of this behavior was found in the function 
+    % readme. i.e. if nb_param =19 but prof_qc for latest params is void 
+    % (white-spaces), then the prof_qc column will be shortest than 19 char, 
+    % preventing match_ups afterwards. Thus white-space character is 
+    % "forced" to an unused character in the readcell options.
+    RT_OUT = readcell(index_file,'Headerlines',nb_header_lines,'Delimiter',',','Whitespace','|');
     RT_OUT_column_name=RT_OUT(1,1:end);
     RT_OUT = string(RT_OUT(2:end,1:end));
 end

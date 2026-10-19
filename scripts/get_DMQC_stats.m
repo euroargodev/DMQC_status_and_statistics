@@ -70,7 +70,7 @@
 %
 % Author: Euro-Argo ERIC (contact@euro-argo.eu)
 %
-% Version: 3.5.1 (2025/10/17)
+% Version: 3.6.1 (2026/10/19)
 %
 % History:
 % V1.0 : This script was originally created by Andrea Garcia Juan and Romain
@@ -140,10 +140,15 @@
 % V3.5.1 (2025/10/17): correct bug for plot 09 (file name was overwritten while saving plots).
 % V3.5.2 (2026/01/27): add an option not to output any plots.
 % V3.5.3 (2026/03/17): copy the configuration in the output directory
-% V3.6 (2026/10/05): 
+% V3.6   (2026/10/05): 
 %        - make it compatible with more recent Matlab releases (R2026a tested)
 %        - correct a limit case: old floats with no salinity sensor are now 
-%        listed in a separate input file as this can not be infered from the index.
+%        listed in a separate input file as this can not be inferred from the index.
+% V3.6.1 (2026/10/19):
+%        - correct a final bug in R2026a (white-spaces handling in
+%        read_cell function)
+%        - remove 1902751 that was erroneously added to default temp_only
+%        wmo list.
 
 %option explicit
 
